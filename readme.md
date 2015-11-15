@@ -6,7 +6,7 @@ GImage is a simple extended library based on [PHP Image Processing and GD](http:
 
 ![A simple presentation card with GImage](https://cloud.githubusercontent.com/assets/1700322/11167177/21e9f6ca-8b25-11e5-8737-c50a48506f17.png)
 
-[*View sample code*](#creating-a-presentation-card-advanced)
+[*View sample code*](#creating-a-simple-presentation-card)
 
 ## Usage
 
