@@ -1,4 +1,6 @@
-# GImage [![Build Status](http://img.shields.io/travis/quintana-dev/gimage.svg?style=flat-square)](https://travis-ci.org/quintana-dev/gimage)
+# GImage
+
+[![Build Status](https://travis-ci.org/quintana-dev/gimage.svg?branch=master)](https://travis-ci.org/quintana-dev/gimage) [![Latest Stable Version](https://poser.pugx.org/joseluisq/gimage/version)](https://packagist.org/packages/joseluisq/gimage) [![Latest Unstable Version](https://poser.pugx.org/joseluisq/gimage/v/unstable)](//packagist.org/packages/joseluisq/gimage) [![Total Downloads](https://poser.pugx.org/joseluisq/gimage/downloads)](https://packagist.org/packages/joseluisq/gimage) [![License](https://poser.pugx.org/joseluisq/gimage/license)](https://packagist.org/packages/joseluisq/gimage)
 
 > A simple PHP library for easy image handling.
 
