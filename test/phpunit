@@ -1,0 +1,4 @@
+#!/bin/sh
+
+## Run tests with PHPUnit
+phpunit --configuration test/config.xml --coverage-text

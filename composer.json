@@ -1,0 +1,30 @@
+{
+  "name": "joseluisq/gimage",
+  "description": "A simple PHP library for easy image handling.",
+  "type": "library",
+  "license": "MIT",
+  "keywords": [
+    "image",
+    "gd",
+    "png",
+    "jpg",
+    "jpeg",
+    "resize",
+    "crop",
+    "file",
+    "save",
+    "handler"
+  ],
+  "authors": [{
+    "name": "José Luis Quintana",
+    "homepage": "http://quintana.io",
+    "role": "Owner"
+  }],
+  "support": {
+    "issues": "https://github.com/quintana-dev/gimage/issues"
+  },
+  "require": {
+    "php": ">=5.3",
+    "gd": "*"
+  }
+}
