@@ -10,6 +10,12 @@ GImage is a simple extended library based on [PHP Image Processing and GD](http:
 
 [*View sample code*](#creating-a-simple-presentation-card)
 
+## Install
+
+```sh
+$ composer require joseluisq/gimage
+```
+
 ## Usage
 
 ### Basic
