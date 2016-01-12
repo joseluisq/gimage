@@ -62,23 +62,41 @@ class GCanvas extends GImage {
             $rgb_color = $element->getColor();
             $color = imagecolorallocatealpha($canvas, $rgb_color[0], $rgb_color[1], $rgb_color[2], $element->getOpacity());
 
-            $element->wrappText();
-
-            $coordinates = $element->calculateTextBox($element->getSize(), $element->getAngle(), $element->getFontface(), $element->getString());
+            $lines_str = $element->wrappText();
+            $cords = $element->calculateTextBox($element->getSize(), $element->getAngle(), $element->getFontface(), $element->getString());
 
             // Alignment
-            $x = $coordinates['left'] + $element->getLeft();
-            $y = $element->getTop() + $coordinates['top'];
+            $x = $cords['left'] + $element->getLeft();
+            $y = $element->getTop() + $cords['top'];
 
             if ($element->getAlign() == 'center') {
-              $x = ($element->getWidth() / 2) - ($coordinates['width'] / 2);
+              $x = ($element->getWidth() - $cords['width']) / 2;
             }
 
             if ($element->getValign() == 'center') {
-              $y = ($element->getHeight() / 2) - ($coordinates['height'] / 2);
+              $y = ($element->getHeight() - $cords['height']) / 2;
             }
 
-            imagettftext($canvas, $element->getSize(), $element->getAngle(), $x, $y, $color, $element->getFontface(), $element->getString());
+            // Line height
+            $line_height = $element->getLineHeight() * $element->getSize();
+            $size = $element->getSize();
+            $angle = $element->getAngle();
+            $font = $element->getFontface();
+
+            foreach ($lines_str as $i => $line_str) {
+              $ny = $y + ($line_height * $i);
+
+              imagettftext(
+                $canvas,
+                $size,
+                $angle,
+                $x,
+                $ny,
+                $color,
+                $font,
+                $line_str
+              );
+            }
           }
         }
       }

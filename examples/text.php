@@ -19,14 +19,15 @@ $figure = new GFigure(400, 250);
 $figure->setBackgroundColor(47, 42, 39);
 $figure->create();
 
-$text = new GText('This is a cool text :)');
+$text = new GText('Imprimir una imagen PNG al navegador o a un archivo');
 $text->setWidth(400);
 $text->setHeight(250);
+$text->setLineHeight(1.2);
 $text->setAlign('center');
 $text->setValign('center');
 $text->setSize(22);
 $text->setColor(255, 255, 255);
-$text->setFontface(BASE_PATH . '/fonts/Lato-Lig.ttf');
+$text->setFontface(BASE_PATH . '/fonts/Lato-Bol.ttf');
 
 $canvas = new GCanvas($figure);
 $canvas->append($text);

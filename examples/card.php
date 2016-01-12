@@ -25,6 +25,7 @@ $about_text = new GText("MY AWESOME PRESENTATION CARD GENERATED WITH GIMAGE");
 $about_text->setSize(16);
 $about_text->setWidth(300);
 $about_text->setLeft(210);
+$about_text->setLineHeight(1.2);
 $about_text->setTop(75);
 $about_text->setColor(204, 164, 116);
 $about_text->setFontface(BASE_PATH . '/fonts/Lato-Lig.ttf');

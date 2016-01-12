@@ -129,6 +129,7 @@ class GImageTest extends PHPUnit_Framework_TestCase {
     $text->setHeight(250);
     $text->setAlign('center');
     $text->setValign('center');
+    $text->setLineHeight(1.2);
     $text->setSize(22);
     $text->setColor(255, 255, 255);
     $text->setFontface(GIMAGE_PATH_APP . DS . 'examples/fonts/Lato-Lig.ttf');

@@ -27,6 +27,7 @@ class GText {
   private $_opacity = 0;
   private $_width = 100;
   private $_height = 50;
+  private $_line_height = 1.2;
   private $_size = 12;
   private $_x = 0;
   private $_y = 0;
@@ -169,12 +170,31 @@ class GText {
   }
 
   /**
+   * Gets line height.
+   * @access public
+   * @return float
+   */
+   public function getLineHeight() {
+    return $this->_line_height;
+  }
+
+  /**
+   * Sets line height.
+   * @access public
+   * @param float $line_height line-height
+   * @return void
+   */
+   public function setLineHeight($line_height) {
+    $this->_line_height = $line_height;
+  }
+
+  /**
    * Wrapps the text.
    * @access public
    * @return string
    */
   public function wrappText() {
-    return $this->_string = $this->getWrappedText($this->_size, $this->_angle, $this->_fontface, $this->_string, $this->_width);
+    return $this->getWrappedText($this->_size, $this->_angle, $this->_fontface, $this->_string, $this->_width);
   }
 
   /**
@@ -188,21 +208,23 @@ class GText {
    * @return string
    */
   public function getWrappedText($size, $angle, $font_face, $string, $width = 100) {
-    $ret = "";
-    $arr = explode(' ', $string);
+    $str = "";
+    $words = explode(' ', $string);
 
-    foreach ($arr as $word) {
-      $teststring = $ret . ' ' . $word;
-      $testbox = imagettfbbox($size, $angle, $font_face, $teststring);
+    foreach ($words as $word) {
+      $test_str = $str . ' ' . $word;
+      $box = imagettfbbox($size, $angle, $font_face, $test_str);
 
-      if ($testbox[2] > $width) {
-        $ret .=($ret == "" ? "" : "\n") . $word;
+      if ($box[2] > $width) {
+        $str .= ($str == "" ? "" : "\n") . $word;
       } else {
-        $ret .=($ret == "" ? "" : ' ') . $word;
+        $str .= ($str == "" ? "" : ' ') . $word;
       }
     }
 
-    return $ret;
+    $this->_string = $str;
+    $lines = explode("\n", $str);
+    return $lines;
   }
 
   /**
@@ -217,17 +239,20 @@ class GText {
    */
   public function calculateTextBox($font_size, $font_angle, $font_file, $text) {
     $box = imagettfbbox($font_size, $font_angle, $font_file, $text);
-    if (!$box)
+
+    if (!$box) {
       return false;
+    }
 
     $min_x = min(array($box[0], $box[2], $box[4], $box[6]));
     $max_x = max(array($box[0], $box[2], $box[4], $box[6]));
     $min_y = min(array($box[1], $box[3], $box[5], $box[7]));
     $max_y = max(array($box[1], $box[3], $box[5], $box[7]));
-    $width = ( $max_x - $min_x );
-    $height = ( $max_y - $min_y );
+    $width = ($max_x - $min_x);
+    $height = ($max_y - $min_y);
     $left = abs($min_x) + $width;
     $top = abs($min_y) + $height;
+
     // to calculate the exact bounding box i write the text in a large image
     $img = @imagecreatetruecolor($width << 2, $height << 2);
     $white = imagecolorallocate($img, 255, 255, 255);
@@ -240,6 +265,7 @@ class GText {
     $rright = 0;
     $rbottom = 0;
     $rtop = $h4 = $height << 2;
+
     for ($x = 0; $x < $w4; $x++)
       for ($y = 0; $y < $h4; $y++)
         if (imagecolorat($img, $x, $y)) {
@@ -256,7 +282,8 @@ class GText {
       "left" => $left - $rleft,
       "top" => $top - $rtop,
       "width" => $rright - $rleft + 1,
-      "height" => $rbottom - $rtop + 1);
+      "height" => $rbottom - $rtop + 1
+    );
   }
 
   /**
