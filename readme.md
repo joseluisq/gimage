@@ -146,6 +146,9 @@ $canvas->save('card.png');
 ## Contribution
 If you would like to contribute [pull requests](https://github.com/quintana-dev/gimage/pulls) and [issues](https://github.com/quintana-dev/gimage/issues) will be welcome! Feature requests are welcome. Please before sending some feature requests make sure provide as much detail and context as possible.
 
+## Documentation
+Read [API Documentation](http://quintana-dev.github.io/gimage/#documentation)
+
 ## License
 MIT license
 
