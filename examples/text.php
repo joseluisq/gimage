@@ -4,10 +4,7 @@
  * Creating Canvas with Text
  */
 
-define('BASE_PATH', dirname(__FILE__));
-define('ROOT_PATH', dirname(BASE_PATH));
-define('TMP_PATH', ROOT_PATH . '/tmp');
-define('GIMAGE_PATH', ROOT_PATH . '/src/gimage');
+require __DIR__ . '/_config.php';
 
 require GIMAGE_PATH . '/gutils.php';
 require GIMAGE_PATH . '/gimage.php';
@@ -19,7 +16,7 @@ $figure = new GFigure(400, 250);
 $figure->setBackgroundColor(47, 42, 39);
 $figure->create();
 
-$text = new GText('Imprimir una imagen PNG al navegador o a un archivo');
+$text = new GText('Output PNG file to browser o save into file.');
 $text->setWidth(400);
 $text->setHeight(250);
 $text->setLineHeight(1.2);

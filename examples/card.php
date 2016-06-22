@@ -4,10 +4,7 @@
  * Creating a Presentation Card
  */
 
-define('BASE_PATH', dirname(__FILE__));
-define('ROOT_PATH', dirname(BASE_PATH));
-define('TMP_PATH', ROOT_PATH . '/tmp');
-define('GIMAGE_PATH', ROOT_PATH . '/src/gimage');
+require __DIR__ . '/_config.php';
 
 require GIMAGE_PATH . '/gutils.php';
 require GIMAGE_PATH . '/gimage.php';
