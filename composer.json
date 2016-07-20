@@ -24,7 +24,9 @@
     "issues": "https://github.com/quintana-dev/gimage/issues"
   },
   "require": {
-    "php": ">=5.3",
-    "gd": "*"
+    "php": ">=5.3"
+  },
+  "suggest": {
+    "ext-gd": "to use GD library based image processing."
   }
 }
