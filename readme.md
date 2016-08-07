@@ -1,6 +1,6 @@
 # GImage
 
-[![Build Status](https://travis-ci.org/quintana-dev/gimage.svg?branch=master)](https://travis-ci.org/quintana-dev/gimage) [![Latest Stable Version](https://poser.pugx.org/joseluisq/gimage/version)](https://packagist.org/packages/joseluisq/gimage) [![Latest Unstable Version](https://poser.pugx.org/joseluisq/gimage/v/unstable)](//packagist.org/packages/joseluisq/gimage) [![Total Downloads](https://poser.pugx.org/joseluisq/gimage/downloads)](https://packagist.org/packages/joseluisq/gimage) [![License](https://poser.pugx.org/joseluisq/gimage/license)](https://packagist.org/packages/joseluisq/gimage)
+[![Build Status](https://travis-ci.org/joseluisq/gimage.svg?branch=master)](https://travis-ci.org/joseluisq/gimage) [![Latest Stable Version](https://poser.pugx.org/joseluisq/gimage/version)](https://packagist.org/packages/joseluisq/gimage) [![Latest Unstable Version](https://poser.pugx.org/joseluisq/gimage/v/unstable)](//packagist.org/packages/joseluisq/gimage) [![Total Downloads](https://poser.pugx.org/joseluisq/gimage/downloads)](https://packagist.org/packages/joseluisq/gimage) [![License](https://poser.pugx.org/joseluisq/gimage/license)](https://packagist.org/packages/joseluisq/gimage)
 
 > A simple PHP library for easy image handling.
 
@@ -144,12 +144,12 @@ $canvas->save('card.png');
 ```
 
 ## Contribution
-If you would like to contribute [pull requests](https://github.com/quintana-dev/gimage/pulls) and [issues](https://github.com/quintana-dev/gimage/issues) will be welcome! Feature requests are welcome. Please before sending some feature requests make sure provide as much detail and context as possible.
+If you would like to contribute [pull requests](https://github.com/joseluisq/gimage/pulls) and [issues](https://github.com/joseluisq/gimage/issues) will be welcome! Feature requests are welcome. Please before sending some feature requests make sure provide as much detail and context as possible.
 
 ## Documentation
-Read [API Documentation](http://quintana-dev.github.io/gimage/#documentation)
+Read [API Documentation](http://joseluisq.github.io/gimage/#documentation)
 
 ## License
 MIT license
 
-© 2015 [José Luis Quintana](http://quintana.io)
+© 2016 [José Luis Quintana](https://git.io/joseluisq)
