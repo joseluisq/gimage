@@ -12,7 +12,7 @@ if (!defined('DS')) {
 }
 
 define('GIMAGE_PATH_APP', dirname(dirname(__FILE__)));
-define('GIMAGE_PATH_TMP', GIMAGE_PATH_APP . DS . 'tmp');
+define('GIMAGE_PATH_TMP', sys_get_temp_dir());
 
 /**
  * PHPUnit / GImage Test Class
