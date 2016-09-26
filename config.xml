@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<phpunit bootstrap="../src/bootstrap.php" colors="true">
+<phpunit bootstrap="./tests/bootstrap.php" colors="true">
   <testsuites>
     <testsuite name="GImage Test">
-      <directory>../test/spec/</directory>
+      <directory>./tests/</directory>
     </testsuite>
   </testsuites>
   <filter>
     <whitelist>
-      <directory>../</directory>
+      <directory>./</directory>
     </whitelist>
   </filter>
 </phpunit>

@@ -1,17 +1,19 @@
 <?php
 
+namespace GImage;
+
 /**
  * Some utils image functions.
  * @package GImage
  * @access public
- * @version 1.0.3
+ * @version 2.0.0
  * @author José Luis Quintana <quintana.io>
- * @license https://github.com/quintana-dev/gimage/blob/master/license.md
+ * @license https://github.com/joseluisq/gimage/blob/master/license.md
  * @property array $_mimetypes Mime types for images.
  * @property array $_typesimages Images types IMAGETYPE_GIF, IMAGETYPE_PNG and IMAGETYPE_JPEG.
- * @link Github https://github.com/quintana-dev/gimage
+ * @link Github https://github.com/joseluisq/gimage
  */
-class GUtils {
+class Utils {
 
   private static $_mimetypes = array(
     IMAGETYPE_GIF => 'image/gif',
@@ -46,7 +48,7 @@ class GUtils {
   /**
    * Gets image mime type by image type (IMAGETYPE_GIF, IMAGETYPE_PNG or IMAGETYPE_JPEG).
    * @access public
-   * @param string $filename Image path.
+   * @param string $imagetype IMAGETYPE_GIF, IMAGETYPE_PNG or IMAGETYPE_JPEG.
    * @return string
    */
   static function getMimetypeByImageType($imagetype) {

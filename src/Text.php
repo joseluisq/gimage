@@ -1,12 +1,14 @@
 <?php
 
+namespace GImage;
+
 /**
  * A Text class to embed string into Canvas.
  * @package GImage
  * @access public
- * @version 1.0.3
+ * @version 2.0.0
  * @author José Luis Quintana <quintana.io>
- * @license https://github.com/quintana-dev/gimage/blob/master/license.md
+ * @license https://github.com/joseluisq/gimage/blob/master/license.md
  * @property string $_string String text.
  * @property string $_fontface Font face .ttf filename.
  * @property int $_angle Angle for the text.
@@ -15,9 +17,9 @@
  * @property string $_string String text
  * @property string $_string String text
  * @property string $_string String text
- * @link Github https://github.com/quintana-dev/gimage
+ * @link Github https://github.com/joseluisq/gimage
  */
-class GText {
+class Text {
 
   private $_string = '';
   private $_fontface;
@@ -174,7 +176,7 @@ class GText {
    * @access public
    * @return float
    */
-   public function getLineHeight() {
+  public function getLineHeight() {
     return $this->_line_height;
   }
 
@@ -184,7 +186,7 @@ class GText {
    * @param float $line_height line-height
    * @return void
    */
-   public function setLineHeight($line_height) {
+  public function setLineHeight($line_height) {
     $this->_line_height = $line_height;
   }
 
@@ -224,6 +226,7 @@ class GText {
 
     $this->_string = $str;
     $lines = explode("\n", $str);
+
     return $lines;
   }
 

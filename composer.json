@@ -16,17 +16,23 @@
     "handler"
   ],
   "authors": [{
-    "name": "José Luis Quintana",
-    "homepage": "http://quintana.io",
-    "role": "Owner"
-  }],
+      "name": "José Luis Quintana",
+      "homepage": "https://git.io/joseluisq",
+      "role": "Owner"
+    }],
   "support": {
-    "issues": "https://github.com/quintana-dev/gimage/issues"
+    "issues": "https://github.com/joseluisq/gimage/issues"
   },
   "require": {
-    "php": ">=5.3"
+    "php": ">=5.5",
+    "guzzlehttp/psr7": "^1.3.1"
+  },
+  "autoload": {
+    "psr-4": {
+      "GImage\\": "src/"
+    }
   },
   "suggest": {
-    "ext-gd": "to use GD library based image processing."
+    "ext-gd": "To use GD library based on image processing."
   }
 }
