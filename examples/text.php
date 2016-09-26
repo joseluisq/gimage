@@ -31,4 +31,4 @@ $canvas = new Canvas($figure);
 $canvas->append($text);
 $canvas->toPNG();
 $canvas->draw();
-$canvas->save(TMP_PATH . '/text.png');
+$canvas->save(__DIR__ . '/text.png');

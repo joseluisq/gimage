@@ -81,4 +81,4 @@ $canvas->append(array(
 ));
 $canvas->toPNG();
 $canvas->draw();
-$canvas->save(TMP_PATH . '/card.png');
+$canvas->save(__DIR__ . '/card.png');
