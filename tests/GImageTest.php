@@ -1,24 +1,31 @@
 <?php
 
+namespace GImage\Test;
+
+use GImage\Image;
+use GImage\Text;
+use GImage\Figure;
+use GImage\Canvas;
+
 if (!defined('DS')) {
   define('DS', DIRECTORY_SEPARATOR);
 }
 
-define('GIMAGE_PATH_APP', dirname(dirname(dirname(__FILE__))));
-define('GIMAGE_PATH_TMP', GIMAGE_PATH_APP . DS . 'tmp');
+define('GIMAGE_PATH_APP', dirname(dirname(__FILE__)));
+define('GIMAGE_PATH_TMP', sys_get_temp_dir());
 
 /**
  * PHPUnit / GImage Test Class
  * @package GImage
  * @version 1.0.3
  * @author José Luis Quintana <quintana.io>
- * @license https://github.com/quintana-dev/gimage/blob/master/license.md
+ * @license https://github.com/joseluisq/gimage/blob/master/license.md
  */
-class GImageTest extends PHPUnit_Framework_TestCase {
+class GImageTest extends \PHPUnit_Framework_TestCase {
 
   public function testLoad() {
     // Loading an image (200x200) from Gravatar
-    $img = new GImage();
+    $img = new Image();
     $img_loaded = $img->load('http://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50?s=200.jpg');
 
     $this->assertTrue($img_loaded);
@@ -29,7 +36,7 @@ class GImageTest extends PHPUnit_Framework_TestCase {
   /**
    * @depends testLoad
    */
-  public function testGetResource(GImage $img) {
+  public function testGetResource(Image $img) {
     $this->assertNotEmpty($img->getResource());
     $this->assertNotNull($img->getResource());
 
@@ -39,42 +46,42 @@ class GImageTest extends PHPUnit_Framework_TestCase {
   /**
    * @depends testGetResource
    */
-  public function testIsJPG(GImage $img) {
+  public function testIsJPG(Image $img) {
     $this->assertTrue($img->isJPG());
   }
 
   /**
    * @depends testGetResource
    */
-  public function testIsNotPNG(GImage $img) {
+  public function testIsNotPNG(Image $img) {
     $this->assertFalse($img->isPNG());
   }
 
   /**
    * @depends testGetResource
    */
-  public function testIsNotGif(GImage $img) {
+  public function testIsNotGif(Image $img) {
     $this->assertFalse($img->isGIF());
   }
 
   /**
    * @depends testGetResource
    */
-  public function testIsLocal(GImage $img) {
+  public function testIsLocal(Image $img) {
     $this->assertFalse($img->isLocal());
   }
 
   /**
    * @depends testGetResource
    */
-  public function testIsExternal(GImage $img) {
+  public function testIsExternal(Image $img) {
     $this->assertTrue($img->isExternal());
   }
 
   /**
    * @depends testLoad
    */
-  public function testScale(GImage $img) {
+  public function testScale(Image $img) {
     // Scaling to 50% (100x100)
     $img->scale(50);
 
@@ -84,7 +91,7 @@ class GImageTest extends PHPUnit_Framework_TestCase {
   /**
    * @depends testLoad
    */
-  public function testCenterCrop(GImage $img) {
+  public function testCenterCrop(Image $img) {
     // Center and croping to 100px
     $img->centerCrop(100, 100);
 
@@ -94,7 +101,7 @@ class GImageTest extends PHPUnit_Framework_TestCase {
   /**
    * @depends testLoad
    */
-  public function testRotate(GImage $img) {
+  public function testRotate(Image $img) {
     // Rotating to 180º
     $img->rotate(180);
 
@@ -102,11 +109,11 @@ class GImageTest extends PHPUnit_Framework_TestCase {
   }
 
   public function testCreateFigure() {
-    $figure = new GFigure(400, 250);
+    $figure = new Figure(400, 250);
     $figure->setBackgroundColor(47, 42, 39);
     $figure->create();
 
-    $this->assertInstanceOf('GFigure', $figure);
+    $this->assertInstanceOf('GImage\Figure', $figure);
 
     return $figure;
   }
@@ -114,17 +121,17 @@ class GImageTest extends PHPUnit_Framework_TestCase {
   /**
    * @depends testCreateFigure
    */
-  public function testCreateCanvas(GFigure $figure) {
-    $canvas = new GCanvas();
+  public function testCreateCanvas(Figure $figure) {
+    $canvas = new Canvas();
     $canvas->from($figure);
 
-    $this->assertInstanceOf('GImage', $canvas);
+    $this->assertInstanceOf('GImage\Image', $canvas);
 
     return $canvas;
   }
 
   public function testCreateText() {
-    $text = new GText('This is cool text!');
+    $text = new Text('This is cool text!');
     $text->setWidth(400);
     $text->setHeight(250);
     $text->setAlign('center');
@@ -134,7 +141,7 @@ class GImageTest extends PHPUnit_Framework_TestCase {
     $text->setColor(255, 255, 255);
     $text->setFontface(GIMAGE_PATH_APP . DS . 'examples/fonts/Lato-Lig.ttf');
 
-    $this->assertInstanceOf('GText', $text);
+    $this->assertInstanceOf('GImage\Text', $text);
 
     return $text;
   }
@@ -143,7 +150,7 @@ class GImageTest extends PHPUnit_Framework_TestCase {
    * @depends testCreateCanvas
    * @depends testCreateText
    */
-  public function testCanvasAppendText(GCanvas $canvas, GText $text) {
+  public function testCanvasAppendText(Canvas $canvas, Text $text) {
     $canvas->append($text);
     $canvas->toJPG();
     $canvas->draw();
@@ -156,7 +163,7 @@ class GImageTest extends PHPUnit_Framework_TestCase {
   /**
    * @depends testScale
    */
-  public function testPreserveResource(GImage $img) {
+  public function testPreserveResource(Image $img) {
     $img->preserve();
     $this->assertNotNull($img->getResource());
 
@@ -166,7 +173,7 @@ class GImageTest extends PHPUnit_Framework_TestCase {
   /**
    * @depends testPreserveResource
    */
-  public function testSavePreserved(GImage $img) {
+  public function testSavePreserved(Image $img) {
     $this->assertTrue($img->save(GIMAGE_PATH_TMP . DS . 'test1.jpg'));
     $this->assertNotNull($img->getResource());
 
@@ -176,7 +183,7 @@ class GImageTest extends PHPUnit_Framework_TestCase {
   /**
    * @depends testScale
    */
-  public function testNotPreserveResource(GImage $img) {
+  public function testNotPreserveResource(Image $img) {
     $img->preserve(FALSE);
 
     $this->assertNotNull($img->getResource());
@@ -187,7 +194,7 @@ class GImageTest extends PHPUnit_Framework_TestCase {
   /**
    * @depends testNotPreserveResource
    */
-  public function testSaveNotPreserved(GImage $img) {
+  public function testSaveNotPreserved(Image $img) {
     $this->assertTrue($img->save(GIMAGE_PATH_TMP . DS . 'test2.jpg'));
     $this->assertNull($img->getResource());
 
@@ -197,7 +204,7 @@ class GImageTest extends PHPUnit_Framework_TestCase {
   /**
    * @depends testLoad
    */
-  public function testDestroyResource(GImage $img) {
+  public function testDestroyResource(Image $img) {
     $img->destroy();
     $this->assertNull($img->getResource());
   }
@@ -205,7 +212,7 @@ class GImageTest extends PHPUnit_Framework_TestCase {
   /**
    * @depends testCanvasAppendText
    */
-  public function testCanvasSave(GCanvas $canvas) {
+  public function testCanvasSave(Canvas $canvas) {
     $this->assertFalse($canvas->save());
     $this->assertTrue($canvas->save(GIMAGE_PATH_TMP . DS . 'test3.jpg'));
   }

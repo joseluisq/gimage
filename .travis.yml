@@ -1,16 +1,23 @@
 sudo: false
+
 language: php
+
 php:
-  - 5.3
-  - 5.4
   - 5.5
   - 5.6
   - 7.0
+  - 7.1
   - hhvm
+
 matrix:
   allow_failures:
-    - php: 7.0
     - php: hhvm
-script: sh test/phpunit
+  fast_finish: true
+
+before_script:
+  - composer install --no-interaction --prefer-source --dev
+
+script: make test
+
 notifications:
   email: false

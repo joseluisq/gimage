@@ -1,16 +1,21 @@
 <?php
 
+namespace GImage;
+
+use GImage\Image;
+use GImage\Text;
+
 /**
  * A Canvas represents a rectangular image area on which one can draw images.
  * @package GImage
  * @access public
- * @version 1.0.3
+ * @version 2.0.0
  * @author José Luis Quintana <quintana.io>
- * @license https://github.com/quintana-dev/gimage/blob/master/license.md
+ * @license https://github.com/joseluisq/gimage/blob/master/license.md
  * @property array $_list An array of elements classes (GImage, GFigure or GText classes)
- * @link Github https://github.com/quintana-dev/gimage
+ * @link Github https://github.com/joseluisq/gimage
  */
-class GCanvas extends GImage {
+class Canvas extends Image {
 
   private $_list = array();
 
@@ -35,7 +40,7 @@ class GCanvas extends GImage {
       $elements = is_array($elements) ? $elements : array($elements);
 
       foreach ($elements as $element) {
-        if ($element instanceof GImage || $element instanceof GText) {
+        if ($element instanceof Image || $element instanceof Text) {
           $this->_list[] = $element;
         }
       }
@@ -54,11 +59,11 @@ class GCanvas extends GImage {
       $list = $this->_list;
 
       foreach ($list as $element) {
-        if ($element instanceof GImage) {
+        if ($element instanceof Image) {
           $simage = $element->getResource();
           imagecopyresampled($canvas, $simage, $element->getLeft(), $element->getTop(), $element->getBoxLeft(), $element->getBoxTop(), $element->getBoxWidth(), $element->getBoxHeight(), $element->getWidth(), $element->getHeight());
         } else {
-          if ($element instanceof GText) {
+          if ($element instanceof Text) {
             $rgb_color = $element->getColor();
             $color = imagecolorallocatealpha($canvas, $rgb_color[0], $rgb_color[1], $rgb_color[2], $element->getOpacity());
 
@@ -87,14 +92,7 @@ class GCanvas extends GImage {
               $ny = $y + ($line_height * $i);
 
               imagettftext(
-                $canvas,
-                $size,
-                $angle,
-                $x,
-                $ny,
-                $color,
-                $font,
-                $line_str
+                $canvas, $size, $angle, $x, $ny, $color, $font, $line_str
               );
             }
           }
@@ -103,7 +101,9 @@ class GCanvas extends GImage {
 
       $this->_resource = $canvas;
     } else {
-      throw new Exception('GImage or GFigure class is not assigned. You can do it using the "GCanvas->from($element)" method.');
+      throw new \Exception(''
+      . 'GImage or GFigure class is not assigned. '
+      . 'You can do it using the "Canvas->from($element)" method.');
     }
   }
 

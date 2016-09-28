@@ -1,14 +1,18 @@
 <?php
 
+namespace GImage;
+
+use GImage\Utils;
+
 /**
  * A simple extended GD class for easy image handling. This is the parent class for GFigure and GCanvas.
  * @package GImage
  * @access public
- * @version 1.0.3
- * @author José Luis Quintana <quintana.io>
- * @license https://github.com/quintana-dev/gimage/blob/master/license.md
- * @property string $_name
- * @property string $_filename
+ * @version 2.0.0
+ * @author José Luis Quintana <http://git.io/joseluisq>
+ * @license https://github.com/joseluisq/gimage/blob/master/license.md
+ * @property string $name
+ * @property string $filename
  * @property int $_width
  * @property int $_height
  * @property int $_x
@@ -25,12 +29,12 @@
  * @property string $_from Default 'local'
  * @property bool $_preserve Default FALSE
  * @property string $_mimetype Default 'image/jpeg'
- * @link Github https://github.com/quintana-dev/gimage
+ * @link Github https://github.com/joseluisq/gimage
  */
-class GImage {
+class Image {
 
-  protected $_name;
-  protected $_filename;
+  protected $name;
+  protected $filename;
   protected $_width = 0;
   protected $_height = 0;
   protected $_x = 0;
@@ -49,10 +53,10 @@ class GImage {
   protected $_mimetype = 'image/jpeg';
 
   /**
-   * Loads an image from GImage or GFigure class.
+   * Loads an image from Image or Figure class.
    * @package GImage
    * @access public
-   * @param GImage $element GImage or GFigure class.
+   * @param Image $element Image or Figure class.
    * @return void
    */
   function __construct($element = NULL) {
@@ -60,15 +64,15 @@ class GImage {
   }
 
   /**
-   * Loads an image from GImage or GFigure class.
+   * Loads an image from Image or Figure class.
    * @access public
-   * @param GImage $element GImage or GFigure class.
+   * @param Image $element Image or Figure class.
    * @return void
    */
   public function from($element = NULL) {
-    if (!empty($element) && $element instanceof GImage) {
-      $this->_name = $element->_name;
-      $this->_filename = $element->_filename;
+    if (!empty($element) && $element instanceof Image) {
+      $this->name = $element->name;
+      $this->filename = $element->filename;
       $this->_width = $element->_width;
       $this->_height = $element->_height;
       $this->_x = $element->_x;
@@ -100,8 +104,8 @@ class GImage {
     $image = NULL;
 
     if (!empty($filename)) {
-      $this->_filename = $filename;
-      $this->_name = basename($filename);
+      $this->filename = $filename;
+      $this->name = basename($filename);
 
       if (filter_var($filename, FILTER_VALIDATE_URL)) {
         $image = file_get_contents($filename);
@@ -109,8 +113,8 @@ class GImage {
         if (!empty($image)) {
           $this->_from = 'external';
           $this->_resource = $image = imagecreatefromstring($image);
-          $this->_type = GUtils::getImageType($filename);
-          $this->_extension = GUtils::getExtension($filename);
+          $this->_type = Utils::getImageType($filename);
+          $this->_extension = Utils::getExtension($filename);
           $this->_width = $this->_box_width = imagesx($image);
           $this->_height = $this->_box_height = imagesy($image);
           $loaded = TRUE;
@@ -118,8 +122,8 @@ class GImage {
       } else {
         if (is_file($filename)) {
           $this->_from = 'local';
-          $this->_type = $image_type = GUtils::getImageType($filename);
-          $this->_extension = GUtils::getExtension($filename);
+          $this->_type = $image_type = Utils::getImageType($filename);
+          $this->_extension = Utils::getExtension($filename);
 
           switch ($image_type) {
             case IMAGETYPE_GIF:
@@ -159,7 +163,7 @@ class GImage {
    * @return string
    */
   public function getFilename() {
-    return $this->_filename;
+    return $this->filename;
   }
 
   /**
@@ -168,7 +172,7 @@ class GImage {
    * @return string
    */
   public function getName() {
-    return $this->_name;
+    return $this->name;
   }
 
   /**
@@ -431,7 +435,7 @@ class GImage {
   public function toJPG() {
     $this->_extension = 'jpg';
     $this->_type = IMAGETYPE_JPEG;
-    $this->_mimetype = GUtils::getMimetypeByImageType(IMAGETYPE_JPEG);
+    $this->_mimetype = Utils::getMimetypeByImageType(IMAGETYPE_JPEG);
   }
 
   /**
@@ -442,7 +446,7 @@ class GImage {
   public function toPNG() {
     $this->_extension = 'png';
     $this->_type = IMAGETYPE_PNG;
-    $this->_mimetype = GUtils::getMimetypeByImageType(IMAGETYPE_PNG);
+    $this->_mimetype = Utils::getMimetypeByImageType(IMAGETYPE_PNG);
   }
 
   /**
@@ -453,7 +457,7 @@ class GImage {
   public function toGIF() {
     $this->_extension = 'gif';
     $this->_type = IMAGETYPE_GIF;
-    $this->_mimetype = GUtils::getMimetypeByImageType(IMAGETYPE_GIF);
+    $this->_mimetype = Utils::getMimetypeByImageType(IMAGETYPE_GIF);
   }
 
   /**
@@ -637,9 +641,9 @@ class GImage {
     $image = $this->_resource;
 
     if ($image) {
-      if ($this->_filename || $filename || $output) {
-        $filename = $output ? NULL : ($this->isExternal() ? (empty($filename) ? $this->_name : $filename) :
-                        (empty($filename) ? $this->_filename : $filename));
+      if ($this->filename || $filename || $output) {
+        $filename = $output ? NULL : ($this->isExternal() ? (empty($filename) ? $this->name : $filename) :
+            (empty($filename) ? $this->filename : $filename));
         $quality = $this->_quality;
         $preserve = $this->_preserve;
 

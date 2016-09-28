@@ -1,18 +1,22 @@
 <?php
 
+namespace GImage;
+
+use GImage\Image;
+
 /**
  * A Figure class to embed simple graphic into the Canvas, a Figure can be a Canvas too.
  * @package GImage
  * @access public
- * @version 1.0.3
+ * @version 0.0.0
  * @author José Luis Quintana <quintana.io>
- * @license https://github.com/quintana-dev/gimage/blob/master/license.md
+ * @license https://github.com/joseluisq/gimage/blob/master/license.md
  * @property int $r Red color
  * @property int $g Green color
  * @property int $b Blue color
- * @link Github https://github.com/quintana-dev/gimage
+ * @link Github https://github.com/joseluisq/gimage
  */
-class GFigure extends GImage {
+class Figure extends Image {
 
   private $_r = 0;
   private $_g = 0;
