@@ -17,7 +17,7 @@ matrix:
 before_script:
   - composer install --no-interaction --prefer-source --dev
 
-script: phpunit --configuration phpunit.xml --coverage-text
+script: make test
 
 notifications:
   email: false
