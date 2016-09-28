@@ -7,35 +7,32 @@ namespace GImage;
  * @package GImage
  * @access public
  * @version 2.0.0
- * @author José Luis Quintana <quintana.io>
+ * @author José Luis Quintana <https://git.io/joseluisq>
  * @license https://github.com/joseluisq/gimage/blob/master/license.md
- * @property string $_string String text.
- * @property string $_fontface Font face .ttf filename.
- * @property int $_angle Angle for the text.
- * @property int $_opacity Opacity for the text.
- * @property string $_string String text
- * @property string $_string String text
- * @property string $_string String text
- * @property string $_string String text
+ * @property string $string String text.
+ * @property string $fontface Font face .ttf filename.
+ * @property int $angle Angle for the text.
+ * @property int $opacity Opacity for the text.
+ * @property string $string String text
  * @link Github https://github.com/joseluisq/gimage
  */
 class Text {
 
-  private $_string = '';
-  private $_fontface;
-  private $_align = 'none';
-  private $_valign = 'none';
-  private $_angle = 0;
-  private $_opacity = 0;
-  private $_width = 100;
-  private $_height = 50;
-  private $_line_height = 1.2;
-  private $_size = 12;
-  private $_x = 0;
-  private $_y = 0;
-  private $_r = 0;
-  private $_g = 0;
-  private $_b = 0;
+  private $string = '';
+  private $fontface;
+  private $align = 'none';
+  private $valign = 'none';
+  private $angle = 0;
+  private $opacity = 0;
+  private $width = 100;
+  private $height = 50;
+  private $lineHeight = 1.2;
+  private $size = 12;
+  private $x = 0;
+  private $y = 0;
+  private $red = 0;
+  private $green = 0;
+  private $blue = 0;
 
   /**
    * Sets string text.
@@ -54,21 +51,25 @@ class Text {
    * @return void
    */
   public function setString($string) {
-    $this->_string = $string;
+    $this->string = $string;
+
+    return $this;
   }
 
   /**
    * Sets RGB color for text.
    * @access public
-   * @param int $r Red.
-   * @param int $g Green.
-   * @param int $b Blue.
+   * @param int $red Red color.
+   * @param int $green Green color.
+   * @param int $blue Blue color.
    * @return void
    */
-  public function setColor($r, $g, $b) {
-    $this->_r = $r;
-    $this->_g = $g;
-    $this->_b = $b;
+  public function setColor($red, $green, $blue) {
+    $this->red = $red;
+    $this->green = $green;
+    $this->blue = $blue;
+
+    return $this;
   }
 
   /**
@@ -78,17 +79,21 @@ class Text {
    * @return void
    */
   public function setSize($size) {
-    $this->_size = $size;
+    $this->size = $size;
+
+    return $this;
   }
 
   /**
-   * Sets font face (.TTF font) for text.
+   * Sets font face (TTF font) for text.
    * @access public
    * @param string $fontface Path of TTF font.
    * @return void
    */
   public function setFontface($fontface) {
-    $this->_fontface = $fontface;
+    $this->fontface = $fontface;
+
+    return $this;
   }
 
   /**
@@ -98,7 +103,9 @@ class Text {
    * @return void
    */
   public function setOpacity($opacity) {
-    $this->_opacity = $opacity > 127 ? 127 : $opacity;
+    $this->opacity = $opacity > 127 ? 127 : $opacity;
+
+    return $this;
   }
 
   /**
@@ -108,7 +115,9 @@ class Text {
    * @return void
    */
   public function setAlign($align) {
-    $this->_align = $align;
+    $this->align = $align;
+
+    return $this;
   }
 
   /**
@@ -118,7 +127,9 @@ class Text {
    * @return void
    */
   public function setValign($valign) {
-    $this->_valign = $valign;
+    $this->valign = $valign;
+
+    return $this;
   }
 
   /**
@@ -128,7 +139,9 @@ class Text {
    * @return void
    */
   public function setAngle($angle) {
-    $this->_angle = $angle;
+    $this->angle = $angle;
+
+    return $this;
   }
 
   /**
@@ -138,7 +151,9 @@ class Text {
    * @return void
    */
   public function setWidth($width) {
-    $this->_width = $width;
+    $this->width = $width;
+
+    return $this;
   }
 
   /**
@@ -148,7 +163,9 @@ class Text {
    * @return void
    */
   public function setHeight($height) {
-    $this->_height = $height;
+    $this->height = $height;
+
+    return $this;
   }
 
   /**
@@ -158,7 +175,9 @@ class Text {
    * @return void
    */
   public function setTop($y) {
-    $this->_y = $y;
+    $this->y = $y;
+
+    return $this;
   }
 
   /**
@@ -168,7 +187,21 @@ class Text {
    * @return void
    */
   public function setLeft($x) {
-    $this->_x = $x;
+    $this->x = $x;
+
+    return $this;
+  }
+
+  /**
+   * Sets line height.
+   * @access public
+   * @param float $lineHeight line-height
+   * @return void
+   */
+  public function setLineHeight($lineHeight) {
+    $this->lineHeight = $lineHeight;
+
+    return $this;
   }
 
   /**
@@ -177,17 +210,7 @@ class Text {
    * @return float
    */
   public function getLineHeight() {
-    return $this->_line_height;
-  }
-
-  /**
-   * Sets line height.
-   * @access public
-   * @param float $line_height line-height
-   * @return void
-   */
-  public function setLineHeight($line_height) {
-    $this->_line_height = $line_height;
+    return $this->lineHeight;
   }
 
   /**
@@ -196,7 +219,7 @@ class Text {
    * @return string
    */
   public function wrappText() {
-    return $this->getWrappedText($this->_size, $this->_angle, $this->_fontface, $this->_string, $this->_width);
+    return $this->getWrappedText($this->size, $this->angle, $this->fontface, $this->string, $this->width);
   }
 
   /**
@@ -204,27 +227,27 @@ class Text {
    * @access public
    * @param int $size Font size fot the text.
    * @param int $angle Angole for the text.
-   * @param string $font_face Path of TTF font.
+   * @param string $fontface Path of TTF font.
    * @param string $string String text.
    * @param int $width Width for text box area.
    * @return string
    */
-  public function getWrappedText($size, $angle, $font_face, $string, $width = 100) {
-    $str = "";
+  public function getWrappedText($size, $angle, $fontface, $string, $width = 100) {
+    $str = '';
     $words = explode(' ', $string);
 
     foreach ($words as $word) {
-      $test_str = $str . ' ' . $word;
-      $box = imagettfbbox($size, $angle, $font_face, $test_str);
+      $testStr = $str . ' ' . $word;
+      $box = imagettfbbox($size, $angle, $fontface, $testStr);
 
       if ($box[2] > $width) {
-        $str .= ($str == "" ? "" : "\n") . $word;
+        $str .= ($str == '' ? '' : "\n") . $word;
       } else {
-        $str .= ($str == "" ? "" : ' ') . $word;
+        $str .= ($str == '' ? '' : ' ') . $word;
       }
     }
 
-    $this->_string = $str;
+    $this->string = $str;
     $lines = explode("\n", $str);
 
     return $lines;
@@ -234,59 +257,61 @@ class Text {
    * Calculates the Text box area. Returns an array with left, top, width and height values.
    * @author <blackbart@simail.it> <http://www.php.net/manual/en/function.imagettfbbox.php#97357>
    * @access public
-   * @param int $font_size Font size fot the text.
-   * @param int $font_angle Angole for the text.
-   * @param string $font_file Path of TTF font.
+   * @param int $fontSize Font size fot the text.
+   * @param int $fontAngle Angole for the text.
+   * @param string $fontFile Path of TTF font.
    * @param string $text String text.
    * @return array
    */
-  public function calculateTextBox($font_size, $font_angle, $font_file, $text) {
-    $box = imagettfbbox($font_size, $font_angle, $font_file, $text);
+  public function calculateTextBox($fontSize, $fontAngle, $fontFile, $text) {
+    $box = imagettfbbox($fontSize, $fontAngle, $fontFile, $text);
 
     if (!$box) {
       return false;
     }
 
-    $min_x = min(array($box[0], $box[2], $box[4], $box[6]));
-    $max_x = max(array($box[0], $box[2], $box[4], $box[6]));
-    $min_y = min(array($box[1], $box[3], $box[5], $box[7]));
-    $max_y = max(array($box[1], $box[3], $box[5], $box[7]));
-    $width = ($max_x - $min_x);
-    $height = ($max_y - $min_y);
-    $left = abs($min_x) + $width;
-    $top = abs($min_y) + $height;
+    $minX = min([$box[0], $box[2], $box[4], $box[6]]);
+    $maxX = max([$box[0], $box[2], $box[4], $box[6]]);
+    $minY = min([$box[1], $box[3], $box[5], $box[7]]);
+    $maxY = max([$box[1], $box[3], $box[5], $box[7]]);
+    $width = ($maxX - $minX);
+    $height = ($maxY - $minY);
+    $left = abs($minX) + $width;
+    $top = abs($minY) + $height;
 
     // to calculate the exact bounding box i write the text in a large image
-    $img = @imagecreatetruecolor($width << 2, $height << 2);
+    $img = imagecreatetruecolor($width << 2, $height << 2);
     $white = imagecolorallocate($img, 255, 255, 255);
     $black = imagecolorallocate($img, 0, 0, 0);
     imagefilledrectangle($img, 0, 0, imagesx($img), imagesy($img), $black);
     // for sure the text is completely in the image!
-    imagettftext($img, $font_size, $font_angle, $left, $top, $white, $font_file, $text);
+    imagettftext($img, $fontSize, $fontAngle, $left, $top, $white, $fontFile, $text);
     // start scanning (0=> black => empty)
     $rleft = $w4 = $width << 2;
     $rright = 0;
     $rbottom = 0;
     $rtop = $h4 = $height << 2;
 
-    for ($x = 0; $x < $w4; $x++)
-      for ($y = 0; $y < $h4; $y++)
+    for ($x = 0; $x < $w4; $x++) {
+      for ($y = 0; $y < $h4; $y++) {
         if (imagecolorat($img, $x, $y)) {
           $rleft = min($rleft, $x);
           $rright = max($rright, $x);
           $rtop = min($rtop, $y);
           $rbottom = max($rbottom, $y);
         }
+      }
+    }
 
     // destroy img and serve the result
     imagedestroy($img);
 
-    return array(
-      "left" => $left - $rleft,
-      "top" => $top - $rtop,
-      "width" => $rright - $rleft + 1,
-      "height" => $rbottom - $rtop + 1
-    );
+    return [
+      'left' => $left - $rleft,
+      'top' => $top - $rtop,
+      'width' => $rright - $rleft + 1,
+      'height' => $rbottom - $rtop + 1
+    ];
   }
 
   /**
@@ -295,7 +320,7 @@ class Text {
    * @return string
    */
   public function getString() {
-    return $this->_string;
+    return $this->string;
   }
 
   /**
@@ -304,11 +329,11 @@ class Text {
    * @return array
    */
   public function getColor() {
-    return array(
-      $this->_r,
-      $this->_g,
-      $this->_b
-    );
+    return [
+      $this->red,
+      $this->green,
+      $this->blue
+    ];
   }
 
   /**
@@ -317,7 +342,7 @@ class Text {
    * @return string
    */
   public function getFontface() {
-    return $this->_fontface;
+    return $this->fontface;
   }
 
   /**
@@ -326,7 +351,7 @@ class Text {
    * @return int
    */
   public function getSize() {
-    return $this->_size;
+    return $this->size;
   }
 
   /**
@@ -335,7 +360,7 @@ class Text {
    * @return int
    */
   public function getOpacity() {
-    return $this->_opacity;
+    return $this->opacity;
   }
 
   /**
@@ -344,7 +369,7 @@ class Text {
    * @return string (none, center)
    */
   public function getAlign() {
-    return $this->_align;
+    return $this->align;
   }
 
   /**
@@ -353,7 +378,7 @@ class Text {
    * @return string (none, center)
    */
   public function getValign() {
-    return $this->_valign;
+    return $this->valign;
   }
 
   /**
@@ -362,7 +387,7 @@ class Text {
    * @return int
    */
   public function getAngle() {
-    return $this->_angle;
+    return $this->angle;
   }
 
   /**
@@ -371,7 +396,7 @@ class Text {
    * @return int
    */
   public function getWidth() {
-    return $this->_width;
+    return $this->width;
   }
 
   /**
@@ -380,7 +405,7 @@ class Text {
    * @return int
    */
   public function getHeight() {
-    return $this->_height;
+    return $this->height;
   }
 
   /**
@@ -389,7 +414,7 @@ class Text {
    * @return int
    */
   public function getTop() {
-    return $this->_y;
+    return $this->y;
   }
 
   /**
@@ -398,7 +423,7 @@ class Text {
    * @return int
    */
   public function getLeft() {
-    return $this->_x;
+    return $this->x;
   }
 
 }
