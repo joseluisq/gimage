@@ -3,28 +3,28 @@
 namespace GImage;
 
 /**
- * Some utils image functions.
+ * Some util image functions.
  * @package GImage
  * @access public
  * @version 2.0.0
- * @author José Luis Quintana <quintana.io>
+ * @author José Luis Quintana <https://git.io/joseluisq>
  * @license https://github.com/joseluisq/gimage/blob/master/license.md
- * @property array $_mimetypes Mime types for images.
- * @property array $_typesimages Images types IMAGETYPE_GIF, IMAGETYPE_PNG and IMAGETYPE_JPEG.
+ * @property array $mimetypes Mime types for images.
+ * @property array $typesimages Images types IMAGETYPE_GIF, IMAGETYPE_PNG and IMAGETYPE_JPEG.
  * @link Github https://github.com/joseluisq/gimage
  */
 class Utils {
 
-  private static $_mimetypes = array(
+  private static $mimetypes = [
     IMAGETYPE_GIF => 'image/gif',
     IMAGETYPE_PNG => 'image/png',
     IMAGETYPE_JPEG => 'image/jpeg'
-  );
-  private static $_typesimages = array(
+  ];
+  private static $typesimages = [
     'gif' => IMAGETYPE_GIF,
     'png' => IMAGETYPE_PNG,
     'jpg' => IMAGETYPE_JPEG
-  );
+  ];
 
   /**
    * Gets image mime types (jpg, png and gif)
@@ -32,11 +32,11 @@ class Utils {
    * @return array
    */
   static function getMimetypes() {
-    return self::$_mimetypes;
+    return self::$mimetypes;
   }
 
   /**
-   * Gets image mime type by filename.
+   * Gets image mimeType by filename.
    * @access public
    * @param string $filename Image path.
    * @return string
@@ -52,7 +52,7 @@ class Utils {
    * @return string
    */
   static function getMimetypeByImageType($imagetype) {
-    return self::$_mimetypes[$imagetype];
+    return self::$mimetypes[$imagetype];
   }
 
   /**
@@ -72,7 +72,7 @@ class Utils {
    * @return bool
    */
   static function getImageType($filename) {
-    return self::$_typesimages[self::getExtension($filename)];
+    return self::$typesimages[self::getExtension($filename)];
   }
 
   /**
