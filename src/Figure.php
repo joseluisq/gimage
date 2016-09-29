@@ -5,22 +5,25 @@ namespace GImage;
 use GImage\Image;
 
 /**
- * A Figure class to embed simple graphic into the Canvas, a Figure can be a Canvas too.
+ * Class to embed simple graphic into the Canvas.
+ * A Figure can be a Canvas too.
  * @package GImage
  * @access public
  * @version 0.0.0
- * @author José Luis Quintana <quintana.io>
+ * @author José Luis Quintana <http://git.io/joseluisq>
  * @license https://github.com/joseluisq/gimage/blob/master/license.md
- * @property int $r Red color
- * @property int $g Green color
- * @property int $b Blue color
+ * @property int $red Red color
+ * @property int $green Green color
+ * @property int $blue Blue color
  * @link Github https://github.com/joseluisq/gimage
  */
 class Figure extends Image {
 
-  private $_r = 0;
-  private $_g = 0;
-  private $_b = 0;
+  protected $height = 0;
+  protected $width = 0;
+  protected $red = 0;
+  protected $green = 0;
+  protected $blue = 0;
 
   /**
    * Sets size for figure.
@@ -31,6 +34,8 @@ class Figure extends Image {
    */
   public function __construct($width = 0, $height = 0) {
     $this->setSize($width, $height);
+
+    parent::__construct();
   }
 
   /**
@@ -40,25 +45,29 @@ class Figure extends Image {
    * @param int $height Height.
    * @return void
    */
-  public function setSize($width, $height) {
+  public function setSize($width = 0, $height = 0) {
     if (!empty($width) && !empty($height)) {
-      $this->_width = $this->_box_width = $width;
-      $this->_height = $this->_box_height = $height;
+      $this->width = $this->boxWidth = $width;
+      $this->height = $this->boxHeight = $height;
     }
+
+    return $this;
   }
 
   /**
    * Sets background color.
    * @access public
-   * @param int $r Red.
-   * @param int $g Green.
-   * @param int $b Blue.
+   * @param int $red Red.
+   * @param int $green Green.
+   * @param int $blue Blue.
    * @return void
    */
-  public function setBackgroundColor($r, $g, $b) {
-    $this->_r = $r;
-    $this->_g = $g;
-    $this->_b = $b;
+  public function setBackgroundColor($red, $green, $blue) {
+    $this->red = $red;
+    $this->green = $green;
+    $this->blue = $blue;
+
+    return $this;
   }
 
   /**
@@ -67,11 +76,7 @@ class Figure extends Image {
    * @return void
    */
   public function getBackgroundColor() {
-    return array(
-      $this->_r,
-      $this->_g,
-      $this->_b
-    );
+    return [$this->red, $this->green, $this->blue];
   }
 
   /**
@@ -80,10 +85,12 @@ class Figure extends Image {
    * @return void
    */
   public function create() {
-    $figure = imagecreatetruecolor($this->_width, $this->_height);
-    $color = imagecolorallocatealpha($figure, $this->_r, $this->_g, $this->_b, $this->_opacity);
-    imagefilledrectangle($figure, 0, 0, $this->_width, $this->_height, $color);
-    $this->_resource = $figure;
+    $figure = imagecreatetruecolor($this->width, $this->height);
+    $color = imagecolorallocatealpha($figure, $this->red, $this->green, $this->blue, $this->opacity);
+    imagefilledrectangle($figure, 0, 0, $this->width, $this->height, $color);
+    $this->resource = $figure;
+
+    return $this;
   }
 
 }

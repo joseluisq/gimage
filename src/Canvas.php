@@ -10,41 +10,43 @@ use GImage\Text;
  * @package GImage
  * @access public
  * @version 2.0.0
- * @author José Luis Quintana <quintana.io>
+ * @author José Luis Quintana <https://git.io/joseluisq>
  * @license https://github.com/joseluisq/gimage/blob/master/license.md
- * @property array $_list An array of elements classes (GImage, GFigure or GText classes)
+ * @property array $list An array of elements (Image, Figure or Text classes)
  * @link Github https://github.com/joseluisq/gimage
  */
 class Canvas extends Image {
 
-  private $_list = array();
+  private $list = [];
 
   /**
    * Constructs a new Canvas.
-   * @param mixed $element Only GImage or GFigure class
+   * @param mixed $element Only Image or Figure class
    * @access public
    * @return void
    */
-  function __construct($element = NULL) {
+  function __construct($element = null) {
     parent::__construct($element);
   }
 
   /**
    * Adds one or more elements to canvas.
-   * @param mixed $elements Single or array of GImage, GFigure, GText classes.
+   * @param mixed $elements Single or array of Image, Figure, Text classes.
    * @access public
    * @return void
    */
   public function append($elements) {
     if (!empty($elements)) {
-      $elements = is_array($elements) ? $elements : array($elements);
+      $elements = is_array($elements) ? $elements : [$elements];
 
       foreach ($elements as $element) {
         if ($element instanceof Image || $element instanceof Text) {
-          $this->_list[] = $element;
+          $this->list[] = $element;
         }
       }
     }
+
+    return $this;
   }
 
   /**
@@ -53,10 +55,10 @@ class Canvas extends Image {
    * @return void
    */
   public function draw() {
-    $canvas = $this->_resource;
+    $canvas = $this->resource;
 
     if ($canvas) {
-      $list = $this->_list;
+      $list = $this->list;
 
       foreach ($list as $element) {
         if ($element instanceof Image) {
@@ -64,10 +66,10 @@ class Canvas extends Image {
           imagecopyresampled($canvas, $simage, $element->getLeft(), $element->getTop(), $element->getBoxLeft(), $element->getBoxTop(), $element->getBoxWidth(), $element->getBoxHeight(), $element->getWidth(), $element->getHeight());
         } else {
           if ($element instanceof Text) {
-            $rgb_color = $element->getColor();
-            $color = imagecolorallocatealpha($canvas, $rgb_color[0], $rgb_color[1], $rgb_color[2], $element->getOpacity());
+            $rgbColor = $element->getColor();
+            $color = imagecolorallocatealpha($canvas, $rgbColor[0], $rgbColor[1], $rgbColor[2], $element->getOpacity());
 
-            $lines_str = $element->wrappText();
+            $linesStr = $element->wrappText();
             $cords = $element->calculateTextBox($element->getSize(), $element->getAngle(), $element->getFontface(), $element->getString());
 
             // Alignment
@@ -88,23 +90,26 @@ class Canvas extends Image {
             $angle = $element->getAngle();
             $font = $element->getFontface();
 
-            foreach ($lines_str as $i => $line_str) {
+            foreach ($linesStr as $i => $lineStr) {
               $ny = $y + ($line_height * $i);
 
               imagettftext(
-                $canvas, $size, $angle, $x, $ny, $color, $font, $line_str
+                $canvas, $size, $angle, $x, $ny, $color, $font, $lineStr
               );
             }
           }
         }
       }
 
-      $this->_resource = $canvas;
+      $this->resource = $canvas;
     } else {
       throw new \Exception(''
-      . 'GImage or GFigure class is not assigned. '
-      . 'You can do it using the "Canvas->from($element)" method.');
+      . 'Image or Figure class is not assigned. '
+      . 'You can do it using the "Canvas->from($element)" method.'
+      . '');
     }
+
+    return $this;
   }
 
 }

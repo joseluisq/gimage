@@ -16,23 +16,25 @@ require __DIR__ . '/../tests/bootstrap.php';
 
 // Creating an avatar image
 $avatar_image = new Image();
-$avatar_image->load('http://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50?s=100.jpg');
-$avatar_image->setTop(60);
-$avatar_image->setLeft(70);
+$avatar_image
+  ->load('https://assets-cdn.github.com/images/modules/logos_page/Octocat.png')
+  ->centerCrop(100, 100)
+  ->setTop(60)
+  ->setLeft(70);
 
-$about_text = new Text("MY AWESOME PRESENTATION CARD GENERATED WITH GIMAGE");
-$about_text->setSize(16);
-$about_text->setWidth(300);
-$about_text->setLeft(210);
-$about_text->setLineHeight(1.2);
-$about_text->setTop(75);
-$about_text->setColor(204, 164, 116);
-$about_text->setFontface(BASE_PATH . '/fonts/Lato-Lig.ttf');
+$about_text = new Text("MY AWESOME PRESENTATION CARD\n~ BY GIMAGE ~");
+$about_text->setSize(16)
+  ->setWidth(300)
+  ->setLeft(210)
+  ->setLineHeight(1.5)
+  ->setTop(75)
+  ->setColor(204, 164, 116)
+  ->setFontface(BASE_PATH . '/fonts/Lato-Lig.ttf');
 
-$twitter_text = new Text('@username');
+$twitter_text = new Text('@joseluisq/gimage');
 $twitter_text->setSize(11);
 $twitter_text->setWidth(70);
-$twitter_text->setLeft(450);
+$twitter_text->setLeft(410);
 $twitter_text->setTop(210);
 $twitter_text->setColor(130, 127, 125);
 $twitter_text->setFontface(BASE_PATH . '/fonts/Lato-Reg.ttf');

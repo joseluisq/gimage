@@ -13,44 +13,44 @@ use GImage\Utils;
  * @license https://github.com/joseluisq/gimage/blob/master/license.md
  * @property string $name
  * @property string $filename
- * @property int $_width
- * @property int $_height
- * @property int $_x
- * @property int $_y
- * @property int $_box_width
- * @property int $_box_height
- * @property int $_box_x
- * @property int $_box_y
- * @property int $_type IMAGETYPE_JPEG
- * @property string $_extension Default 'jpg'
- * @property resource $_resource
- * @property int $_quality
- * @property int $_opacity
- * @property string $_from Default 'local'
- * @property bool $_preserve Default FALSE
- * @property string $_mimetype Default 'image/jpeg'
+ * @property int $width
+ * @property int $height
+ * @property int $x
+ * @property int $y
+ * @property int $boxWidth
+ * @property int $boxHeight
+ * @property int $boxX
+ * @property int $boxY
+ * @property int $type IMAGETYPE_JPEG
+ * @property string $extension Default 'jpg'
+ * @property resource $resource
+ * @property int $quality
+ * @property int $opacity
+ * @property string $from Default 'local'
+ * @property bool $preserve Default FALSE
+ * @property string $mimetype Default 'image/jpeg'
  * @link Github https://github.com/joseluisq/gimage
  */
 class Image {
 
   protected $name;
   protected $filename;
-  protected $_width = 0;
-  protected $_height = 0;
-  protected $_x = 0;
-  protected $_y = 0;
-  protected $_box_width = 0;
-  protected $_box_height = 0;
-  protected $_box_x = 0;
-  protected $_box_y = 0;
-  protected $_type = IMAGETYPE_JPEG;
-  protected $_extension = 'jpg';
-  protected $_resource;
-  protected $_quality = 100;
-  protected $_opacity = 0;
-  protected $_from = 'local';
-  protected $_preserve = FALSE;
-  protected $_mimetype = 'image/jpeg';
+  protected $width = 0;
+  protected $height = 0;
+  protected $x = 0;
+  protected $y = 0;
+  protected $boxWidth = 0;
+  protected $boxHeight = 0;
+  protected $boxX = 0;
+  protected $boxY = 0;
+  protected $type = IMAGETYPE_JPEG;
+  protected $extension = 'jpg';
+  protected $resource;
+  protected $quality = 100;
+  protected $opacity = 0;
+  protected $from = 'local';
+  protected $preserve = false;
+  protected $mimetype = 'image/jpeg';
 
   /**
    * Loads an image from Image or Figure class.
@@ -59,7 +59,7 @@ class Image {
    * @param Image $element Image or Figure class.
    * @return void
    */
-  function __construct($element = NULL) {
+  function __construct($element = null) {
     $this->from($element);
   }
 
@@ -69,26 +69,26 @@ class Image {
    * @param Image $element Image or Figure class.
    * @return void
    */
-  public function from($element = NULL) {
+  public function from($element = null) {
     if (!empty($element) && $element instanceof Image) {
       $this->name = $element->name;
       $this->filename = $element->filename;
-      $this->_width = $element->_width;
-      $this->_height = $element->_height;
-      $this->_x = $element->_x;
-      $this->_y = $element->_y;
-      $this->_box_width = $element->_box_width;
-      $this->_box_height = $element->_box_height;
-      $this->_box_x = $element->_box_x;
-      $this->_box_y = $element->_box_y;
-      $this->_type = $element->_type;
-      $this->_extension = $element->_extension;
-      $this->_resource = $element->_resource;
-      $this->_quality = $element->_quality;
-      $this->_opacity = $element->_opacity;
-      $this->_from = $element->_from;
-      $this->_preserve = $element->_preserve;
-      $this->_mimetype = $element->_mimetype;
+      $this->width = $element->width;
+      $this->height = $element->height;
+      $this->x = $element->x;
+      $this->y = $element->y;
+      $this->boxWidth = $element->boxWidth;
+      $this->boxHeight = $element->boxHeight;
+      $this->boxX = $element->boxX;
+      $this->boxY = $element->boxY;
+      $this->type = $element->type;
+      $this->extension = $element->extension;
+      $this->resource = $element->resource;
+      $this->quality = $element->quality;
+      $this->opacity = $element->opacity;
+      $this->from = $element->from;
+      $this->preserve = $element->preserve;
+      $this->mimetype = $element->mimetype;
     }
   }
 
@@ -100,8 +100,7 @@ class Image {
    * @return bool
    */
   public function load($filename) {
-    $loaded = FALSE;
-    $image = NULL;
+    $image = null;
 
     if (!empty($filename)) {
       $this->filename = $filename;
@@ -111,21 +110,20 @@ class Image {
         $image = file_get_contents($filename);
 
         if (!empty($image)) {
-          $this->_from = 'external';
-          $this->_resource = $image = imagecreatefromstring($image);
-          $this->_type = Utils::getImageType($filename);
-          $this->_extension = Utils::getExtension($filename);
-          $this->_width = $this->_box_width = imagesx($image);
-          $this->_height = $this->_box_height = imagesy($image);
-          $loaded = TRUE;
+          $this->from = 'external';
+          $this->resource = $image = imagecreatefromstring($image);
+          $this->type = Utils::getImageType($filename);
+          $this->extension = Utils::getExtension($filename);
+          $this->width = $this->boxWidth = imagesx($image);
+          $this->height = $this->boxHeight = imagesy($image);
         }
       } else {
         if (is_file($filename)) {
-          $this->_from = 'local';
-          $this->_type = $image_type = Utils::getImageType($filename);
-          $this->_extension = Utils::getExtension($filename);
+          $this->from = 'local';
+          $this->type = $imageType = Utils::getImageType($filename);
+          $this->extension = Utils::getExtension($filename);
 
-          switch ($image_type) {
+          switch ($imageType) {
             case IMAGETYPE_GIF:
               $image = imagecreatefromgif($filename);
               break;
@@ -137,15 +135,14 @@ class Image {
               break;
           }
 
-          $loaded = TRUE;
-          $this->_resource = $image;
-          $this->_width = $this->_box_width = imagesx($image);
-          $this->_height = $this->_box_height = imagesy($image);
+          $this->resource = $image;
+          $this->width = $this->boxWidth = imagesx($image);
+          $this->height = $this->boxHeight = imagesy($image);
         }
       }
     }
 
-    return $loaded;
+    return $this;
   }
 
   /**
@@ -154,7 +151,7 @@ class Image {
    * @return resource
    */
   public function getResource() {
-    return $this->_resource;
+    return $this->resource;
   }
 
   /**
@@ -176,21 +173,21 @@ class Image {
   }
 
   /**
-   * Gets image type code. Returns IMAGETYPE_JPEG, IMAGETYPE_PNG or IMAGETYPE_GIF
+   * Gets image type code. (IMAGETYPE_JPEG, IMAGETYPE_PNG or IMAGETYPE_GIF)
    * @access public
    * @return int
    */
   public function getType() {
-    return $this->_type;
+    return $this->type;
   }
 
   /**
-   * Gets extension. Returns jpg, png or gif.
+   * Gets extension (jpg, png or gif)
    * @access public
    * @return string
    */
   public function getExtension() {
-    return $this->_extension;
+    return $this->extension;
   }
 
   /**
@@ -199,7 +196,7 @@ class Image {
    * @return int
    */
   public function getQuality() {
-    return $this->_quality;
+    return $this->quality;
   }
 
   /**
@@ -208,7 +205,7 @@ class Image {
    * @return int
    */
   public function getOpacity() {
-    return $this->_opacity;
+    return $this->opacity;
   }
 
   /**
@@ -217,7 +214,7 @@ class Image {
    * @return int
    */
   public function getWidth() {
-    return $this->_width;
+    return $this->width;
   }
 
   /**
@@ -226,7 +223,7 @@ class Image {
    * @return int
    */
   public function getHeight() {
-    return $this->_height;
+    return $this->height;
   }
 
   /**
@@ -235,7 +232,7 @@ class Image {
    * @return int
    */
   public function getTop() {
-    return $this->_y;
+    return $this->y;
   }
 
   /**
@@ -244,7 +241,7 @@ class Image {
    * @return int
    */
   public function getLeft() {
-    return $this->_x;
+    return $this->x;
   }
 
   /**
@@ -253,7 +250,7 @@ class Image {
    * @return int
    */
   public function getBoxLeft() {
-    return $this->_box_x;
+    return $this->boxX;
   }
 
   /**
@@ -262,7 +259,7 @@ class Image {
    * @return int
    */
   public function getBoxTop() {
-    return $this->_box_y;
+    return $this->boxY;
   }
 
   /**
@@ -271,7 +268,7 @@ class Image {
    * @return int
    */
   public function getBoxWidth() {
-    return $this->_box_width;
+    return $this->boxWidth;
   }
 
   /**
@@ -280,7 +277,7 @@ class Image {
    * @return int
    */
   public function getBoxHeight() {
-    return $this->_box_height;
+    return $this->boxHeight;
   }
 
   /**
@@ -289,7 +286,7 @@ class Image {
    * @return string
    */
   public function getLoadedFrom() {
-    return $this->_from;
+    return $this->from;
   }
 
   /**
@@ -299,7 +296,8 @@ class Image {
    * @return void
    */
   public function setQuality($quality) {
-    $this->_quality = $quality;
+    $this->quality = $quality;
+    return $this;
   }
 
   /**
@@ -309,7 +307,8 @@ class Image {
    * @return void
    */
   public function setOpacity($opacity) {
-    $this->_opacity = $opacity > 127 ? 127 : $opacity;
+    $this->opacity = $opacity > 127 ? 127 : $opacity;
+    return $this;
   }
 
   /**
@@ -319,7 +318,8 @@ class Image {
    * @return void
    */
   public function setResource($resource) {
-    $this->_resource = $resource;
+    $this->resource = $resource;
+    return $this;
   }
 
   /**
@@ -329,7 +329,8 @@ class Image {
    * @return void
    */
   public function setLeft($x) {
-    $this->_x = $x;
+    $this->x = $x;
+    return $this;
   }
 
   /**
@@ -339,7 +340,8 @@ class Image {
    * @return void
    */
   public function setTop($y) {
-    $this->_y = $y;
+    $this->y = $y;
+    return $this;
   }
 
   /**
@@ -349,7 +351,8 @@ class Image {
    * @return void
    */
   public function setBoxWidth($width) {
-    $this->_box_width = $width;
+    $this->boxWidth = $width;
+    return $this;
   }
 
   /**
@@ -359,7 +362,8 @@ class Image {
    * @return void
    */
   public function setBoxHeight($height) {
-    $this->_box_height = $height;
+    $this->boxHeight = $height;
+    return $this;
   }
 
   /**
@@ -369,7 +373,8 @@ class Image {
    * @return void
    */
   public function setBoxLeft($x) {
-    $this->_box_x = $x * (-1);
+    $this->boxX = $x * (-1);
+    return $this;
   }
 
   /**
@@ -379,7 +384,8 @@ class Image {
    * @return void
    */
   public function setBoxTop($y) {
-    $this->_box_y = $y * (-1);
+    $this->boxY = $y * (-1);
+    return $this;
   }
 
   /**
@@ -388,7 +394,7 @@ class Image {
    * @return bool
    */
   public function isLocal() {
-    return ($this->_from == 'local');
+    return ($this->from == 'local');
   }
 
   /**
@@ -397,7 +403,7 @@ class Image {
    * @return bool
    */
   public function isExternal() {
-    return ($this->_from == 'external');
+    return ($this->from == 'external');
   }
 
   /**
@@ -406,7 +412,7 @@ class Image {
    * @return bool
    */
   public function isJPG() {
-    return ($this->_extension == 'jpg');
+    return ($this->extension == 'jpg');
   }
 
   /**
@@ -415,7 +421,7 @@ class Image {
    * @return bool
    */
   public function isPNG() {
-    return ($this->_extension == 'png');
+    return ($this->extension == 'png');
   }
 
   /**
@@ -424,7 +430,7 @@ class Image {
    * @return bool
    */
   public function isGIF() {
-    return ($this->_extension == 'gif');
+    return ($this->extension == 'gif');
   }
 
   /**
@@ -433,9 +439,11 @@ class Image {
    * @return void
    */
   public function toJPG() {
-    $this->_extension = 'jpg';
-    $this->_type = IMAGETYPE_JPEG;
-    $this->_mimetype = Utils::getMimetypeByImageType(IMAGETYPE_JPEG);
+    $this->extension = 'jpg';
+    $this->type = IMAGETYPE_JPEG;
+    $this->mimetype = Utils::getMimetypeByImageType(IMAGETYPE_JPEG);
+
+    return $this;
   }
 
   /**
@@ -444,9 +452,11 @@ class Image {
    * @return void
    */
   public function toPNG() {
-    $this->_extension = 'png';
-    $this->_type = IMAGETYPE_PNG;
-    $this->_mimetype = Utils::getMimetypeByImageType(IMAGETYPE_PNG);
+    $this->extension = 'png';
+    $this->type = IMAGETYPE_PNG;
+    $this->mimetype = Utils::getMimetypeByImageType(IMAGETYPE_PNG);
+
+    return $this;
   }
 
   /**
@@ -455,9 +465,11 @@ class Image {
    * @return void
    */
   public function toGIF() {
-    $this->_extension = 'gif';
-    $this->_type = IMAGETYPE_GIF;
-    $this->_mimetype = Utils::getMimetypeByImageType(IMAGETYPE_GIF);
+    $this->extension = 'gif';
+    $this->type = IMAGETYPE_GIF;
+    $this->mimetype = Utils::getMimetypeByImageType(IMAGETYPE_GIF);
+
+    return $this;
   }
 
   /**
@@ -466,8 +478,9 @@ class Image {
    * @param bool $preserve If it's true will preserve the resource image.
    * @return void
    */
-  public function preserve($preserve = TRUE) {
-    $this->_preserve = $preserve;
+  public function preserve($preserve = true) {
+    $this->preserve = $preserve;
+    return $this;
   }
 
   /**
@@ -476,7 +489,7 @@ class Image {
    * @param string $filename If it's null save function will save the image in load path for default.
    * @return bool True if it is saved successful and False if it is not saved.
    */
-  public function save($filename = NULL) {
+  public function save($filename = null) {
     return $this->render($filename);
   }
 
@@ -486,7 +499,7 @@ class Image {
    * @return bool
    */
   public function output() {
-    return $this->render(NULL, TRUE);
+    return $this->render(null, true);
   }
 
   /**
@@ -498,6 +511,8 @@ class Image {
   public function resizeToHeight($height) {
     $width = $this->getPropWidth($height);
     $this->resize($width, $height);
+
+    return $this;
   }
 
   /**
@@ -509,6 +524,8 @@ class Image {
   public function resizeToWidth($width) {
     $height = $this->getPropHeight($width);
     $this->resize($width, $height);
+
+    return $this;
   }
 
   /**
@@ -518,8 +535,8 @@ class Image {
    * @return int
    */
   public function getPropWidth($height) {
-    $ratio = (int) $height / $this->_height;
-    return $this->_width * $ratio;
+    $ratio = (int) $height / $this->height;
+    return $this->width * $ratio;
   }
 
   /**
@@ -529,30 +546,32 @@ class Image {
    * @return int
    */
   public function getPropHeight($width) {
-    $ratio = (int) $width / $this->_width;
-    return $this->_height * $ratio;
+    $ratio = (int) $width / $this->width;
+    return $this->height * $ratio;
   }
 
   /**
    * Scales the image.
    * @access public
    * @param int $scale
-   * @return void
+   * @return Image
    */
   public function scale($scale) {
-    $width = $this->_width * (int) $scale / 100;
-    $height = $this->_height * (int) $scale / 100;
+    $width = $this->width * (int) $scale / 100;
+    $height = $this->height * (int) $scale / 100;
     $this->resize($width, $height);
+    return $this;
   }
 
   /**
    * Rotate an image with a given angle.
    * @access public
    * @param int $angle
-   * @return void
+   * @return Image
    */
   public function rotate($angle = 0) {
-    $this->_resource = imagerotate($this->_resource, $angle, 0);
+    $this->resource = imagerotate($this->resource, $angle, 0);
+    return $this;
   }
 
   /**
@@ -560,7 +579,7 @@ class Image {
    * @access public
    * @param int $width Width crop.
    * @param int $height Height crop.
-   * @return void
+   * @return Image
    */
   public function centerCrop($width, $height) {
     $pwidth = $this->getPropWidth($height);
@@ -576,10 +595,12 @@ class Image {
         $this->resizeToHeight($pheight);
       }
 
-      $x = ($this->_width - $width) / 2;
-      $y = ($this->_height - $height) / 2;
+      $x = ($this->width - $width) / 2;
+      $y = ($this->height - $height) / 2;
       $this->crop($width, $height, $x, $y);
     }
+
+    return $this;
   }
 
   /**
@@ -589,12 +610,13 @@ class Image {
    * @param int $height Height crop.
    * @param int $x1 [Optional] x-coordinate of source point.
    * @param int $y1 [Optional] y-coordinate of source point.
-   * @param int $dst_x [Optional] x-coordinate of destination point.
-   * @param int $dst_y [Optional] y-coordinate of destination point.
-   * @return void
+   * @param int $dstX [Optional] x-coordinate of destination point.
+   * @param int $dstY [Optional] y-coordinate of destination point.
+   * @return Image
    */
-  public function crop($width, $height, $x1 = 0, $y1 = 0, $dst_x = 0, $dst_y = 0) {
-    $this->resize($width, $height, $x1, $y1, $dst_x, $dst_y, TRUE);
+  public function crop($width, $height, $x1 = 0, $y1 = 0, $dstX = 0, $dstY = 0) {
+    $this->resize($width, $height, $x1, $y1, $dstX, $dstY, true);
+    return $this;
   }
 
   /**
@@ -604,29 +626,30 @@ class Image {
    * @param int $height Image's height.
    * @param int $x1 [Optional] Left position
    * @param int $y1 [Optional] Top position
-   * @param int $dst_x [Optional] x-coordinate of destination point.
-   * @param int $dst_y [Optional] y-coordinate of destination point.
-   * @param bool $is_crop [Optional] if it's true resize function will crop the image.
-   * @return void
+   * @param int $dstX [Optional] x-coordinate of destination point.
+   * @param int $dstY [Optional] y-coordinate of destination point.
+   * @param bool $isCrop [Optional] if it's true resize function will crop the image.
+   * @return Image
    */
-  private function resize($width, $height, $x1 = 0, $y1 = 0, $dst_x = 0, $dst_y = 0, $is_crop = FALSE) {
-    $image = $this->_resource;
+  private function resize($width, $height, $x1 = 0, $y1 = 0, $dstX = 0, $dstY = 0, $isCrop = false) {
+    $image = $this->resource;
 
     if ($image) {
       $simage = imagecreatetruecolor($width, $height);
 
       if ($this->isPNG()) {
-        imagealphablending($simage, FALSE);
-        imagesavealpha($simage, TRUE);
+        imagealphablending($simage, false);
+        imagesavealpha($simage, true);
       }
 
-      imagecopyresampled($simage, $image, $dst_x, $dst_y, $x1, $y1, $width, $height, ($is_crop) ? $width : $this->_width, ($is_crop) ? $height : $this->_height);
+      imagecopyresampled($simage, $image, $dstX, $dstY, $x1, $y1, $width, $height, ($isCrop) ? $width : $this->width, ($isCrop) ? $height : $this->height);
 
-      $this->_resource = $simage;
-
-      $this->_width = $this->_box_width = imagesx($this->_resource);
-      $this->_height = $this->_box_height = imagesy($this->_resource);
+      $this->resource = $simage;
+      $this->width = $this->boxWidth = imagesx($this->resource);
+      $this->height = $this->boxHeight = imagesy($this->resource);
     }
+
+    return $this;
   }
 
   /**
@@ -634,38 +657,37 @@ class Image {
    * @access private
    * @param string $filename [Optional] Path to save image
    * @param bool $output [Optional] If it's true render function outputs image.
-   * @return bool True if it has worked successful and False if it has not.
+   * @return Image
    */
-  private function render($filename = NULL, $output = FALSE) {
-    $saved = FALSE;
-    $image = $this->_resource;
+  private function render($filename = null, $output = false) {
+    $image = $this->resource;
 
     if ($image) {
       if ($this->filename || $filename || $output) {
-        $filename = $output ? NULL : ($this->isExternal() ? (empty($filename) ? $this->name : $filename) :
+        $filename = $output ? null : ($this->isExternal() ? (empty($filename) ? $this->name : $filename) :
             (empty($filename) ? $this->filename : $filename));
-        $quality = $this->_quality;
-        $preserve = $this->_preserve;
+        $quality = $this->quality;
+        $preserve = $this->preserve;
 
         if ($output) {
-          header('Content-type: ' . $this->_mimetype);
+          header('Content-type: ' . $this->mimetype);
           ob_start();
         }
 
         if ($this->isJPG()) {
-          $saved = imagejpeg($image, $filename, $quality);
+          imagejpeg($image, $filename, $quality);
         } else {
           if ($this->isPNG()) {
             if ($quality > 10) {
               $quality = 0;
             }
 
-            imagealphablending($image, FALSE);
-            imagesavealpha($image, TRUE);
+            imagealphablending($image, false);
+            imagesavealpha($image, true);
 
-            $saved = imagepng($image, $filename, $quality);
+            imagepng($image, $filename, $quality);
           } else {
-            $saved = imagegif($image, $filename);
+            imagegif($image, $filename);
           }
         }
 
@@ -679,17 +701,21 @@ class Image {
       }
     }
 
-    return $saved;
+    return $this;
   }
 
   /**
    * Destroys resource.
    * @access public
-   * @return void
+   * @return Image
    */
   public function destroy() {
-    @imagedestroy($this->_resource);
-    $this->_resource = NULL;
+    if ($this->resource) {
+      imagedestroy($this->resource);
+    }
+
+    $this->resource = null;
+    return $this;
   }
 
 }
