@@ -79,8 +79,8 @@ class Image {
       $this->y = $element->y;
       $this->boxWidth = $element->boxWidth;
       $this->boxHeight = $element->boxHeight;
-      $this->boxX = $element->_boxX;
-      $this->boxY = $element->_boxY;
+      $this->boxX = $element->boxX;
+      $this->boxY = $element->boxY;
       $this->type = $element->type;
       $this->extension = $element->extension;
       $this->resource = $element->resource;
