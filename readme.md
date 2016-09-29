@@ -4,9 +4,9 @@
 
 > A simple PHP library for easy image handling.
 
-GImage is a simple extended library based on [PHP Image Processing and GD](http://php.net/manual/en/book.image.php) for easy image handling. With GImage you can read, create, crop, resize, rotate, embed text, merge and save your JPG or PNG images easy. GImage require **PHP 5.3** or higher and [GD Extension](http://php.net/manual/en/book.image.php).
+GImage is a simple extended library based on [PHP Image Processing and GD](http://php.net/manual/en/book.image.php) for easy image handling. With GImage you can read, create, crop, resize, rotate, embed text, merge and save your JPG or PNG images easy. GImage require **PHP 5.5** or later and [GD Extension](http://php.net/manual/en/book.image.php).
 
-![A simple presentation card with GImage](https://cloud.githubusercontent.com/assets/1700322/11167177/21e9f6ca-8b25-11e5-8737-c50a48506f17.png)
+![A simple presentation card with GImage](https://cloud.githubusercontent.com/assets/1700322/18941713/eed7fa34-85d8-11e6-8033-bf787e4aa236.png)
 
 [*View sample code*](#creating-a-simple-presentation-card)
 
@@ -24,12 +24,12 @@ Working with external JPG image and output on browser as PNG format.
 
 ```php
 <?php
-require 'src/gutils.php';
-require 'src/gimage.php';
+
+use GImage\Image;
 
 // Loading an image (200x200) from an URL (or local path)
-$avatar = new GImage();
-$avatar->load('http://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50?s=200.jpg');
+$avatar = new Image();
+$avatar->load('https://assets-cdn.github.com/images/modules/logos_page/Octocat.png');
 // Scaling to 50% (100x100)
 $avatar->scale(50);
 // Changing to PNG format
@@ -37,25 +37,24 @@ $avatar->toPNG();
 // Preserving the image before saving or outputting
 $avatar->preserve();
 // Saving to local path
-$avatar->save('my-avatar.png');
+$avatar->save('octocat.png');
 // Preparing for destroy the resource after outputting
 $avatar->preserve(false);
 // Outputting on the browser and destroy the resource.
 $avatar->output();
 ```
 
-### Using GFigure
+### Using a Figure
 
 Creating a simple green rectangle.
 
 ```php
 <?php
-require 'src/gutils.php';
-require 'src/gfigure.php';
-require 'src/gimage.php';
+
+use GImage\Figure;
 
 // Setting rectangle sizes
-$rectangle = new GFigure(500, 300);
+$rectangle = new Figure(500, 300);
 // Setting a green background color
 $rectangle->setBackgroundColor(170, 188, 147);
 // Creating the figure
@@ -65,15 +64,15 @@ $rectangle->output();
 ```
 
 ### Creating a simple presentation card
-Creating a simple presentation card with GImage, GCanvas, GFigure and GText.
+Creating a simple presentation card with Image, Canvas, Figure and GText.
 
 ```php
 <?php
-require 'src/gutils.php';
-require 'src/gimage.php';
-require 'src/gfigure.php';
-require 'src/gtext.php';
-require 'src/gcanvas.php';
+
+use GImage\Image;
+use GImage\Text;
+use GImage\Figure;
+use GImage\Canvas;
 
 $avatar_image = new GImage();
 $avatar_image->load('http://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50?s=100.jpg');

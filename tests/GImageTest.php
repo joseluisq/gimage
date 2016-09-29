@@ -17,8 +17,8 @@ define('GIMAGE_PATH_TMP', sys_get_temp_dir());
 /**
  * PHPUnit / GImage Test Class
  * @package GImage
- * @version 1.0.3
- * @author José Luis Quintana <quintana.io>
+ * @version 2.0.0
+ * @author José Luis Quintana <https://git.io/joseluisq>
  * @license https://github.com/joseluisq/gimage/blob/master/license.md
  */
 class GImageTest extends \PHPUnit_Framework_TestCase {
@@ -26,9 +26,9 @@ class GImageTest extends \PHPUnit_Framework_TestCase {
   public function testLoad() {
     // Loading an image (200x200) from Gravatar
     $img = new Image();
-    $img_loaded = $img->load('http://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50?s=200.jpg');
+    $resource = $img->load('http://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50?s=200.jpg');
 
-    $this->assertTrue($img_loaded);
+    $this->assertNotNull($resource);
 
     return $img;
   }
@@ -110,8 +110,9 @@ class GImageTest extends \PHPUnit_Framework_TestCase {
 
   public function testCreateFigure() {
     $figure = new Figure(400, 250);
-    $figure->setBackgroundColor(47, 42, 39);
-    $figure->create();
+    $figure
+      ->setBackgroundColor(47, 42, 39)
+      ->create();
 
     $this->assertInstanceOf('GImage\Figure', $figure);
 
@@ -132,14 +133,15 @@ class GImageTest extends \PHPUnit_Framework_TestCase {
 
   public function testCreateText() {
     $text = new Text('This is cool text!');
-    $text->setWidth(400);
-    $text->setHeight(250);
-    $text->setAlign('center');
-    $text->setValign('center');
-    $text->setLineHeight(1.2);
-    $text->setSize(22);
-    $text->setColor(255, 255, 255);
-    $text->setFontface(GIMAGE_PATH_APP . DS . 'examples/fonts/Lato-Lig.ttf');
+    $text
+      ->setWidth(400)
+      ->setHeight(250)
+      ->setAlign('center')
+      ->setValign('center')
+      ->setLineHeight(1.2)
+      ->setSize(22)
+      ->setColor(255, 255, 255)
+      ->setFontface(GIMAGE_PATH_APP . DS . 'examples/fonts/Lato-Lig.ttf');
 
     $this->assertInstanceOf('GImage\Text', $text);
 
@@ -151,9 +153,10 @@ class GImageTest extends \PHPUnit_Framework_TestCase {
    * @depends testCreateText
    */
   public function testCanvasAppendText(Canvas $canvas, Text $text) {
-    $canvas->append($text);
-    $canvas->toJPG();
-    $canvas->draw();
+    $canvas
+      ->append($text)
+      ->toJPG()
+      ->draw();
 
     $this->assertEquals($canvas->getType(), IMAGETYPE_JPEG);
 
@@ -174,7 +177,7 @@ class GImageTest extends \PHPUnit_Framework_TestCase {
    * @depends testPreserveResource
    */
   public function testSavePreserved(Image $img) {
-    $this->assertTrue($img->save(GIMAGE_PATH_TMP . DS . 'test1.jpg'));
+    $this->assertNotNull($img->save(GIMAGE_PATH_TMP . DS . 'test1.jpg'));
     $this->assertNotNull($img->getResource());
 
     return $img;
@@ -195,7 +198,7 @@ class GImageTest extends \PHPUnit_Framework_TestCase {
    * @depends testNotPreserveResource
    */
   public function testSaveNotPreserved(Image $img) {
-    $this->assertTrue($img->save(GIMAGE_PATH_TMP . DS . 'test2.jpg'));
+    $this->assertNotNull($img->save(GIMAGE_PATH_TMP . DS . 'test2.jpg'));
     $this->assertNull($img->getResource());
 
     return $img;
@@ -206,6 +209,7 @@ class GImageTest extends \PHPUnit_Framework_TestCase {
    */
   public function testDestroyResource(Image $img) {
     $img->destroy();
+
     $this->assertNull($img->getResource());
   }
 
@@ -213,8 +217,7 @@ class GImageTest extends \PHPUnit_Framework_TestCase {
    * @depends testCanvasAppendText
    */
   public function testCanvasSave(Canvas $canvas) {
-    $this->assertFalse($canvas->save());
-    $this->assertTrue($canvas->save(GIMAGE_PATH_TMP . DS . 'test3.jpg'));
+    $this->assertNotNull($canvas->save(GIMAGE_PATH_TMP . DS . 'test3.jpg'));
   }
 
 }
