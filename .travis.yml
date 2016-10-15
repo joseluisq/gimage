@@ -15,9 +15,6 @@ matrix:
 
   fast_finish: true
 
-before_script:
-  - phpenv config-rm xdebug.ini
-
 install: travis_retry composer install --no-interaction --prefer-source
 
 script: make test
