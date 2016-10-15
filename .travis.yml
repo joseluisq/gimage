@@ -12,12 +12,18 @@ php:
 matrix:
   allow_failures:
     - php: hhvm
+
   fast_finish: true
 
 before_script:
-  - composer install --no-interaction --prefer-source --dev
+  - phpenv config-rm xdebug.ini
+
+install: travis_retry composer install --no-interaction --prefer-source
 
 script: make test
 
 notifications:
   email: false
+
+git:
+  depth: 1
