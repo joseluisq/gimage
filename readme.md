@@ -106,14 +106,16 @@ $canvas_figure
 	->create();
 
 $avatar_box = new GFigure($avatar_image->getWidth() + 16, $avatar_image
-	->getHeight() + 17)
+	->getHeight() + 17);
+$avatar_box
 	->setBackgroundColor(63, 56, 52)
 	->setLeft($avatar_image->getLeft() - 7)
 	->setTop($avatar_image->getTop() - 8)
 	->create();
 
 $avatar_box2 = new GFigure($avatar_image->getWidth() + 3, $avatar_image
-	->getHeight() + 19)
+	->getHeight() + 19);
+$avatar_box2
 	->setBackgroundColor(79, 72, 67)
 	->setLeft($avatar_image->getLeft() + 7)
 	->setTop($avatar_image->getTop() - 9)
