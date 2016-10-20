@@ -17,13 +17,13 @@ use GImage\Image;
  * @property int $blue Blue color
  * @link Github https://github.com/joseluisq/gimage
  */
-class Figure extends Image {
-
-  protected $height = 0;
-  protected $width = 0;
-  protected $red = 0;
-  protected $green = 0;
-  protected $blue = 0;
+class Figure extends Image
+{
+    protected $height = 0;
+    protected $width = 0;
+    protected $red = 0;
+    protected $green = 0;
+    protected $blue = 0;
 
   /**
    * Sets size for figure.
@@ -32,10 +32,11 @@ class Figure extends Image {
    * @param int $height Height.
    * @return void
    */
-  public function __construct($width = 0, $height = 0) {
-    $this->setSize($width, $height);
+  public function __construct($width = 0, $height = 0)
+  {
+      $this->setSize($width, $height);
 
-    parent::__construct();
+      parent::__construct();
   }
 
   /**
@@ -45,13 +46,14 @@ class Figure extends Image {
    * @param int $height Height.
    * @return void
    */
-  public function setSize($width = 0, $height = 0) {
-    if (!empty($width) && !empty($height)) {
-      $this->width = $this->boxWidth = $width;
-      $this->height = $this->boxHeight = $height;
-    }
+  public function setSize($width = 0, $height = 0)
+  {
+      if (!empty($width) && !empty($height)) {
+          $this->width = $this->boxWidth = $width;
+          $this->height = $this->boxHeight = $height;
+      }
 
-    return $this;
+      return $this;
   }
 
   /**
@@ -62,12 +64,13 @@ class Figure extends Image {
    * @param int $blue Blue.
    * @return void
    */
-  public function setBackgroundColor($red, $green, $blue) {
-    $this->red = $red;
-    $this->green = $green;
-    $this->blue = $blue;
+  public function setBackgroundColor($red, $green, $blue)
+  {
+      $this->red = $red;
+      $this->green = $green;
+      $this->blue = $blue;
 
-    return $this;
+      return $this;
   }
 
   /**
@@ -75,8 +78,9 @@ class Figure extends Image {
    * @access public
    * @return void
    */
-  public function getBackgroundColor() {
-    return [$this->red, $this->green, $this->blue];
+  public function getBackgroundColor()
+  {
+      return [$this->red, $this->green, $this->blue];
   }
 
   /**
@@ -84,13 +88,13 @@ class Figure extends Image {
    * @access public
    * @return void
    */
-  public function create() {
-    $figure = imagecreatetruecolor($this->width, $this->height);
-    $color = imagecolorallocatealpha($figure, $this->red, $this->green, $this->blue, $this->opacity);
-    imagefilledrectangle($figure, 0, 0, $this->width, $this->height, $color);
-    $this->resource = $figure;
+  public function create()
+  {
+      $figure = imagecreatetruecolor($this->width, $this->height);
+      $color = imagecolorallocatealpha($figure, $this->red, $this->green, $this->blue, $this->opacity);
+      imagefilledrectangle($figure, 0, 0, $this->width, $this->height, $color);
+      $this->resource = $figure;
 
-    return $this;
+      return $this;
   }
-
 }

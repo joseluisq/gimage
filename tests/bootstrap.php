@@ -1,7 +1,7 @@
 <?php
 
 /**
- * PHPUnit Autoloader for GDImage Library
+ * PHPUnit Autoloader for GImage Library
  * @author José Luis Quintana <https://git.io/joseluisq>
  */
 
