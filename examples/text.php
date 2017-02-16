@@ -1,7 +1,17 @@
 <?php
+/*
+ * This file is part of GImage.
+ *
+ * (c) Jose Luis Quintana <https://git.io/joseluisq>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
 
 /**
- * Creating Canvas with Text
+ * Creating Canvas with Text.
+ *
+ * @author Jose Luis Quintana <https://git.io/joseluisq>
  */
 
 namespace GImage\Examples;
@@ -18,7 +28,7 @@ $figure
     ->setBackgroundColor(47, 42, 39)
     ->create();
 
-$text = new Text('Output PNG .');
+$text = new Text('Output PNG Text!');
 $text
     ->setWidth(400)
     ->setHeight(250)

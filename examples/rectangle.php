@@ -9,22 +9,26 @@
  */
 
 /**
- * Crop an image.
+ * Creating a Rectangle.
  *
  * @author Jose Luis Quintana <https://git.io/joseluisq>
  */
 
 namespace GImage\Examples;
 
-use GImage\Image;
+use GImage\Text;
+use GImage\Figure;
+use GImage\Canvas;
 
 require __DIR__ . '/_config.php';
 require __DIR__ . '/../tests/bootstrap.php';
 
-$image = new Image();
-$image
-    // Load an image (300px x 300px)
-    ->load('http://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50?s=300.jpg')
-    // Resize and crop in the middle (100px x 60px)
-    ->centerCrop(100, 60)
-    ->save(__DIR__ . '/crop.jpg');
+// Tip: By default a Figure is a rectangle
+
+$figure = new Figure(400, 250);
+$figure
+    ->isRectangle()
+    ->setBackgroundColor(0, 0, 255)
+    ->setOpacity(50)
+    ->create()
+    ->save(__DIR__ . '/reactangle.png');

@@ -1,20 +1,26 @@
 <?php
+/*
+ * This file is part of GImage.
+ *
+ * (c) Jose Luis Quintana <https://git.io/joseluisq>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
 
 namespace GImage;
 
 /**
  * A Text class to embed string into Canvas.
+ *
  * @package GImage
- * @access public
- * @version 2.0.0
- * @author José Luis Quintana <https://git.io/joseluisq>
- * @license https://github.com/joseluisq/gimage/blob/master/license.md
+ * @author Jose Luis Quintana <https://git.io/joseluisq>
+ *
  * @property string $string String text.
  * @property string $fontface Font face .ttf filename.
  * @property int $angle Angle for the text.
  * @property int $opacity Opacity for the text.
  * @property string $string String text
- * @link Github https://github.com/joseluisq/gimage
  */
 class Text
 {
@@ -35,23 +41,25 @@ class Text
     private $blue = 0;
 
     /**
-    * Sets string text.
+    * Sets the plain text.
+    *
     * @access public
-    * @param string $string String text.
+    * @param string $string Plain text.
     * @return void
     */
     public function __construct($string = '')
     {
-        $this->setString($string);
+        $this->setContent($string);
     }
 
     /**
-    * Sets string text.
+    * Sets the plain text.
+    *
     * @access public
-    * @param string $string String text.
+    * @param string $string Plain text.
     * @return void
     */
-    public function setString($string)
+    public function setContent($string)
     {
         $this->string = $string;
 
@@ -60,6 +68,7 @@ class Text
 
     /**
     * Sets RGB color for text.
+    *
     * @access public
     * @param int $red Red color.
     * @param int $green Green color.
@@ -77,6 +86,7 @@ class Text
 
     /**
     * Sets font size for text.
+    *
     * @access public
     * @param int $size Font size.
     * @return void
@@ -90,6 +100,7 @@ class Text
 
     /**
     * Sets font face (TTF font) for text.
+    *
     * @access public
     * @param string $fontface Path of TTF font.
     * @return void
@@ -103,6 +114,7 @@ class Text
 
     /**
     * Sets text's opacity.
+    *
     * @access public
     * @param int $opacity Opacity value from 0 to 127
     * @return void
@@ -116,6 +128,7 @@ class Text
 
     /**
     * Sets the horizontal alignment for text.
+    *
     * @access public
     * @param string $align Values supported: none, center
     * @return void
@@ -129,6 +142,7 @@ class Text
 
     /**
     * Sets the vertical alignment for text.
+    *
     * @access public
     * @param string $valign Two values supported: none, center
     * @return void
@@ -142,6 +156,7 @@ class Text
 
     /**
     * Sets text's angle.
+    *
     * @access public
     * @param int $angle Angle
     * @return void
@@ -155,6 +170,7 @@ class Text
 
     /**
     * Sets box width.
+    *
     * @access public
     * @param int $width Width
     * @return void
@@ -168,6 +184,7 @@ class Text
 
     /**
     * Sets box height.
+    *
     * @access public
     * @param int $height Height
     * @return void
@@ -181,6 +198,7 @@ class Text
 
     /**
     * Sets top position.
+    *
     * @access public
     * @param int $y position
     * @return void
@@ -194,6 +212,7 @@ class Text
 
     /**
     * Sets left position.
+    *
     * @access public
     * @param int $x position
     * @return void
@@ -207,6 +226,7 @@ class Text
 
     /**
     * Sets line height.
+    *
     * @access public
     * @param float $lineHeight line-height
     * @return void
@@ -220,6 +240,7 @@ class Text
 
     /**
     * Gets line height.
+    *
     * @access public
     * @return float
     */
@@ -230,16 +251,26 @@ class Text
 
     /**
     * Wrapps the text.
+    *
     * @access public
     * @return string
     */
     public function wrappText()
     {
-        return $this->getWrappedText($this->size, $this->angle, $this->fontface, $this->string, $this->width);
+        $wrapp = $this->getWrappedText(
+            $this->size,
+            $this->angle,
+            $this->fontface,
+            $this->string,
+            $this->width
+        );
+
+        return $wrapp;
     }
 
     /**
     * Gets wrapped text.
+    *
     * @access public
     * @param int $size Font size fot the text.
     * @param int $angle Angole for the text.
@@ -271,7 +302,9 @@ class Text
     }
 
     /**
-    * Calculates the Text box area. Returns an array with left, top, width and height values.
+    * Calculates bounding box of text using the TrueType font.
+    * Returns an array with 'left', 'top', 'width' and 'height' values.
+    *
     * @author <blackbart@simail.it> <http://www.php.net/manual/en/function.imagettfbbox.php#97357>
     * @access public
     * @param int $fontSize Font size fot the text.
@@ -280,7 +313,7 @@ class Text
     * @param string $text String text.
     * @return array
     */
-    public function calculateTextBox($fontSize, $fontAngle, $fontFile, $text)
+    private function getBoundingBox($fontSize, $fontAngle, $fontFile, $text)
     {
         $box = imagettfbbox($fontSize, $fontAngle, $fontFile, $text);
 
@@ -333,17 +366,47 @@ class Text
     }
 
     /**
-    * Gets string text.
+     * Get the Text cords ([x, y).
+     *
+     * @return array   An array with (x, y) cords.
+     */
+    public function getCords()
+    {
+        $box = $this->getBoundingBox(
+            $this->getSize(),
+            $this->getAngle(),
+            $this->getFontface(),
+            $this->getContent()
+        );
+
+        $x = $box['left'] + $this->getLeft();
+        $y = $this->getTop() + $box['top'];
+
+        if ($this->getAlign() == 'center') {
+            $x = ($this->getWidth() - $box['width']) / 2;
+        }
+
+        if ($this->getValign() == 'center') {
+            $y = ($this->getHeight() - $box['height']) / 2;
+        }
+
+        return [$x, $y];
+    }
+
+    /**
+    * Gets the plain text.
+    *
     * @access public
     * @return string
     */
-    public function getString()
+    public function getContent()
     {
         return $this->string;
     }
 
     /**
     * Gets rgb color.
+    *
     * @access public
     * @return array
     */
@@ -358,6 +421,7 @@ class Text
 
     /**
     * Gets font face.
+    *
     * @access public
     * @return string
     */
@@ -368,6 +432,7 @@ class Text
 
     /**
     * Gets font size.
+    *
     * @access public
     * @return int
     */
@@ -378,6 +443,7 @@ class Text
 
     /**
     * Gets opacity.
+    *
     * @access public
     * @return int
     */
@@ -388,6 +454,7 @@ class Text
 
     /**
     * Gets the horizontal alignment for text.
+    *
     * @access public
     * @return string (none, center)
     */
@@ -398,6 +465,7 @@ class Text
 
     /**
     * Gets the vertical alignment for text.
+    *
     * @access public
     * @return string (none, center)
     */
@@ -408,6 +476,7 @@ class Text
 
     /**
     * Gets angle.
+    *
     * @access public
     * @return int
     */
@@ -418,6 +487,7 @@ class Text
 
     /**
     * Gets width.
+    *
     * @access public
     * @return int
     */
@@ -428,6 +498,7 @@ class Text
 
     /**
     * Gets height.
+    *
     * @access public
     * @return int
     */
@@ -438,6 +509,7 @@ class Text
 
     /**
     * Gets top position.
+    *
     * @access public
     * @return int
     */
@@ -448,6 +520,7 @@ class Text
 
     /**
     * Gets left position.
+    *
     * @access public
     * @return int
     */

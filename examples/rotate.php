@@ -1,7 +1,17 @@
 <?php
+/*
+ * This file is part of GImage.
+ *
+ * (c) Jose Luis Quintana <https://git.io/joseluisq>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
 
 /**
- * Rotate an image
+ * Rotate an image.
+ *
+ * @author Jose Luis Quintana <https://git.io/joseluisq>
  */
 
 namespace GImage\Examples;

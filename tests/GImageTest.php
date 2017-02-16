@@ -1,4 +1,12 @@
 <?php
+/*
+ * This file is part of GImage.
+ *
+ * (c) Jose Luis Quintana <https://git.io/joseluisq>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
 
 namespace GImage\Test;
 
@@ -6,6 +14,7 @@ use GImage\Image;
 use GImage\Text;
 use GImage\Figure;
 use GImage\Canvas;
+use PHPUnit\Framework\TestCase;
 
 if (!defined('DS')) {
     define('DS', DIRECTORY_SEPARATOR);
@@ -15,13 +24,12 @@ define('GIMAGE_PATH_APP', dirname(dirname(__FILE__)));
 define('GIMAGE_PATH_TMP', sys_get_temp_dir());
 
 /**
- * PHPUnit / GImage Test Class
+ * GImage Test suite.
+ *
  * @package GImage
- * @version 2.0.0
- * @author José Luis Quintana <https://git.io/joseluisq>
- * @license https://github.com/joseluisq/gimage/blob/master/license.md
+ * @author Jose Luis Quintana <https://git.io/joseluisq>
  */
-class GImageTest extends \PHPUnit_Framework_TestCase
+class GImageTest extends TestCase
 {
     public function testLoad()
     {

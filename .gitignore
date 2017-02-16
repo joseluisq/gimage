@@ -6,12 +6,12 @@ examples/*.gif
 tmp/
 .tmp/
 composer.phar
-composer.lock
 composer-test.lock
 build/artifacts/
 artifacts/
 docs/_build
 docs/*.pyc
+*.log
 .idea
 .DS_STORE
 .DS_Store

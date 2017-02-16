@@ -1,7 +1,17 @@
 <?php
+/*
+ * This file is part of GImage.
+ *
+ * (c) Jose Luis Quintana <https://git.io/joseluisq>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
 
 /**
- * Creating a Presentation Card
+ * Creating a Presentation Card.
+ *
+ * @author José Luis Quintana <https://git.io/joseluisq>
  */
 
 namespace GImage\Examples;
@@ -76,18 +86,17 @@ $line_horizontal
     ->setLeft(120)
     ->create();
 
-$canvas = new Canvas();
+$canvas = new Canvas($canvas_figure);
 $canvas
-    ->from($canvas_figure)
     ->append([
-    $line_horizontal,
-    $avatar_box2,
-    $avatar_box3,
-    $avatar_box,
-    $avatar_image,
-    $about_text,
-    $twitter_text,
-    $line_vertical
+        $line_horizontal,
+        $avatar_box2,
+        $avatar_box3,
+        $avatar_box,
+        $avatar_image,
+        $about_text,
+        $twitter_text,
+        $line_vertical
     ])
     ->toPNG()
     ->draw()
