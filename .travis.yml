@@ -3,14 +3,28 @@ sudo: false
 language: php
 
 php:
-    - 7.0
-    - 7.1
+  - 7.0
+  - 7.0snapshot
+  - 7.1
+  - 7.1snapshot
+  - master
 
 cache:
   directories:
     - $HOME/.composer/cache/files
 
-install: travis_retry composer install --no-interaction --no-ansi --no-progress --no-suggest --optimize-autoloader --prefer-stable
+env:
+  matrix:
+    - DEPENDENCIES="high"
+    - DEPENDENCIES="low"
+
+before_install:
+  - composer self-update
+  - composer clear-cache
+
+install:
+  - if [[ "$DEPENDENCIES" = 'high' ]]; then travis_retry composer update --no-interaction --no-ansi --no-progress --no-suggest --optimize-autoloader --prefer-stable; fi
+  - if [[ "$DEPENDENCIES" = 'low' ]]; then travis_retry composer update --no-interaction --no-ansi --no-progress --no-suggest --optimize-autoloader --prefer-stable --prefer-lowest; fi
 
 script: make test
 
