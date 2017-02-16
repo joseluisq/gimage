@@ -26,7 +26,7 @@
         "issues": "https://github.com/joseluisq/gimage/issues"
     },
     "require": {
-        "php": "^7.0",
+        "php": "^7.0"
     },
     "config": {
         "platform": {
