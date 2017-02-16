@@ -1,26 +1,32 @@
 <?php
+/*
+ * This file is part of GImage.
+ *
+ * (c) Jose Luis Quintana <https://git.io/joseluisq>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
 
 namespace GImage;
 
 /**
- * Some util image functions.
+ * Image utility functions.
+ *
  * @package GImage
- * @access public
- * @version 2.0.0
- * @author José Luis Quintana <https://git.io/joseluisq>
- * @license https://github.com/joseluisq/gimage/blob/master/license.md
- * @property array $mimetypes Mime types for images.
- * @property array $typesimages Images types IMAGETYPE_GIF, IMAGETYPE_PNG and IMAGETYPE_JPEG.
- * @link Github https://github.com/joseluisq/gimage
+ * @author Jose Luis Quintana <https://git.io/joseluisq>
+ *
+ * @property array $mimeTypes Mime types for images.
+ * @property array $imageTypes Types: IMAGETYPE_GIF, IMAGETYPE_PNG and IMAGETYPE_JPEG.
  */
 class Utils
 {
-    private static $mimetypes = [
+    private static $mimeTypes = [
         IMAGETYPE_GIF => 'image/gif',
         IMAGETYPE_PNG => 'image/png',
         IMAGETYPE_JPEG => 'image/jpeg'
     ];
-    private static $typesimages = [
+    private static $imageTypes = [
         'gif' => IMAGETYPE_GIF,
         'png' => IMAGETYPE_PNG,
         'jpg' => IMAGETYPE_JPEG
@@ -28,38 +34,42 @@ class Utils
 
     /**
     * Gets image mime types (jpg, png and gif)
+    *
     * @access public
     * @return array
     */
     public static function getMimetypes()
     {
-        return self::$mimetypes;
+        return self::$mimeTypes;
     }
 
     /**
     * Gets image mimeType by filename.
+    *
     * @access public
     * @param string $filename Image path.
     * @return string
     */
     public static function getMimetype($filename)
     {
-        return self::$_mimetypes[self::getImageType($filename)];
+        return self::$mimeTypes[self::getImageType($filename)];
     }
 
     /**
     * Gets image mime type by image type (IMAGETYPE_GIF, IMAGETYPE_PNG or IMAGETYPE_JPEG).
+    *
     * @access public
     * @param string $imagetype IMAGETYPE_GIF, IMAGETYPE_PNG or IMAGETYPE_JPEG.
     * @return string
     */
     public static function getMimetypeByImageType($imagetype)
     {
-        return self::$mimetypes[$imagetype];
+        return self::$mimeTypes[$imagetype];
     }
 
     /**
     * Gets image extension from filename.
+    *
     * @access public
     * @param string $filename Image path.
     * @return string Return jpg, png or gif extension.
@@ -71,17 +81,19 @@ class Utils
 
     /**
     * Gets image type from filename.
+    *
     * @access public
     * @param string $filename Image path.
     * @return bool
     */
     public static function getImageType($filename)
     {
-        return self::$typesimages[self::getExtension($filename)];
+        return self::$imageTypes[self::getExtension($filename)];
     }
 
     /**
     * Checks if image path is a JPG.
+    *
     * @access public
     * @param string $filename Image path.
     * @return bool
@@ -93,6 +105,7 @@ class Utils
 
     /**
     * Checks if image path is a PNG.
+    *
     * @access public
     * @param string $filename Image path.
     * @return bool
@@ -104,6 +117,7 @@ class Utils
 
     /**
     * Checks if image path is a PNG.
+    *
     * @access public
     * @param string $filename Image path.
     * @return bool
@@ -111,5 +125,31 @@ class Utils
     public static function isGIF($filename)
     {
         return (self::getExtension($filename) == 'gif');
+    }
+
+    /**
+    * Checks if image resource is a JPG.
+    *
+    * @access public
+    * @param resource $resource Image resource.
+    * @return bool
+    */
+    public static function isJPGResource($resource)
+    {
+        return $resource && (bin2hex($resource[0]) == 'ff'
+                && bin2hex($resource[1]) == 'd8');
+    }
+
+    /**
+    * Checks if image resource is a PNG.
+    *
+    * @access public
+    * @param resource $resource Image resource.
+    * @return bool
+    */
+    public static function isPNGResource($resource)
+    {
+        return $resource && (bin2hex($resource[0]) == '89' && $resource[1] == 'P'
+                && $resource[2] == 'N' && $resource[3] == 'G');
     }
 }

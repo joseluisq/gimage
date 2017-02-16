@@ -1,4 +1,12 @@
 <?php
+/*
+ * This file is part of GImage.
+ *
+ * (c) Jose Luis Quintana <https://git.io/joseluisq>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
 
 namespace GImage;
 
@@ -7,21 +15,25 @@ use GImage\Text;
 
 /**
  * A Canvas represents a rectangular image area on which one can draw images.
+ *
  * @package GImage
- * @access public
- * @version 2.0.0
- * @author José Luis Quintana <https://git.io/joseluisq>
- * @license https://github.com/joseluisq/gimage/blob/master/license.md
- * @property array $list An array of elements (Image, Figure or Text classes)
- * @link Github https://github.com/joseluisq/gimage
+ * @author Jose Luis Quintana <https://git.io/joseluisq>
+ *
+ * @property array $elementList An array of elements (Image, Figure or Text classes).
  */
 class Canvas extends Image
 {
-    private $list = [];
+    /**
+     * List of elements.
+     *
+     * @var array
+     */
+    private $elementList = [];
 
     /**
     * Constructs a new Canvas.
-    * @param mixed $element Only Image or Figure class
+    *
+    * @param mixed $element Only Image or Figure class.
     * @access public
     * @return void
     */
@@ -32,9 +44,10 @@ class Canvas extends Image
 
     /**
     * Adds one or more elements to canvas.
+    *
     * @param mixed $elements Single or array of Image, Figure, Text classes.
     * @access public
-    * @return void
+    * @return \GImage\Canvas
     */
     public function append($elements)
     {
@@ -43,7 +56,7 @@ class Canvas extends Image
 
             foreach ($elements as $element) {
                 if ($element instanceof Image || $element instanceof Text) {
-                    $this->list[] = $element;
+                    $this->elementList[] = $element;
                 }
             }
         }
@@ -53,51 +66,22 @@ class Canvas extends Image
 
     /**
     * Draws the canvas.
+    *
     * @access public
-    * @return void
+    * @return \GImage\Canvas
     */
     public function draw()
     {
         $canvas = $this->resource;
 
         if ($canvas) {
-            $list = $this->list;
-
-            foreach ($list as $element) {
+            foreach ($this->elementList as $element) {
                 if ($element instanceof Image) {
-                    $simage = $element->getResource();
-                    imagecopyresampled($canvas, $simage, $element->getLeft(), $element->getTop(), $element->getBoxLeft(), $element->getBoxTop(), $element->getBoxWidth(), $element->getBoxHeight(), $element->getWidth(), $element->getHeight());
-                } else {
-                    if ($element instanceof Text) {
-                        $rgbColor = $element->getColor();
-                        $color = imagecolorallocatealpha($canvas, $rgbColor[0], $rgbColor[1], $rgbColor[2], $element->getOpacity());
+                    $this->drawImage($element, $canvas);
+                }
 
-                        $linesStr = $element->wrappText();
-                        $cords = $element->calculateTextBox($element->getSize(), $element->getAngle(), $element->getFontface(), $element->getString());
-
-                        // Alignment
-                        $x = $cords['left'] + $element->getLeft();
-                        $y = $element->getTop() + $cords['top'];
-
-                        if ($element->getAlign() == 'center') {
-                            $x = ($element->getWidth() - $cords['width']) / 2;
-                        }
-
-                        if ($element->getValign() == 'center') {
-                            $y = ($element->getHeight() - $cords['height']) / 2;
-                        }
-
-                        // Line height
-                        $line_height = $element->getLineHeight() * $element->getSize();
-                        $size = $element->getSize();
-                        $angle = $element->getAngle();
-                        $font = $element->getFontface();
-
-                        foreach ($linesStr as $i => $lineStr) {
-                            $ny = $y + ($line_height * $i);
-                            imagettftext($canvas, $size, $angle, $x, $ny, $color, $font, $lineStr);
-                        }
-                    }
+                if ($element instanceof Text) {
+                    $this->drawText($element, $canvas);
                 }
             }
 
@@ -105,10 +89,67 @@ class Canvas extends Image
         } else {
             throw new \Exception(''
             . 'Image or Figure class is not assigned. '
-            . 'You can do it using the "Canvas->from($element)" method.'
+            . 'E.g. "new Canvas($image_or_figure)"'
             . '');
         }
 
         return $this;
+    }
+
+    /**
+     * Draw the an Image or Figure element.
+     *
+     * @param  \GImage\Image|\GImage\Figure $element Image or Figure element.
+     * @return void
+     */
+    private function drawImage($element, $canvas)
+    {
+        $image = $element->getResource();
+
+        imagecopyresampled(
+            $canvas,
+            $image,
+            $element->getLeft(),
+            $element->getTop(),
+            $element->getBoxLeft(),
+            $element->getBoxTop(),
+            $element->getBoxWidth(),
+            $element->getBoxHeight(),
+            $element->getWidth(),
+            $element->getHeight()
+        );
+    }
+
+    /**
+     * Draw an Text element.
+     *
+     * @param  \GImage\Text $text Text element.
+     * @return void
+     */
+    private function drawText(Text $text, $canvas)
+    {
+        list($red, $green, $blue) = $text->getColor();
+
+        $color = imagecolorallocatealpha(
+            $canvas,
+            $red,
+            $green,
+            $blue,
+            $text->getOpacity()
+        );
+
+        $size = $text->getSize();
+        $angle = $text->getAngle();
+        $font = $text->getFontface();
+        $lineHeight = $text->getLineHeight() * $text->getSize();
+
+        list($x, $y) = $text->getCords();
+
+        $lines = $text->wrappText();
+
+        foreach ($lines as $i => $line) {
+            $ny = $y + ($lineHeight * $i);
+            imagettftext($canvas, $size, $angle, $x, $ny, $color, $font, $line);
+        }
     }
 }

@@ -1,6 +1,6 @@
 {
     "name": "joseluisq/gimage",
-    "description": "A simple PHP library for easy image handling.",
+    "description": "A PHP library for easy image handling.",
     "type": "library",
     "license": "MIT",
     "keywords": [
@@ -10,6 +10,8 @@
         "jpg",
         "jpeg",
         "resize",
+        "ellipse",
+        "rectangle",
         "crop",
         "file",
         "save",
@@ -24,11 +26,15 @@
         "issues": "https://github.com/joseluisq/gimage/issues"
     },
     "require": {
-        "php": ">=5.5",
-        "guzzlehttp/psr7": "^1.3.1"
+        "php": "^7.0",
+    },
+    "config": {
+        "platform": {
+            "php": "7.0.0"
+        }
     },
     "require-dev": {
-        "phpunit/phpunit": "^4.0"
+        "phpunit/phpunit": "^6.0"
     },
     "autoload": {
         "psr-4": {
