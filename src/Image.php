@@ -33,7 +33,7 @@ use GImage\Utils;
  * @property string $extension Default 'jpg'
  * @property resource $resource
  * @property int $quality
- * @property int $opacity
+ * @property int $opacity From 0 to 1
  * @property string $from Default 'local'
  * @property bool $preserve Default FALSE
  * @property string $mimetype Default 'image/jpeg'
@@ -54,7 +54,7 @@ class Image
     protected $extension = 'jpg';
     protected $resource;
     protected $quality = 100;
-    protected $opacity = 0;
+    protected $opacity = 1;
     protected $from = 'local';
     protected $preserve = false;
     protected $mimetype = 'image/jpeg';
@@ -880,8 +880,15 @@ class Image
                 $quality = 0;
             }
 
+            $opacity = Utils::fixPNGOpacity($this->opacity);
+
             imagealphablending($image, false);
             imagesavealpha($image, true);
+
+            if ($opacity >= 0 && $opacity < 127) {
+                imagefilter($image, IMG_FILTER_COLORIZE, 0, 0, 0, $opacity);
+            }
+
             imagepng($image, $filename, $quality);
         }
 

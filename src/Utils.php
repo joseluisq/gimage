@@ -152,4 +152,19 @@ class Utils
         return $resource && (bin2hex($resource[0]) == '89' && $resource[1] == 'P'
                 && $resource[2] == 'N' && $resource[3] == 'G');
     }
+
+    /**
+    * Fix the opacity value (0 to 1) for PNG alpha value.
+    *
+    * @access public
+    * @param int|double $opacity
+    * @return int|double
+    */
+    public static function fixPNGOpacity($opacity = 1)
+    {
+        $opacity = $opacity > 1 ? 1 : $opacity;
+        $opacity = $opacity < 0 ? 0 : $opacity;
+        $opacity = 127 - (127 * $opacity);
+        return $opacity;
+    }
 }
