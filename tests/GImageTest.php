@@ -99,7 +99,7 @@ class GImageTest extends TestCase
     public function testScale(Image $img)
     {
         // Scaling to 50% (100x100)
-        $img->scale(50);
+        $img->scale(0.5);
 
         return $img;
     }
