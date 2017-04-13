@@ -712,13 +712,18 @@ class Image
     /**
     * Scales the image.
     * @access public
-    * @param int $scale
+    * @param int|double $scale
     * @return \GImage\Image
     */
-    public function scale($scale)
+    public function scale($scale = 1)
     {
-        $width = $this->width * (int) $scale / 100;
-        $height = $this->height * (int) $scale / 100;
+        if ($scale > 1) {
+            $scale = 1;
+        }
+
+        $width = (int) $this->width * $scale;
+        $height = (int) $this->height * $scale;
+
         $this->resize($width, $height);
         return $this;
     }
@@ -732,7 +737,10 @@ class Image
     */
     public function rotate($angle = 0)
     {
-        $this->resource = imagerotate($this->resource, $angle, 0);
+        if ($this->resource) {
+            $this->resource = imagerotate($this->resource, $angle, 0);
+        }
+
         return $this;
     }
 
@@ -803,7 +811,7 @@ class Image
     {
         $image = $this->resource;
 
-        if ($image) {
+        if ($image && $width > 0 && $height > 0) {
             $simage = imagecreatetruecolor($width, $height);
 
             if ($this->isPNG()) {
