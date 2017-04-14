@@ -4,7 +4,33 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
-## [3.0.0]
+## [3.0.1] - 2017-04-14
+
+### Add
+- `Utils::fixPNGOpacity()` function that fix the opacity value between `0` and `1` for PNG alpha value.
+
+### Changed
+- `setOpacity` (`Figure`, `Image` and `Text` classes) method now support values from `0` to `1` only.
+
+```php
+<?php
+// Set opacity to 50%
+$figure->setOpacity(0.5)
+```
+
+### Fixed
+- `setOpacity` now works if it loads some JPEG image and then saves it as PNG.
+- Fixed the opacity tests.
+- Fixed the examples for opacity support.
+
+### Removed
+- Some unnecessary functions for figure class.
+
+### Deprecated
+- `setOpacity` doesn't support values from 0 to 100.
+
+
+## [3.0.0] - 2017-02-16
 ### Added
 - Feature: `isEllipse()` method support in `Figure` for create ellipses.
 - Feature: `isRectangle()` method support in `Figure` for create rectangles.
@@ -80,7 +106,8 @@ $text->setLineHeight(1.2);
 - Initial commit.
 - PHP `5.3` support.
 
-[Unreleased]: https://github.com/joseluisq/gimage/compare/3.0.0...HEAD
+[Unreleased]: https://github.com/joseluisq/gimage/compare/3.0.1...HEAD
+[3.0.1]: https://github.com/joseluisq/gimage/compare/3.0.0...3.0.1
 [3.0.0]: https://github.com/joseluisq/gimage/compare/2.0.1...3.0.0
 [2.0.1]: https://github.com/joseluisq/gimage/compare/2.0.0...2.0.1
 [2.0.0]: https://github.com/joseluisq/gimage/compare/1.5.2...2.0.0
