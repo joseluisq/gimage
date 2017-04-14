@@ -26,6 +26,6 @@ $figure = new Figure(300, 200);
 $figure
     ->isEllipse()
     ->setBackgroundColor(255, 0, 0)
-    ->setOpacity(35)
+    ->setOpacity(0.3)
     ->create()
     ->save(__DIR__ . '/ellipse.png');

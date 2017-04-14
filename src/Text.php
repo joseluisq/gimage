@@ -116,12 +116,12 @@ class Text
     * Sets text's opacity.
     *
     * @access public
-    * @param int $opacity Opacity value from 0 to 127
+    * @param int $opacity Opacity value from 0 to 1
     * @return void
     */
     public function setOpacity($opacity)
     {
-        $this->opacity = $opacity > 127 ? 127 : $opacity;
+        $this->opacity = $opacity;
 
         return $this;
     }

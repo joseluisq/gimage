@@ -36,6 +36,7 @@ $text
     ->setAlign('center')
     ->setValign('center')
     ->setSize(22)
+    ->setOpacity(0.3)
     ->setColor(255, 255, 255)
     ->setFontface(BASE_PATH . '/fonts/Lato-Bol.ttf');
 

@@ -12,6 +12,7 @@ namespace GImage;
 
 use GImage\Image;
 use GImage\Text;
+use GImage\Utils;
 
 /**
  * A Canvas represents a rectangular image area on which one can draw images.
@@ -129,13 +130,14 @@ class Canvas extends Image
     private function drawText(Text $text, $canvas)
     {
         list($red, $green, $blue) = $text->getColor();
+        $opacity = Utils::fixPNGOpacity($text->getOpacity());
 
         $color = imagecolorallocatealpha(
             $canvas,
             $red,
             $green,
             $blue,
-            $text->getOpacity()
+            $opacity
         );
 
         $size = $text->getSize();

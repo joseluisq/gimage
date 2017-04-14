@@ -29,6 +29,6 @@ $figure = new Figure(400, 250);
 $figure
     ->isRectangle()
     ->setBackgroundColor(0, 0, 255)
-    ->setOpacity(50)
+    ->setOpacity(0.5)
     ->create()
     ->save(__DIR__ . '/reactangle.png');

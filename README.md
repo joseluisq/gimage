@@ -8,16 +8,20 @@
 
 _* Presentation card - [view sample code](#creating-a-simple-presentation-card)_
 
-__GImage__ is a simple extended library based on [PHP Image Processing and GD](http://php.net/manual/en/book.image.php) for processing images without stress. For example:
+__GImage__ is a simple extended library based on [PHP Image Processing and GD](http://php.net/manual/en/book.image.php) for processing images without stress.
+
+With GImage you can:
+
 - Load a image from local path or URL.
-- Create figures like a rectangles or ellipses with opacity.
-- Rotate and crop (proportionally).
-- Resize and scale proportionally.
+- Create shapes such as rectangles or ellipses with opacity.
+- Resize or scale images proportionally.
+- Crop images proportionally.
+- Rotate images, shapes or texts.
 - Embed text with custom TTF fonts.
-- Compose a pool of images with Canvas.
-- Swap image formats like JPG, PNG and GIF.
-- Save file or output on browser.
-- Save several copies of an image.
+- Compose a pool of images with `Canvas`.
+- Swap image formats such as JPEG, PNG and GIF.
+- Save images in local or output on the browser.
+- Save several copies of the same image.
 
 ## Requirements
 GImage requires **[PHP 7.x](http://php.net/manual/en/migration70.new-features.php)** and latest [GD Extension](http://php.net/manual/en/book.image.php).
@@ -30,8 +34,6 @@ composer require joseluisq/gimage
 
 ## Usage
 
-For more examples check out the [./examples](./examples) dir.
-
 #### Image
 
 Working with an external JPG image and output it on browser as PNG format:
@@ -43,11 +45,13 @@ use GImage\Image;
 
 $avatar = new Image();
 $avatar
-	// Loading an image (200x200) from an URL (or local path)
-	->load('https://assets-cdn.github.com/images/modules/logos_page/Octocat.png');
+	// Loading a JPEG image (200x200) from an URL (or local path too)
+	->load('http://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50?s=200.jpg');
 	// Scaling to 50% (100x100)
 	->scale(50)
-	// Changing to PNG format
+	// Set 50% of opacity
+	->setOpacity(0.5)
+	// Changing the format to PNG
 	->toPNG()
 	// Preserving the image before saving or outputting
 	->preserve()
@@ -206,6 +210,8 @@ $canvas
 	->draw()
 	->save('./card.png');
 ```
+
+For more examples check out the [./examples](./examples) dir.
 
 ## Changelog
 Check out the [CHANGELOG.md](./CHANGELOG.md) file.

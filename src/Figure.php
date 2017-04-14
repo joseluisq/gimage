@@ -11,6 +11,7 @@
 namespace GImage;
 
 use GImage\Image;
+use GImage\Utils;
 
 /**
  * Class to embed simple graphic into the Canvas.
@@ -129,20 +130,18 @@ class Figure extends Image
         $figure = imagecreatetruecolor($this->width, $this->height);
         imagesavealpha($figure, true);
 
+        $opacity = Utils::fixPNGOpacity($this->opacity);
+
         $color = imagecolorallocatealpha(
             $figure,
             $this->red,
             $this->green,
             $this->blue,
-            $this->opacity
+            $opacity
         );
 
         $alpha = imagecolorallocatealpha($figure, 255, 255, 255, 127);
-
         imagefill($figure, 0, 0, $alpha);
-        imagefill($figure, $this->width - 1, 0, $alpha);
-        imagefill($figure, 0, $this->height - 1, $alpha);
-        imagefill($figure, $this->width - 1, $this->height - 1, $alpha);
 
         if ($this->figureType == 'rectangle') {
             imagefilledrectangle(
