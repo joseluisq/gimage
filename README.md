@@ -10,8 +10,7 @@ _Presentation card built with GImage - [view sample code](#creating-a-simple-pre
 
 ## Features
 
-__GImage__ is a simple extended library based on [PHP Image Processing and GD](http://php.net/manual/en/book.image.php) for processing images without stress.
-
+__GImage__ is a simple and small library based on [PHP Image Processing and GD](http://php.net/manual/en/book.image.php) for processing images without stress.
 
 - Load an image from local path or URL.
 - Create shapes such as rectangles or ellipses with opacity.
@@ -76,8 +75,8 @@ use GImage\Figure;
 // Setting ellipse sizes
 $ellipse = new Figure(500, 300);
 $ellipse
-    // Set ellipse type
-    ->isEllipse()
+	// Set ellipse type
+	->isEllipse()
 	// Setting a green RGB color
 	->setBackgroundColor(170, 188, 147)
 	// Creating the figure
@@ -218,7 +217,7 @@ For more examples check out the [./examples](./examples) dir.
 Check out the [CHANGELOG.md](./CHANGELOG.md) file.
 
 ## Documentation
-Read [API Documentation](http://joseluisq.github.io/gimage/#documentation)
+View [the documentation API](https://joseluisq.github.io/gimage/docs/)
 
 ## Contribution
 If you would like to contribute [pull requests](https://github.com/joseluisq/gimage/pulls) and [issues](https://github.com/joseluisq/gimage/issues) will be welcome! Feature requests are welcome. Please before sending some feature requests make sure provide as much detail and context as possible.
