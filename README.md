@@ -6,13 +6,13 @@
 
 ![A simple presentation card with GImage](https://cloud.githubusercontent.com/assets/1700322/18941713/eed7fa34-85d8-11e6-8033-bf787e4aa236.png)
 
-_* Presentation card - [view sample code](#creating-a-simple-presentation-card)_
+_Presentation card built with GImage - [view sample code](#creating-a-simple-presentation-card)_
 
 __GImage__ is a simple extended library based on [PHP Image Processing and GD](http://php.net/manual/en/book.image.php) for processing images without stress.
 
-With GImage you can:
+## Features
 
-- Load a image from local path or URL.
+- Load an image from local path or URL.
 - Create shapes such as rectangles or ellipses with opacity.
 - Resize or scale images proportionally.
 - Crop images proportionally.
