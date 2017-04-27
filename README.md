@@ -8,9 +8,10 @@
 
 _Presentation card built with GImage - [view sample code](#creating-a-simple-presentation-card)_
 
+## Features
+
 __GImage__ is a simple extended library based on [PHP Image Processing and GD](http://php.net/manual/en/book.image.php) for processing images without stress.
 
-## Features
 
 - Load an image from local path or URL.
 - Create shapes such as rectangles or ellipses with opacity.
