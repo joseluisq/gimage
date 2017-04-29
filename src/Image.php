@@ -82,24 +82,9 @@ class Image
     public function from($element = null)
     {
         if (!empty($element) && $element instanceof Image) {
-            $this->name = $element->name;
-            $this->filename = $element->filename;
-            $this->width = $element->width;
-            $this->height = $element->height;
-            $this->x = $element->x;
-            $this->y = $element->y;
-            $this->boxWidth = $element->boxWidth;
-            $this->boxHeight = $element->boxHeight;
-            $this->boxX = $element->boxX;
-            $this->boxY = $element->boxY;
-            $this->type = $element->type;
-            $this->extension = $element->extension;
-            $this->resource = $element->resource;
-            $this->quality = $element->quality;
-            $this->opacity = $element->opacity;
-            $this->from = $element->from;
-            $this->preserve = $element->preserve;
-            $this->mimetype = $element->mimetype;
+            foreach (get_object_vars($element) as $key => $value) {
+                $this->$key = $value;
+            }
 
             return $this;
         }
