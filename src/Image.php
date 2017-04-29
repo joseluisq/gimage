@@ -10,8 +10,6 @@
 
 namespace GImage;
 
-use GImage\Utils;
-
 /**
  * A simple extended GD class for easy image handling.
  * This is the parent class for Figure and Canvas.

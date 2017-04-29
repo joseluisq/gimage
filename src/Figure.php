@@ -10,9 +10,6 @@
 
 namespace GImage;
 
-use GImage\Image;
-use GImage\Utils;
-
 /**
  * Class to embed simple graphic into the Canvas.
  * A Figure can be a Canvas too.
