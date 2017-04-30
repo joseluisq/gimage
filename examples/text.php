@@ -28,15 +28,17 @@ $figure
     ->setBackgroundColor(47, 42, 39)
     ->create();
 
-$text = new Text('Output PNG Text!');
+$text = new Text('My Text with opacity!');
 $text
     ->setWidth(400)
     ->setHeight(250)
-    ->setLineHeight(1.2)
-    ->setAlign('center')
-    ->setValign('center')
+    ->setAlign('center') // or "none"
+    ->setValign('center') // or "none"
+    // Or use line height
+    // ->setLineHeight(1.2)
+
     ->setSize(22)
-    ->setOpacity(0.3)
+    ->setOpacity(0.5)
     ->setColor(255, 255, 255)
     ->setFontface(BASE_PATH . '/fonts/Lato-Bol.ttf');
 

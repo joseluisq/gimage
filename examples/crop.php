@@ -27,4 +27,5 @@ $image
     ->load('http://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50?s=300.jpg')
     // Resize and crop in the middle (100px x 60px)
     ->centerCrop(100, 60)
+    // Save the resource
     ->save(__DIR__ . '/crop.jpg');

@@ -16,7 +16,6 @@
 
 namespace GImage\Examples;
 
-use GImage\Text;
 use GImage\Figure;
 
 require __DIR__ . '/_config.php';
@@ -26,6 +25,6 @@ $figure = new Figure(300, 200);
 $figure
     ->isEllipse()
     ->setBackgroundColor(255, 0, 0)
-    ->setOpacity(0.3)
+    ->setOpacity(0.5)
     ->create()
     ->save(__DIR__ . '/ellipse.png');
