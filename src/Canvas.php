@@ -10,10 +10,6 @@
 
 namespace GImage;
 
-use GImage\Image;
-use GImage\Text;
-use GImage\Utils;
-
 /**
  * A Canvas represents a rectangular image area on which one can draw images.
  *
