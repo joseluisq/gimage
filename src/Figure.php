@@ -36,7 +36,6 @@ class Figure extends Image
    * @access public
    * @param int $width Width.
    * @param int $height Height.
-   * @return void
    */
     public function __construct($width = 0, $height = 0)
     {

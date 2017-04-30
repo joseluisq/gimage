@@ -32,7 +32,6 @@ class Canvas extends Image
     *
     * @param mixed $element Only Image or Figure class.
     * @access public
-    * @return void
     */
     public function __construct($element = null)
     {
@@ -62,11 +61,12 @@ class Canvas extends Image
     }
 
     /**
-    * Draws the canvas.
-    *
-    * @access public
-    * @return \GImage\Canvas
-    */
+     * Draws the canvas.
+     *
+     * @access public
+     * @return Canvas
+     * @throws \Exception
+     */
     public function draw()
     {
         $canvas = $this->resource;
@@ -97,6 +97,7 @@ class Canvas extends Image
      * Draw the an Image or Figure element.
      *
      * @param  \GImage\Image|\GImage\Figure $element Image or Figure element.
+     * @param mixed                         $canvas
      * @return void
      */
     private function drawImage($element, $canvas)
@@ -121,6 +122,7 @@ class Canvas extends Image
      * Draw an Text element.
      *
      * @param  \GImage\Text $text Text element.
+     * @param mixed         $canvas
      * @return void
      */
     private function drawText(Text $text, $canvas)
