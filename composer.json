@@ -26,7 +26,8 @@
         "issues": "https://github.com/joseluisq/gimage/issues"
     },
     "require": {
-        "php": "^7.0"
+        "php": "^7.0",
+        "ext-gd": "*"
     },
     "config": {
         "platform": {
@@ -46,8 +47,5 @@
         "psr-4": {
             "GImage\\Tests\\": "tests/"
         }
-    },
-    "suggest": {
-        "ext-gd": "To use GD library based on image processing."
     }
 }
