@@ -121,7 +121,7 @@ $text->setLineHeight(1.2);
 - Initial commit.
 - PHP `5.3` support.
 
-[Unreleased]: https://github.com/joseluisq/gimage/compare/3.0.2...HEAD
+[3.0.2]: https://github.com/joseluisq/gimage/compare/3.0.2...HEAD
 [3.0.1]: https://github.com/joseluisq/gimage/compare/3.0.1...3.0.2
 [3.0.1]: https://github.com/joseluisq/gimage/compare/3.0.0...3.0.1
 [3.0.0]: https://github.com/joseluisq/gimage/compare/2.0.1...3.0.0
