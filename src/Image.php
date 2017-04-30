@@ -63,7 +63,6 @@ class Image
     * @package GImage
     * @access public
     * @param Image $element Image or Figure class.
-    * @return void
     */
     public function __construct($element = null)
     {
@@ -575,7 +574,7 @@ class Image
     * Changes output format to PNG.
     *
     * @access public
-    * @return \GvoidvoidvoidImage\Imagevoidvoidvoid
+    * @return \GImage\Image
     */
     public function toPNG()
     {
@@ -618,8 +617,8 @@ class Image
     * @access public
     * @param string $filename If it's null save function will save the image
     * in load path for default.
-    * @return bool True if it is saved successful and False if it is not saved.
-    */
+    * @return bool|Image
+     */
     public function save($filename = null)
     {
         return $this->render($filename);
@@ -629,8 +628,8 @@ class Image
     * Outputs the image on browser.
     *
     * @access public
-    * @return bool
-    */
+    * @return bool|Image
+     */
     public function output()
     {
         return $this->render(null, true);

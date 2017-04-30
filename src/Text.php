@@ -262,7 +262,7 @@ class Text
     * Wrapps the text.
     *
     * @access public
-    * @return string
+    * @return array
     */
     public function wrappText()
     {
@@ -286,7 +286,7 @@ class Text
     * @param string $fontface Path of TTF font.
     * @param string $string String text.
     * @param int $width Width for text box area.
-    * @return string
+    * @return array
     */
     public function getWrappedText($size, $angle, $fontface, $string, $width = 100)
     {
