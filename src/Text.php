@@ -18,9 +18,19 @@ namespace GImage;
  *
  * @property string $string String text.
  * @property string $fontface Font face .ttf filename.
+ * @property string $align Horizontal align mode.
+ * @property string $valign Vertical align mode.
  * @property int $angle Angle for the text.
  * @property int $opacity Opacity for the text.
- * @property string $string String text
+ * @property int $width
+ * @property int $height
+ * @property float $lineHeight
+ * @property int $size
+ * @property int $x
+ * @property int $y
+ * @property int $red
+ * @property int $green
+ * @property int $blue
  */
 class Text
 {
@@ -41,12 +51,11 @@ class Text
     private $blue = 0;
 
     /**
-    * Sets the plain text.
-    *
-    * @access public
-    * @param string $string Plain text.
-    * @return void
-    */
+     * Sets the plain text.
+     *
+     * @access public
+     * @param string $string Plain text.
+     */
     public function __construct($string = '')
     {
         $this->setContent($string);
@@ -57,7 +66,7 @@ class Text
     *
     * @access public
     * @param string $string Plain text.
-    * @return void
+    * @return $this
     */
     public function setContent($string)
     {
@@ -73,7 +82,7 @@ class Text
     * @param int $red Red color.
     * @param int $green Green color.
     * @param int $blue Blue color.
-    * @return void
+    * @return $this
     */
     public function setColor($red, $green, $blue)
     {
@@ -85,12 +94,12 @@ class Text
     }
 
     /**
-    * Sets font size for text.
-    *
-    * @access public
-    * @param int $size Font size.
-    * @return void
-    */
+     * Sets font size for text.
+     *
+     * @access public
+     * @param int $size Font size.
+     * @return $this
+     */
     public function setSize($size)
     {
         $this->size = $size;
@@ -103,7 +112,7 @@ class Text
     *
     * @access public
     * @param string $fontface Path of TTF font.
-    * @return void
+    * @return $this
     */
     public function setFontface($fontface)
     {
@@ -117,7 +126,7 @@ class Text
     *
     * @access public
     * @param int $opacity Opacity value from 0 to 1
-    * @return void
+    * @return $this
     */
     public function setOpacity($opacity)
     {
@@ -131,7 +140,7 @@ class Text
     *
     * @access public
     * @param string $align Values supported: none, center
-    * @return void
+    * @return $this
     */
     public function setAlign($align)
     {
@@ -145,7 +154,7 @@ class Text
     *
     * @access public
     * @param string $valign Two values supported: none, center
-    * @return void
+    * @return $this
     */
     public function setValign($valign)
     {
@@ -159,7 +168,7 @@ class Text
     *
     * @access public
     * @param int $angle Angle
-    * @return void
+    * @return $this
     */
     public function setAngle($angle)
     {
@@ -173,7 +182,7 @@ class Text
     *
     * @access public
     * @param int $width Width
-    * @return void
+    * @return $this
     */
     public function setWidth($width)
     {
@@ -187,7 +196,7 @@ class Text
     *
     * @access public
     * @param int $height Height
-    * @return void
+    * @return $this
     */
     public function setHeight($height)
     {
@@ -201,7 +210,7 @@ class Text
     *
     * @access public
     * @param int $y position
-    * @return void
+    * @return $this
     */
     public function setTop($y)
     {
@@ -215,7 +224,7 @@ class Text
     *
     * @access public
     * @param int $x position
-    * @return void
+    * @return $this
     */
     public function setLeft($x)
     {
@@ -229,7 +238,7 @@ class Text
     *
     * @access public
     * @param float $lineHeight line-height
-    * @return void
+    * @return $this
     */
     public function setLineHeight($lineHeight)
     {
@@ -311,7 +320,7 @@ class Text
     * @param int $fontAngle Angole for the text.
     * @param string $fontFile Path of TTF font.
     * @param string $text String text.
-    * @return array
+    * @return array|boolean
     */
     private function getBoundingBox($fontSize, $fontAngle, $fontFile, $text)
     {
