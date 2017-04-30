@@ -127,46 +127,54 @@ class Figure extends Image
    */
     public function create()
     {
-        $figure = imagecreatetruecolor($this->width, $this->height);
-        imagesavealpha($figure, true);
-
-        $opacity = Utils::fixPNGOpacity($this->opacity);
+        $this->resource = imagecreatetruecolor($this->width, $this->height);
+        imagesavealpha($this->resource, true);
 
         $color = imagecolorallocatealpha(
-            $figure,
+            $this->resource,
             $this->red,
             $this->green,
             $this->blue,
-            $opacity
+            null
         );
 
-        $alpha = imagecolorallocatealpha($figure, 255, 255, 255, 127);
-        imagefill($figure, 0, 0, $alpha);
-
         if ($this->figureType == 'rectangle') {
-            imagefilledrectangle(
-                $figure,
-                0,
-                0,
-                $this->width,
-                $this->height,
-                $color
-            );
+            $this->createRectangle($color);
         }
-
 
         if ($this->figureType == 'ellipse') {
-            imagefilledellipse(
-                $figure,
-                $this->width / 2,
-                $this->height / 2,
-                $this->width,
-                $this->height,
-                $color
-            );
+            $this->createEllipse($color);
         }
 
-        $this->resource = $figure;
+        $this->addOpacityFilter();
+
         return $this;
+    }
+
+    private function createRectangle($color)
+    {
+        imagefilledrectangle(
+            $this->resource,
+            0,
+            0,
+            $this->width,
+            $this->height,
+            $color
+        );
+    }
+
+    private function createEllipse($color)
+    {
+        $alpha = imagecolorallocatealpha($this->resource, 255, 255, 255, 127);
+        imagefill($this->resource, 0, 0, $alpha);
+
+        imagefilledellipse(
+            $this->resource,
+            $this->width / 2,
+            $this->height / 2,
+            $this->width,
+            $this->height,
+            $color
+        );
     }
 }
