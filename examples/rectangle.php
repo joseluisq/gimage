@@ -16,9 +16,7 @@
 
 namespace GImage\Examples;
 
-use GImage\Text;
 use GImage\Figure;
-use GImage\Canvas;
 
 require __DIR__ . '/_config.php';
 require __DIR__ . '/../tests/bootstrap.php';

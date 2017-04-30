@@ -164,7 +164,9 @@ class Utils
     {
         $opacity = $opacity > 1 ? 1 : $opacity;
         $opacity = $opacity < 0 ? 0 : $opacity;
-        $opacity = 127 - (127 * $opacity);
+        $opacity = (int) round(127 * $opacity, 0, PHP_ROUND_HALF_UP);
+        $opacity = 127 - $opacity;
+
         return $opacity;
     }
 }

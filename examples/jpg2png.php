@@ -9,22 +9,27 @@
  */
 
 /**
- * Creating an Elipse.
+ * Convert JPEG image to PNG with opacity.
  *
  * @author Jose Luis Quintana <https://git.io/joseluisq>
  */
 
 namespace GImage\Examples;
 
-use GImage\Figure;
+use GImage\Image;
 
 require __DIR__ . '/_config.php';
 require __DIR__ . '/../tests/bootstrap.php';
 
-$figure = new Figure(300, 200);
-$figure
-    ->isEllipse()
-    ->setBackgroundColor(255, 0, 0)
+$image = new Image();
+$image
+    // Load a JPEG image
+    ->load('http://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50?s=300.jpg')
+    // Resize and crop in the middle (100px x 80px)
+    ->centerCrop(100, 80)
+    // Change the format
+    ->toPNG()
+    // Set opacity to 50%
     ->setOpacity(0.5)
-    ->create()
-    ->save(__DIR__ . '/ellipse.png');
+    // Save the resource
+    ->save(__DIR__ . '/jpg2png.png');

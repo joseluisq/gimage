@@ -792,19 +792,17 @@ class Image
     */
     private function resize($width, $height, $x1 = 0, $y1 = 0, $dstX = 0, $dstY = 0, $isCrop = false)
     {
-        $image = $this->resource;
-
-        if ($image && $width > 0 && $height > 0) {
-            $simage = imagecreatetruecolor($width, $height);
+        if ($this->resource && $width > 0 && $height > 0) {
+            $image = imagecreatetruecolor($width, $height);
 
             if ($this->isPNG()) {
-                imagealphablending($simage, false);
-                imagesavealpha($simage, true);
+                imagealphablending($image, false);
+                imagesavealpha($image, true);
             }
 
             imagecopyresampled(
-                $simage,
                 $image,
+                $this->resource,
                 $dstX,
                 $dstY,
                 $x1,
@@ -815,7 +813,7 @@ class Image
                 $isCrop ? $height : $this->height
             );
 
-            $this->resource = $simage;
+            $this->resource = $image;
             $this->width = $this->boxWidth = imagesx($this->resource);
             $this->height = $this->boxHeight = imagesy($this->resource);
         }
@@ -833,9 +831,7 @@ class Image
     */
     private function render($filename = null, $output = false)
     {
-        $image = $this->resource;
-
-        if (!$image) {
+        if (!$this->resource) {
             return $this;
         }
 
@@ -855,7 +851,7 @@ class Image
         }
 
         if ($this->isJPG()) {
-            imagejpeg($image, $filename, $quality);
+            imagejpeg($this->resource, $filename, $quality);
         }
 
         if ($this->isPNG()) {
@@ -863,20 +859,17 @@ class Image
                 $quality = 0;
             }
 
-            $opacity = Utils::fixPNGOpacity($this->opacity);
+            imagesavealpha($this->resource, true);
 
-            imagealphablending($image, false);
-            imagesavealpha($image, true);
-
-            if ($opacity >= 0 && $opacity < 127) {
-                imagefilter($image, IMG_FILTER_COLORIZE, 0, 0, 0, $opacity);
+            if (!is_subclass_of($this, Image::class)) {
+                $this->addOpacityFilter();
             }
 
-            imagepng($image, $filename, $quality);
+            imagepng($this->resource, $filename, $quality);
         }
 
         if ($this->isGIF()) {
-            imagegif($image, $filename);
+            imagegif($this->resource, $filename);
         }
 
         if ($output) {
@@ -905,5 +898,21 @@ class Image
         $this->resource = null;
 
         return $this;
+    }
+
+    /**
+     * Add opacity filter to the current resource.
+     *
+     * @access protected
+     * @return void
+     */
+    protected function addOpacityFilter()
+    {
+        $opacity = Utils::fixPNGOpacity($this->opacity);
+
+        if ($opacity >= 0 && $opacity < 127) {
+            imagealphablending($this->resource, false);
+            imagefilter($this->resource, IMG_FILTER_COLORIZE, 0, 0, 0, $opacity);
+        }
     }
 }

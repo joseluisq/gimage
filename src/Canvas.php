@@ -133,7 +133,7 @@ class Canvas extends Image
             $red,
             $green,
             $blue,
-            $opacity
+            $opacity < 127 ? $opacity : null
         );
 
         $size = $text->getSize();
@@ -147,6 +147,7 @@ class Canvas extends Image
 
         foreach ($lines as $i => $line) {
             $ny = $y + ($lineHeight * $i);
+            imagealphablending($canvas, true);
             imagettftext($canvas, $size, $angle, $x, $ny, $color, $font, $line);
         }
     }
