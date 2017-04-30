@@ -4,6 +4,21 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [3.0.2] - 2017-04-30
+
+### Add
+- __Image:__ Added the `Image::addOpacityFilter()` method with protected visiblity.
+
+### Changed
+- Remove unused imports. (PR https://github.com/joseluisq/gimage/pull/16 by @matiit)
+- Simplify importing Image properties in the `Image::from()` method. (PR https://github.com/joseluisq/gimage/pull/16 by @matiit)
+
+### Fixed
+- __Figure:__ Fixes for add correctly the opacity filter in rectangles and ellipses. (issue #15)
+- __Image:__ Render fixes for add correctly PNG's opacity.
+- __Utils:__ Fixed the `Utils::fixPNGOpacity()` method.
+
+
 ## [3.0.1] - 2017-04-14
 
 ### Add
@@ -106,7 +121,8 @@ $text->setLineHeight(1.2);
 - Initial commit.
 - PHP `5.3` support.
 
-[Unreleased]: https://github.com/joseluisq/gimage/compare/3.0.1...HEAD
+[Unreleased]: https://github.com/joseluisq/gimage/compare/3.0.2...HEAD
+[3.0.1]: https://github.com/joseluisq/gimage/compare/3.0.1...3.0.2
 [3.0.1]: https://github.com/joseluisq/gimage/compare/3.0.0...3.0.1
 [3.0.0]: https://github.com/joseluisq/gimage/compare/2.0.1...3.0.0
 [2.0.1]: https://github.com/joseluisq/gimage/compare/2.0.0...2.0.1
