@@ -15,6 +15,7 @@ docs/*.pyc
 .idea
 .DS_STORE
 .DS_Store
-docs
-_site
 Gemfile.lock
+docs
+_docs
+_site
