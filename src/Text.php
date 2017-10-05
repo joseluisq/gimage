@@ -68,7 +68,7 @@ class Text
      * @param string $string Plain text.
      * @return $this
      */
-    public function setContent($string)
+    public function setContent($string = '')
     {
         $this->string = $string;
 
