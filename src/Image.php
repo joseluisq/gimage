@@ -613,30 +613,6 @@ class Image
     }
 
     /**
-     * Saves the image to specific path.
-     *
-     * @access public
-     * @param string $filename If it's null save function will save the image
-     * in load path for default.
-     * @return bool|Image
-     */
-    public function save($filename = null)
-    {
-        return $this->render($filename);
-    }
-
-    /**
-     * Outputs the image on browser.
-     *
-     * @access public
-     * @return bool|Image
-     */
-    public function output()
-    {
-        return $this->render(null, true);
-    }
-
-    /**
      * Resize image proportionally basing on the height of the image.
      *
      * @access public
@@ -647,6 +623,7 @@ class Image
     {
         $width = $this->getPropWidth($height);
         $this->resize($width, $height);
+
         return $this;
     }
 
@@ -693,12 +670,12 @@ class Image
     }
 
     /**
-    * Scales the image.
-    *
-    * @access public
-    * @param int|double $scale
-    * @return \GImage\Image
-    */
+     * Scales the image.
+     *
+     * @access public
+     * @param int|double $scale
+     * @return \GImage\Image
+     */
     public function scale($scale = 1)
     {
         if ($scale > 1) {
@@ -709,6 +686,7 @@ class Image
         $height = (int) $this->height * $scale;
 
         $this->resize($width, $height);
+
         return $this;
     }
 
@@ -823,14 +801,63 @@ class Image
     }
 
     /**
-     * Renders the image.
+     * Saves the image to specific path.
+     *
+     * @access public
+     * @param string $filename If it's null save function will save the image
+     * in load path for default.
+     * @return \GImage\Image
+     */
+    public function save($filename = null)
+    {
+        return $this->outputBuffer($filename);
+    }
+ 
+    /**
+     * Outputs the image on browser.
+     *
+     * @access public
+     * @return \GImage\Image
+     */
+    public function output()
+    {
+        return $this->outputBuffer(null, true);
+    }
+
+    /**
+     * Render the image in-memory and return the resource.
+     *
+     * @access public
+     * @return resource | null  Return the resource or null.
+     */
+    public function render()
+    {
+        $image = null;
+
+        if ($this->resource) {
+            ob_start();
+            $this->outputBufferByImage(null, $this->quality);
+            $string = ob_get_contents();
+            ob_end_clean();
+
+            if (!empty($string)) {
+                $image = imagecreatefromstring($string);     
+            }
+
+        }
+
+        return $image;
+    }
+
+    /**
+     * Output the image to either the browser or a file.
      *
      * @access private
      * @param string $filename [Optional] Path to save image
-     * @param bool $output [Optional] If it's true render function outputs image.
-     * @return \GImage\Image
+     * @param bool $output [Optional] true to output the image.
+     * @return \GImage\Image | resource
      */
-    private function render($filename = null, $output = false)
+    private function outputBuffer($filename = null, $output = false)
     {
         if (!$this->resource) {
             return $this;
@@ -844,13 +871,26 @@ class Image
             $filename = $this->name;
         }
 
-        $quality = $this->quality;
-
         if ($output) {
             header('Content-type: ' . $this->mimetype);
             ob_start();
         }
 
+        $this->outputBufferByImage($filename, $this->quality);
+
+        if ($output) {
+            ob_end_flush();
+        }
+
+        if (!$this->preserve) {
+            $this->destroy();
+        }
+
+        return $this;
+    }
+
+    private function outputBufferByImage($filename, $quality)
+    {
         if ($this->isJPG()) {
             imagejpeg($this->resource, $filename, $quality);
         }
@@ -872,16 +912,6 @@ class Image
         if ($this->isGIF()) {
             imagegif($this->resource, $filename);
         }
-
-        if ($output) {
-            ob_end_flush();
-        }
-
-        if (!$this->preserve) {
-            $this->destroy();
-        }
-
-        return $this;
     }
 
     /**
