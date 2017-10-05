@@ -2,7 +2,7 @@
 /*
  * This file is part of GImage.
  *
- * (c) Jose Luis Quintana <https://git.io/joseluisq>
+ * (c) José Luis Quintana <https://git.io/joseluisq>
  *
  * This source file is subject to the MIT license that is bundled
  * with this source code in the file LICENSE.
@@ -12,10 +12,9 @@ namespace GImage;
 
 /**
  * Class to embed simple graphic into the Canvas.
- * A Figure can be a Canvas too.
  *
  * @package GImage
- * @author Jose Luis Quintana <http://git.io/joseluisq>
+ * @author José Luis Quintana <http://git.io/joseluisq>
  *
  * @property int $red Red color
  * @property int $green Green color
@@ -30,13 +29,13 @@ class Figure extends Image
     protected $blue = 0;
     protected $figureType = 'rectangle';
 
-  /**
-   * Sets size for figure.
-   *
-   * @access public
-   * @param int $width Width.
-   * @param int $height Height.
-   */
+    /**
+     * Sets size for figure.
+     *
+     * @access public
+     * @param int $width Width.
+     * @param int $height Height.
+     */
     public function __construct($width = 0, $height = 0)
     {
         $this->setSize($width, $height);
@@ -45,14 +44,14 @@ class Figure extends Image
         parent::__construct();
     }
 
-  /**
-   * Sets size to figure.
-   *
-   * @access public
-   * @param int $width Width.
-   * @param int $height Height.
-   * @return \GImage\Figure
-   */
+    /**
+     * Sets size to figure.
+     *
+     * @access public
+     * @param int $width Width.
+     * @param int $height Height.
+     * @return \GImage\Figure
+     */
     public function setSize($width = 0, $height = 0)
     {
         if (!empty($width) && !empty($height)) {
@@ -63,64 +62,65 @@ class Figure extends Image
         return $this;
     }
 
-  /**
-   * Sets the figure type as 'rectangle'.
-   *
-   * @access public
-   * @return \GImage\Figure
-   */
+    /**
+     * Sets the figure type as 'rectangle'.
+     *
+     * @access public
+     * @return \GImage\Figure
+     */
     public function isRectangle()
     {
         $this->figureType = 'rectangle';
         return $this;
     }
 
-  /**
-   * Sets the figure type as 'ellipse'.
-   *
-   * @access public
-   * @return \GImage\Figure
-   */
+    /**
+     * Sets the figure type as 'ellipse'.
+     *
+     * @access public
+     * @return \GImage\Figure
+     */
     public function isEllipse()
     {
         $this->figureType = 'ellipse';
         return $this;
     }
 
-  /**
-   * Sets background color.
-   *
-   * @access public
-   * @param int $red Red.
-   * @param int $green Green.
-   * @param int $blue Blue.
-   * @return \GImage\Figure
-   */
+    /**
+     * Sets background color in RGB format.
+     *
+     * @access public
+     * @param int $red Red.
+     * @param int $green Green.
+     * @param int $blue Blue.
+     * @return \GImage\Figure
+     */
     public function setBackgroundColor($red, $green, $blue)
     {
         $this->red = $red;
         $this->green = $green;
         $this->blue = $blue;
+
         return $this;
     }
 
-  /**
-   * Sets background color.
-   *
-   * @access public
-   * @return array An array with RGB colors.
-   */
+    /**
+     * Gets an array with the RGB background colors.
+     *
+     * @access public
+     * @return array An array with RGB colors.
+     */
     public function getBackgroundColor()
     {
         return [$this->red, $this->green, $this->blue];
     }
 
-  /**
-   * Creates the figure with alpha channel.
-   *
-   * @access public
-   * @return \GImage\Figure
-   */
+    /**
+     * Creates the figure with alpha channel.
+     *
+     * @access public
+     * @return \GImage\Figure
+     */
     public function create()
     {
         $this->resource = imagecreatetruecolor($this->width, $this->height);
@@ -147,6 +147,12 @@ class Figure extends Image
         return $this;
     }
 
+    /**
+     * Creates a filled rectangle.
+     *
+     * @access private
+     * @return void
+     */
     private function createRectangle($color)
     {
         imagefilledrectangle(
@@ -159,6 +165,12 @@ class Figure extends Image
         );
     }
 
+    /**
+     * Creates a filled ellipse.
+     *
+     * @access private
+     * @return void
+     */
     private function createEllipse($color)
     {
         $alpha = imagecolorallocatealpha($this->resource, 255, 255, 255, 127);

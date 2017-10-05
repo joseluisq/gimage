@@ -2,7 +2,7 @@
 /*
  * This file is part of GImage.
  *
- * (c) Jose Luis Quintana <https://git.io/joseluisq>
+ * (c) José Luis Quintana <https://git.io/joseluisq>
  *
  * This source file is subject to the MIT license that is bundled
  * with this source code in the file LICENSE.
@@ -14,7 +14,7 @@ namespace GImage;
  * A Text class to embed string into Canvas.
  *
  * @package GImage
- * @author Jose Luis Quintana <https://git.io/joseluisq>
+ * @author José Luis Quintana <https://git.io/joseluisq>
  *
  * @property string $string String text.
  * @property string $fontface Font face .ttf filename.
@@ -62,12 +62,12 @@ class Text
     }
 
     /**
-    * Sets the plain text.
-    *
-    * @access public
-    * @param string $string Plain text.
-    * @return $this
-    */
+     * Sets a plain text.
+     *
+     * @access public
+     * @param string $string Plain text.
+     * @return $this
+     */
     public function setContent($string)
     {
         $this->string = $string;
@@ -76,14 +76,14 @@ class Text
     }
 
     /**
-    * Sets RGB color for text.
-    *
-    * @access public
-    * @param int $red Red color.
-    * @param int $green Green color.
-    * @param int $blue Blue color.
-    * @return $this
-    */
+     * Sets RGB color for text.
+     *
+     * @access public
+     * @param int $red Red color.
+     * @param int $green Green color.
+     * @param int $blue Blue color.
+     * @return $this
+     */
     public function setColor($red, $green, $blue)
     {
         $this->red = $red;
@@ -108,12 +108,12 @@ class Text
     }
 
     /**
-    * Sets font face (TTF font) for text.
-    *
-    * @access public
-    * @param string $fontface Path of TTF font.
-    * @return $this
-    */
+     * Sets font face (TTF font) for text.
+     *
+     * @access public
+     * @param string $fontface Path of TTF font.
+     * @return $this
+     */
     public function setFontface($fontface)
     {
         $this->fontface = $fontface;
@@ -122,12 +122,12 @@ class Text
     }
 
     /**
-    * Sets text's opacity.
-    *
-    * @access public
-    * @param int $opacity Opacity value from 0 to 1
-    * @return $this
-    */
+     * Sets text's opacity.
+     *
+     * @access public
+     * @param int $opacity Opacity value from 0 to 1
+     * @return $this
+     */
     public function setOpacity($opacity)
     {
         $this->opacity = $opacity;
@@ -136,12 +136,12 @@ class Text
     }
 
     /**
-    * Sets the horizontal alignment for text.
-    *
-    * @access public
-    * @param string $align Values supported: none, center
-    * @return $this
-    */
+     * Sets the horizontal alignment for text.
+     *
+     * @access public
+     * @param string $align Values supported: none, center
+     * @return $this
+     */
     public function setAlign($align)
     {
         $this->align = $align;
@@ -150,12 +150,12 @@ class Text
     }
 
     /**
-    * Sets the vertical alignment for text.
-    *
-    * @access public
-    * @param string $valign Two values supported: none, center
-    * @return $this
-    */
+     * Sets the vertical alignment for text.
+     *
+     * @access public
+     * @param string $valign Two values supported: 'none' or 'center'
+     * @return $this
+     */
     public function setValign($valign)
     {
         $this->valign = $valign;
@@ -164,12 +164,12 @@ class Text
     }
 
     /**
-    * Sets text's angle.
-    *
-    * @access public
-    * @param int $angle Angle
-    * @return $this
-    */
+     * Sets text's angle.
+     *
+     * @access public
+     * @param int $angle Angle
+     * @return $this
+     */
     public function setAngle($angle)
     {
         $this->angle = $angle;
@@ -178,12 +178,12 @@ class Text
     }
 
     /**
-    * Sets box width.
-    *
-    * @access public
-    * @param int $width Width
-    * @return $this
-    */
+     * Sets box width.
+     *
+     * @access public
+     * @param int $width Width
+     * @return $this
+     */
     public function setWidth($width)
     {
         $this->width = $width;
@@ -192,12 +192,12 @@ class Text
     }
 
     /**
-    * Sets box height.
-    *
-    * @access public
-    * @param int $height Height
-    * @return $this
-    */
+     * Sets box height.
+     *
+     * @access public
+     * @param int $height Height
+     * @return $this
+     */
     public function setHeight($height)
     {
         $this->height = $height;
@@ -206,12 +206,12 @@ class Text
     }
 
     /**
-    * Sets top position.
-    *
-    * @access public
-    * @param int $y position
-    * @return $this
-    */
+     * Sets top position.
+     *
+     * @access public
+     * @param int $y position
+     * @return $this
+     */
     public function setTop($y)
     {
         $this->y = $y;
@@ -220,12 +220,12 @@ class Text
     }
 
     /**
-    * Sets left position.
-    *
-    * @access public
-    * @param int $x position
-    * @return $this
-    */
+     * Sets left position.
+     *
+     * @access public
+     * @param int $x position
+     * @return $this
+     */
     public function setLeft($x)
     {
         $this->x = $x;
@@ -234,12 +234,12 @@ class Text
     }
 
     /**
-    * Sets line height.
-    *
-    * @access public
-    * @param float $lineHeight line-height
-    * @return $this
-    */
+     * Sets line height.
+     *
+     * @access public
+     * @param float $lineHeight line-height
+     * @return $this
+     */
     public function setLineHeight($lineHeight)
     {
         $this->lineHeight = $lineHeight;
@@ -248,22 +248,22 @@ class Text
     }
 
     /**
-    * Gets line height.
-    *
-    * @access public
-    * @return float
-    */
+     * Gets line height.
+     *
+     * @access public
+     * @return float
+     */
     public function getLineHeight()
     {
         return $this->lineHeight;
     }
 
     /**
-    * Wrapps the text.
-    *
-    * @access public
-    * @return array
-    */
+     * Wrapps the text.
+     *
+     * @access public
+     * @return array
+     */
     public function wrappText()
     {
         $wrapp = $this->getWrappedText(
@@ -278,16 +278,16 @@ class Text
     }
 
     /**
-    * Gets wrapped text.
-    *
-    * @access public
-    * @param int $size Font size fot the text.
-    * @param int $angle Angole for the text.
-    * @param string $fontface Path of TTF font.
-    * @param string $string String text.
-    * @param int $width Width for text box area.
-    * @return array
-    */
+     * Gets wrapped text.
+     *
+     * @access public
+     * @param int $size Font size fot the text.
+     * @param int $angle Angole for the text.
+     * @param string $fontface Path of TTF font.
+     * @param string $string String text.
+     * @param int $width Width for text box area.
+     * @return array
+     */
     public function getWrappedText($size, $angle, $fontface, $string, $width = 100)
     {
         $str = '';
@@ -311,17 +311,17 @@ class Text
     }
 
     /**
-    * Calculates bounding box of text using the TrueType font.
-    * Returns an array with 'left', 'top', 'width' and 'height' values.
-    *
-    * @author <blackbart@simail.it> <http://www.php.net/manual/en/function.imagettfbbox.php#97357>
-    * @access public
-    * @param int $fontSize Font size fot the text.
-    * @param int $fontAngle Angole for the text.
-    * @param string $fontFile Path of TTF font.
-    * @param string $text String text.
-    * @return array|boolean
-    */
+     * Calculates bounding box of text using the TrueType font.
+     * Returns an array with 'left', 'top', 'width' and 'height' values.
+     *
+     * @author <blackbart@simail.it> <http://www.php.net/manual/en/function.imagettfbbox.php#97357>
+     * @access public
+     * @param int $fontSize Font size fot the text.
+     * @param int $fontAngle Angole for the text.
+     * @param string $fontFile Path of TTF font.
+     * @param string $text String text.
+     * @return array|boolean
+     */
     private function getBoundingBox($fontSize, $fontAngle, $fontFile, $text)
     {
         $box = imagettfbbox($fontSize, $fontAngle, $fontFile, $text);
@@ -375,9 +375,10 @@ class Text
     }
 
     /**
-     * Get the Text cords ([x, y).
+     * Get the text cords [x, y].
      *
-     * @return array   An array with (x, y) cords.
+     * @access public
+     * @return array An array with [x, y] cords.
      */
     public function getCords()
     {
@@ -403,22 +404,22 @@ class Text
     }
 
     /**
-    * Gets the plain text.
-    *
-    * @access public
-    * @return string
-    */
+     * Gets the plain text.
+     *
+     * @access public
+     * @return string
+     */
     public function getContent()
     {
         return $this->string;
     }
 
     /**
-    * Gets rgb color.
-    *
-    * @access public
-    * @return array
-    */
+     * Gets an array with rgb color.
+     *
+     * @access public
+     * @return array
+     */
     public function getColor()
     {
         return [
@@ -429,110 +430,110 @@ class Text
     }
 
     /**
-    * Gets font face.
-    *
-    * @access public
-    * @return string
-    */
+     * Gets the font face.
+     *
+     * @access public
+     * @return string
+     */
     public function getFontface()
     {
         return $this->fontface;
     }
 
     /**
-    * Gets font size.
-    *
-    * @access public
-    * @return int
-    */
+     * Gets fthe ont size.
+     *
+     * @access public
+     * @return int
+     */
     public function getSize()
     {
         return $this->size;
     }
 
     /**
-    * Gets opacity.
-    *
-    * @access public
-    * @return int
-    */
+     * Gets the opacity.
+     *
+     * @access public
+     * @return int
+     */
     public function getOpacity()
     {
         return $this->opacity;
     }
 
     /**
-    * Gets the horizontal alignment for text.
-    *
-    * @access public
-    * @return string (none, center)
-    */
+     * Gets the horizontal alignment for text.
+     *
+     * @access public
+     * @return string Alignment supported: 'none' or 'center'.
+     */
     public function getAlign()
     {
         return $this->align;
     }
 
     /**
-    * Gets the vertical alignment for text.
-    *
-    * @access public
-    * @return string (none, center)
-    */
+     * Gets the vertical alignment for text.
+     *
+     * @access public
+     * @return string Alignment supported: 'none' or 'center'.
+     */
     public function getValign()
     {
         return $this->valign;
     }
 
     /**
-    * Gets angle.
-    *
-    * @access public
-    * @return int
-    */
+     * Gets the angle.
+     *
+     * @access public
+     * @return int
+     */
     public function getAngle()
     {
         return $this->angle;
     }
 
     /**
-    * Gets width.
-    *
-    * @access public
-    * @return int
-    */
+     * Gets width.
+     *
+     * @access public
+     * @return int
+     */
     public function getWidth()
     {
         return $this->width;
     }
 
     /**
-    * Gets height.
-    *
-    * @access public
-    * @return int
-    */
+     * Gets height.
+     *
+     * @access public
+     * @return int
+     */
     public function getHeight()
     {
         return $this->height;
     }
 
     /**
-    * Gets top position.
-    *
-    * @access public
-    * @return int
-    */
+     * Gets top position.
+     *
+     * @access public
+     * @return int
+     */
     public function getTop()
     {
         return $this->y;
     }
 
     /**
-    * Gets left position.
-    *
-    * @access public
-    * @return int
-    */
+     * Gets left position.
+     *
+     * @access public
+     * @return int
+     */
     public function getLeft()
     {
         return $this->x;
