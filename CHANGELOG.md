@@ -4,6 +4,19 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [3.0.3] - 2017-10-07
+
+### Add
+- __Image:__ Added `render()` method can render the image in-memory and return the resource. (refs 02c5480)
+- __Image:__ Added `render()` example about at `examples/render.php`
+
+### Changed
+- __Text:__ Default value in `setContent($str =  '')` function.
+
+### Fixed
+- Fixed issue #20.
+- Doc comments in classes.
+
 ## [3.0.2] - 2017-04-30
 
 ### Add
@@ -121,7 +134,8 @@ $text->setLineHeight(1.2);
 - Initial commit.
 - PHP `5.3` support.
 
-[3.0.2]: https://github.com/joseluisq/gimage/compare/3.0.2...HEAD
+[3.0.3]: https://github.com/joseluisq/gimage/compare/3.0.3...HEAD
+[3.0.2]: https://github.com/joseluisq/gimage/compare/3.0.2...3.0.3
 [3.0.1]: https://github.com/joseluisq/gimage/compare/3.0.1...3.0.2
 [3.0.1]: https://github.com/joseluisq/gimage/compare/3.0.0...3.0.1
 [3.0.0]: https://github.com/joseluisq/gimage/compare/2.0.1...3.0.0
