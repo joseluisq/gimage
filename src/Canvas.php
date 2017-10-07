@@ -2,7 +2,7 @@
 /*
  * This file is part of GImage.
  *
- * (c) Jose Luis Quintana <https://git.io/joseluisq>
+ * (c) José Luis Quintana <https://git.io/joseluisq>
  *
  * This source file is subject to the MIT license that is bundled
  * with this source code in the file LICENSE.
@@ -11,10 +11,10 @@
 namespace GImage;
 
 /**
- * A Canvas represents a rectangular image area on which one can draw images.
+ * A Canvas represents a rectangular image area on which one can append images, text and figures.
  *
  * @package GImage
- * @author Jose Luis Quintana <https://git.io/joseluisq>
+ * @author José Luis Quintana <https://git.io/joseluisq>
  *
  * @property array $elementList An array of elements (Image, Figure or Text classes).
  */
@@ -28,23 +28,23 @@ class Canvas extends Image
     private $elementList = [];
 
     /**
-    * Constructs a new Canvas.
-    *
-    * @param mixed $element Only Image or Figure class.
-    * @access public
-    */
+     * Constructs a new Canvas.
+     *
+     * @param mixed $element Only Image or Figure classes.
+     * @access public
+     */
     public function __construct($element = null)
     {
         parent::__construct($element);
     }
 
     /**
-    * Adds one or more elements to canvas.
-    *
-    * @param mixed $elements Single or array of Image, Figure, Text classes.
-    * @access public
-    * @return \GImage\Canvas
-    */
+     * Adds one or more elements to canvas.
+     *
+     * @param mixed $elements Single or array of Image, Figure, Text classes.
+     * @access public
+     * @return \GImage\Canvas
+     */
     public function append($elements)
     {
         if (!empty($elements)) {
@@ -64,7 +64,7 @@ class Canvas extends Image
      * Draws the canvas.
      *
      * @access public
-     * @return Canvas
+     * @return \GImage\Canvas
      * @throws \Exception
      */
     public function draw()
@@ -119,7 +119,7 @@ class Canvas extends Image
     }
 
     /**
-     * Draw an Text element.
+     * Draw a Text element.
      *
      * @param  \GImage\Text $text Text element.
      * @param mixed         $canvas

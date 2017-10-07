@@ -9,7 +9,7 @@
  */
 
 /**
- * Rotate an JPG image.
+ * Render an image in-memory and return the resource.
  *
  * @author José Luis Quintana <https://git.io/joseluisq>
  */
@@ -21,14 +21,22 @@ use GImage\Image;
 require __DIR__ . '/_config.php';
 require __DIR__ . '/../tests/bootstrap.php';
 
-// Rotate an image to 90º
 $image = new Image();
-$image
+$resource = $image
     ->load('http://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50?s=200.jpg')
-    ->scale(0.5)
-    ->rotate(90)
+    // Scale 120%
+    ->scale(1.2)
+    // Rotate an image to -90º
+    ->rotate(-90)
     // Change to PNG
     ->toPNG()
     // Add opacity 70%
     ->setOpacity(0.7)
-    ->save(__DIR__ . '/rotate.png');
+    // Render the image in-memory
+    ->render();
+
+// Output the buffer (example only)
+header('Content-Type: image/png');
+// Necessary for opacity to work
+imagesavealpha($resource, true);
+imagepng($resource, null);
