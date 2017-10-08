@@ -1,0 +1,16 @@
+{
+    "editor.tabSize": 4,
+    "editor.rulers": [
+        140
+    ],
+    "files.trimTrailingWhitespace": true,
+    "files.insertFinalNewline": true,
+    "files.exclude": {
+        "**/.git": true,
+        "**/.DS_Store": true,
+        "node_modules": true,
+        "coverage": true,
+        "vendor": true,
+        "npm": true
+    }
+}

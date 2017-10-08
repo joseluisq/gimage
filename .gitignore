@@ -9,13 +9,9 @@ composer.phar
 composer-test.lock
 build/artifacts/
 artifacts/
-docs/_build
-docs/*.pyc
 *.log
 .idea
 .DS_STORE
 .DS_Store
 Gemfile.lock
-docs
-_docs
-_site
+site
