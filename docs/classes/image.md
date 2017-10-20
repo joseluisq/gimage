@@ -1,0 +1,7 @@
+# Image
+
+`Image` class.
+
+```php
+
+```

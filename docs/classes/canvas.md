@@ -1,0 +1,7 @@
+# Canvas
+
+`Canvas` class.
+
+```php
+
+```

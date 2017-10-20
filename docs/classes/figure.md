@@ -1,0 +1,7 @@
+# Figure
+
+`Figure` class.
+
+```php
+
+```

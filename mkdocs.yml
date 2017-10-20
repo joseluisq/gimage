@@ -1,4 +1,5 @@
 site_name: GImage
+site_author: 'Jose Quintana'
 theme: 'material'
 extra:
     palette:
@@ -29,3 +30,23 @@ markdown_extensions:
     - pymdownx.superfences
     - pymdownx.tasklist(custom_checkbox=true)
     - pymdownx.tilde
+
+pages:
+    - 'Introduction': 'index.md'
+    - 'Getting Started': 'getting-started.md'
+    - 'Classes':
+        - 'Image': './classes/image.md'
+        - 'Figure': 'figure.md'
+        - 'Text': 'text.md'
+        - 'Canvas': 'canvas.md'
+    - 'Examples':
+        - 'Cropping': 'cropping.md'
+        - 'Swapping formats': 'swapping-formats.md'
+        - 'Resizing': 'resizing.md'
+        - 'Creating figures': 'creating-figures.md'
+        - 'Rotation': 'rotation.md'
+        - 'Text embeded': 'text-embeded.md'
+        - 'Composing with canvas': 'composing-with-canvas.md'
+        - 'Render images in-memory': 'render-images-in-memory.md'
+        - 'Creating a presentation card': 'creating-a-presentation-card.md'
+    - 'API Documentation': 'api.md'

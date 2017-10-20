@@ -1,12 +1,16 @@
 # GImage
 
-## Easy image handling
+> A PHP library for easy image handling.
 
-[GImage][gimage] is a simple and small library based on [PHP Image Processing and GD](http://php.net/manual/en/book.image.php) for processing images without stress.
+[![Build Status](https://travis-ci.org/joseluisq/gimage.svg?branch=master)](https://travis-ci.org/joseluisq/gimage) [![Latest Stable Version](https://poser.pugx.org/joseluisq/gimage/version)](https://packagist.org/packages/joseluisq/gimage) [![Latest Unstable Version](https://poser.pugx.org/joseluisq/gimage/v/unstable)](//packagist.org/packages/joseluisq/gimage) [![Total Downloads](https://poser.pugx.org/joseluisq/gimage/downloads)](https://packagist.org/packages/joseluisq/gimage) [![License](https://poser.pugx.org/joseluisq/gimage/license)](https://packagist.org/packages/joseluisq/gimage)
+
+## Introduction
+
+[GImage][1] is a simple and small library based on [PHP Image Processing and GD](http://php.net/manual/en/book.image.php) for processing images without stress.
 
 ![A simple presentation card with GImage](https://cloud.githubusercontent.com/assets/1700322/18941713/eed7fa34-85d8-11e6-8033-bf787e4aa236.png)
 
-> _"A presentation card built with GImage - [View code example](creating-a-simple-presentation-card.md)"_
+> _"A presentation card built with GImage" - [View code example](3)_
 
 ## Features
 
@@ -21,7 +25,8 @@
 - Save images in local or output on the browser.
 - Save several copies of the same image.
 
-For detailed instructions see the [getting started guide][guide].
+For detailed instructions see the [getting started guide][2].
 
-[gimage]: https://github.com/joseluisq/gimage
-[guide]: getting-started.md
+[1]: https://github.com/joseluisq/gimage
+[2]: getting-started.md
+[3]: creating-a-simple-presentation-card.md

@@ -10,4 +10,12 @@ format:
 	phpcbf -w ./src ./tests --standard=PSR2
 	phpcs ./src ./tests --standard=PSR2
 
-.PHONY: test docs format
+docs:
+	cd docs
+	mkdocs serve -a 0.0.0.0:8000
+
+docs_build:
+	cd docs
+	mkdocs build
+
+.PHONY: test docs format docs
