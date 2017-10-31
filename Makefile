@@ -29,11 +29,11 @@ docs_deploy:
 	-git checkout gh-pages
 	-git rm --cached -r .
 	-git clean -df
-	-cp -raf $(TMP_DOCS)/. ./
+	-cp -a $(TMP_DOCS)/. ./
 	-git add -A && git commit . -m "update docs"
 	-git push -u origin gh-pages
 	-rm -rf $(TMP_DOCS)
-	-echo
-	-echo "Docs built and published."
+	@echo
+	@echo "Docs built and published."
 
 .PHONY: test docs format docs docs_api docs_deploy
