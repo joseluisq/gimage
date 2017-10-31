@@ -1,0 +1,189 @@
+{
+    "docs": [
+        {
+            "location": "/",
+            "text": "GImage\n\u00b6\n\n\n\n\nA PHP library for easy image handling.\n\n\n\n\n \n \n \n \n\n\nIntroduction\n\u00b6\n\n\nGImage\n is a simple and small library based on \nPHP Image Processing and GD\n for processing images without stress.\n\n\n\n\n\n\n\"A presentation card built with GImage\" - \nView code example\n\n\n\n\nFeatures\n\u00b6\n\n\n\n\nLoad an image from local path or URL.\n\n\nCreate shapes such as rectangles or ellipses with opacity.\n\n\nResize or scale images proportionally.\n\n\nCrop images proportionally.\n\n\nRotate images, shapes or texts.\n\n\nEmbed text with custom TTF fonts.\n\n\nCompose a pool of images with Canvas.\n\n\nSwap image formats such as JPEG, PNG and GIF.\n\n\nSave images in local or output on the browser.\n\n\nSave several copies of the same image.\n\n\n\n\nFor detailed instructions see the \ngetting started guide\n.",
+            "title": "Introduction"
+        },
+        {
+            "location": "/#gimage",
+            "text": "A PHP library for easy image handling.",
+            "title": "GImage"
+        },
+        {
+            "location": "/#introduction",
+            "text": "GImage  is a simple and small library based on  PHP Image Processing and GD  for processing images without stress.    \"A presentation card built with GImage\" -  View code example",
+            "title": "Introduction"
+        },
+        {
+            "location": "/#features",
+            "text": "Load an image from local path or URL.  Create shapes such as rectangles or ellipses with opacity.  Resize or scale images proportionally.  Crop images proportionally.  Rotate images, shapes or texts.  Embed text with custom TTF fonts.  Compose a pool of images with Canvas.  Swap image formats such as JPEG, PNG and GIF.  Save images in local or output on the browser.  Save several copies of the same image.   For detailed instructions see the  getting started guide .",
+            "title": "Features"
+        },
+        {
+            "location": "/getting-started/",
+            "text": "Getting started\n\u00b6\n\n\nInstallation\n\u00b6\n\n\n\n\nRequirements\n\n\nGImage requires \nPHP 7.0+\n and latest \nGD Extension\n.\n\n\n\n\nMake sure if \nGD extension\n is loaded. You can verify it using the following command:\n\n\nphp -r \n\"var_dump(extension_loaded('gd'));\"\n\n\n# bool(true)\n\n\n\n\n\nThen install GImage via \nComposer\n:\n\n\ncomposer require joseluisq/gimage\n\n\n\n\nUsage\n\u00b6\n\n\nLoading an external PNG image and saving it as JPG:\n\n\n<?php\n\n\n\nuse\n \nGImage\\Image\n;\n\n\n\n// PNG image (600x199)\n\n\n$url\n \n=\n \n'https://i.imgur.com/G5MR088.png'\n;\n\n\n\n$arch\n \n=\n \nnew\n \nImage\n();\n\n\n$arch\n\n    \n// Load from URL\n\n    \n->\nload\n(\n$url\n)\n\n    \n// Scale to 50% (300x99)\n\n    \n->\nscale\n(\n0.5\n)\n\n    \n// Change the format to JPG\n\n    \n->\ntoJPG\n()\n\n    \n// Saving in local path\n\n    \n->\nsave\n(\n'arch.jpg'\n);",
+            "title": "Getting Started"
+        },
+        {
+            "location": "/getting-started/#getting-started",
+            "text": "",
+            "title": "Getting started"
+        },
+        {
+            "location": "/getting-started/#installation",
+            "text": "Requirements  GImage requires  PHP 7.0+  and latest  GD Extension .   Make sure if  GD extension  is loaded. You can verify it using the following command:  php -r  \"var_dump(extension_loaded('gd'));\"  # bool(true)   Then install GImage via  Composer :  composer require joseluisq/gimage",
+            "title": "Installation"
+        },
+        {
+            "location": "/getting-started/#usage",
+            "text": "Loading an external PNG image and saving it as JPG:  <?php  use   GImage\\Image ;  // PNG image (600x199)  $url   =   'https://i.imgur.com/G5MR088.png' ;  $arch   =   new   Image ();  $arch \n     // Load from URL \n     -> load ( $url ) \n     // Scale to 50% (300x99) \n     -> scale ( 0.5 ) \n     // Change the format to JPG \n     -> toJPG () \n     // Saving in local path \n     -> save ( 'arch.jpg' );",
+            "title": "Usage"
+        },
+        {
+            "location": "/classes/image/",
+            "text": "Image\n\u00b6\n\n\n\n\nImage\n class is the parent class for \nFigure\n and \nCanvas\n classes.\n\n\n\n\nExample below loads an image from local path, scale (50%) and output it on the browser:\n\n\n\n\nTip\n\n\nload()\nmethod can load an image from any url or local path.\n\n\n\n\n<?php\n\n\n\nuse\n \nGImage\\Image\n;\n\n\n\n$img\n \n=\n \nnew\n \nImage\n();\n\n\n$img\n\n    \n->\nload\n(\n'/home/my_user/images/my_image.png'\n)\n\n    \n->\nscale\n(\n0.5\n)\n\n    \n->\noutput\n();\n\n\n\n\n\nFigure\n and \nCanvas\n extend from \nImage\n. This means that it's possible to use many functions like \ncrop()\n, \ncenterCrop()\n, \nrotate()\n and so on.\n\n\nExample below creates an rectangle, set an opacity (75%) and save it as PNG:\n\n\n<?php\n\n\n\nuse\n \nGImage\\Figure\n;\n\n\n\n$figure\n \n=\n \nnew\n \nFigure\n(\n400\n,\n \n250\n);\n\n\n$figure\n\n    \n->\nsetBackgroundColor\n(\n0\n,\n \n0\n,\n \n255\n)\n\n    \n->\nsetOpacity\n(\n0.75\n)\n\n    \n->\ncreate\n()\n\n    \n->\nsave\n(\n'/home/my_user/images/reactangle.png'\n);",
+            "title": "Image"
+        },
+        {
+            "location": "/classes/image/#image",
+            "text": "Image  class is the parent class for  Figure  and  Canvas  classes.   Example below loads an image from local path, scale (50%) and output it on the browser:   Tip  load() method can load an image from any url or local path.   <?php  use   GImage\\Image ;  $img   =   new   Image ();  $img \n     -> load ( '/home/my_user/images/my_image.png' ) \n     -> scale ( 0.5 ) \n     -> output ();   Figure  and  Canvas  extend from  Image . This means that it's possible to use many functions like  crop() ,  centerCrop() ,  rotate()  and so on.  Example below creates an rectangle, set an opacity (75%) and save it as PNG:  <?php  use   GImage\\Figure ;  $figure   =   new   Figure ( 400 ,   250 );  $figure \n     -> setBackgroundColor ( 0 ,   0 ,   255 ) \n     -> setOpacity ( 0.75 ) \n     -> create () \n     -> save ( '/home/my_user/images/reactangle.png' );",
+            "title": "Image"
+        },
+        {
+            "location": "/classes/figure/",
+            "text": "Figure\n\u00b6\n\n\n\n\nFigure\n class allows to create rectangles or ellipses.\n\n\n\n\nThe following example creates an rectangle, set an opacity (75%) and save it as PNG:\n\n\n<?php\n\n\n\nuse\n \nGImage\\Figure\n;\n\n\n\n$rectangle\n \n=\n \nnew\n \nFigure\n(\n400\n,\n \n250\n);\n\n\n$rectangle\n\n    \n->\nsetBackgroundColor\n(\n0\n,\n \n0\n,\n \n255\n)\n\n    \n->\nsetOpacity\n(\n0.75\n)\n\n    \n->\ncreate\n()\n\n    \n->\nsave\n(\n'/home/my_user/images/reactangle.png'\n);\n\n\n\n\n\nAs above example, we can also create an ellipse:\n\n\n<?php\n\n\n\nuse\n \nGImage\\Figure\n;\n\n\n\n$ellipse\n \n=\n \nnew\n \nFigure\n(\n300\n,\n \n300\n);\n\n\n$ellipse\n\n    \n->\nisEllipse\n()\n\n    \n->\nsetBackgroundColor\n(\n255\n,\n \n0\n,\n \n0\n)\n\n    \n->\nsetOpacity\n(\n0.5\n)\n\n    \n->\ncreate\n()\n\n    \n->\nsave\n(\n'/home/my_user/images/ellipse.png'\n);",
+            "title": "Figure"
+        },
+        {
+            "location": "/classes/figure/#figure",
+            "text": "Figure  class allows to create rectangles or ellipses.   The following example creates an rectangle, set an opacity (75%) and save it as PNG:  <?php  use   GImage\\Figure ;  $rectangle   =   new   Figure ( 400 ,   250 );  $rectangle \n     -> setBackgroundColor ( 0 ,   0 ,   255 ) \n     -> setOpacity ( 0.75 ) \n     -> create () \n     -> save ( '/home/my_user/images/reactangle.png' );   As above example, we can also create an ellipse:  <?php  use   GImage\\Figure ;  $ellipse   =   new   Figure ( 300 ,   300 );  $ellipse \n     -> isEllipse () \n     -> setBackgroundColor ( 255 ,   0 ,   0 ) \n     -> setOpacity ( 0.5 ) \n     -> create () \n     -> save ( '/home/my_user/images/ellipse.png' );",
+            "title": "Figure"
+        },
+        {
+            "location": "/classes/text/",
+            "text": "Text\n\u00b6\n\n\n\n\nText\n class allows to use text to be embedded into \nCanvas\n.\n\n\n\n\nExample below creates a text with opacity using a custom TTF font:\n\n\n\n\nTip\n\n\nUsing \nsetWidth()\n or \nsetHeight()\n methods we can control the width and height of the text on canvas.\n\n\n\n\n<?php\n\n\n\n$text\n \n=\n \nnew\n \nText\n(\n'My ustom text with opacity!'\n);\n\n\n$text\n\n    \n->\nsetWidth\n(\n400\n)\n\n    \n->\nsetHeight\n(\n250\n)\n\n    \n->\nsetTop\n(\n50\n)\n\n    \n->\nsetLeft\n(\n50\n)\n\n    \n->\nsetSize\n(\n22\n)\n\n    \n->\nsetOpacity\n(\n0.5\n)\n\n    \n->\nsetColor\n(\n255\n,\n \n255\n,\n \n255\n)\n\n    \n->\nsetFontface\n(\n'/home/my_user/fonts/Lato.ttf'\n);\n\n\n\n// Used as layout\n\n\n$layout\n \n=\n \nnew\n \nFigure\n(\n350\n,\n \n180\n);\n\n\n$layout\n\n    \n->\nsetBackgroundColor\n(\n300\n,\n \n300\n,\n \n300\n)\n\n    \n->\ncreate\n();\n\n\n\n$canvas\n \n=\n \nnew\n \nCanvas\n(\n$layout\n);\n\n\n$canvas\n\n    \n->\nappend\n(\n$text\n)\n\n    \n->\ntoPNG\n()\n\n    \n->\ndraw\n()\n\n    \n->\nsave\n(\n'/home/my_user/images/my_text.png'\n);",
+            "title": "Text"
+        },
+        {
+            "location": "/classes/text/#text",
+            "text": "Text  class allows to use text to be embedded into  Canvas .   Example below creates a text with opacity using a custom TTF font:   Tip  Using  setWidth()  or  setHeight()  methods we can control the width and height of the text on canvas.   <?php  $text   =   new   Text ( 'My ustom text with opacity!' );  $text \n     -> setWidth ( 400 ) \n     -> setHeight ( 250 ) \n     -> setTop ( 50 ) \n     -> setLeft ( 50 ) \n     -> setSize ( 22 ) \n     -> setOpacity ( 0.5 ) \n     -> setColor ( 255 ,   255 ,   255 ) \n     -> setFontface ( '/home/my_user/fonts/Lato.ttf' );  // Used as layout  $layout   =   new   Figure ( 350 ,   180 );  $layout \n     -> setBackgroundColor ( 300 ,   300 ,   300 ) \n     -> create ();  $canvas   =   new   Canvas ( $layout );  $canvas \n     -> append ( $text ) \n     -> toPNG () \n     -> draw () \n     -> save ( '/home/my_user/images/my_text.png' );",
+            "title": "Text"
+        },
+        {
+            "location": "/classes/canvas/",
+            "text": "Canvas\n\u00b6\n\n\n\n\nCanvas\n represents an area on which it can append images, text and figures.\n\n\n\n\n\n\nNote\n\n\nCanvas\n needs a \nFigure\n or \nImage\n which will be used as base element (layout).\n\n\n\n\nThe following example uses \nappend()\n method to attach elements to canvas.\n\n\n\n\nTip\n\n\nUsing  \nsetLeft()\n or \nsetTop()\n methods it can control the position (x,y) of the elements (\nFigure\n, \nImage\n or \nText\n) on canvas.\n\n\n\n\n<?php\n\n\n\nuse\n \nGImage\\Image\n;\n\n\nuse\n \nGImage\\Figure\n;\n\n\nuse\n \nGImage\\Canvas\n;\n\n\n\n$image\n \n=\n \nnew\n \nImage\n();\n\n\n$image\n\n    \n->\nload\n(\n'https://my_website.com/images/my_image.png'\n)\n\n\n\n$ellipse\n \n=\n \nnew\n \nFigure\n(\n200\n,\n \n200\n);\n\n\n$ellipse\n\n    \n->\nisEllipse\n()\n\n    \n->\nsetBackgroundColor\n(\n200\n,\n \n0\n,\n \n0\n)\n\n    \n->\nsetTop\n(\n60\n)\n\n    \n->\nsetLeft\n(\n70\n)\n\n    \n->\ncreate\n()\n\n\n\n// Used as layout\n\n\n$layout\n \n=\n \nnew\n \nFigure\n(\n200\n,\n \n200\n);\n\n\n$layout\n\n    \n->\nsetBackgroundColor\n(\n0\n,\n \n0\n,\n \n255\n)\n\n    \n->\ncreate\n()\n\n\n\n$canvas\n \n=\n \nnew\n \nCanvas\n(\n$layout\n);\n\n\n$canvas\n\n    \n->\nappend\n([\n$image\n,\n \n$ellipse\n])\n\n    \n->\ntoPNG\n()\n\n    \n->\ndraw\n()\n\n    \n->\nsave\n(\n'/home/my_user/images/my_composed_image.png'\n);",
+            "title": "Canvas"
+        },
+        {
+            "location": "/classes/canvas/#canvas",
+            "text": "Canvas  represents an area on which it can append images, text and figures.    Note  Canvas  needs a  Figure  or  Image  which will be used as base element (layout).   The following example uses  append()  method to attach elements to canvas.   Tip  Using   setLeft()  or  setTop()  methods it can control the position (x,y) of the elements ( Figure ,  Image  or  Text ) on canvas.   <?php  use   GImage\\Image ;  use   GImage\\Figure ;  use   GImage\\Canvas ;  $image   =   new   Image ();  $image \n     -> load ( 'https://my_website.com/images/my_image.png' )  $ellipse   =   new   Figure ( 200 ,   200 );  $ellipse \n     -> isEllipse () \n     -> setBackgroundColor ( 200 ,   0 ,   0 ) \n     -> setTop ( 60 ) \n     -> setLeft ( 70 ) \n     -> create ()  // Used as layout  $layout   =   new   Figure ( 200 ,   200 );  $layout \n     -> setBackgroundColor ( 0 ,   0 ,   255 ) \n     -> create ()  $canvas   =   new   Canvas ( $layout );  $canvas \n     -> append ([ $image ,   $ellipse ]) \n     -> toPNG () \n     -> draw () \n     -> save ( '/home/my_user/images/my_composed_image.png' );",
+            "title": "Canvas"
+        },
+        {
+            "location": "/examples/cropping/",
+            "text": "Cropping\n\u00b6\n\n\nCustom cropping\n\u00b6\n\n\nThe following example loads an image (\n600x199\n) and crops part of an image (\n200x100\n).\n\n\n\n\nTip\n\n\ncrop(w, h, x, y)\n is useful when we needs a custom cropping. we can specify the size and \nx\n, \ny\n coords.\n\n\n\n\n<?php\n\n\n\nuse\n \nGImage\\Image\n;\n\n\n\n// PNG image (600x199)\n\n\n$arch_url\n \n=\n \n'https://i.imgur.com/G5MR088.png'\n;\n\n\n\n$arch_img\n \n=\n \nnew\n \nImage\n();\n\n\n$arch_img\n\n    \n->\nload\n(\n$arch_url\n)\n\n    \n// crop (200px x 100px) x=10 and y=20\n\n    \n->\ncrop\n(\n200\n,\n \n100\n,\n \n10\n,\n \n20\n)\n\n    \n// save the resource\n\n    \n->\nsave\n(\n'crop.png'\n);\n\n\n\n\n\nCenter cropping\n\u00b6\n\n\nWe can also to do an automatic-size cropping. The example crops an image proportionally based on given values (width and height).\n\n\n\n\nTip\n\n\ncenterCrop(w, h)\n calculates the image size, resize and crop it proportionally and centered. Making the cropping contain most of the original image.\n\n\n\n\n<?php\n\n\n\nuse\n \nGImage\\Image\n;\n\n\n\n// PNG image (600x199)\n\n\n$arch_url\n \n=\n \n'https://i.imgur.com/G5MR088.png'\n;\n\n\n\n$arch_img\n \n=\n \nnew\n \nImage\n();\n\n\n$arch_img\n\n    \n->\nload\n(\n$arch_url\n)\n\n    \n// crop (80px x 80px)\n\n    \n->\ncenterCrop\n(\n80\n,\n \n80\n)\n\n    \n// save the resource\n\n    \n->\nsave\n(\n'center_crop.png'\n);",
+            "title": "Cropping"
+        },
+        {
+            "location": "/examples/cropping/#cropping",
+            "text": "",
+            "title": "Cropping"
+        },
+        {
+            "location": "/examples/cropping/#custom-cropping",
+            "text": "The following example loads an image ( 600x199 ) and crops part of an image ( 200x100 ).   Tip  crop(w, h, x, y)  is useful when we needs a custom cropping. we can specify the size and  x ,  y  coords.   <?php  use   GImage\\Image ;  // PNG image (600x199)  $arch_url   =   'https://i.imgur.com/G5MR088.png' ;  $arch_img   =   new   Image ();  $arch_img \n     -> load ( $arch_url ) \n     // crop (200px x 100px) x=10 and y=20 \n     -> crop ( 200 ,   100 ,   10 ,   20 ) \n     // save the resource \n     -> save ( 'crop.png' );",
+            "title": "Custom cropping"
+        },
+        {
+            "location": "/examples/cropping/#center-cropping",
+            "text": "We can also to do an automatic-size cropping. The example crops an image proportionally based on given values (width and height).   Tip  centerCrop(w, h)  calculates the image size, resize and crop it proportionally and centered. Making the cropping contain most of the original image.   <?php  use   GImage\\Image ;  // PNG image (600x199)  $arch_url   =   'https://i.imgur.com/G5MR088.png' ;  $arch_img   =   new   Image ();  $arch_img \n     -> load ( $arch_url ) \n     // crop (80px x 80px) \n     -> centerCrop ( 80 ,   80 ) \n     // save the resource \n     -> save ( 'center_crop.png' );",
+            "title": "Center cropping"
+        },
+        {
+            "location": "/examples/swapping-formats/",
+            "text": "Swapping formats\n\u00b6\n\n\nIt's possible to swapping image formats. The following example loads a PNG image and save it as JPG.\n\n\n<?php\n\n\n\nuse\n \nGImage\\Image\n;\n\n\n\n// PNG image (600x199)\n\n\n$arch_url\n \n=\n \n'https://i.imgur.com/G5MR088.png'\n;\n\n\n\n$arch_img\n \n=\n \nnew\n \nImage\n();\n\n\n$arch_img\n\n    \n->\nload\n(\n$arch_url\n)\n\n    \n->\ncrop\n(\n20\n,\n \n20\n)\n\n    \n->\ntoJPG\n()\n\n    \n->\nsave\n(\n'arch.jpg'\n);\n\n\n\n\n\nOr outputting it on browser:\n\n\n<?php\n\n\n\nuse\n \nGImage\\Image\n;\n\n\n\n// PNG image (600x199)\n\n\n$arch_url\n \n=\n \n'https://i.imgur.com/G5MR088.png'\n;\n\n\n\n$arch_img\n \n=\n \nnew\n \nImage\n();\n\n\n$arch_img\n\n    \n->\nload\n(\n$arch_url\n)\n\n    \n->\nscale\n(\n0.5\n)\n\n    \n->\ntoJPG\n()\n\n    \n->\noutput\n();",
+            "title": "Swapping formats"
+        },
+        {
+            "location": "/examples/swapping-formats/#swapping-formats",
+            "text": "It's possible to swapping image formats. The following example loads a PNG image and save it as JPG.  <?php  use   GImage\\Image ;  // PNG image (600x199)  $arch_url   =   'https://i.imgur.com/G5MR088.png' ;  $arch_img   =   new   Image ();  $arch_img \n     -> load ( $arch_url ) \n     -> crop ( 20 ,   20 ) \n     -> toJPG () \n     -> save ( 'arch.jpg' );   Or outputting it on browser:  <?php  use   GImage\\Image ;  // PNG image (600x199)  $arch_url   =   'https://i.imgur.com/G5MR088.png' ;  $arch_img   =   new   Image ();  $arch_img \n     -> load ( $arch_url ) \n     -> scale ( 0.5 ) \n     -> toJPG () \n     -> output ();",
+            "title": "Swapping formats"
+        },
+        {
+            "location": "/examples/resizing/",
+            "text": "Resizing\n\u00b6",
+            "title": "Resizing"
+        },
+        {
+            "location": "/examples/resizing/#resizing",
+            "text": "",
+            "title": "Resizing"
+        },
+        {
+            "location": "/examples/rotation/",
+            "text": "Rotation\n\u00b6",
+            "title": "Rotation"
+        },
+        {
+            "location": "/examples/rotation/#rotation",
+            "text": "",
+            "title": "Rotation"
+        },
+        {
+            "location": "/examples/creating-figures/",
+            "text": "",
+            "title": "Creating figures"
+        },
+        {
+            "location": "/examples/text-embeded/",
+            "text": "Text Embeded\n\u00b6",
+            "title": "Text embeded"
+        },
+        {
+            "location": "/examples/text-embeded/#text-embeded",
+            "text": "",
+            "title": "Text Embeded"
+        },
+        {
+            "location": "/examples/composing-with-canvas/",
+            "text": "Composing with canvas\n\u00b6",
+            "title": "Composing with canvas"
+        },
+        {
+            "location": "/examples/composing-with-canvas/#composing-with-canvas",
+            "text": "",
+            "title": "Composing with canvas"
+        },
+        {
+            "location": "/examples/render-images-in-memory/",
+            "text": "Render images in-memory\n\u00b6",
+            "title": "Render images in-memory"
+        },
+        {
+            "location": "/examples/render-images-in-memory/#render-images-in-memory",
+            "text": "",
+            "title": "Render images in-memory"
+        },
+        {
+            "location": "/examples/creating-a-presentation-card/",
+            "text": "Creating a presentation card\n\u00b6",
+            "title": "Creating a presentation card"
+        },
+        {
+            "location": "/examples/creating-a-presentation-card/#creating-a-presentation-card",
+            "text": "",
+            "title": "Creating a presentation card"
+        },
+        {
+            "location": "/api/",
+            "text": "API Documentation\n\u00b6",
+            "title": "API Documentation"
+        },
+        {
+            "location": "/api/#api-documentation",
+            "text": "",
+            "title": "API Documentation"
+        }
+    ]
+}

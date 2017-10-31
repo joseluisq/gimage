@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>Class GImage\Utils</title>
+
+	<link rel="stylesheet" href="resources/style.css?c2f33731c1948fbed7c333554678bfa68d4817da">
+
+</head>
+
+<body>
+<div id="left">
+	<div id="menu">
+		<a href="index.html" title="Overview"><span>Overview</span></a>
+
+
+		<div id="groups">
+				<h3>Namespaces</h3>
+			<ul>
+				<li class="active">
+					<a href="namespace-GImage.html">
+						GImage					</a>
+
+						</li>
+			</ul>
+		</div>
+
+		<hr>
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li><a href="class-GImage.Canvas.html">Canvas</a></li>
+				<li><a href="class-GImage.Figure.html">Figure</a></li>
+				<li><a href="class-GImage.Image.html">Image</a></li>
+				<li><a href="class-GImage.Text.html">Text</a></li>
+				<li class="active"><a href="class-GImage.Utils.html">Utils</a></li>
+			</ul>
+
+
+
+
+
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+<div id="rightInner">
+	<form id="search">
+		<input type="hidden" name="cx" value="">
+		<input type="hidden" name="ie" value="UTF-8">
+		<input type="text" name="q" class="text" placeholder="Search">
+	</form>
+
+	<div id="navigation">
+		<ul>
+			<li>
+				<a href="index.html" title="Overview"><span>Overview</span></a>
+			</li>
+			<li>
+				<a href="namespace-GImage.html" title="Summary of GImage"><span>Namespace</span></a>
+			</li>
+			<li class="active">
+<span>Class</span>			</li>
+		</ul>
+		<ul>
+		</ul>
+		<ul>
+		</ul>
+	</div>
+
+<div id="content" class="class">
+	<h1>Class Utils</h1>
+
+
+	<div class="description">
+	<p>Image utility functions.</p>
+	</div>
+
+
+
+
+
+
+
+
+
+	<div class="info">
+		
+		
+		<b>Namespace:</b> <a href="namespace-GImage.html">GImage</a><br>
+		<b>Package:</b> GImage<br>
+
+				<b>Author:</b>
+				José Luis Quintana <a href="https://git.io/joseluisq">https://git.io/joseluisq</a><br>
+			<b>Located at</b> <a href="source-class-GImage.Utils.html#13-172" title="Go to source code">Utils.php</a>
+		<br>
+	</div>
+
+
+
+	<table class="summary methods" id="methods">
+	<caption>Methods summary</caption>
+	<tr data-order="getMimetypes" id="_getMimetypes">
+
+		<td class="attributes"><code>
+			 public static
+
+			array
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getMimetypes">#</a>
+		<code><a href="source-class-GImage.Utils.html#35-44" title="Go to source code">getMimetypes</a>( )</code>
+
+		<div class="description short">
+			<p>Gets image mime types (jpg, png and gif)</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Gets image mime types (jpg, png and gif)</p>
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					array
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getMimetype" id="_getMimetype">
+
+		<td class="attributes"><code>
+			 public static
+
+			string
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getMimetype">#</a>
+		<code><a href="source-class-GImage.Utils.html#46-56" title="Go to source code">getMimetype</a>( <span>string <var>$filename</var></span> )</code>
+
+		<div class="description short">
+			<p>Gets image mimeType by filename.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Gets image mimeType by filename.</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$filename</var></dt>
+					<dd>Image path.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					string
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getMimetypeByImageType" id="_getMimetypeByImageType">
+
+		<td class="attributes"><code>
+			 public static
+
+			string
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getMimetypeByImageType">#</a>
+		<code><a href="source-class-GImage.Utils.html#58-68" title="Go to source code">getMimetypeByImageType</a>( <span>string <var>$imagetype</var></span> )</code>
+
+		<div class="description short">
+			<p>Gets image mime type by image type (IMAGETYPE_GIF, IMAGETYPE_PNG or IMAGETYPE_JPEG).</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Gets image mime type by image type (IMAGETYPE_GIF, IMAGETYPE_PNG or IMAGETYPE_JPEG).</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$imagetype</var></dt>
+					<dd>IMAGETYPE_GIF, IMAGETYPE_PNG or IMAGETYPE_JPEG.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					string
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getExtension" id="_getExtension">
+
+		<td class="attributes"><code>
+			 public static
+
+			string
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getExtension">#</a>
+		<code><a href="source-class-GImage.Utils.html#70-80" title="Go to source code">getExtension</a>( <span>string <var>$filename</var></span> )</code>
+
+		<div class="description short">
+			<p>Gets image extension from filename.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Gets image extension from filename.</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$filename</var></dt>
+					<dd>Image path.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					string<br>Return jpg, png or gif extension.
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getImageType" id="_getImageType">
+
+		<td class="attributes"><code>
+			 public static
+
+			boolean
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getImageType">#</a>
+		<code><a href="source-class-GImage.Utils.html#82-92" title="Go to source code">getImageType</a>( <span>string <var>$filename</var></span> )</code>
+
+		<div class="description short">
+			<p>Gets image type from filename.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Gets image type from filename.</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$filename</var></dt>
+					<dd>Image path.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					boolean
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="isJPG" id="_isJPG">
+
+		<td class="attributes"><code>
+			 public static
+
+			boolean
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_isJPG">#</a>
+		<code><a href="source-class-GImage.Utils.html#94-104" title="Go to source code">isJPG</a>( <span>string <var>$filename</var></span> )</code>
+
+		<div class="description short">
+			<p>Checks if image path is a JPG.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Checks if image path is a JPG.</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$filename</var></dt>
+					<dd>Image path.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					boolean
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="isPNG" id="_isPNG">
+
+		<td class="attributes"><code>
+			 public static
+
+			boolean
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_isPNG">#</a>
+		<code><a href="source-class-GImage.Utils.html#106-116" title="Go to source code">isPNG</a>( <span>string <var>$filename</var></span> )</code>
+
+		<div class="description short">
+			<p>Checks if image path is a PNG.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Checks if image path is a PNG.</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$filename</var></dt>
+					<dd>Image path.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					boolean
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="isGIF" id="_isGIF">
+
+		<td class="attributes"><code>
+			 public static
+
+			boolean
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_isGIF">#</a>
+		<code><a href="source-class-GImage.Utils.html#118-128" title="Go to source code">isGIF</a>( <span>string <var>$filename</var></span> )</code>
+
+		<div class="description short">
+			<p>Checks if image path is a PNG.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Checks if image path is a PNG.</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$filename</var></dt>
+					<dd>Image path.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					boolean
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="isJPGResource" id="_isJPGResource">
+
+		<td class="attributes"><code>
+			 public static
+
+			boolean
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_isJPGResource">#</a>
+		<code><a href="source-class-GImage.Utils.html#130-141" title="Go to source code">isJPGResource</a>( <span>resource <var>$resource</var></span> )</code>
+
+		<div class="description short">
+			<p>Checks if image resource is a JPG.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Checks if image resource is a JPG.</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$resource</var></dt>
+					<dd>Image resource.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					boolean
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="isPNGResource" id="_isPNGResource">
+
+		<td class="attributes"><code>
+			 public static
+
+			boolean
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_isPNGResource">#</a>
+		<code><a href="source-class-GImage.Utils.html#143-154" title="Go to source code">isPNGResource</a>( <span>resource <var>$resource</var></span> )</code>
+
+		<div class="description short">
+			<p>Checks if image resource is a PNG.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Checks if image resource is a PNG.</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$resource</var></dt>
+					<dd>Image resource.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					boolean
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="fixPNGOpacity" id="_fixPNGOpacity">
+
+		<td class="attributes"><code>
+			 public static
+
+			integer|float
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_fixPNGOpacity">#</a>
+		<code><a href="source-class-GImage.Utils.html#156-171" title="Go to source code">fixPNGOpacity</a>( <span>integer|float <var>$opacity</var> = <span class="php-num">1</span></span> )</code>
+
+		<div class="description short">
+			<p>Fix the opacity value (0 to 1) for PNG alpha value.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Fix the opacity value (0 to 1) for PNG alpha value.</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$opacity</var></dt>
+					<dd></dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					integer|float
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	<table class="summary properties" id="magicProperties">
+	<caption>Magic properties summary</caption>
+	<tr data-order="mimeTypes" id="m$mimeTypes">
+		<td class="attributes"><code>
+			public  
+			array
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-GImage.Utils.html#19" title="Go to source code"><var>$mimeTypes</var></a>
+
+			<div class="description short">
+				<p>Mime types for images.</p>
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</td>
+	</tr>
+	<tr data-order="imageTypes" id="m$imageTypes">
+		<td class="attributes"><code>
+			public  
+			array
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-GImage.Utils.html#20" title="Go to source code"><var>$imageTypes</var></a>
+
+			<div class="description short">
+				<p>Types: IMAGETYPE_GIF, IMAGETYPE_PNG and IMAGETYPE_JPEG.</p>
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</td>
+	</tr>
+	</table>
+
+
+
+</div>
+
+	<div id="footer">
+		 API documentation generated by <a href="http://apigen.org">ApiGen</a>
+	</div>
+</div>
+</div>
+<script src="resources/combined.js"></script>
+<script src="elementlist.js"></script>
+</body>
+</html>
