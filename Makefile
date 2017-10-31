@@ -23,14 +23,13 @@ docs_api:
 	vendor/apigen/apigen/bin/apigen generate -s src -d $(TMP_DOCS)/api/v3.0
 
 docs_deploy:
+	-rm -rf $(TMP_DOCS)
 	-make docs_build
 	-make docs_api
-	-rm -rf $(TMP_DOCS)
-	-mv -f ./site $(TMP_DOCS)
-	-git branch -d gh-pages
-	-git checkout --orphan gh-pages
+	-git checkout gh-pages
 	-git rm --cached -r .
-	-cp -rf $(TMP_DOCS)/* ./
+	-git clean -df
+	-cp -fa $(TMP_DOCS)/. ./
 	-git add -A && git commit . -m "update docs"
 	-git push -u origin gh-pages
 	-rm -rf $(TMP_DOCS)
