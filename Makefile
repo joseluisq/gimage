@@ -19,7 +19,8 @@ docs_build:
 	mkdocs build
 
 docs_api:
-	vendor/bin/apigen generate -s src -d ./site/api/v3.0
+	mkdir -p site/api/v3.0
+	vendor/apigen/apigen/bin/apigen generate -s src -d site/api/v3.0
 
 docs_deploy:
 	make docs_build
