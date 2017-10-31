@@ -18,4 +18,19 @@ docs_build:
 	cd docs
 	mkdocs build
 
-.PHONY: test docs format docs
+docs_deploy:
+	make docs_build
+	mkdocs gh-deploy
+
+docs_api:
+	-rm -rf _docs
+	vendor/bin/apigen generate -s src -d ./_docs
+	-git checkout gh-pages
+	-mkdir -p
+	-rm -rf docs && mv -f ./_docs ./api/v3.0
+	-git add -A && git commit . -m "update docs"
+	-git push -u origin gh-pages
+	@echo
+	@echo "Docs built and published."
+
+.PHONY: test docs format docs docs_api docs_deploy

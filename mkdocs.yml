@@ -1,6 +1,12 @@
 site_name: GImage
 site_author: 'Jose Quintana'
+site_url: https://joseluisq.github.io/gimage/
+
+repo_url: https://github.com/joseluisq/gimage/
+edit_uri: ""
+
 theme: 'material'
+
 extra:
     palette:
         primary: 'blue-grey'
@@ -8,6 +14,7 @@ extra:
     font:
         text: 'Open Sans'
         code: 'Droid Sans Mono'
+
 markdown_extensions:
     - codehilite
     - admonition
@@ -36,17 +43,17 @@ pages:
     - 'Getting Started': 'getting-started.md'
     - 'Classes':
         - 'Image': './classes/image.md'
-        - 'Figure': 'figure.md'
-        - 'Text': 'text.md'
-        - 'Canvas': 'canvas.md'
+        - 'Figure': './classes/figure.md'
+        - 'Text': './classes/text.md'
+        - 'Canvas': './classes/canvas.md'
     - 'Examples':
-        - 'Cropping': 'cropping.md'
-        - 'Swapping formats': 'swapping-formats.md'
-        - 'Resizing': 'resizing.md'
-        - 'Creating figures': 'creating-figures.md'
-        - 'Rotation': 'rotation.md'
-        - 'Text embeded': 'text-embeded.md'
-        - 'Composing with canvas': 'composing-with-canvas.md'
-        - 'Render images in-memory': 'render-images-in-memory.md'
-        - 'Creating a presentation card': 'creating-a-presentation-card.md'
+        - 'Cropping': './examples/cropping.md'
+        - 'Swapping formats': './examples/swapping-formats.md'
+        - 'Resizing': './examples/resizing.md'
+        - 'Rotation': './examples/rotation.md'
+        - 'Creating figures': './examples/creating-figures.md'
+        - 'Text embeded': './examples/text-embeded.md'
+        - 'Composing with canvas': './examples/composing-with-canvas.md'
+        - 'Render images in-memory': './examples/render-images-in-memory.md'
+        - 'Creating a presentation card': './examples/creating-a-presentation-card.md'
     - 'API Documentation': 'api.md'
