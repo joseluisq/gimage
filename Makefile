@@ -23,6 +23,7 @@ docs_api:
 	vendor/bin/apigen generate -s src -d $(TMP_DOCS)/api/v3.0
 
 docs_deploy:
+	-composer install
 	-rm -rf $(TMP_DOCS)
 	-make docs_build
 	-make docs_api
