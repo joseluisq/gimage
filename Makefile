@@ -29,7 +29,7 @@ docs_deploy:
 	-git checkout gh-pages
 	-git rm --cached -r .
 	-git clean -df
-	-cp -fa $(TMP_DOCS)/. ./
+	-cp -raf $(TMP_DOCS)/. ./
 	-git add -A && git commit . -m "update docs"
 	-git push -u origin gh-pages
 	-rm -rf $(TMP_DOCS)
