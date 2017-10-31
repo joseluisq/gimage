@@ -177,13 +177,18 @@
         },
         {
             "location": "/api/",
-            "text": "API Documentation\n\u00b6",
+            "text": "API Documentation\n\u00b6\n\n\nv3.0\n\u00b6\n\n\n \nView documentation",
             "title": "API Documentation"
         },
         {
             "location": "/api/#api-documentation",
             "text": "",
             "title": "API Documentation"
+        },
+        {
+            "location": "/api/#v30",
+            "text": "View documentation",
+            "title": "v3.0"
         }
     ]
 }
