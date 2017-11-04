@@ -2,10 +2,28 @@
 
 > `Image` class is the parent class for `Figure` and `Canvas` classes.
 
-Example below loads an image from local path, scale (50%) and output it on the browser:
+## Saving
+
+The example below loads and external imagen and save it on local.
 
 !!! tip "Tip"
-    `load()`method can load an image from any url or local path.
+    `load(f)` function can load an image file from any url or local valid path.
+
+```php
+<?php
+
+use GImage\Image;
+
+$img = new Image();
+$img
+	->load('https://i.imgur.com/G5MR088.png')
+	->scale(0.5)
+    ->save('/home/my_user/images/myimage.png');
+```
+
+## Output
+
+Loading an image from local path, scale (50%) and output it on the browser.
 
 ```php
 <?php
@@ -19,9 +37,35 @@ $img
 	->output();
 ```
 
+## Preserve resource
+
+`save()` and `output()` functions remove the image resource _in memory_ after processing.
+To preserve the image resource for future processings only call `preserve()` function before saving or outputing, then `preserve(false)` when your processing have been completed.
+
+```php
+<?php
+
+use GImage\Image;
+
+$img = new Image();
+$img
+	->load('/home/my_user/images/my_image.png')
+    ->centerCrop(50, 50)
+    // preserve the resource before save
+    ->preserve();
+    // save only
+	->save();
+    // remove the resource after output
+	->preserve(false);
+    // output and remove the resource
+	->output();
+```
+
+## Reuse Image functions
+
 `Figure` and `Canvas` extend from `Image`. This means that it's possible to use many functions like `crop()`, `centerCrop()`, `rotate()` and so on.
 
-Example below creates an rectangle, set an opacity (75%) and save it as PNG:
+For example the code below creates an rectangle, set an opacity (75%) and save it as PNG.
 
 ```php
 <?php

@@ -1,7 +1,7 @@
 # Cropping
 
 ## Custom cropping
-The following example loads an image (`600x199`) and crops part of an image (`200x100`).
+The following example loads an image (`600x199`) and crops part of the image (`200x100`).
 
 !!! tip "Tip"
     `crop(w, h, x, y)` is useful when we needs a custom cropping. we can specify the size and `x`, `y` coords.
