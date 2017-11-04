@@ -469,6 +469,99 @@
                 
                 
                 <h1 id="creating-a-presentation-card">Creating a presentation card<a class="headerlink" href="#creating-a-presentation-card" title="Permanent link">&para;</a></h1>
+<p><img alt="A simple presentation card with GImage" src="https://cloud.githubusercontent.com/assets/1700322/18941713/eed7fa34-85d8-11e6-8033-bf787e4aa236.png" /></p>
+<p>This example code makes a simple presentation card using <code class="codehilite">Image</code>, <code class="codehilite">Text</code>, <code class="codehilite">Figure</code> and <code class="codehilite">Canvas</code>.</p>
+<div class="codehilite"><pre><span></span><span class="cp">&lt;?php</span>
+
+<span class="k">use</span> <span class="nx">GImage\Image</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">GImage\Text</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">GImage\Figure</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">GImage\Canvas</span><span class="p">;</span>
+
+<span class="c1">// Creating an avatar image</span>
+<span class="nv">$avatar_image</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Image</span><span class="p">();</span>
+<span class="nv">$avatar_image</span>
+    <span class="o">-&gt;</span><span class="na">load</span><span class="p">(</span><span class="s1">&#39;https://assets-cdn.github.com/images/modules/logos_page/Octocat.png&#39;</span><span class="p">)</span>
+    <span class="o">-&gt;</span><span class="na">centerCrop</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+    <span class="o">-&gt;</span><span class="na">setTop</span><span class="p">(</span><span class="mi">60</span><span class="p">)</span>
+    <span class="o">-&gt;</span><span class="na">setLeft</span><span class="p">(</span><span class="mi">70</span><span class="p">);</span>
+
+<span class="nv">$about_text</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Text</span><span class="p">(</span><span class="s2">&quot;MY AWESOME PRESENTATION CARD</span><span class="se">\n</span><span class="s2">~ BY GIMAGE ~&quot;</span><span class="p">);</span>
+<span class="nv">$about_text</span><span class="o">-&gt;</span><span class="na">setSize</span><span class="p">(</span><span class="mi">16</span><span class="p">)</span>
+    <span class="o">-&gt;</span><span class="na">setWidth</span><span class="p">(</span><span class="mi">300</span><span class="p">)</span>
+    <span class="o">-&gt;</span><span class="na">setLeft</span><span class="p">(</span><span class="mi">210</span><span class="p">)</span>
+    <span class="o">-&gt;</span><span class="na">setLineHeight</span><span class="p">(</span><span class="mf">1.5</span><span class="p">)</span>
+    <span class="o">-&gt;</span><span class="na">setTop</span><span class="p">(</span><span class="mi">75</span><span class="p">)</span>
+    <span class="o">-&gt;</span><span class="na">setColor</span><span class="p">(</span><span class="mi">204</span><span class="p">,</span> <span class="mi">164</span><span class="p">,</span> <span class="mi">116</span><span class="p">)</span>
+    <span class="o">-&gt;</span><span class="na">setFontface</span><span class="p">(</span><span class="s1">&#39;fonts/Lato-Light.ttf&#39;</span><span class="p">);</span>
+
+<span class="nv">$twitter_text</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Text</span><span class="p">(</span><span class="s1">&#39;@joseluisq/gimage&#39;</span><span class="p">);</span>
+<span class="nv">$twitter_text</span>
+    <span class="o">-&gt;</span><span class="na">setSize</span><span class="p">(</span><span class="mi">11</span><span class="p">)</span>
+    <span class="o">-&gt;</span><span class="na">setWidth</span><span class="p">(</span><span class="mi">70</span><span class="p">)</span>
+    <span class="o">-&gt;</span><span class="na">setLeft</span><span class="p">(</span><span class="mi">410</span><span class="p">)</span>
+    <span class="o">-&gt;</span><span class="na">setTop</span><span class="p">(</span><span class="mi">210</span><span class="p">)</span>
+    <span class="o">-&gt;</span><span class="na">setColor</span><span class="p">(</span><span class="mi">130</span><span class="p">,</span> <span class="mi">127</span><span class="p">,</span> <span class="mi">125</span><span class="p">)</span>
+    <span class="o">-&gt;</span><span class="na">setFontface</span><span class="p">(</span><span class="s1">&#39;fonts/Lato-Regular.ttf&#39;</span><span class="p">);</span>
+
+<span class="nv">$canvas_figure</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Figure</span><span class="p">(</span><span class="mi">550</span><span class="p">,</span> <span class="mi">250</span><span class="p">);</span>
+<span class="nv">$canvas_figure</span>
+    <span class="o">-&gt;</span><span class="na">setBackgroundColor</span><span class="p">(</span><span class="mi">47</span><span class="p">,</span> <span class="mi">42</span><span class="p">,</span> <span class="mi">39</span><span class="p">)</span>
+    <span class="o">-&gt;</span><span class="na">create</span><span class="p">();</span>
+
+<span class="nv">$avatar_box</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Figure</span><span class="p">(</span>
+    <span class="nv">$avatar_image</span><span class="o">-&gt;</span><span class="na">getWidth</span><span class="p">()</span> <span class="o">+</span> <span class="mi">16</span><span class="p">,</span>
+    <span class="nv">$avatar_image</span><span class="o">-&gt;</span><span class="na">getHeight</span><span class="p">()</span> <span class="o">+</span> <span class="mi">17</span>
+<span class="p">);</span>
+<span class="nv">$avatar_box</span>
+    <span class="o">-&gt;</span><span class="na">setBackgroundColor</span><span class="p">(</span><span class="mi">63</span><span class="p">,</span> <span class="mi">56</span><span class="p">,</span> <span class="mi">52</span><span class="p">)</span>
+    <span class="o">-&gt;</span><span class="na">setLeft</span><span class="p">(</span><span class="nv">$avatar_image</span><span class="o">-&gt;</span><span class="na">getLeft</span><span class="p">()</span> <span class="o">-</span> <span class="mi">7</span><span class="p">)</span>
+    <span class="o">-&gt;</span><span class="na">setTop</span><span class="p">(</span><span class="nv">$avatar_image</span><span class="o">-&gt;</span><span class="na">getTop</span><span class="p">()</span> <span class="o">-</span> <span class="mi">8</span><span class="p">)</span>
+    <span class="o">-&gt;</span><span class="na">create</span><span class="p">();</span>
+
+<span class="nv">$avatar_box2</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Figure</span><span class="p">(</span>
+    <span class="nv">$avatar_image</span><span class="o">-&gt;</span><span class="na">getWidth</span><span class="p">()</span> <span class="o">+</span> <span class="mi">3</span><span class="p">,</span>
+    <span class="nv">$avatar_image</span><span class="o">-&gt;</span><span class="na">getHeight</span><span class="p">()</span> <span class="o">+</span> <span class="mi">19</span>
+<span class="p">);</span>
+<span class="nv">$avatar_box2</span>
+    <span class="o">-&gt;</span><span class="na">setBackgroundColor</span><span class="p">(</span><span class="mi">79</span><span class="p">,</span> <span class="mi">72</span><span class="p">,</span> <span class="mi">67</span><span class="p">)</span>
+    <span class="o">-&gt;</span><span class="na">setLeft</span><span class="p">(</span><span class="nv">$avatar_image</span><span class="o">-&gt;</span><span class="na">getLeft</span><span class="p">()</span> <span class="o">+</span> <span class="mi">7</span><span class="p">)</span>
+    <span class="o">-&gt;</span><span class="na">setTop</span><span class="p">(</span><span class="nv">$avatar_image</span><span class="o">-&gt;</span><span class="na">getTop</span><span class="p">()</span> <span class="o">-</span> <span class="mi">9</span><span class="p">)</span>
+    <span class="o">-&gt;</span><span class="na">create</span><span class="p">();</span>
+
+<span class="nv">$avatar_box3</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Figure</span><span class="p">(</span><span class="mi">120</span><span class="p">,</span> <span class="mi">240</span><span class="p">);</span>
+<span class="nv">$avatar_box3</span>
+    <span class="o">-&gt;</span><span class="na">setBackgroundColor</span><span class="p">(</span><span class="mi">63</span><span class="p">,</span> <span class="mi">56</span><span class="p">,</span> <span class="mi">52</span><span class="p">)</span>
+    <span class="o">-&gt;</span><span class="na">create</span><span class="p">();</span>
+
+<span class="nv">$line_vertical</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Figure</span><span class="p">(</span><span class="mi">600</span><span class="p">,</span> <span class="mi">10</span><span class="p">);</span>
+<span class="nv">$line_vertical</span>
+    <span class="o">-&gt;</span><span class="na">setBackgroundColor</span><span class="p">(</span><span class="mi">119</span><span class="p">,</span> <span class="mi">99</span><span class="p">,</span> <span class="mi">77</span><span class="p">)</span>
+    <span class="o">-&gt;</span><span class="na">setTop</span><span class="p">(</span><span class="mi">240</span><span class="p">)</span>
+    <span class="o">-&gt;</span><span class="na">create</span><span class="p">();</span>
+
+<span class="nv">$line_horizontal</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Figure</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">240</span><span class="p">);</span>
+<span class="nv">$line_horizontal</span>
+    <span class="o">-&gt;</span><span class="na">setBackgroundColor</span><span class="p">(</span><span class="mi">79</span><span class="p">,</span> <span class="mi">72</span><span class="p">,</span> <span class="mi">67</span><span class="p">)</span>
+    <span class="o">-&gt;</span><span class="na">setLeft</span><span class="p">(</span><span class="mi">120</span><span class="p">)</span>
+    <span class="o">-&gt;</span><span class="na">create</span><span class="p">();</span>
+
+<span class="nv">$canvas</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Canvas</span><span class="p">(</span><span class="nv">$canvas_figure</span><span class="p">);</span>
+<span class="nv">$canvas</span>
+    <span class="o">-&gt;</span><span class="na">append</span><span class="p">([</span>
+        <span class="nv">$line_horizontal</span><span class="p">,</span>
+        <span class="nv">$avatar_box2</span><span class="p">,</span>
+        <span class="nv">$avatar_box3</span><span class="p">,</span>
+        <span class="nv">$avatar_box</span><span class="p">,</span>
+        <span class="nv">$avatar_image</span><span class="p">,</span>
+        <span class="nv">$about_text</span><span class="p">,</span>
+        <span class="nv">$twitter_text</span><span class="p">,</span>
+        <span class="nv">$line_vertical</span><span class="p">,</span>
+    <span class="p">])</span>
+    <span class="o">-&gt;</span><span class="na">toPNG</span><span class="p">()</span>
+    <span class="o">-&gt;</span><span class="na">draw</span><span class="p">()</span>
+    <span class="o">-&gt;</span><span class="na">save</span><span class="p">(</span><span class="s1">&#39;card.png&#39;</span><span class="p">);</span>
+</pre></div>
                 
                   
                 

@@ -2,7 +2,7 @@
     "docs": [
         {
             "location": "/",
-            "text": "GImage\n\u00b6\n\n\n\n\nA PHP library for easy image handling.\n\n\n\n\n \n \n \n \n\n\nIntroduction\n\u00b6\n\n\nGImage\n is a simple and small library based on \nPHP Image Processing and GD\n for processing images without stress.\n\n\n\n\n\n\n\"A presentation card built with GImage\" - \nView code example\n\n\n\n\nFeatures\n\u00b6\n\n\n\n\nLoad an image from local path or URL.\n\n\nCreate shapes such as rectangles or ellipses with opacity.\n\n\nResize or scale images proportionally.\n\n\nCrop images proportionally.\n\n\nRotate images, shapes or texts.\n\n\nEmbed text with custom TTF fonts.\n\n\nCompose a pool of images with Canvas.\n\n\nSwap image formats such as JPEG, PNG and GIF.\n\n\nSave images in local or output on the browser.\n\n\nSave several copies of the same image.\n\n\n\n\nFor detailed instructions see the \ngetting started guide\n.",
+            "text": "GImage\n\u00b6\n\n\n\n\nA PHP library for easy image handling.\n\n\n\n\n \n \n \n \n\n\nIntroduction\n\u00b6\n\n\nGImage\n is a simple and small library based on \nPHP Image Processing and GD\n for processing images without stress.\n\n\n\n\n\n\n\"A presentation card built with GImage\" - \nView code example\n\n\n\n\nFeatures\n\u00b6\n\n\n\n\nLoad an image from local path or URL.\n\n\nCreate shapes such as rectangles or ellipses with opacity.\n\n\nResize, scale or crop images proportionally.\n\n\nRotate images, shapes or texts.\n\n\nEmbed text with custom TTF fonts.\n\n\nCompose a pool of images with Canvas.\n\n\nSwap image formats such as JPEG, PNG and GIF.\n\n\nSave images in local or output on the browser.\n\n\nSave several copies of the same image.\n\n\nRender an image in-memory and return the resource.\n\n\n\n\nFor detailed instructions see the \ngetting started guide\n.",
             "title": "Introduction"
         },
         {
@@ -17,7 +17,7 @@
         },
         {
             "location": "/#features",
-            "text": "Load an image from local path or URL.  Create shapes such as rectangles or ellipses with opacity.  Resize or scale images proportionally.  Crop images proportionally.  Rotate images, shapes or texts.  Embed text with custom TTF fonts.  Compose a pool of images with Canvas.  Swap image formats such as JPEG, PNG and GIF.  Save images in local or output on the browser.  Save several copies of the same image.   For detailed instructions see the  getting started guide .",
+            "text": "Load an image from local path or URL.  Create shapes such as rectangles or ellipses with opacity.  Resize, scale or crop images proportionally.  Rotate images, shapes or texts.  Embed text with custom TTF fonts.  Compose a pool of images with Canvas.  Swap image formats such as JPEG, PNG and GIF.  Save images in local or output on the browser.  Save several copies of the same image.  Render an image in-memory and return the resource.   For detailed instructions see the  getting started guide .",
             "title": "Features"
         },
         {
@@ -42,13 +42,33 @@
         },
         {
             "location": "/classes/image/",
-            "text": "Image\n\u00b6\n\n\n\n\nImage\n class is the parent class for \nFigure\n and \nCanvas\n classes.\n\n\n\n\nExample below loads an image from local path, scale (50%) and output it on the browser:\n\n\n\n\nTip\n\n\nload()\nmethod can load an image from any url or local path.\n\n\n\n\n<?php\n\n\n\nuse\n \nGImage\\Image\n;\n\n\n\n$img\n \n=\n \nnew\n \nImage\n();\n\n\n$img\n\n    \n->\nload\n(\n'/home/my_user/images/my_image.png'\n)\n\n    \n->\nscale\n(\n0.5\n)\n\n    \n->\noutput\n();\n\n\n\n\n\nFigure\n and \nCanvas\n extend from \nImage\n. This means that it's possible to use many functions like \ncrop()\n, \ncenterCrop()\n, \nrotate()\n and so on.\n\n\nExample below creates an rectangle, set an opacity (75%) and save it as PNG:\n\n\n<?php\n\n\n\nuse\n \nGImage\\Figure\n;\n\n\n\n$figure\n \n=\n \nnew\n \nFigure\n(\n400\n,\n \n250\n);\n\n\n$figure\n\n    \n->\nsetBackgroundColor\n(\n0\n,\n \n0\n,\n \n255\n)\n\n    \n->\nsetOpacity\n(\n0.75\n)\n\n    \n->\ncreate\n()\n\n    \n->\nsave\n(\n'/home/my_user/images/reactangle.png'\n);",
+            "text": "Image\n\u00b6\n\n\n\n\nImage\n class is the parent class for \nFigure\n and \nCanvas\n classes.\n\n\n\n\nSaving\n\u00b6\n\n\nThe example below loads and external imagen and save it on local.\n\n\n\n\nTip\n\n\nload(f)\n function can load an image file from any url or local valid path.\n\n\n\n\n<?php\n\n\n\nuse\n \nGImage\\Image\n;\n\n\n\n$img\n \n=\n \nnew\n \nImage\n();\n\n\n$img\n\n    \n->\nload\n(\n'https://i.imgur.com/G5MR088.png'\n)\n\n    \n->\nscale\n(\n0.5\n)\n\n    \n->\nsave\n(\n'/home/my_user/images/myimage.png'\n);\n\n\n\n\n\nOutput\n\u00b6\n\n\nLoading an image from local path, scale (50%) and output it on the browser.\n\n\n<?php\n\n\n\nuse\n \nGImage\\Image\n;\n\n\n\n$img\n \n=\n \nnew\n \nImage\n();\n\n\n$img\n\n    \n->\nload\n(\n'/home/my_user/images/my_image.png'\n)\n\n    \n->\nscale\n(\n0.5\n)\n\n    \n->\noutput\n();\n\n\n\n\n\nPreserve resource\n\u00b6\n\n\nsave()\n and \noutput()\n functions remove the image resource \nin memory\n after processing.\nTo preserve the image resource for future processings only call \npreserve()\n function before saving or outputing, then \npreserve(false)\n when your processing have been completed.\n\n\n<?php\n\n\n\nuse\n \nGImage\\Image\n;\n\n\n\n$img\n \n=\n \nnew\n \nImage\n();\n\n\n$img\n\n    \n->\nload\n(\n'/home/my_user/images/my_image.png'\n)\n\n    \n->\ncenterCrop\n(\n50\n,\n \n50\n)\n\n    \n// preserve the resource before save\n\n    \n->\npreserve\n();\n\n    \n// save only\n\n    \n->\nsave\n();\n\n    \n// remove the resource after output\n\n    \n->\npreserve\n(\nfalse\n);\n\n    \n// output and remove the resource\n\n    \n->\noutput\n();\n\n\n\n\n\nReuse Image functions\n\u00b6\n\n\nFigure\n and \nCanvas\n extend from \nImage\n. This means that it's possible to use many functions like \ncrop()\n, \ncenterCrop()\n, \nrotate()\n and so on.\n\n\nFor example the code below creates an rectangle, set an opacity (75%) and save it as PNG.\n\n\n<?php\n\n\n\nuse\n \nGImage\\Figure\n;\n\n\n\n$figure\n \n=\n \nnew\n \nFigure\n(\n400\n,\n \n250\n);\n\n\n$figure\n\n    \n->\nsetBackgroundColor\n(\n0\n,\n \n0\n,\n \n255\n)\n\n    \n->\nsetOpacity\n(\n0.75\n)\n\n    \n->\ncreate\n()\n\n    \n->\nsave\n(\n'/home/my_user/images/reactangle.png'\n);",
             "title": "Image"
         },
         {
             "location": "/classes/image/#image",
-            "text": "Image  class is the parent class for  Figure  and  Canvas  classes.   Example below loads an image from local path, scale (50%) and output it on the browser:   Tip  load() method can load an image from any url or local path.   <?php  use   GImage\\Image ;  $img   =   new   Image ();  $img \n     -> load ( '/home/my_user/images/my_image.png' ) \n     -> scale ( 0.5 ) \n     -> output ();   Figure  and  Canvas  extend from  Image . This means that it's possible to use many functions like  crop() ,  centerCrop() ,  rotate()  and so on.  Example below creates an rectangle, set an opacity (75%) and save it as PNG:  <?php  use   GImage\\Figure ;  $figure   =   new   Figure ( 400 ,   250 );  $figure \n     -> setBackgroundColor ( 0 ,   0 ,   255 ) \n     -> setOpacity ( 0.75 ) \n     -> create () \n     -> save ( '/home/my_user/images/reactangle.png' );",
+            "text": "Image  class is the parent class for  Figure  and  Canvas  classes.",
             "title": "Image"
+        },
+        {
+            "location": "/classes/image/#saving",
+            "text": "The example below loads and external imagen and save it on local.   Tip  load(f)  function can load an image file from any url or local valid path.   <?php  use   GImage\\Image ;  $img   =   new   Image ();  $img \n     -> load ( 'https://i.imgur.com/G5MR088.png' ) \n     -> scale ( 0.5 ) \n     -> save ( '/home/my_user/images/myimage.png' );",
+            "title": "Saving"
+        },
+        {
+            "location": "/classes/image/#output",
+            "text": "Loading an image from local path, scale (50%) and output it on the browser.  <?php  use   GImage\\Image ;  $img   =   new   Image ();  $img \n     -> load ( '/home/my_user/images/my_image.png' ) \n     -> scale ( 0.5 ) \n     -> output ();",
+            "title": "Output"
+        },
+        {
+            "location": "/classes/image/#preserve-resource",
+            "text": "save()  and  output()  functions remove the image resource  in memory  after processing.\nTo preserve the image resource for future processings only call  preserve()  function before saving or outputing, then  preserve(false)  when your processing have been completed.  <?php  use   GImage\\Image ;  $img   =   new   Image ();  $img \n     -> load ( '/home/my_user/images/my_image.png' ) \n     -> centerCrop ( 50 ,   50 ) \n     // preserve the resource before save \n     -> preserve (); \n     // save only \n     -> save (); \n     // remove the resource after output \n     -> preserve ( false ); \n     // output and remove the resource \n     -> output ();",
+            "title": "Preserve resource"
+        },
+        {
+            "location": "/classes/image/#reuse-image-functions",
+            "text": "Figure  and  Canvas  extend from  Image . This means that it's possible to use many functions like  crop() ,  centerCrop() ,  rotate()  and so on.  For example the code below creates an rectangle, set an opacity (75%) and save it as PNG.  <?php  use   GImage\\Figure ;  $figure   =   new   Figure ( 400 ,   250 );  $figure \n     -> setBackgroundColor ( 0 ,   0 ,   255 ) \n     -> setOpacity ( 0.75 ) \n     -> create () \n     -> save ( '/home/my_user/images/reactangle.png' );",
+            "title": "Reuse Image functions"
         },
         {
             "location": "/classes/figure/",
@@ -82,7 +102,7 @@
         },
         {
             "location": "/examples/cropping/",
-            "text": "Cropping\n\u00b6\n\n\nCustom cropping\n\u00b6\n\n\nThe following example loads an image (\n600x199\n) and crops part of an image (\n200x100\n).\n\n\n\n\nTip\n\n\ncrop(w, h, x, y)\n is useful when we needs a custom cropping. we can specify the size and \nx\n, \ny\n coords.\n\n\n\n\n<?php\n\n\n\nuse\n \nGImage\\Image\n;\n\n\n\n// PNG image (600x199)\n\n\n$arch_url\n \n=\n \n'https://i.imgur.com/G5MR088.png'\n;\n\n\n\n$arch_img\n \n=\n \nnew\n \nImage\n();\n\n\n$arch_img\n\n    \n->\nload\n(\n$arch_url\n)\n\n    \n// crop (200px x 100px) x=10 and y=20\n\n    \n->\ncrop\n(\n200\n,\n \n100\n,\n \n10\n,\n \n20\n)\n\n    \n// save the resource\n\n    \n->\nsave\n(\n'crop.png'\n);\n\n\n\n\n\nCenter cropping\n\u00b6\n\n\nWe can also to do an automatic-size cropping. The example crops an image proportionally based on given values (width and height).\n\n\n\n\nTip\n\n\ncenterCrop(w, h)\n calculates the image size, resize and crop it proportionally and centered. Making the cropping contain most of the original image.\n\n\n\n\n<?php\n\n\n\nuse\n \nGImage\\Image\n;\n\n\n\n// PNG image (600x199)\n\n\n$arch_url\n \n=\n \n'https://i.imgur.com/G5MR088.png'\n;\n\n\n\n$arch_img\n \n=\n \nnew\n \nImage\n();\n\n\n$arch_img\n\n    \n->\nload\n(\n$arch_url\n)\n\n    \n// crop (80px x 80px)\n\n    \n->\ncenterCrop\n(\n80\n,\n \n80\n)\n\n    \n// save the resource\n\n    \n->\nsave\n(\n'center_crop.png'\n);",
+            "text": "Cropping\n\u00b6\n\n\nCustom cropping\n\u00b6\n\n\nThe following example loads an image (\n600x199\n) and crops part of the image (\n200x100\n).\n\n\n\n\nTip\n\n\ncrop(w, h, x, y)\n is useful when we needs a custom cropping. we can specify the size and \nx\n, \ny\n coords.\n\n\n\n\n<?php\n\n\n\nuse\n \nGImage\\Image\n;\n\n\n\n// PNG image (600x199)\n\n\n$arch_url\n \n=\n \n'https://i.imgur.com/G5MR088.png'\n;\n\n\n\n$arch_img\n \n=\n \nnew\n \nImage\n();\n\n\n$arch_img\n\n    \n->\nload\n(\n$arch_url\n)\n\n    \n// crop (200px x 100px) x=10 and y=20\n\n    \n->\ncrop\n(\n200\n,\n \n100\n,\n \n10\n,\n \n20\n)\n\n    \n// save the resource\n\n    \n->\nsave\n(\n'crop.png'\n);\n\n\n\n\n\nCenter cropping\n\u00b6\n\n\nWe can also to do an automatic-size cropping. The example crops an image proportionally based on given values (width and height).\n\n\n\n\nTip\n\n\ncenterCrop(w, h)\n calculates the image size, resize and crop it proportionally and centered. Making the cropping contain most of the original image.\n\n\n\n\n<?php\n\n\n\nuse\n \nGImage\\Image\n;\n\n\n\n// PNG image (600x199)\n\n\n$arch_url\n \n=\n \n'https://i.imgur.com/G5MR088.png'\n;\n\n\n\n$arch_img\n \n=\n \nnew\n \nImage\n();\n\n\n$arch_img\n\n    \n->\nload\n(\n$arch_url\n)\n\n    \n// crop (80px x 80px)\n\n    \n->\ncenterCrop\n(\n80\n,\n \n80\n)\n\n    \n// save the resource\n\n    \n->\nsave\n(\n'center_crop.png'\n);",
             "title": "Cropping"
         },
         {
@@ -92,7 +112,7 @@
         },
         {
             "location": "/examples/cropping/#custom-cropping",
-            "text": "The following example loads an image ( 600x199 ) and crops part of an image ( 200x100 ).   Tip  crop(w, h, x, y)  is useful when we needs a custom cropping. we can specify the size and  x ,  y  coords.   <?php  use   GImage\\Image ;  // PNG image (600x199)  $arch_url   =   'https://i.imgur.com/G5MR088.png' ;  $arch_img   =   new   Image ();  $arch_img \n     -> load ( $arch_url ) \n     // crop (200px x 100px) x=10 and y=20 \n     -> crop ( 200 ,   100 ,   10 ,   20 ) \n     // save the resource \n     -> save ( 'crop.png' );",
+            "text": "The following example loads an image ( 600x199 ) and crops part of the image ( 200x100 ).   Tip  crop(w, h, x, y)  is useful when we needs a custom cropping. we can specify the size and  x ,  y  coords.   <?php  use   GImage\\Image ;  // PNG image (600x199)  $arch_url   =   'https://i.imgur.com/G5MR088.png' ;  $arch_img   =   new   Image ();  $arch_img \n     -> load ( $arch_url ) \n     // crop (200px x 100px) x=10 and y=20 \n     -> crop ( 200 ,   100 ,   10 ,   20 ) \n     // save the resource \n     -> save ( 'crop.png' );",
             "title": "Custom cropping"
         },
         {
@@ -112,7 +132,7 @@
         },
         {
             "location": "/examples/resizing/",
-            "text": "Resizing\n\u00b6",
+            "text": "Resizing\n\u00b6\n\n\nWidth resizing\n\u00b6\n\n\nResizing an image proportionally basing on the width (\nheight\n is calculated).\n\n\n<?php\n\n\n\nuse\n \nGImage\\Image\n;\n\n\n\n$image\n \n=\n \nnew\n \nImage\n();\n\n\n$image\n\n    \n->\nload\n(\n'https://i.imgur.com/G5MR088.png'\n)\n\n    \n// Resize from width\n\n    \n->\nresizeToWidth\n(\n200\n)\n\n    \n// Save on local\n\n    \n->\nsave\n(\n'resize_width_image.png'\n);\n\n\n\n\n\nHeight resizing\n\u00b6\n\n\nResizing an image proportionally basing on the height (\nwidth\n is calculated).\n\n\n<?php\n\n\n\nuse\n \nGImage\\Image\n;\n\n\n\n$image\n \n=\n \nnew\n \nImage\n();\n\n\n$image\n\n    \n->\nload\n(\n'https://i.imgur.com/G5MR088.png'\n)\n\n    \n// Resize from height\n\n    \n->\nresizeToHeight\n(\n80\n)\n\n    \n// Save on local\n\n    \n->\nsave\n(\n'resize_height_image.png'\n);\n\n\n\n\n\n\n\nTip\n\n\nUse \ngetPropWidth(height)\n and \ngetPropHeight(width)\n to get the proportional \nwidth\n or \nheight\n values only.\n\n\n\n\nScale\n\u00b6\n\n\nThe following example scales a PNG image 120%.\n\n\n\n\nTip\n\n\nThe \nscale(val)\n function value should be between 0 and 1\n\n\n\n\n<?php\n\n\n\nuse\n \nGImage\\Image\n;\n\n\n\n$image\n \n=\n \nnew\n \nImage\n();\n\n\n$image\n\n    \n->\nload\n(\n'https://i.imgur.com/G5MR088.png'\n)\n\n    \n// Scale 120%\n\n    \n->\nscale\n(\n1.2\n)\n\n    \n// Save on local\n\n    \n->\nsave\n(\n'rotate_image.png'\n);",
             "title": "Resizing"
         },
         {
@@ -121,13 +141,28 @@
             "title": "Resizing"
         },
         {
+            "location": "/examples/resizing/#width-resizing",
+            "text": "Resizing an image proportionally basing on the width ( height  is calculated).  <?php  use   GImage\\Image ;  $image   =   new   Image ();  $image \n     -> load ( 'https://i.imgur.com/G5MR088.png' ) \n     // Resize from width \n     -> resizeToWidth ( 200 ) \n     // Save on local \n     -> save ( 'resize_width_image.png' );",
+            "title": "Width resizing"
+        },
+        {
+            "location": "/examples/resizing/#height-resizing",
+            "text": "Resizing an image proportionally basing on the height ( width  is calculated).  <?php  use   GImage\\Image ;  $image   =   new   Image ();  $image \n     -> load ( 'https://i.imgur.com/G5MR088.png' ) \n     // Resize from height \n     -> resizeToHeight ( 80 ) \n     // Save on local \n     -> save ( 'resize_height_image.png' );    Tip  Use  getPropWidth(height)  and  getPropHeight(width)  to get the proportional  width  or  height  values only.",
+            "title": "Height resizing"
+        },
+        {
+            "location": "/examples/resizing/#scale",
+            "text": "The following example scales a PNG image 120%.   Tip  The  scale(val)  function value should be between 0 and 1   <?php  use   GImage\\Image ;  $image   =   new   Image ();  $image \n     -> load ( 'https://i.imgur.com/G5MR088.png' ) \n     // Scale 120% \n     -> scale ( 1.2 ) \n     // Save on local \n     -> save ( 'rotate_image.png' );",
+            "title": "Scale"
+        },
+        {
             "location": "/examples/rotation/",
-            "text": "Rotation\n\u00b6",
+            "text": "Rotation\n\u00b6\n\n\nThe following example rotates a PNG image 90\u00b0.\n\n\n<?php\n\n\n\nuse\n \nGImage\\Image\n;\n\n\n\n$image\n \n=\n \nnew\n \nImage\n();\n\n\n$image\n\n    \n->\nload\n(\n'https://i.imgur.com/G5MR088.png'\n)\n\n    \n// Rotate 90\u00b0\n\n    \n->\nrotate\n(\n90\n)\n\n    \n// Save on local\n\n    \n->\nsave\n(\n'rotate_image.png'\n);",
             "title": "Rotation"
         },
         {
             "location": "/examples/rotation/#rotation",
-            "text": "",
+            "text": "The following example rotates a PNG image 90\u00b0.  <?php  use   GImage\\Image ;  $image   =   new   Image ();  $image \n     -> load ( 'https://i.imgur.com/G5MR088.png' ) \n     // Rotate 90\u00b0 \n     -> rotate ( 90 ) \n     // Save on local \n     -> save ( 'rotate_image.png' );",
             "title": "Rotation"
         },
         {
@@ -157,22 +192,22 @@
         },
         {
             "location": "/examples/render-images-in-memory/",
-            "text": "Render images in-memory\n\u00b6",
+            "text": "Render images in-memory\n\u00b6\n\n\nThe following example renders an image in-memory and return the resource.\n\n\n<?php\n\n\n\nuse\n \nGImage\\Image\n;\n\n\n\n$img\n \n=\n \nnew\n \nImage\n();\n\n\n$arch_url\n \n=\n \n'https://i.imgur.com/G5MR088.png'\n;\n\n\n\n$resource\n \n=\n \n$img\n->\nload\n(\n$arch_url\n)\n\n    \n// Scale 120%\n\n    \n->\nscale\n(\n1.2\n)\n\n    \n// Rotate an image to -90\u00ba\n\n    \n->\nrotate\n(\n-\n90\n)\n\n    \n// Change to PNG\n\n    \n->\ntoPNG\n()\n\n    \n// Add opacity 70%\n\n    \n->\nsetOpacity\n(\n0.7\n)\n\n    \n// Render the image in-memory\n\n    \n->\nrender\n();\n\n\n\n// Output the resource (example only)\n\n\nheader\n(\n'Content-Type: image/png'\n);\n\n\n// Necessary for opacity to work\n\n\nimagesavealpha\n(\n$resource\n,\n \ntrue\n);\n\n\nimagepng\n(\n$resource\n,\n \nnull\n);",
             "title": "Render images in-memory"
         },
         {
             "location": "/examples/render-images-in-memory/#render-images-in-memory",
-            "text": "",
+            "text": "The following example renders an image in-memory and return the resource.  <?php  use   GImage\\Image ;  $img   =   new   Image ();  $arch_url   =   'https://i.imgur.com/G5MR088.png' ;  $resource   =   $img -> load ( $arch_url ) \n     // Scale 120% \n     -> scale ( 1.2 ) \n     // Rotate an image to -90\u00ba \n     -> rotate ( - 90 ) \n     // Change to PNG \n     -> toPNG () \n     // Add opacity 70% \n     -> setOpacity ( 0.7 ) \n     // Render the image in-memory \n     -> render ();  // Output the resource (example only)  header ( 'Content-Type: image/png' );  // Necessary for opacity to work  imagesavealpha ( $resource ,   true );  imagepng ( $resource ,   null );",
             "title": "Render images in-memory"
         },
         {
             "location": "/examples/creating-a-presentation-card/",
-            "text": "Creating a presentation card\n\u00b6",
+            "text": "Creating a presentation card\n\u00b6\n\n\n\n\nThis example code makes a simple presentation card using \nImage\n, \nText\n, \nFigure\n and \nCanvas\n.\n\n\n<?php\n\n\n\nuse\n \nGImage\\Image\n;\n\n\nuse\n \nGImage\\Text\n;\n\n\nuse\n \nGImage\\Figure\n;\n\n\nuse\n \nGImage\\Canvas\n;\n\n\n\n// Creating an avatar image\n\n\n$avatar_image\n \n=\n \nnew\n \nImage\n();\n\n\n$avatar_image\n\n    \n->\nload\n(\n'https://assets-cdn.github.com/images/modules/logos_page/Octocat.png'\n)\n\n    \n->\ncenterCrop\n(\n100\n,\n \n100\n)\n\n    \n->\nsetTop\n(\n60\n)\n\n    \n->\nsetLeft\n(\n70\n);\n\n\n\n$about_text\n \n=\n \nnew\n \nText\n(\n\"MY AWESOME PRESENTATION CARD\n\\n\n~ BY GIMAGE ~\"\n);\n\n\n$about_text\n->\nsetSize\n(\n16\n)\n\n    \n->\nsetWidth\n(\n300\n)\n\n    \n->\nsetLeft\n(\n210\n)\n\n    \n->\nsetLineHeight\n(\n1.5\n)\n\n    \n->\nsetTop\n(\n75\n)\n\n    \n->\nsetColor\n(\n204\n,\n \n164\n,\n \n116\n)\n\n    \n->\nsetFontface\n(\n'fonts/Lato-Light.ttf'\n);\n\n\n\n$twitter_text\n \n=\n \nnew\n \nText\n(\n'@joseluisq/gimage'\n);\n\n\n$twitter_text\n\n    \n->\nsetSize\n(\n11\n)\n\n    \n->\nsetWidth\n(\n70\n)\n\n    \n->\nsetLeft\n(\n410\n)\n\n    \n->\nsetTop\n(\n210\n)\n\n    \n->\nsetColor\n(\n130\n,\n \n127\n,\n \n125\n)\n\n    \n->\nsetFontface\n(\n'fonts/Lato-Regular.ttf'\n);\n\n\n\n$canvas_figure\n \n=\n \nnew\n \nFigure\n(\n550\n,\n \n250\n);\n\n\n$canvas_figure\n\n    \n->\nsetBackgroundColor\n(\n47\n,\n \n42\n,\n \n39\n)\n\n    \n->\ncreate\n();\n\n\n\n$avatar_box\n \n=\n \nnew\n \nFigure\n(\n\n    \n$avatar_image\n->\ngetWidth\n()\n \n+\n \n16\n,\n\n    \n$avatar_image\n->\ngetHeight\n()\n \n+\n \n17\n\n\n);\n\n\n$avatar_box\n\n    \n->\nsetBackgroundColor\n(\n63\n,\n \n56\n,\n \n52\n)\n\n    \n->\nsetLeft\n(\n$avatar_image\n->\ngetLeft\n()\n \n-\n \n7\n)\n\n    \n->\nsetTop\n(\n$avatar_image\n->\ngetTop\n()\n \n-\n \n8\n)\n\n    \n->\ncreate\n();\n\n\n\n$avatar_box2\n \n=\n \nnew\n \nFigure\n(\n\n    \n$avatar_image\n->\ngetWidth\n()\n \n+\n \n3\n,\n\n    \n$avatar_image\n->\ngetHeight\n()\n \n+\n \n19\n\n\n);\n\n\n$avatar_box2\n\n    \n->\nsetBackgroundColor\n(\n79\n,\n \n72\n,\n \n67\n)\n\n    \n->\nsetLeft\n(\n$avatar_image\n->\ngetLeft\n()\n \n+\n \n7\n)\n\n    \n->\nsetTop\n(\n$avatar_image\n->\ngetTop\n()\n \n-\n \n9\n)\n\n    \n->\ncreate\n();\n\n\n\n$avatar_box3\n \n=\n \nnew\n \nFigure\n(\n120\n,\n \n240\n);\n\n\n$avatar_box3\n\n    \n->\nsetBackgroundColor\n(\n63\n,\n \n56\n,\n \n52\n)\n\n    \n->\ncreate\n();\n\n\n\n$line_vertical\n \n=\n \nnew\n \nFigure\n(\n600\n,\n \n10\n);\n\n\n$line_vertical\n\n    \n->\nsetBackgroundColor\n(\n119\n,\n \n99\n,\n \n77\n)\n\n    \n->\nsetTop\n(\n240\n)\n\n    \n->\ncreate\n();\n\n\n\n$line_horizontal\n \n=\n \nnew\n \nFigure\n(\n1\n,\n \n240\n);\n\n\n$line_horizontal\n\n    \n->\nsetBackgroundColor\n(\n79\n,\n \n72\n,\n \n67\n)\n\n    \n->\nsetLeft\n(\n120\n)\n\n    \n->\ncreate\n();\n\n\n\n$canvas\n \n=\n \nnew\n \nCanvas\n(\n$canvas_figure\n);\n\n\n$canvas\n\n    \n->\nappend\n([\n\n        \n$line_horizontal\n,\n\n        \n$avatar_box2\n,\n\n        \n$avatar_box3\n,\n\n        \n$avatar_box\n,\n\n        \n$avatar_image\n,\n\n        \n$about_text\n,\n\n        \n$twitter_text\n,\n\n        \n$line_vertical\n,\n\n    \n])\n\n    \n->\ntoPNG\n()\n\n    \n->\ndraw\n()\n\n    \n->\nsave\n(\n'card.png'\n);",
             "title": "Creating a presentation card"
         },
         {
             "location": "/examples/creating-a-presentation-card/#creating-a-presentation-card",
-            "text": "",
+            "text": "This example code makes a simple presentation card using  Image ,  Text ,  Figure  and  Canvas .  <?php  use   GImage\\Image ;  use   GImage\\Text ;  use   GImage\\Figure ;  use   GImage\\Canvas ;  // Creating an avatar image  $avatar_image   =   new   Image ();  $avatar_image \n     -> load ( 'https://assets-cdn.github.com/images/modules/logos_page/Octocat.png' ) \n     -> centerCrop ( 100 ,   100 ) \n     -> setTop ( 60 ) \n     -> setLeft ( 70 );  $about_text   =   new   Text ( \"MY AWESOME PRESENTATION CARD \\n ~ BY GIMAGE ~\" );  $about_text -> setSize ( 16 ) \n     -> setWidth ( 300 ) \n     -> setLeft ( 210 ) \n     -> setLineHeight ( 1.5 ) \n     -> setTop ( 75 ) \n     -> setColor ( 204 ,   164 ,   116 ) \n     -> setFontface ( 'fonts/Lato-Light.ttf' );  $twitter_text   =   new   Text ( '@joseluisq/gimage' );  $twitter_text \n     -> setSize ( 11 ) \n     -> setWidth ( 70 ) \n     -> setLeft ( 410 ) \n     -> setTop ( 210 ) \n     -> setColor ( 130 ,   127 ,   125 ) \n     -> setFontface ( 'fonts/Lato-Regular.ttf' );  $canvas_figure   =   new   Figure ( 550 ,   250 );  $canvas_figure \n     -> setBackgroundColor ( 47 ,   42 ,   39 ) \n     -> create ();  $avatar_box   =   new   Figure ( \n     $avatar_image -> getWidth ()   +   16 , \n     $avatar_image -> getHeight ()   +   17  );  $avatar_box \n     -> setBackgroundColor ( 63 ,   56 ,   52 ) \n     -> setLeft ( $avatar_image -> getLeft ()   -   7 ) \n     -> setTop ( $avatar_image -> getTop ()   -   8 ) \n     -> create ();  $avatar_box2   =   new   Figure ( \n     $avatar_image -> getWidth ()   +   3 , \n     $avatar_image -> getHeight ()   +   19  );  $avatar_box2 \n     -> setBackgroundColor ( 79 ,   72 ,   67 ) \n     -> setLeft ( $avatar_image -> getLeft ()   +   7 ) \n     -> setTop ( $avatar_image -> getTop ()   -   9 ) \n     -> create ();  $avatar_box3   =   new   Figure ( 120 ,   240 );  $avatar_box3 \n     -> setBackgroundColor ( 63 ,   56 ,   52 ) \n     -> create ();  $line_vertical   =   new   Figure ( 600 ,   10 );  $line_vertical \n     -> setBackgroundColor ( 119 ,   99 ,   77 ) \n     -> setTop ( 240 ) \n     -> create ();  $line_horizontal   =   new   Figure ( 1 ,   240 );  $line_horizontal \n     -> setBackgroundColor ( 79 ,   72 ,   67 ) \n     -> setLeft ( 120 ) \n     -> create ();  $canvas   =   new   Canvas ( $canvas_figure );  $canvas \n     -> append ([ \n         $line_horizontal , \n         $avatar_box2 , \n         $avatar_box3 , \n         $avatar_box , \n         $avatar_image , \n         $about_text , \n         $twitter_text , \n         $line_vertical , \n     ]) \n     -> toPNG () \n     -> draw () \n     -> save ( 'card.png' );",
             "title": "Creating a presentation card"
         },
         {

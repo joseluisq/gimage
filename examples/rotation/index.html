@@ -469,6 +469,19 @@
                 
                 
                 <h1 id="rotation">Rotation<a class="headerlink" href="#rotation" title="Permanent link">&para;</a></h1>
+<p>The following example rotates a PNG image 90°.</p>
+<div class="codehilite"><pre><span></span><span class="cp">&lt;?php</span>
+
+<span class="k">use</span> <span class="nx">GImage\Image</span><span class="p">;</span>
+
+<span class="nv">$image</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Image</span><span class="p">();</span>
+<span class="nv">$image</span>
+    <span class="o">-&gt;</span><span class="na">load</span><span class="p">(</span><span class="s1">&#39;https://i.imgur.com/G5MR088.png&#39;</span><span class="p">)</span>
+    <span class="c1">// Rotate 90°</span>
+    <span class="o">-&gt;</span><span class="na">rotate</span><span class="p">(</span><span class="mi">90</span><span class="p">)</span>
+    <span class="c1">// Save on local</span>
+    <span class="o">-&gt;</span><span class="na">save</span><span class="p">(</span><span class="s1">&#39;rotate_image.png&#39;</span><span class="p">);</span>
+</pre></div>
                 
                   
                 

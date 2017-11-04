@@ -248,9 +248,57 @@
       
     
     
+      <label class="md-nav__link md-nav__link--active" for="toc">
+        Image
+      </label>
+    
     <a href="./" title="Image" class="md-nav__link md-nav__link--active">
       Image
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#saving" title="Saving" class="md-nav__link">
+    Saving
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#output" title="Output" class="md-nav__link">
+    Output
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#preserve-resource" title="Preserve resource" class="md-nav__link">
+    Preserve resource
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reuse-image-functions" title="Reuse Image functions" class="md-nav__link">
+    Reuse Image functions
+  </a>
+  
+</li>
+      
+      
+      
+    </ul>
+  
+</nav>
     
   </li>
 
@@ -457,6 +505,41 @@
     
   
   
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#saving" title="Saving" class="md-nav__link">
+    Saving
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#output" title="Output" class="md-nav__link">
+    Output
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#preserve-resource" title="Preserve resource" class="md-nav__link">
+    Preserve resource
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reuse-image-functions" title="Reuse Image functions" class="md-nav__link">
+    Reuse Image functions
+  </a>
+  
+</li>
+      
+      
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -472,11 +555,25 @@
 <blockquote>
 <p><code class="codehilite">Image</code> class is the parent class for <code class="codehilite">Figure</code> and <code class="codehilite">Canvas</code> classes.</p>
 </blockquote>
-<p>Example below loads an image from local path, scale (50%) and output it on the browser:</p>
+<h2 id="saving">Saving<a class="headerlink" href="#saving" title="Permanent link">&para;</a></h2>
+<p>The example below loads and external imagen and save it on local.</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p><code class="codehilite">load()</code>method can load an image from any url or local path.</p>
+<p><code class="codehilite">load(f)</code> function can load an image file from any url or local valid path.</p>
 </div>
+<div class="codehilite"><pre><span></span><span class="cp">&lt;?php</span>
+
+<span class="k">use</span> <span class="nx">GImage\Image</span><span class="p">;</span>
+
+<span class="nv">$img</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Image</span><span class="p">();</span>
+<span class="nv">$img</span>
+    <span class="o">-&gt;</span><span class="na">load</span><span class="p">(</span><span class="s1">&#39;https://i.imgur.com/G5MR088.png&#39;</span><span class="p">)</span>
+    <span class="o">-&gt;</span><span class="na">scale</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
+    <span class="o">-&gt;</span><span class="na">save</span><span class="p">(</span><span class="s1">&#39;/home/my_user/images/myimage.png&#39;</span><span class="p">);</span>
+</pre></div>
+
+<h2 id="output">Output<a class="headerlink" href="#output" title="Permanent link">&para;</a></h2>
+<p>Loading an image from local path, scale (50%) and output it on the browser.</p>
 <div class="codehilite"><pre><span></span><span class="cp">&lt;?php</span>
 
 <span class="k">use</span> <span class="nx">GImage\Image</span><span class="p">;</span>
@@ -488,8 +585,30 @@
     <span class="o">-&gt;</span><span class="na">output</span><span class="p">();</span>
 </pre></div>
 
+<h2 id="preserve-resource">Preserve resource<a class="headerlink" href="#preserve-resource" title="Permanent link">&para;</a></h2>
+<p><code class="codehilite">save()</code> and <code class="codehilite">output()</code> functions remove the image resource <em>in memory</em> after processing.
+To preserve the image resource for future processings only call <code class="codehilite">preserve()</code> function before saving or outputing, then <code class="codehilite">preserve(false)</code> when your processing have been completed.</p>
+<div class="codehilite"><pre><span></span><span class="cp">&lt;?php</span>
+
+<span class="k">use</span> <span class="nx">GImage\Image</span><span class="p">;</span>
+
+<span class="nv">$img</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Image</span><span class="p">();</span>
+<span class="nv">$img</span>
+    <span class="o">-&gt;</span><span class="na">load</span><span class="p">(</span><span class="s1">&#39;/home/my_user/images/my_image.png&#39;</span><span class="p">)</span>
+    <span class="o">-&gt;</span><span class="na">centerCrop</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
+    <span class="c1">// preserve the resource before save</span>
+    <span class="o">-&gt;</span><span class="na">preserve</span><span class="p">();</span>
+    <span class="c1">// save only</span>
+    <span class="o">-&gt;</span><span class="na">save</span><span class="p">();</span>
+    <span class="c1">// remove the resource after output</span>
+    <span class="o">-&gt;</span><span class="na">preserve</span><span class="p">(</span><span class="k">false</span><span class="p">);</span>
+    <span class="c1">// output and remove the resource</span>
+    <span class="o">-&gt;</span><span class="na">output</span><span class="p">();</span>
+</pre></div>
+
+<h2 id="reuse-image-functions">Reuse Image functions<a class="headerlink" href="#reuse-image-functions" title="Permanent link">&para;</a></h2>
 <p><code class="codehilite">Figure</code> and <code class="codehilite">Canvas</code> extend from <code class="codehilite">Image</code>. This means that it's possible to use many functions like <code class="codehilite">crop()</code>, <code class="codehilite">centerCrop()</code>, <code class="codehilite">rotate()</code> and so on.</p>
-<p>Example below creates an rectangle, set an opacity (75%) and save it as PNG:</p>
+<p>For example the code below creates an rectangle, set an opacity (75%) and save it as PNG.</p>
 <div class="codehilite"><pre><span></span><span class="cp">&lt;?php</span>
 
 <span class="k">use</span> <span class="nx">GImage\Figure</span><span class="p">;</span>

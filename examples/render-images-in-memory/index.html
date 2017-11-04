@@ -469,6 +469,32 @@
                 
                 
                 <h1 id="render-images-in-memory">Render images in-memory<a class="headerlink" href="#render-images-in-memory" title="Permanent link">&para;</a></h1>
+<p>The following example renders an image in-memory and return the resource.</p>
+<div class="codehilite"><pre><span></span><span class="cp">&lt;?php</span>
+
+<span class="k">use</span> <span class="nx">GImage\Image</span><span class="p">;</span>
+
+<span class="nv">$img</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Image</span><span class="p">();</span>
+<span class="nv">$arch_url</span> <span class="o">=</span> <span class="s1">&#39;https://i.imgur.com/G5MR088.png&#39;</span><span class="p">;</span>
+
+<span class="nv">$resource</span> <span class="o">=</span> <span class="nv">$img</span><span class="o">-&gt;</span><span class="na">load</span><span class="p">(</span><span class="nv">$arch_url</span><span class="p">)</span>
+    <span class="c1">// Scale 120%</span>
+    <span class="o">-&gt;</span><span class="na">scale</span><span class="p">(</span><span class="mf">1.2</span><span class="p">)</span>
+    <span class="c1">// Rotate an image to -90º</span>
+    <span class="o">-&gt;</span><span class="na">rotate</span><span class="p">(</span><span class="o">-</span><span class="mi">90</span><span class="p">)</span>
+    <span class="c1">// Change to PNG</span>
+    <span class="o">-&gt;</span><span class="na">toPNG</span><span class="p">()</span>
+    <span class="c1">// Add opacity 70%</span>
+    <span class="o">-&gt;</span><span class="na">setOpacity</span><span class="p">(</span><span class="mf">0.7</span><span class="p">)</span>
+    <span class="c1">// Render the image in-memory</span>
+    <span class="o">-&gt;</span><span class="na">render</span><span class="p">();</span>
+
+<span class="c1">// Output the resource (example only)</span>
+<span class="nb">header</span><span class="p">(</span><span class="s1">&#39;Content-Type: image/png&#39;</span><span class="p">);</span>
+<span class="c1">// Necessary for opacity to work</span>
+<span class="nb">imagesavealpha</span><span class="p">(</span><span class="nv">$resource</span><span class="p">,</span> <span class="k">true</span><span class="p">);</span>
+<span class="nb">imagepng</span><span class="p">(</span><span class="nv">$resource</span><span class="p">,</span> <span class="k">null</span><span class="p">);</span>
+</pre></div>
                 
                   
                 

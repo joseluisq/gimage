@@ -344,9 +344,50 @@
       
     
     
+      <label class="md-nav__link md-nav__link--active" for="toc">
+        Resizing
+      </label>
+    
     <a href="./" title="Resizing" class="md-nav__link md-nav__link--active">
       Resizing
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#width-resizing" title="Width resizing" class="md-nav__link">
+    Width resizing
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#height-resizing" title="Height resizing" class="md-nav__link">
+    Height resizing
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scale" title="Scale" class="md-nav__link">
+    Scale
+  </a>
+  
+</li>
+      
+      
+      
+    </ul>
+  
+</nav>
     
   </li>
 
@@ -457,6 +498,34 @@
     
   
   
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#width-resizing" title="Width resizing" class="md-nav__link">
+    Width resizing
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#height-resizing" title="Height resizing" class="md-nav__link">
+    Height resizing
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scale" title="Scale" class="md-nav__link">
+    Scale
+  </a>
+  
+</li>
+      
+      
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -469,6 +538,58 @@
                 
                 
                 <h1 id="resizing">Resizing<a class="headerlink" href="#resizing" title="Permanent link">&para;</a></h1>
+<h2 id="width-resizing">Width resizing<a class="headerlink" href="#width-resizing" title="Permanent link">&para;</a></h2>
+<p>Resizing an image proportionally basing on the width (<code class="codehilite">height</code> is calculated).</p>
+<div class="codehilite"><pre><span></span><span class="cp">&lt;?php</span>
+
+<span class="k">use</span> <span class="nx">GImage\Image</span><span class="p">;</span>
+
+<span class="nv">$image</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Image</span><span class="p">();</span>
+<span class="nv">$image</span>
+    <span class="o">-&gt;</span><span class="na">load</span><span class="p">(</span><span class="s1">&#39;https://i.imgur.com/G5MR088.png&#39;</span><span class="p">)</span>
+    <span class="c1">// Resize from width</span>
+    <span class="o">-&gt;</span><span class="na">resizeToWidth</span><span class="p">(</span><span class="mi">200</span><span class="p">)</span>
+    <span class="c1">// Save on local</span>
+    <span class="o">-&gt;</span><span class="na">save</span><span class="p">(</span><span class="s1">&#39;resize_width_image.png&#39;</span><span class="p">);</span>
+</pre></div>
+
+<h2 id="height-resizing">Height resizing<a class="headerlink" href="#height-resizing" title="Permanent link">&para;</a></h2>
+<p>Resizing an image proportionally basing on the height (<code class="codehilite">width</code> is calculated).</p>
+<div class="codehilite"><pre><span></span><span class="cp">&lt;?php</span>
+
+<span class="k">use</span> <span class="nx">GImage\Image</span><span class="p">;</span>
+
+<span class="nv">$image</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Image</span><span class="p">();</span>
+<span class="nv">$image</span>
+    <span class="o">-&gt;</span><span class="na">load</span><span class="p">(</span><span class="s1">&#39;https://i.imgur.com/G5MR088.png&#39;</span><span class="p">)</span>
+    <span class="c1">// Resize from height</span>
+    <span class="o">-&gt;</span><span class="na">resizeToHeight</span><span class="p">(</span><span class="mi">80</span><span class="p">)</span>
+    <span class="c1">// Save on local</span>
+    <span class="o">-&gt;</span><span class="na">save</span><span class="p">(</span><span class="s1">&#39;resize_height_image.png&#39;</span><span class="p">);</span>
+</pre></div>
+
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Use <code class="codehilite">getPropWidth(height)</code> and <code class="codehilite">getPropHeight(width)</code> to get the proportional <code class="codehilite">width</code> or <code class="codehilite">height</code> values only.</p>
+</div>
+<h2 id="scale">Scale<a class="headerlink" href="#scale" title="Permanent link">&para;</a></h2>
+<p>The following example scales a PNG image 120%.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>The <code class="codehilite">scale(val)</code> function value should be between 0 and 1</p>
+</div>
+<div class="codehilite"><pre><span></span><span class="cp">&lt;?php</span>
+
+<span class="k">use</span> <span class="nx">GImage\Image</span><span class="p">;</span>
+
+<span class="nv">$image</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Image</span><span class="p">();</span>
+<span class="nv">$image</span>
+    <span class="o">-&gt;</span><span class="na">load</span><span class="p">(</span><span class="s1">&#39;https://i.imgur.com/G5MR088.png&#39;</span><span class="p">)</span>
+    <span class="c1">// Scale 120%</span>
+    <span class="o">-&gt;</span><span class="na">scale</span><span class="p">(</span><span class="mf">1.2</span><span class="p">)</span>
+    <span class="c1">// Save on local</span>
+    <span class="o">-&gt;</span><span class="na">save</span><span class="p">(</span><span class="s1">&#39;rotate_image.png&#39;</span><span class="p">);</span>
+</pre></div>
                 
                   
                 
