@@ -2,7 +2,7 @@
 
 ![A simple presentation card with GImage](https://cloud.githubusercontent.com/assets/1700322/18941713/eed7fa34-85d8-11e6-8033-bf787e4aa236.png)
 
-This example code makes a simple presentation card using `Image`, `Text`, `Figure` and `Canvas`.
+Example below makes a simple presentation card using `Image`, `Text`, `Figure` and `Canvas`.
 
 ```php
 <?php

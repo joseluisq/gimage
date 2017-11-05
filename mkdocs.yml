@@ -52,7 +52,7 @@ pages:
         - 'Resizing': './examples/resizing.md'
         - 'Rotation': './examples/rotation.md'
         - 'Creating figures': './examples/creating-figures.md'
-        - 'Text embeded': './examples/text-embeded.md'
+        - 'Text embedding': './examples/text-embedding.md'
         - 'Composing with canvas': './examples/composing-with-canvas.md'
         - 'Render images in-memory': './examples/render-images-in-memory.md'
         - 'Creating a presentation card': './examples/creating-a-presentation-card.md'
