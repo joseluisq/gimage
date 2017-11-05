@@ -372,8 +372,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../text-embeded/" title="Text embeded" class="md-nav__link">
-      Text embeded
+    <a href="../text-embedding/" title="Text embedding" class="md-nav__link">
+      Text embedding
     </a>
   </li>
 
@@ -469,6 +469,54 @@
                 
                 
                 <h1 id="composing-with-canvas">Composing with canvas<a class="headerlink" href="#composing-with-canvas" title="Permanent link">&para;</a></h1>
+<p>Canvas class is useful to composing several elements like images, text and figures.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Canvas <code class="codehilite">append(arr)</code> function also supports an array of elements.</p>
+</div>
+<div class="codehilite"><pre><span></span><span class="cp">&lt;?php</span>
+
+<span class="k">use</span> <span class="nx">GImage\Text</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">GImage\Image</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">GImage\Figure</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">GImage\Canvas</span><span class="p">;</span>
+
+<span class="nv">$img1</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Image</span><span class="p">();</span>
+<span class="nv">$img1</span>
+    <span class="o">-&gt;</span><span class="na">load</span><span class="p">(</span><span class="s1">&#39;https://i.imgur.com/G5MR088.png&#39;</span><span class="p">)</span>
+    <span class="o">-&gt;</span><span class="na">scale</span><span class="p">(</span><span class="mf">0.5</span><span class="p">);</span>
+
+<span class="nv">$figure1</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Figure</span><span class="p">(</span><span class="mi">300</span><span class="p">,</span> <span class="mi">150</span><span class="p">);</span>
+<span class="nv">$figure1</span>
+    <span class="o">-&gt;</span><span class="na">setBackgroundColor</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">)</span>
+    <span class="o">-&gt;</span><span class="na">create</span><span class="p">();</span>
+
+<span class="nv">$text1</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Text</span><span class="p">(</span><span class="s1">&#39;My awesome text!&#39;</span><span class="p">);</span>
+<span class="nv">$text1</span>
+    <span class="o">-&gt;</span><span class="na">setSize</span><span class="p">(</span><span class="mi">18</span><span class="p">)</span>
+    <span class="o">-&gt;</span><span class="na">setColor</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">)</span>
+    <span class="o">-&gt;</span><span class="na">setFontface</span><span class="p">(</span><span class="s1">&#39;/my/path/fonts/times.ttf&#39;</span><span class="p">);</span>
+
+<span class="c1">// used as canvas layout</span>
+<span class="nv">$figure0</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Figure</span><span class="p">(</span><span class="mi">400</span><span class="p">,</span> <span class="mi">250</span><span class="p">);</span>
+<span class="nv">$figure0</span>
+    <span class="o">-&gt;</span><span class="na">setBackgroundColor</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">)</span>
+    <span class="o">-&gt;</span><span class="na">create</span><span class="p">();</span>
+
+<span class="nv">$canvas</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Canvas</span><span class="p">(</span><span class="nv">$figure0</span><span class="p">);</span>
+<span class="nv">$canvas</span>
+    <span class="c1">// append every element</span>
+    <span class="o">-&gt;</span><span class="na">append</span><span class="p">(</span><span class="nv">$figure1</span><span class="p">)</span>
+    <span class="o">-&gt;</span><span class="na">append</span><span class="p">(</span><span class="nv">$img1</span><span class="p">)</span>
+    <span class="o">-&gt;</span><span class="na">append</span><span class="p">(</span><span class="nv">$text1</span><span class="p">)</span>
+    <span class="c1">// as PNG format</span>
+    <span class="o">-&gt;</span><span class="na">toPNG</span><span class="p">()</span>
+    <span class="c1">// draw the canvas with all elements</span>
+    <span class="o">-&gt;</span><span class="na">draw</span><span class="p">()</span>
+    <span class="o">-&gt;</span><span class="na">save</span><span class="p">(</span><span class="s1">&#39;text.png&#39;</span><span class="p">);</span>
+</pre></div>
+
+<p>For more details check out <a href="../creating-a-presentation-card/">the presentation card</a> example.</p>
                 
                   
                 
@@ -487,7 +535,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../text-embeded/" title="Text embeded" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../text-embedding/" title="Text embedding" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -496,7 +544,7 @@
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Text embeded
+                Text embedding
               </span>
             </div>
           </a>

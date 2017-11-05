@@ -8,7 +8,7 @@
       <meta http-equiv="x-ua-compatible" content="ie=edge">
       
       
-        <link rel="canonical" href="https://joseluisq.github.io/gimage/examples/text-embeded/">
+        <link rel="canonical" href="https://joseluisq.github.io/gimage/examples/text-embedding/">
       
       
         <meta name="author" content="Jose Quintana">
@@ -20,7 +20,7 @@
     
     
       
-        <title>Text embeded - GImage</title>
+        <title>Text embedding - GImage</title>
       
     
     
@@ -86,7 +86,7 @@
                 </span>
               
             
-            Text embeded
+            Text embedding
           
         </span>
       </div>
@@ -380,8 +380,8 @@
       
     
     
-    <a href="./" title="Text embeded" class="md-nav__link md-nav__link--active">
-      Text embeded
+    <a href="./" title="Text embedding" class="md-nav__link md-nav__link--active">
+      Text embedding
     </a>
     
   </li>
@@ -468,7 +468,53 @@
               
                 
                 
-                <h1 id="text-embeded">Text Embeded<a class="headerlink" href="#text-embeded" title="Permanent link">&para;</a></h1>
+                <h1 id="text-embedding">Text embedding<a class="headerlink" href="#text-embedding" title="Permanent link">&para;</a></h1>
+<p>GImage supports a text embedding with custom TTF fonts using <code class="codehilite">Text</code> class with <code class="codehilite">Canvas</code>.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Use <code class="codehilite">setAlign(str)</code>, <code class="codehilite">setValign(str)</code> functions for control the aligment, <code class="codehilite">setLineHeight(n)</code> for lines space or <code class="codehilite">setLeft(x)</code> and <code class="codehilite">setTop(y)</code> for position on canvas.</p>
+</div>
+<div class="codehilite"><pre><span></span><span class="cp">&lt;?php</span>
+
+<span class="k">use</span> <span class="nx">GImage\Text</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">GImage\Figure</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">GImage\Canvas</span><span class="p">;</span>
+
+<span class="c1">// figure layout used as canvas</span>
+<span class="nv">$figure</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Figure</span><span class="p">(</span><span class="mi">400</span><span class="p">,</span> <span class="mi">250</span><span class="p">);</span>
+<span class="nv">$figure</span>
+    <span class="o">-&gt;</span><span class="na">setBackgroundColor</span><span class="p">(</span><span class="mi">47</span><span class="p">,</span> <span class="mi">42</span><span class="p">,</span> <span class="mi">39</span><span class="p">)</span>
+    <span class="o">-&gt;</span><span class="na">create</span><span class="p">();</span>
+
+<span class="c1">// text definition</span>
+<span class="nv">$text</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Text</span><span class="p">(</span><span class="s1">&#39;My Text with opacity!&#39;</span><span class="p">);</span>
+<span class="nv">$text</span>
+    <span class="c1">// box area size for text</span>
+    <span class="o">-&gt;</span><span class="na">setWidth</span><span class="p">(</span><span class="mi">400</span><span class="p">)</span>
+    <span class="o">-&gt;</span><span class="na">setHeight</span><span class="p">(</span><span class="mi">250</span><span class="p">)</span>
+    <span class="c1">// aligments</span>
+    <span class="o">-&gt;</span><span class="na">setAlign</span><span class="p">(</span><span class="s1">&#39;center&#39;</span><span class="p">)</span> <span class="c1">// or &quot;none&quot;</span>
+    <span class="o">-&gt;</span><span class="na">setValign</span><span class="p">(</span><span class="s1">&#39;center&#39;</span><span class="p">)</span> <span class="c1">// or &quot;none&quot;</span>
+    <span class="c1">// line height</span>
+    <span class="o">-&gt;</span><span class="na">setLineHeight</span><span class="p">(</span><span class="mf">1.2</span><span class="p">)</span>
+    <span class="c1">// font size</span>
+    <span class="o">-&gt;</span><span class="na">setSize</span><span class="p">(</span><span class="mi">22</span><span class="p">)</span>
+    <span class="c1">// font color</span>
+    <span class="o">-&gt;</span><span class="na">setColor</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">)</span>
+    <span class="c1">// font face</span>
+    <span class="o">-&gt;</span><span class="na">setFontface</span><span class="p">(</span><span class="s1">&#39;/my/path/fonts/Lato.ttf&#39;</span><span class="p">);</span>
+
+    <span class="o">-&gt;</span><span class="na">setOpacity</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
+
+<span class="c1">// canvas definition</span>
+<span class="nv">$canvas</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Canvas</span><span class="p">(</span><span class="nv">$figure</span><span class="p">);</span>
+<span class="nv">$canvas</span>
+    <span class="c1">// append the text element</span>
+    <span class="o">-&gt;</span><span class="na">append</span><span class="p">(</span><span class="nv">$text</span><span class="p">)</span>
+    <span class="o">-&gt;</span><span class="na">toPNG</span><span class="p">()</span>
+    <span class="o">-&gt;</span><span class="na">draw</span><span class="p">()</span>
+    <span class="o">-&gt;</span><span class="na">save</span><span class="p">(</span><span class="s1">&#39;text.png&#39;</span><span class="p">);</span>
+</pre></div>
                 
                   
                 

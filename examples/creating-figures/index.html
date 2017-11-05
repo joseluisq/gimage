@@ -365,10 +365,46 @@
     
     <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
     
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="toc">
+        Creating figures
+      </label>
     
     <a href="./" title="Creating figures" class="md-nav__link md-nav__link--active">
       Creating figures
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#rectangle" title="Rectangle" class="md-nav__link">
+    Rectangle
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ellipse" title="Ellipse" class="md-nav__link">
+    Ellipse
+  </a>
+  
+</li>
+      
+      
+      
+    </ul>
+  
+</nav>
     
   </li>
 
@@ -379,8 +415,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../text-embeded/" title="Text embeded" class="md-nav__link">
-      Text embeded
+    <a href="../text-embedding/" title="Text embedding" class="md-nav__link">
+      Text embedding
     </a>
   </li>
 
@@ -452,6 +488,29 @@
 <nav class="md-nav md-nav--secondary">
   
   
+    
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#rectangle" title="Rectangle" class="md-nav__link">
+    Rectangle
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ellipse" title="Ellipse" class="md-nav__link">
+    Ellipse
+  </a>
+  
+</li>
+      
+      
+      
+    </ul>
   
 </nav>
                   </div>
@@ -464,9 +523,38 @@
               
                 
                 
-                  <h1>Creating figures</h1>
-                
-                
+                <h1 id="creating-figures">Creating figures<a class="headerlink" href="#creating-figures" title="Permanent link">&para;</a></h1>
+<p>The Figure class supports two kind of figures like rectangles and ellipses.</p>
+<div class="admonition tip">
+<p class="admonition-title">Note</p>
+<p>A figure is a rectangle by default.</p>
+</div>
+<h2 id="rectangle">Rectangle<a class="headerlink" href="#rectangle" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="cp">&lt;?php</span>
+
+<span class="k">use</span> <span class="nx">GImage\Figure</span><span class="p">;</span>
+
+<span class="nv">$figure</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Figure</span><span class="p">(</span><span class="mi">350</span><span class="p">,</span> <span class="mi">200</span><span class="p">);</span>
+<span class="nv">$figure</span>
+    <span class="c1">// -&gt;isRectangle()</span>
+    <span class="o">-&gt;</span><span class="na">setBackgroundColor</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="o">-&gt;</span><span class="na">create</span><span class="p">()</span>
+    <span class="o">-&gt;</span><span class="na">save</span><span class="p">(</span><span class="s1">&#39;rectangle.png&#39;</span><span class="p">);</span>
+</pre></div>
+
+<h2 id="ellipse">Ellipse<a class="headerlink" href="#ellipse" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="cp">&lt;?php</span>
+
+<span class="k">use</span> <span class="nx">GImage\Figure</span><span class="p">;</span>
+
+<span class="nv">$figure</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Figure</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="mi">200</span><span class="p">);</span>
+<span class="nv">$figure</span>
+    <span class="o">-&gt;</span><span class="na">isEllipse</span><span class="p">()</span>
+    <span class="o">-&gt;</span><span class="na">setBackgroundColor</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">)</span>
+    <span class="o">-&gt;</span><span class="na">setOpacity</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
+    <span class="o">-&gt;</span><span class="na">create</span><span class="p">()</span>
+    <span class="o">-&gt;</span><span class="na">save</span><span class="p">(</span><span class="s1">&#39;ellipse.png&#39;</span><span class="p">);</span>
+</pre></div>
                 
                   
                 
@@ -500,13 +588,13 @@
           </a>
         
         
-          <a href="../text-embeded/" title="Text embeded" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../text-embedding/" title="Text embedding" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Text embeded
+                Text embedding
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">
