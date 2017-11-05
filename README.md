@@ -14,14 +14,14 @@ __GImage__ is a simple and small library based on [PHP Image Processing and GD](
 
 - Load an image from local path or URL.
 - Create shapes such as rectangles or ellipses with opacity.
-- Resize or scale images proportionally.
-- Crop images proportionally.
+- Resize, scale or crop images proportionally.
 - Rotate images, shapes or texts.
 - Embed text with custom TTF fonts.
 - Compose a pool of images with `Canvas`.
-- Swap image formats such as JPEG, PNG and GIF.
+- Swap image formats such as JPEG, PNG or GIF.
 - Save images in local or output on the browser.
 - Save several copies of the same image.
+- Render an image in-memory and return the resource.
 
 ## Requirements
 GImage requires **[PHP 7.x](http://php.net/manual/en/migration70.new-features.php)** and latest [GD Extension](http://php.net/manual/en/book.image.php).
@@ -217,7 +217,7 @@ For more examples check out the [./examples](./examples) dir.
 Check out the [CHANGELOG.md](./CHANGELOG.md) file.
 
 ## Documentation
-View [the documentation API](https://joseluisq.github.io/gimage/docs/)
+View [the documentation API](https://joseluisq.github.io/gimage/)
 
 ## Contribution
 If you would like to contribute [pull requests](https://github.com/joseluisq/gimage/pulls) and [issues](https://github.com/joseluisq/gimage/issues) will be welcome! Feature requests are welcome. Please before sending some feature requests make sure provide as much detail and context as possible.

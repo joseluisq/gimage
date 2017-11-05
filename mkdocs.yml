@@ -1,0 +1,59 @@
+site_name: GImage
+site_author: 'Jose Quintana'
+site_url: https://joseluisq.github.io/gimage/
+
+repo_url: https://github.com/joseluisq/gimage/
+edit_uri: ""
+
+theme: 'material'
+
+extra:
+    palette:
+        primary: 'blue-grey'
+        accent: 'indigo'
+    font:
+        text: 'Open Sans'
+        code: 'Droid Sans Mono'
+
+markdown_extensions:
+    - codehilite
+    - admonition
+    - meta
+    - toc(permalink=true)
+    - pymdownx.arithmatex
+    - pymdownx.betterem(smart_enable=all)
+    - pymdownx.caret
+    - pymdownx.critic
+    - pymdownx.details
+    - pymdownx.emoji:
+        emoji_generator: !!python/name:pymdownx.emoji.to_svg
+    - pymdownx.github:
+        pymdownx.tilde:
+            subscript: true
+    - pymdownx.inlinehilite
+    - pymdownx.magiclink
+    - pymdownx.mark
+    - pymdownx.smartsymbols
+    - pymdownx.superfences
+    - pymdownx.tasklist(custom_checkbox=true)
+    - pymdownx.tilde
+
+pages:
+    - 'Introduction': 'index.md'
+    - 'Getting Started': 'getting-started.md'
+    - 'Classes':
+        - 'Image': './classes/image.md'
+        - 'Figure': './classes/figure.md'
+        - 'Text': './classes/text.md'
+        - 'Canvas': './classes/canvas.md'
+    - 'Examples':
+        - 'Cropping': './examples/cropping.md'
+        - 'Swapping formats': './examples/swapping-formats.md'
+        - 'Resizing': './examples/resizing.md'
+        - 'Rotation': './examples/rotation.md'
+        - 'Creating figures': './examples/creating-figures.md'
+        - 'Text embedding': './examples/text-embedding.md'
+        - 'Composing with canvas': './examples/composing-with-canvas.md'
+        - 'Render images in-memory': './examples/render-images-in-memory.md'
+        - 'Creating a presentation card': './examples/creating-a-presentation-card.md'
+    - 'API Documentation': 'api.md'
