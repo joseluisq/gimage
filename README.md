@@ -46,7 +46,7 @@ use GImage\Image;
 $avatar = new Image();
 $avatar
 	// Loading a JPEG image (200x200) from an URL (or local path too)
-	->load('http://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50?s=200.jpg');
+	->load('http://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50?s=200.jpg')
 	// Scaling to 50% (100x100)
 	->scale(50)
 	// Set 50% of opacity
