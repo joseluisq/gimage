@@ -201,7 +201,7 @@ class Image
         }
 
         if ($image) {
-            $this->type = $info[2];
+            $this->type = $imageType;
             $this->resource = $image;
             $this->extension = $extension;
             $this->width = $this->boxWidth = $width;
