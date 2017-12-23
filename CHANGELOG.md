@@ -1,13 +1,23 @@
-# Change Log
+# Changelog
 All notable changes to this project will be documented in this file.
 
-The format is based on [Keep a Changelog](http://keepachangelog.com/)
-and this project adheres to [Semantic Versioning](http://semver.org/).
+The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
+and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
+
+## [Unreleased]
+
+
+## [3.0.4] - 2017-12-23
+
+### Fixed
+- Undefined variable `$info`. (PR [#26](https://github.com/joseluisq/gimage/pull/26) by @sunnyphp)
+- First example syntax. (PR [#25](https://github.com/joseluisq/gimage/pull/25) by @sunnyphp)
+
 
 ## [3.0.3] - 2017-10-07
 
-### Add
-- __Image:__ Added `render()` method can render the image in-memory and return the resource. (refs 02c5480)
+### Added
+- __Image:__ Added `render()` method can render the image in-memory and return the resource. (REF [02c5480](https://github.com/joseluisq/gimage/commit/02c5480))
 - __Image:__ Added `render()` example about at `examples/render.php`
 
 ### Changed
@@ -19,22 +29,22 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [3.0.2] - 2017-04-30
 
-### Add
+### Added
 - __Image:__ Added the `Image::addOpacityFilter()` method with protected visiblity.
 
 ### Changed
-- Remove unused imports. (PR https://github.com/joseluisq/gimage/pull/16 by @matiit)
-- Simplify importing Image properties in the `Image::from()` method. (PR https://github.com/joseluisq/gimage/pull/16 by @matiit)
+- Remove unused imports. (PR [#16](https://github.com/joseluisq/gimage/pull/16) by @matiit)
+- Simplify importing Image properties in the `Image::from()` method. (PR [#14](https://github.com/joseluisq/gimage/pull/14) by @matiit)
 
 ### Fixed
-- __Figure:__ Fixes for add correctly the opacity filter in rectangles and ellipses. (issue #15)
+- __Figure:__ Fixes for add correctly the opacity filter in rectangles and ellipses. (Issue [#15](https://github.com/joseluisq/gimage/issues/15))
 - __Image:__ Render fixes for add correctly PNG's opacity.
 - __Utils:__ Fixed the `Utils::fixPNGOpacity()` method.
 
 
 ## [3.0.1] - 2017-04-14
 
-### Add
+### Added
 - `Utils::fixPNGOpacity()` function that fix the opacity value between `0` and `1` for PNG alpha value.
 
 ### Changed
@@ -134,9 +144,10 @@ $text->setLineHeight(1.2);
 - Initial commit.
 - PHP `5.3` support.
 
-[3.0.3]: https://github.com/joseluisq/gimage/compare/3.0.3...HEAD
-[3.0.2]: https://github.com/joseluisq/gimage/compare/3.0.2...3.0.3
-[3.0.1]: https://github.com/joseluisq/gimage/compare/3.0.1...3.0.2
+[Unreleased]: https://github.com/joseluisq/gimage/compare/3.0.4...HEAD
+[3.0.4]: https://github.com/joseluisq/gimage/compare/3.0.3...3.0.4
+[3.0.3]: https://github.com/joseluisq/gimage/compare/3.0.2...3.0.3
+[3.0.2]: https://github.com/joseluisq/gimage/compare/3.0.1...3.0.2
 [3.0.1]: https://github.com/joseluisq/gimage/compare/3.0.0...3.0.1
 [3.0.0]: https://github.com/joseluisq/gimage/compare/2.0.1...3.0.0
 [2.0.1]: https://github.com/joseluisq/gimage/compare/2.0.0...2.0.1
