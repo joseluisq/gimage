@@ -263,8 +263,8 @@ class GImageTest extends TestCase
     */
     public function testLoadResource(Canvas $canvas)
     {
-        $resource = imagecreatefromjpeg(GIMAGE_PATH_TMP . DS . 'test3.jpg');
-        $this->assertNotNull($resource);
+        $rectangle = imagecreatefromjpeg(GIMAGE_PATH_TMP . DS . 'test3.jpg');
+        $this->assertNotNull($rectangle);
 
         $img = new Image();
         $img
