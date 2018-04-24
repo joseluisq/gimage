@@ -104,7 +104,7 @@ This is the parent class for Figure and Canvas.</p>
 
 				<b>Author:</b>
 				José Luis Quintana <a href="http://git.io/joseluisq">http://git.io/joseluisq</a><br>
-			<b>Located at</b> <a href="source-class-GImage.Image.html#13-949" title="Go to source code">Image.php</a>
+			<b>Located at</b> <a href="source-class-GImage.Image.html#13-987" title="Go to source code">Image.php</a>
 		<br>
 	</div>
 
@@ -198,20 +198,20 @@ This is the parent class for Figure and Canvas.</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_load">#</a>
-		<code><a href="source-class-GImage.Image.html#90-113" title="Go to source code">load</a>( <span>string <var>$filename</var></span> )</code>
+		<code><a href="source-class-GImage.Image.html#90-113" title="Go to source code">load</a>( <span>string|resource <var>$src</var></span> )</code>
 
 		<div class="description short">
-			<p>Loads an image from local o external path.</p>
+			<p>Loads an image from a local path, external url or image resource.</p>
 		</div>
 
 		<div class="description detailed hidden">
-			<p>Loads an image from local o external path.</p>
+			<p>Loads an image from a local path, external url or image resource.</p>
 
 
 				<h4>Parameters</h4>
 				<div class="list"><dl>
-					<dt><var>$filename</var></dt>
-					<dd>Path or url of image.</dd>
+					<dt><var>$src</var></dt>
+					<dd>Local path, external url or image resource.</dd>
 				</dl></div>
 
 				<h4>Returns</h4>
@@ -237,7 +237,7 @@ This is the parent class for Figure and Canvas.</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_getResource">#</a>
-		<code><a href="source-class-GImage.Image.html#212-221" title="Go to source code">getResource</a>( )</code>
+		<code><a href="source-class-GImage.Image.html#240-249" title="Go to source code">getResource</a>( )</code>
 
 		<div class="description short">
 			<p>Gets resource of the image.</p>
@@ -271,7 +271,7 @@ This is the parent class for Figure and Canvas.</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_getFilename">#</a>
-		<code><a href="source-class-GImage.Image.html#223-232" title="Go to source code">getFilename</a>( )</code>
+		<code><a href="source-class-GImage.Image.html#251-260" title="Go to source code">getFilename</a>( )</code>
 
 		<div class="description short">
 			<p>Gets filename path of the image.</p>
@@ -305,7 +305,7 @@ This is the parent class for Figure and Canvas.</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_getName">#</a>
-		<code><a href="source-class-GImage.Image.html#234-243" title="Go to source code">getName</a>( )</code>
+		<code><a href="source-class-GImage.Image.html#262-271" title="Go to source code">getName</a>( )</code>
 
 		<div class="description short">
 			<p>Gets the image file name.</p>
@@ -339,7 +339,7 @@ This is the parent class for Figure and Canvas.</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_getType">#</a>
-		<code><a href="source-class-GImage.Image.html#245-254" title="Go to source code">getType</a>( )</code>
+		<code><a href="source-class-GImage.Image.html#273-282" title="Go to source code">getType</a>( )</code>
 
 		<div class="description short">
 			<p>Gets the image type code (IMAGETYPE_JPEG, IMAGETYPE_PNG or IMAGETYPE_GIF)</p>
@@ -373,7 +373,7 @@ This is the parent class for Figure and Canvas.</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_getExtension">#</a>
-		<code><a href="source-class-GImage.Image.html#256-265" title="Go to source code">getExtension</a>( )</code>
+		<code><a href="source-class-GImage.Image.html#284-293" title="Go to source code">getExtension</a>( )</code>
 
 		<div class="description short">
 			<p>Gets extension (jpg, png or gif).</p>
@@ -407,7 +407,7 @@ This is the parent class for Figure and Canvas.</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_getQuality">#</a>
-		<code><a href="source-class-GImage.Image.html#267-276" title="Go to source code">getQuality</a>( )</code>
+		<code><a href="source-class-GImage.Image.html#295-304" title="Go to source code">getQuality</a>( )</code>
 
 		<div class="description short">
 			<p>Gets quality.</p>
@@ -441,7 +441,7 @@ This is the parent class for Figure and Canvas.</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_getOpacity">#</a>
-		<code><a href="source-class-GImage.Image.html#278-287" title="Go to source code">getOpacity</a>( )</code>
+		<code><a href="source-class-GImage.Image.html#306-315" title="Go to source code">getOpacity</a>( )</code>
 
 		<div class="description short">
 			<p>Gets opacity.</p>
@@ -475,7 +475,7 @@ This is the parent class for Figure and Canvas.</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_getWidth">#</a>
-		<code><a href="source-class-GImage.Image.html#289-298" title="Go to source code">getWidth</a>( )</code>
+		<code><a href="source-class-GImage.Image.html#317-326" title="Go to source code">getWidth</a>( )</code>
 
 		<div class="description short">
 			<p>Gets width.</p>
@@ -509,7 +509,7 @@ This is the parent class for Figure and Canvas.</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_getHeight">#</a>
-		<code><a href="source-class-GImage.Image.html#300-309" title="Go to source code">getHeight</a>( )</code>
+		<code><a href="source-class-GImage.Image.html#328-337" title="Go to source code">getHeight</a>( )</code>
 
 		<div class="description short">
 			<p>Gets height.</p>
@@ -543,7 +543,7 @@ This is the parent class for Figure and Canvas.</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_getTop">#</a>
-		<code><a href="source-class-GImage.Image.html#311-320" title="Go to source code">getTop</a>( )</code>
+		<code><a href="source-class-GImage.Image.html#339-348" title="Go to source code">getTop</a>( )</code>
 
 		<div class="description short">
 			<p>Gets top position.</p>
@@ -577,7 +577,7 @@ This is the parent class for Figure and Canvas.</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_getLeft">#</a>
-		<code><a href="source-class-GImage.Image.html#322-331" title="Go to source code">getLeft</a>( )</code>
+		<code><a href="source-class-GImage.Image.html#350-359" title="Go to source code">getLeft</a>( )</code>
 
 		<div class="description short">
 			<p>Gets left position.</p>
@@ -611,7 +611,7 @@ This is the parent class for Figure and Canvas.</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_getBoxLeft">#</a>
-		<code><a href="source-class-GImage.Image.html#333-342" title="Go to source code">getBoxLeft</a>( )</code>
+		<code><a href="source-class-GImage.Image.html#361-370" title="Go to source code">getBoxLeft</a>( )</code>
 
 		<div class="description short">
 			<p>Gets box left position.</p>
@@ -645,7 +645,7 @@ This is the parent class for Figure and Canvas.</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_getBoxTop">#</a>
-		<code><a href="source-class-GImage.Image.html#344-353" title="Go to source code">getBoxTop</a>( )</code>
+		<code><a href="source-class-GImage.Image.html#372-381" title="Go to source code">getBoxTop</a>( )</code>
 
 		<div class="description short">
 			<p>Gets box top position.</p>
@@ -679,7 +679,7 @@ This is the parent class for Figure and Canvas.</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_getBoxWidth">#</a>
-		<code><a href="source-class-GImage.Image.html#355-364" title="Go to source code">getBoxWidth</a>( )</code>
+		<code><a href="source-class-GImage.Image.html#383-392" title="Go to source code">getBoxWidth</a>( )</code>
 
 		<div class="description short">
 			<p>Gets box width.</p>
@@ -713,7 +713,7 @@ This is the parent class for Figure and Canvas.</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_getBoxHeight">#</a>
-		<code><a href="source-class-GImage.Image.html#366-375" title="Go to source code">getBoxHeight</a>( )</code>
+		<code><a href="source-class-GImage.Image.html#394-403" title="Go to source code">getBoxHeight</a>( )</code>
 
 		<div class="description short">
 			<p>Gets box height.</p>
@@ -747,7 +747,7 @@ This is the parent class for Figure and Canvas.</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_getLoadedFrom">#</a>
-		<code><a href="source-class-GImage.Image.html#377-386" title="Go to source code">getLoadedFrom</a>( )</code>
+		<code><a href="source-class-GImage.Image.html#405-414" title="Go to source code">getLoadedFrom</a>( )</code>
 
 		<div class="description short">
 			<p>Gets where the image was loaded: 'local' or 'external'.</p>
@@ -781,7 +781,7 @@ This is the parent class for Figure and Canvas.</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_setQuality">#</a>
-		<code><a href="source-class-GImage.Image.html#388-399" title="Go to source code">setQuality</a>( <span>integer <var>$quality</var></span> )</code>
+		<code><a href="source-class-GImage.Image.html#416-427" title="Go to source code">setQuality</a>( <span>integer <var>$quality</var></span> )</code>
 
 		<div class="description short">
 			<p>Sets quality for image.</p>
@@ -820,7 +820,7 @@ This is the parent class for Figure and Canvas.</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_setOpacity">#</a>
-		<code><a href="source-class-GImage.Image.html#401-412" title="Go to source code">setOpacity</a>( <span>integer <var>$opacity</var></span> )</code>
+		<code><a href="source-class-GImage.Image.html#429-440" title="Go to source code">setOpacity</a>( <span>integer <var>$opacity</var></span> )</code>
 
 		<div class="description short">
 			<p>Sets opacity.</p>
@@ -859,7 +859,7 @@ This is the parent class for Figure and Canvas.</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_setResource">#</a>
-		<code><a href="source-class-GImage.Image.html#414-425" title="Go to source code">setResource</a>( <span>resource <var>$resource</var></span> )</code>
+		<code><a href="source-class-GImage.Image.html#442-453" title="Go to source code">setResource</a>( <span>resource <var>$resource</var></span> )</code>
 
 		<div class="description short">
 			<p>Sets image resource.</p>
@@ -898,7 +898,7 @@ This is the parent class for Figure and Canvas.</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_setLeft">#</a>
-		<code><a href="source-class-GImage.Image.html#427-438" title="Go to source code">setLeft</a>( <span>integer <var>$x</var></span> )</code>
+		<code><a href="source-class-GImage.Image.html#455-466" title="Go to source code">setLeft</a>( <span>integer <var>$x</var></span> )</code>
 
 		<div class="description short">
 			<p>Sets left position of image.</p>
@@ -937,7 +937,7 @@ This is the parent class for Figure and Canvas.</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_setTop">#</a>
-		<code><a href="source-class-GImage.Image.html#440-451" title="Go to source code">setTop</a>( <span>integer <var>$y</var></span> )</code>
+		<code><a href="source-class-GImage.Image.html#468-479" title="Go to source code">setTop</a>( <span>integer <var>$y</var></span> )</code>
 
 		<div class="description short">
 			<p>Sets top position of image.</p>
@@ -976,7 +976,7 @@ This is the parent class for Figure and Canvas.</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_setBoxWidth">#</a>
-		<code><a href="source-class-GImage.Image.html#453-464" title="Go to source code">setBoxWidth</a>( <span>integer <var>$width</var></span> )</code>
+		<code><a href="source-class-GImage.Image.html#481-492" title="Go to source code">setBoxWidth</a>( <span>integer <var>$width</var></span> )</code>
 
 		<div class="description short">
 			<p>Sets width of box image.</p>
@@ -1015,7 +1015,7 @@ This is the parent class for Figure and Canvas.</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_setBoxHeight">#</a>
-		<code><a href="source-class-GImage.Image.html#466-477" title="Go to source code">setBoxHeight</a>( <span>integer <var>$height</var></span> )</code>
+		<code><a href="source-class-GImage.Image.html#494-505" title="Go to source code">setBoxHeight</a>( <span>integer <var>$height</var></span> )</code>
 
 		<div class="description short">
 			<p>Sets height of box image.</p>
@@ -1054,7 +1054,7 @@ This is the parent class for Figure and Canvas.</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_setBoxLeft">#</a>
-		<code><a href="source-class-GImage.Image.html#479-490" title="Go to source code">setBoxLeft</a>( <span>integer <var>$x</var></span> )</code>
+		<code><a href="source-class-GImage.Image.html#507-518" title="Go to source code">setBoxLeft</a>( <span>integer <var>$x</var></span> )</code>
 
 		<div class="description short">
 			<p>Sets left position of box image.</p>
@@ -1093,7 +1093,7 @@ This is the parent class for Figure and Canvas.</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_setBoxTop">#</a>
-		<code><a href="source-class-GImage.Image.html#492-503" title="Go to source code">setBoxTop</a>( <span>integer <var>$y</var></span> )</code>
+		<code><a href="source-class-GImage.Image.html#520-531" title="Go to source code">setBoxTop</a>( <span>integer <var>$y</var></span> )</code>
 
 		<div class="description short">
 			<p>Sets top position of box image.</p>
@@ -1132,7 +1132,7 @@ This is the parent class for Figure and Canvas.</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_isLocal">#</a>
-		<code><a href="source-class-GImage.Image.html#505-514" title="Go to source code">isLocal</a>( )</code>
+		<code><a href="source-class-GImage.Image.html#533-542" title="Go to source code">isLocal</a>( )</code>
 
 		<div class="description short">
 			<p>Checks if image was loaded from local path.</p>
@@ -1166,7 +1166,7 @@ This is the parent class for Figure and Canvas.</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_isExternal">#</a>
-		<code><a href="source-class-GImage.Image.html#516-525" title="Go to source code">isExternal</a>( )</code>
+		<code><a href="source-class-GImage.Image.html#544-553" title="Go to source code">isExternal</a>( )</code>
 
 		<div class="description short">
 			<p>Checks if image was loaded from external url.</p>
@@ -1174,6 +1174,40 @@ This is the parent class for Figure and Canvas.</p>
 
 		<div class="description detailed hidden">
 			<p>Checks if image was loaded from external url.</p>
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					boolean
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="isResource" id="_isResource">
+
+		<td class="attributes"><code>
+			 public 
+
+			boolean
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_isResource">#</a>
+		<code><a href="source-class-GImage.Image.html#555-564" title="Go to source code">isResource</a>( )</code>
+
+		<div class="description short">
+			<p>Checks if image was loaded from resource.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Checks if image was loaded from resource.</p>
 
 
 
@@ -1200,7 +1234,7 @@ This is the parent class for Figure and Canvas.</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_isJPG">#</a>
-		<code><a href="source-class-GImage.Image.html#527-536" title="Go to source code">isJPG</a>( )</code>
+		<code><a href="source-class-GImage.Image.html#566-575" title="Go to source code">isJPG</a>( )</code>
 
 		<div class="description short">
 			<p>Checks if image is a JPG.</p>
@@ -1234,7 +1268,7 @@ This is the parent class for Figure and Canvas.</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_isPNG">#</a>
-		<code><a href="source-class-GImage.Image.html#538-547" title="Go to source code">isPNG</a>( )</code>
+		<code><a href="source-class-GImage.Image.html#577-586" title="Go to source code">isPNG</a>( )</code>
 
 		<div class="description short">
 			<p>Checks if image is a PNG.</p>
@@ -1268,7 +1302,7 @@ This is the parent class for Figure and Canvas.</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_isGIF">#</a>
-		<code><a href="source-class-GImage.Image.html#549-558" title="Go to source code">isGIF</a>( )</code>
+		<code><a href="source-class-GImage.Image.html#588-597" title="Go to source code">isGIF</a>( )</code>
 
 		<div class="description short">
 			<p>Checks if image is a GIF.</p>
@@ -1302,7 +1336,7 @@ This is the parent class for Figure and Canvas.</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_toJPG">#</a>
-		<code><a href="source-class-GImage.Image.html#560-572" title="Go to source code">toJPG</a>( )</code>
+		<code><a href="source-class-GImage.Image.html#599-611" title="Go to source code">toJPG</a>( )</code>
 
 		<div class="description short">
 			<p>Changes output format to JPG.</p>
@@ -1336,7 +1370,7 @@ This is the parent class for Figure and Canvas.</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_toPNG">#</a>
-		<code><a href="source-class-GImage.Image.html#574-586" title="Go to source code">toPNG</a>( )</code>
+		<code><a href="source-class-GImage.Image.html#613-625" title="Go to source code">toPNG</a>( )</code>
 
 		<div class="description short">
 			<p>Changes output format to PNG.</p>
@@ -1370,7 +1404,7 @@ This is the parent class for Figure and Canvas.</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_toGIF">#</a>
-		<code><a href="source-class-GImage.Image.html#588-600" title="Go to source code">toGIF</a>( )</code>
+		<code><a href="source-class-GImage.Image.html#627-639" title="Go to source code">toGIF</a>( )</code>
 
 		<div class="description short">
 			<p>Changes output format to GIF.</p>
@@ -1404,7 +1438,7 @@ This is the parent class for Figure and Canvas.</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_preserve">#</a>
-		<code><a href="source-class-GImage.Image.html#602-613" title="Go to source code">preserve</a>( <span>boolean <var>$preserve</var> = <span class="php-keyword1">true</span></span> )</code>
+		<code><a href="source-class-GImage.Image.html#641-652" title="Go to source code">preserve</a>( <span>boolean <var>$preserve</var> = <span class="php-keyword1">true</span></span> )</code>
 
 		<div class="description short">
 			<p>Preserves the resource image when save or output function is called.</p>
@@ -1443,7 +1477,7 @@ This is the parent class for Figure and Canvas.</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_resizeToHeight">#</a>
-		<code><a href="source-class-GImage.Image.html#615-628" title="Go to source code">resizeToHeight</a>( <span>integer <var>$height</var></span> )</code>
+		<code><a href="source-class-GImage.Image.html#654-667" title="Go to source code">resizeToHeight</a>( <span>integer <var>$height</var></span> )</code>
 
 		<div class="description short">
 			<p>Resize image proportionally basing on the height of the image.</p>
@@ -1482,7 +1516,7 @@ This is the parent class for Figure and Canvas.</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_resizeToWidth">#</a>
-		<code><a href="source-class-GImage.Image.html#630-643" title="Go to source code">resizeToWidth</a>( <span>integer <var>$width</var></span> )</code>
+		<code><a href="source-class-GImage.Image.html#669-682" title="Go to source code">resizeToWidth</a>( <span>integer <var>$width</var></span> )</code>
 
 		<div class="description short">
 			<p>Resize image proportionally basing on the width of the image.</p>
@@ -1521,7 +1555,7 @@ This is the parent class for Figure and Canvas.</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_getPropWidth">#</a>
-		<code><a href="source-class-GImage.Image.html#645-656" title="Go to source code">getPropWidth</a>( <span>integer <var>$height</var></span> )</code>
+		<code><a href="source-class-GImage.Image.html#684-695" title="Go to source code">getPropWidth</a>( <span>integer <var>$height</var></span> )</code>
 
 		<div class="description short">
 			<p>Gets proportional width of image from height value.</p>
@@ -1560,7 +1594,7 @@ This is the parent class for Figure and Canvas.</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_getPropHeight">#</a>
-		<code><a href="source-class-GImage.Image.html#658-670" title="Go to source code">getPropHeight</a>( <span>integer <var>$width</var></span> )</code>
+		<code><a href="source-class-GImage.Image.html#697-709" title="Go to source code">getPropHeight</a>( <span>integer <var>$width</var></span> )</code>
 
 		<div class="description short">
 			<p>Gets proportional height of image from width value.</p>
@@ -1599,7 +1633,7 @@ This is the parent class for Figure and Canvas.</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_scale">#</a>
-		<code><a href="source-class-GImage.Image.html#672-691" title="Go to source code">scale</a>( <span>integer|float <var>$scale</var> = <span class="php-num">1</span></span> )</code>
+		<code><a href="source-class-GImage.Image.html#711-730" title="Go to source code">scale</a>( <span>integer|float <var>$scale</var> = <span class="php-num">1</span></span> )</code>
 
 		<div class="description short">
 			<p>Scales the image.</p>
@@ -1638,7 +1672,7 @@ This is the parent class for Figure and Canvas.</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_rotate">#</a>
-		<code><a href="source-class-GImage.Image.html#693-707" title="Go to source code">rotate</a>( <span>integer <var>$angle</var> = <span class="php-num">0</span></span> )</code>
+		<code><a href="source-class-GImage.Image.html#732-746" title="Go to source code">rotate</a>( <span>integer <var>$angle</var> = <span class="php-num">0</span></span> )</code>
 
 		<div class="description short">
 			<p>Rotate the image with a given angle.</p>
@@ -1677,7 +1711,7 @@ This is the parent class for Figure and Canvas.</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_centerCrop">#</a>
-		<code><a href="source-class-GImage.Image.html#709-738" title="Go to source code">centerCrop</a>( <span>integer <var>$width</var></span>, <span>integer <var>$height</var></span> )</code>
+		<code><a href="source-class-GImage.Image.html#748-777" title="Go to source code">centerCrop</a>( <span>integer <var>$width</var></span>, <span>integer <var>$height</var></span> )</code>
 
 		<div class="description short">
 			<p>Cuts the image proportionally and centered.</p>
@@ -1718,7 +1752,7 @@ This is the parent class for Figure and Canvas.</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_crop">#</a>
-		<code><a href="source-class-GImage.Image.html#740-757" title="Go to source code">crop</a>( <span>integer <var>$width</var></span>, <span>integer <var>$height</var></span>, <span>integer <var>$x1</var> = <span class="php-num">0</span></span>, <span>integer <var>$y1</var> = <span class="php-num">0</span></span>, <span>integer <var>$dstX</var> = <span class="php-num">0</span></span>, <span>integer <var>$dstY</var> = <span class="php-num">0</span></span> )</code>
+		<code><a href="source-class-GImage.Image.html#779-796" title="Go to source code">crop</a>( <span>integer <var>$width</var></span>, <span>integer <var>$height</var></span>, <span>integer <var>$x1</var> = <span class="php-num">0</span></span>, <span>integer <var>$y1</var> = <span class="php-num">0</span></span>, <span>integer <var>$dstX</var> = <span class="php-num">0</span></span>, <span>integer <var>$dstY</var> = <span class="php-num">0</span></span> )</code>
 
 		<div class="description short">
 			<p>Cuts part of image.</p>
@@ -1767,7 +1801,7 @@ This is the parent class for Figure and Canvas.</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_save">#</a>
-		<code><a href="source-class-GImage.Image.html#803-814" title="Go to source code">save</a>( <span>string <var>$filename</var> = <span class="php-keyword1">null</span></span> )</code>
+		<code><a href="source-class-GImage.Image.html#842-853" title="Go to source code">save</a>( <span>string <var>$filename</var> = <span class="php-keyword1">null</span></span> )</code>
 
 		<div class="description short">
 			<p>Saves the image to specific path.</p>
@@ -1807,7 +1841,7 @@ in load path for default.</p></dd>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_output">#</a>
-		<code><a href="source-class-GImage.Image.html#816-825" title="Go to source code">output</a>( )</code>
+		<code><a href="source-class-GImage.Image.html#855-864" title="Go to source code">output</a>( )</code>
 
 		<div class="description short">
 			<p>Outputs the image on browser.</p>
@@ -1841,7 +1875,7 @@ in load path for default.</p></dd>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_render">#</a>
-		<code><a href="source-class-GImage.Image.html#827-850" title="Go to source code">render</a>( )</code>
+		<code><a href="source-class-GImage.Image.html#866-888" title="Go to source code">render</a>( )</code>
 
 		<div class="description short">
 			<p>Render the image in-memory and return the resource.</p>
@@ -1875,7 +1909,7 @@ in load path for default.</p></dd>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_destroy">#</a>
-		<code><a href="source-class-GImage.Image.html#917-932" title="Go to source code">destroy</a>( )</code>
+		<code><a href="source-class-GImage.Image.html#955-970" title="Go to source code">destroy</a>( )</code>
 
 		<div class="description short">
 			<p>Destroys the current resource.</p>
@@ -1909,7 +1943,7 @@ in load path for default.</p></dd>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_addOpacityFilter">#</a>
-		<code><a href="source-class-GImage.Image.html#934-948" title="Go to source code">addOpacityFilter</a>( )</code>
+		<code><a href="source-class-GImage.Image.html#972-986" title="Go to source code">addOpacityFilter</a>( )</code>
 
 		<div class="description short">
 			<p>Add opacity filter to the current resource.</p>
