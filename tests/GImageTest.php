@@ -254,6 +254,8 @@ class GImageTest extends TestCase
     public function testCanvasSave(Canvas $canvas)
     {
         $this->assertNotNull($canvas->save(GIMAGE_PATH_TMP . DS . 'test3.jpg'));
+
+        return $canvas;
     }
 
     /**
