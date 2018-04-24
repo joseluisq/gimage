@@ -98,7 +98,7 @@ class GImageTest extends TestCase
     */
     public function testIsResource(Image $img)
     {
-        $this->assertTrue($img->isResource());
+        $this->assertFalse($img->isResource());
     }
 
     /**
