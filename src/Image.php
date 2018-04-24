@@ -88,37 +88,37 @@ class Image
     }
 
     /**
-     * Loads an image from local o external path.
+     * Loads an image from a local path, external url or image resource.
      *
      * @package GImage
      * @access public
-     * @param string $filename Path or url of image.
+     * @param string|resource $src Local path, external url or image resource.
      * @return \GImage\Image
      */
-    public function load($filename)
+    public function load($src)
     {
-        $image = null;
-
-        if (empty($filename)) {
+        if (empty($src)) {
             return $this;
         }
 
-        if (filter_var($filename, FILTER_VALIDATE_URL)) {
-            $this->loadFromURL($filename);
-        } elseif (is_file($filename)) {
-            $this->loadFromFile($filename);
+        if (is_resource($src)) {
+            $this->loadImageFromResource($src);
+        } elseif (filter_var($src, FILTER_VALIDATE_URL)) {
+            $this->loadImageFromURL($src);
+        } elseif (is_file($src)) {
+            $this->loadImageFromFile($src);
         }
 
         return $this;
     }
 
     /**
-     * Load an Image from URL.
+     * Load an image from URL.
      *
      * @param  string $url Image URL
      * @return void
      */
-    private function loadFromURL($url)
+    private function loadImageFromURL($url)
     {
         $image = $this->fetchImageContentFromURL($url);
 
@@ -138,19 +138,17 @@ class Image
             $this->type = IMAGETYPE_PNG;
         }
 
-        if (!empty($this->filename)) {
-            $this->from = 'external';
-            $this->resource = imagecreatefromstring($image);
-            $this->width = $this->boxWidth = imagesx($this->resource);
-            $this->height = $this->boxHeight = imagesy($this->resource);
-        }
+        $this->from = 'external';
+        $this->resource = imagecreatefromstring($image);
+        $this->width = $this->boxWidth = imagesx($this->resource);
+        $this->height = $this->boxHeight = imagesy($this->resource);
     }
 
     /**
      * Fetch an image string content from URL.
      *
      * @param  string $url Image URL.
-     * @return String String Data
+     * @return string String data
      */
     private function fetchImageContentFromURL($url)
     {
@@ -165,12 +163,42 @@ class Image
     }
 
     /**
+     * Load an image from resource.
+     *
+     * @param  resource $resource Image resource
+     * @return void
+     */
+    private function loadImageFromResource($resource)
+    {
+        if (!is_resource($resource)) {
+            return;
+        }
+
+        if (Utils::isJPGResource($resource)) {
+            $this->filename = $url;
+            $this->extension = 'jpg';
+            $this->type = IMAGETYPE_JPEG;
+        }
+
+        if (Utils::isPNGResource($resource)) {
+            $this->filename = $url;
+            $this->extension = 'png';
+            $this->type = IMAGETYPE_PNG;
+        }
+
+        $this->from = 'resource';
+        $this->resource = $resource;
+        $this->width = $this->boxWidth = imagesx($resource);
+        $this->height = $this->boxHeight = imagesy($resource);
+    }
+
+    /**
      * Load an image file from path.
      *
      * @param  string $filepath File path
      * @return void
      */
-    private function loadFromFile($filepath)
+    private function loadImageFromFile($filepath)
     {
         $this->from = 'local';
         $this->filename = $filepath;
@@ -525,6 +553,17 @@ class Image
     }
 
     /**
+     * Checks if image was loaded from resource.
+     *
+     * @access public
+     * @return bool
+     */
+    public function isResource()
+    {
+        return ($this->from == 'resource');
+    }
+
+    /**
      * Checks if image is a JPG.
      *
      * @access public
@@ -812,7 +851,7 @@ class Image
     {
         return $this->outputBuffer($filename);
     }
- 
+
     /**
      * Outputs the image on browser.
      *
@@ -841,9 +880,8 @@ class Image
             ob_end_clean();
 
             if (!empty($string)) {
-                $image = imagecreatefromstring($string);     
+                $image = imagecreatefromstring($string);
             }
-
         }
 
         return $image;

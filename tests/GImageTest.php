@@ -94,6 +94,14 @@ class GImageTest extends TestCase
     }
 
     /**
+    * @depends testGetResource
+    */
+    public function testIsResource(Image $img)
+    {
+        $this->assertTrue($img->isResource());
+    }
+
+    /**
     * @depends testLoad
     */
     public function testScale(Image $img)
@@ -246,5 +254,23 @@ class GImageTest extends TestCase
     public function testCanvasSave(Canvas $canvas)
     {
         $this->assertNotNull($canvas->save(GIMAGE_PATH_TMP . DS . 'test3.jpg'));
+    }
+
+    /**
+    * @depends testCanvasSave
+    */
+    public function testLoadResource(Canvas $canvas)
+    {
+        $resource = imagecreatefromjpeg(GIMAGE_PATH_TMP . DS . 'test3.jpg');
+        $this->assertNotNull($resource);
+
+        $img = new Image();
+        $img
+            ->load($rectangle)
+            ->scale(0.50)
+            ->toPNG();
+
+        $this->assertTrue($img->isResource());
+        $this->assertNotNull($img->save(GIMAGE_PATH_TMP . DS . 'rectangle.png'));
     }
 }
