@@ -218,7 +218,7 @@
         {
             "location": "/examples/image-resource-loading/", 
             "text": "Image resource loading\n\n\nThe following example loads an image resource using the \nload($src)\n method.\n\n\n?php\n\n\n\nuse\n \nGImage\\Image\n;\n\n\n\n// Create a image rectangle (240x100)\n\n\n$width\n \n=\n \n240\n;\n\n\n$height\n \n=\n \n100\n;\n\n\n$rectangle\n \n=\n \nimagecreatetruecolor\n(\n$width\n,\n \n$height\n);\n\n\n$green\n \n=\n \nimagecolorallocate\n(\n$rectangle\n,\n \n0\n,\n \n255\n,\n \n0\n);\n\n\nimagefilledrectangle\n(\n$rectangle\n,\n \n0\n,\n \n0\n,\n \n$width\n,\n \n$height\n,\n \n$green\n);\n\n\n\n// Load and process the rectangle image resource\n\n\n$img\n \n=\n \nnew\n \nImage\n();\n\n\n$img\n\n  \n-\nload\n(\n$rectangle\n)\n\n  \n// scale to 50%\n\n  \n-\nscale\n(\n0.5\n)\n\n  \n-\ntoPNG\n()\n\n  \n-\nsave\n(\nrectangle.png\n);", 
-            "title": "Load an image resource"
+            "title": "Image resource loading"
         }, 
         {
             "location": "/examples/image-resource-loading/#image-resource-loading", 
