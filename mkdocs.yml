@@ -55,6 +55,6 @@ pages:
         - 'Text embedding': './examples/text-embedding.md'
         - 'Composing with canvas': './examples/composing-with-canvas.md'
         - 'Render images in-memory': './examples/render-images-in-memory.md'
-        - 'Load an image resource': './examples/image-resource-loading.md'
+        - 'Image resource loading': './examples/image-resource-loading.md'
         - 'Creating a presentation card': './examples/creating-a-presentation-card.md'
     - 'API Documentation': 'api.md'
