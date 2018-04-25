@@ -88,11 +88,11 @@ class Image
     }
 
     /**
-     * Loads an image from a local path, external url or image resource.
+     * Loads an image from a local path, external url or image string.
      *
      * @package GImage
      * @access public
-     * @param string|resource $src Local path, external url or image resource.
+     * @param string $src Local path, external url or image string.
      * @return \GImage\Image
      */
     public function load($src)
@@ -101,8 +101,8 @@ class Image
             return $this;
         }
 
-        if (is_resource($src)) {
-            $this->loadImageFromResource($src);
+        if ($this->isImageString($src)) {
+            $this->loadImageFromString($src);
         } elseif (filter_var($src, FILTER_VALIDATE_URL)) {
             $this->loadImageFromURL($src);
         } elseif (is_file($src)) {
@@ -163,33 +163,36 @@ class Image
     }
 
     /**
-     * Load an image from resource.
+     * Load an image from image string.
      *
-     * @param  resource $resource Image resource
+     * @param  string $imagestring Image string
      * @return void
      */
-    private function loadImageFromResource($resource)
+    private function loadImageFromString($imagestring)
     {
-        if (!is_resource($resource)) {
-            return;
-        }
-
-        if (Utils::isJPGResource($resource)) {
-            $this->filename = $url;
+        if (Utils::isJPGResource($imagestring)) {
             $this->extension = 'jpg';
             $this->type = IMAGETYPE_JPEG;
         }
 
-        if (Utils::isPNGResource($resource)) {
-            $this->filename = $url;
+        if (Utils::isPNGResource($imagestring)) {
             $this->extension = 'png';
             $this->type = IMAGETYPE_PNG;
         }
 
-        $this->from = 'resource';
-        $this->resource = $resource;
-        $this->width = $this->boxWidth = imagesx($resource);
-        $this->height = $this->boxHeight = imagesy($resource);
+        $this->from = 'imagestring';
+        $this->resource = imagecreatefromstring($imagestring);
+        $this->width = $this->boxWidth = imagesx($this->resource);
+        $this->height = $this->boxHeight = imagesy($this->resource);
+    }
+
+    /**
+     * Checks if string is Image string.
+     * @param  string $imagestring Image string.
+     * @return bool
+     */
+    private function isImageString($imagestring){
+        return Utils::isJPGResource($imagestring) || Utils::isPNGResource($imagestring);
     }
 
     /**
