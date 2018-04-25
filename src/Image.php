@@ -101,7 +101,7 @@ class Image
             return $this;
         }
 
-        if ($this->isImageString($src)) {
+        if ($this->isImageStringByString($src)) {
             $this->loadImageFromString($src);
         } elseif (filter_var($src, FILTER_VALIDATE_URL)) {
             $this->loadImageFromURL($src);
@@ -191,7 +191,7 @@ class Image
      * @param  string $imagestring Image string.
      * @return bool
      */
-    private function isImageString($imagestring){
+    private function isImageStringByString($imagestring){
         return Utils::isJPGResource($imagestring) || Utils::isPNGResource($imagestring);
     }
 
@@ -556,14 +556,14 @@ class Image
     }
 
     /**
-     * Checks if image was loaded from resource.
+     * Checks if image was loaded from image string.
      *
      * @access public
      * @return bool
      */
-    public function isResource()
+    public function isImageString()
     {
-        return ($this->from == 'resource');
+        return ($this->from == 'imagestring');
     }
 
     /**
