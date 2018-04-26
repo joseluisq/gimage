@@ -109,6 +109,9 @@ class GImageTest extends TestCase
         // Scaling to 50% (100x100)
         $img->scale(0.5);
 
+        $this->assertEquals($img->getWidth(), 100);
+        $this->assertEquals($img->getHeight(), 100);
+
         return $img;
     }
 
@@ -120,6 +123,9 @@ class GImageTest extends TestCase
         // Center and croping to 100px
         $img->centerCrop(100, 100);
 
+        $this->assertEquals($img->getWidth(), 100);
+        $this->assertEquals($img->getHeight(), 100);
+
         return $img;
     }
 
@@ -129,7 +135,10 @@ class GImageTest extends TestCase
     public function testRotate(Image $img)
     {
         // Rotating to 180º
+        $resource = $img->getResource();
         $img->rotate(180);
+
+        $this->assertNotEquals($resource, $img->getResource());
 
         return $img;
     }
