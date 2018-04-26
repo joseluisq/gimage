@@ -7,6 +7,15 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [Unreleased]
 
 
+## [3.0.6] - 2018-04-26
+
+### Added
+- `isImageString` method. (PR [#29](https://github.com/joseluisq/gimage/issues/30))
+
+### Fixed
+- `$url` is undefined in loadImageFromResource method. (PR [#30](https://github.com/joseluisq/gimage/issues/30) by @franklee0902)
+- `Utils::isJPGResource` and `Utils::isPNGResource` method require a string parameter. (PR [#30](https://github.com/joseluisq/gimage/issues/30) by @franklee0902)
+
 ## [3.0.5] - 2018-04-24
 
 ### Added
@@ -149,7 +158,8 @@ $text->setLineHeight(1.2);
 - Initial commit.
 - PHP `5.3` support.
 
-[Unreleased]: https://github.com/joseluisq/gimage/compare/3.0.5...HEAD
+[Unreleased]: https://github.com/joseluisq/gimage/compare/3.0.6...HEAD
+[3.0.6]: https://github.com/joseluisq/gimage/compare/3.0.5...3.0.6
 [3.0.5]: https://github.com/joseluisq/gimage/compare/3.0.4...3.0.5
 [3.0.4]: https://github.com/joseluisq/gimage/compare/3.0.3...3.0.4
 [3.0.3]: https://github.com/joseluisq/gimage/compare/3.0.2...3.0.3
