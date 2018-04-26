@@ -15,6 +15,8 @@ env:
     matrix:
         - DEPENDENCIES="high"
         - DEPENDENCIES="low"
+        allow_failures:
+            - php: 7.2
 
 before_install:
     - composer self-update
