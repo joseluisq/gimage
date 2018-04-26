@@ -188,10 +188,12 @@ class Image
 
     /**
      * Checks if string is Image string.
+     *
      * @param  string $imagestring Image string.
      * @return bool
      */
-    private function isImageStringByString($imagestring){
+    private function isImageStringByString($imagestring)
+    {
         return Utils::isJPGResource($imagestring) || Utils::isPNGResource($imagestring);
     }
 

@@ -131,7 +131,7 @@ class Utils
      * Checks if image resource is a JPG.
      *
      * @access public
-     * @param resource $resource Image resource.
+     * @param string $resource Image resource.
      * @return bool
      */
     public static function isJPGResource($resource)
@@ -144,7 +144,7 @@ class Utils
      * Checks if image resource is a PNG.
      *
      * @access public
-     * @param resource $resource Image resource.
+     * @param string $resource Image resource.
      * @return bool
      */
     public static function isPNGResource($resource)
