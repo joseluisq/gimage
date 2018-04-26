@@ -1,19 +1,26 @@
 site_name: GImage
+site_description: 'GImage - A PHP library for easy image handling.'
 site_author: 'Jose Quintana'
 site_url: https://joseluisq.github.io/gimage/
 
 repo_url: https://github.com/joseluisq/gimage/
 edit_uri: ""
 
-theme: 'material'
-
-extra:
+theme:
+    name: 'material'
     palette:
         primary: 'blue-grey'
         accent: 'indigo'
     font:
-        text: 'Open Sans'
+        text: 'Roboto'
         code: 'Droid Sans Mono'
+
+extra:
+  social:
+    - type: 'github'
+      link: 'https://github.com/joseluisq'
+    - type: 'twitter'
+      link: 'https://twitter.com/joseluis_q'
 
 markdown_extensions:
     - codehilite
