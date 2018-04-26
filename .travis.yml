@@ -11,12 +11,16 @@ cache:
     directories:
         - $HOME/.composer/cache/files
 
+matrix:
+  allow_failures:
+    - env: DEPENDENCIES=low
+    - php: 7.2
+  fast_finish: true
+
 env:
     matrix:
         - DEPENDENCIES="high"
         - DEPENDENCIES="low"
-        allow_failures:
-            - php: 7.2
 
 before_install:
     - composer self-update
