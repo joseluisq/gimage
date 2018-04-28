@@ -14,7 +14,7 @@ namespace GImage;
  * Class to embed simple graphic into the Canvas.
  *
  * @package GImage
- * @author José Luis Quintana <http://git.io/joseluisq>
+ * @author  José Luis Quintana <http://git.io/joseluisq>
  *
  * @property int $red Red color
  * @property int $green Green color
@@ -33,8 +33,8 @@ class Figure extends Image
      * Sets size for figure.
      *
      * @access public
-     * @param int $width Width.
-     * @param int $height Height.
+     * @param  int $width  Width.
+     * @param  int $height Height.
      */
     public function __construct($width = 0, $height = 0)
     {
@@ -48,8 +48,8 @@ class Figure extends Image
      * Sets size to figure.
      *
      * @access public
-     * @param int $width Width.
-     * @param int $height Height.
+     * @param  int $width  Width.
+     * @param  int $height Height.
      * @return \GImage\Figure
      */
     public function setSize($width = 0, $height = 0)
@@ -90,9 +90,9 @@ class Figure extends Image
      * Sets background color in RGB format.
      *
      * @access public
-     * @param int $red Red.
-     * @param int $green Green.
-     * @param int $blue Blue.
+     * @param  int $red   Red.
+     * @param  int $green Green.
+     * @param  int $blue  Blue.
      * @return \GImage\Figure
      */
     public function setBackgroundColor($red, $green, $blue)
