@@ -12,7 +12,7 @@ _Presentation card built with GImage - [view sample code](#creating-a-simple-pre
 
 __GImage__ is a simple and small library based on [PHP Image Processing and GD](http://php.net/manual/en/book.image.php) for processing images without stress.
 
-- Load an image from local path or URL.
+- Load an image from local path, URL or image resource.
 - Create shapes such as rectangles or ellipses with opacity.
 - Resize, scale or crop images proportionally.
 - Rotate images, shapes or texts.
@@ -225,4 +225,4 @@ If you would like to contribute [pull requests](https://github.com/joseluisq/gim
 ## License
 MIT license
 
-© 2017 [José Luis Quintana](https://git.io/joseluisq)
+© 2015-2017 [José Luis Quintana](https://git.io/joseluisq)

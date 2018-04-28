@@ -14,7 +14,7 @@
 
 ## Features
 
-- Load an image from local path or URL.
+- Load an image from local path, URL or image resource.
 - Create shapes such as rectangles or ellipses with opacity.
 - Resize, scale or crop images proportionally.
 - Rotate images, shapes or texts.
