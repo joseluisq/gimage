@@ -10,7 +10,7 @@
 
 ![A simple presentation card with GImage](https://cloud.githubusercontent.com/assets/1700322/18941713/eed7fa34-85d8-11e6-8033-bf787e4aa236.png)
 
-> _"A presentation card built with GImage" - [View code example](3)_
+> _"A presentation card built with GImage" - [View code example][3]_
 
 ## Features
 
@@ -29,4 +29,4 @@ For detailed instructions see the [getting started guide][2].
 
 [1]: https://github.com/joseluisq/gimage
 [2]: getting-started.md
-[3]: creating-a-simple-presentation-card.md
+[3]: examples/creating-a-presentation-card.md
