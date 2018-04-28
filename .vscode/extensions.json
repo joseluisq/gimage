@@ -1,0 +1,8 @@
+{
+    "recommendations": [
+        "felixfbecker.php-intellisense",
+        "felixfbecker.php-debug",
+        "ikappas.phpcs",
+        "persoderlind.vscode-phpcbf"
+    ]
+}
