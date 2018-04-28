@@ -2,7 +2,7 @@
     "docs": [
         {
             "location": "/",
-            "text": "GImage\n\u00b6\n\n\n\n\nA PHP library for easy image handling.\n\n\n\n\n \n \n \n \n\n\nIntroduction\n\u00b6\n\n\nGImage\n is a simple and small library based on \nPHP Image Processing and GD\n for processing images without stress.\n\n\n\n\n\n\n\"A presentation card built with GImage\" - \nView code example\n\n\n\n\nFeatures\n\u00b6\n\n\n\n\nLoad an image from local path or URL.\n\n\nCreate shapes such as rectangles or ellipses with opacity.\n\n\nResize, scale or crop images proportionally.\n\n\nRotate images, shapes or texts.\n\n\nEmbed text with custom TTF fonts.\n\n\nCompose a pool of images with Canvas.\n\n\nSwap image formats such as JPEG, PNG and GIF.\n\n\nSave images in local or output on the browser.\n\n\nSave several copies of the same image.\n\n\nRender an image in-memory and return the resource.\n\n\n\n\nFor detailed instructions see the \ngetting started guide\n.",
+            "text": "GImage\n\u00b6\n\n\n\n\nA PHP library for easy image handling.\n\n\n\n\n \n \n \n \n\n\nIntroduction\n\u00b6\n\n\nGImage\n is a simple and small library based on \nPHP Image Processing and GD\n for processing images without stress.\n\n\n\n\n\n\n\"A presentation card built with GImage\" - \nView code example\n\n\n\n\nFeatures\n\u00b6\n\n\n\n\nLoad an image from local path, URL or image resource.\n\n\nCreate shapes such as rectangles or ellipses with opacity.\n\n\nResize, scale or crop images proportionally.\n\n\nRotate images, shapes or texts.\n\n\nEmbed text with custom TTF fonts.\n\n\nCompose a pool of images with Canvas.\n\n\nSwap image formats such as JPEG, PNG and GIF.\n\n\nSave images in local or output on the browser.\n\n\nSave several copies of the same image.\n\n\nRender an image in-memory and return the resource.\n\n\n\n\nFor detailed instructions see the \ngetting started guide\n.",
             "title": "Introduction"
         },
         {
@@ -17,7 +17,7 @@
         },
         {
             "location": "/#features",
-            "text": "Load an image from local path or URL.  Create shapes such as rectangles or ellipses with opacity.  Resize, scale or crop images proportionally.  Rotate images, shapes or texts.  Embed text with custom TTF fonts.  Compose a pool of images with Canvas.  Swap image formats such as JPEG, PNG and GIF.  Save images in local or output on the browser.  Save several copies of the same image.  Render an image in-memory and return the resource.   For detailed instructions see the  getting started guide .",
+            "text": "Load an image from local path, URL or image resource.  Create shapes such as rectangles or ellipses with opacity.  Resize, scale or crop images proportionally.  Rotate images, shapes or texts.  Embed text with custom TTF fonts.  Compose a pool of images with Canvas.  Swap image formats such as JPEG, PNG and GIF.  Save images in local or output on the browser.  Save several copies of the same image.  Render an image in-memory and return the resource.   For detailed instructions see the  getting started guide .",
             "title": "Features"
         },
         {
