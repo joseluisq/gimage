@@ -33,9 +33,9 @@ class GImageTest extends TestCase
 {
     public function testLoad()
     {
-        // Loading an image (200x200) from Gravatar
+        // Loading an image (600x199) from Imgur
         $img = new Image();
-        $resource = $img->load('http://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50?s=200.jpg');
+        $resource = $img->load('https://i.imgur.com/G5MR088.png');
 
         $this->assertNotNull($resource);
 
@@ -58,7 +58,7 @@ class GImageTest extends TestCase
     */
     public function testIsJPG(Image $img)
     {
-        $this->assertTrue($img->isJPG());
+        $this->assertFalse($img->isJPG());
     }
 
     /**
@@ -66,7 +66,7 @@ class GImageTest extends TestCase
     */
     public function testIsNotPNG(Image $img)
     {
-        $this->assertFalse($img->isPNG());
+        $this->assertTrue($img->isPNG());
     }
 
     /**
@@ -106,11 +106,11 @@ class GImageTest extends TestCase
     */
     public function testScale(Image $img)
     {
-        // Scaling to 50% (100x100)
+        // Scaling to 50% (300x99)
         $img->scale(0.5);
 
-        $this->assertEquals($img->getWidth(), 100);
-        $this->assertEquals($img->getHeight(), 100);
+        $this->assertEquals($img->getWidth(), 300);
+        $this->assertEquals($img->getHeight(), 99);
 
         return $img;
     }
