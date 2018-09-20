@@ -1,6 +1,6 @@
 # Render images in-memory
 
-The following example renders an image in-memory and return the resource.
+The following example renders an image in-memory and return the string resource.
 
 ```php
 <?php

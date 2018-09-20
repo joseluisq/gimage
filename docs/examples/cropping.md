@@ -17,7 +17,7 @@ $arch_url = 'https://i.imgur.com/G5MR088.png';
 $arch_img = new Image();
 $arch_img
     ->load($arch_url)
-    // crop (200px x 100px) x=10 and y=20
+    // w=200px, h=100px, x=10, y=20
     ->crop(200, 100, 10, 20)
     // save the resource
     ->save('crop.png');
@@ -26,7 +26,7 @@ $arch_img
 
 ## Center cropping
 
-We can also to do an automatic-size cropping. The example crops an image proportionally based on given values (width and height).
+We can also make an automatic-size cropping. The example crops an image proportionally based on given values (width and height).
 
 !!! tip "Tip"
     `centerCrop(w, h)` calculates the image size, resize and crop it proportionally and centered. Making the cropping contain most of the original image.

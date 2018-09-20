@@ -1,9 +1,9 @@
 # Text embedding
 
-GImage supports a text embedding with custom TTF fonts using `Text` class with `Canvas`.
+GImage supports text embedding with custom TTF fonts using `Text` class and `Canvas`.
 
 !!! tip "Tip"
-    Use `setAlign(str)`, `setValign(str)` functions for control the aligment, `setLineHeight(n)` for lines space or `setLeft(x)` and `setTop(y)` for position on canvas.
+    Use `setAlign(str)`, `setValign(str)` functions for control the aligment, `setLineHeight(n)` for line spaces or `setLeft(x)` and `setTop(y)` for position on canvas.
 
 ```php
 <?php
@@ -25,8 +25,8 @@ $text
     ->setWidth(400)
     ->setHeight(250)
     // aligments
-    ->setAlign('center') // or "none"
-    ->setValign('center') // or "none"
+    ->setAlign('center') // "none" by default
+    ->setValign('center') // "none" by default
     // line height
     ->setLineHeight(1.2)
     // font size

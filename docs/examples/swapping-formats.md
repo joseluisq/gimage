@@ -18,7 +18,7 @@ $arch_img
     ->save('arch.jpg');
 ```
 
-Or outputting it on browser:
+Or output it on browser:
 
 ```php
 <?php

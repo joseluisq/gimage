@@ -5,10 +5,10 @@
 !!! tip "Note"
     __Canvas__ needs a `Figure` or `Image` which will be used as base element (layout).
 
-The following example uses `append()` method to attach elements to canvas.
+The following example uses `append()` method to attach elements to `Canvas`.
 
 !!! tip "Tip"
-    Using  `setLeft()` or `setTop()` methods it can control the position (x,y) of the elements (`Figure`, `Image` or `Text`) on canvas.
+    Using  `setLeft()` or `setTop()` methods it can control the position (x,y) of the elements (`Figure`, `Image` or `Text`) on `Canvas`.
 
 ```php
 <?php

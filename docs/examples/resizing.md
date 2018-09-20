@@ -2,7 +2,7 @@
 
 ## Width resizing
 
-Resizing an image proportionally basing on the width (`height` is calculated).
+Resizing an image proportionally based on the width (`height` is calculated).
 
 ```php
 <?php
@@ -20,7 +20,7 @@ $image
 
 ## Height resizing
 
-Resizing an image proportionally basing on the height (`width` is calculated).
+Resizing an image proportionally based on the height (`width` is calculated).
 
 ```php
 <?php
@@ -40,7 +40,7 @@ $image
     Use `getPropWidth(height)` and `getPropHeight(width)` to get the proportional `width` or `height` values only.
 
 ## Scale
-The following example scales a PNG image 120%.
+The following example scales a PNG image to 120%.
 
 !!! tip "Tip"
     The `scale(val)` function value should be between 0 and 1

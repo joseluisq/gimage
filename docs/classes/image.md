@@ -1,6 +1,6 @@
 # Image
 
-> `Image` class is the parent class for `Figure` and `Canvas` classes.
+> `Image` class is the parent class for `Figure` and `Canvas` classes. So `Figure` and `Canvas` be able to access to `save()`, `crop()`, `output()` and other methods provided by `Image`.
 
 ## Saving
 
@@ -63,9 +63,9 @@ $img
 
 ## Reuse Image functions
 
-`Figure` and `Canvas` extend from `Image`. This means that it's possible to use many functions like `crop()`, `centerCrop()`, `rotate()` and so on.
+`Figure` and `Canvas` extend from `Image`. This means that it's possible to use many inherited functions like `save()`, `crop()`, `rotate()` and so on.
 
-For example the code below creates an rectangle, set an opacity (75%) and save it as PNG.
+For example the code below creates an rectangle, set an opacity to 75% and save it as PNG.
 
 ```php
 <?php

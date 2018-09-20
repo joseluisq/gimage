@@ -12,7 +12,7 @@ theme:
         primary: 'blue-grey'
         accent: 'indigo'
     font:
-        text: 'Roboto'
+        text: 'Fira Sans'
         code: 'Droid Sans Mono'
 
 extra:
@@ -27,6 +27,7 @@ markdown_extensions:
     - admonition
     - meta
     - toc(permalink=true)
+    - markdown.extensions.tables
     - pymdownx.arithmatex
     - pymdownx.betterem(smart_enable=all)
     - pymdownx.caret
@@ -34,18 +35,21 @@ markdown_extensions:
     - pymdownx.details
     - pymdownx.emoji:
         emoji_generator: !!python/name:pymdownx.emoji.to_svg
-    - pymdownx.github:
-        pymdownx.tilde:
-            subscript: true
+    - pymdownx.magiclink:
+        repo_url_shortener: true
+        repo_url_shorthand: true
+        provider: "github"
+        user: "facelessuser"
+        repo: "pymdown-extensions"
+    - pymdownx.tilde
+    - pymdownx.emoji
+    - pymdownx.superfences
     - pymdownx.inlinehilite
-    - pymdownx.magiclink
     - pymdownx.mark
     - pymdownx.smartsymbols
-    - pymdownx.superfences
     - pymdownx.tasklist(custom_checkbox=true)
-    - pymdownx.tilde
 
-pages:
+nav:
     - 'Introduction': 'index.md'
     - 'Getting Started': 'getting-started.md'
     - 'Classes':
