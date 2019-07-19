@@ -27,17 +27,18 @@ docs_api:
 	@vendor/bin/apigen generate -s src -d $(TMP_DOCS)/api/v3.0
 
 docs_deploy:
+	@composer install
 	@rm -rf $(TMP_DOCS)
 	@make docs_build
 	@make docs_api
 	@git checkout gh-pages
-	@git rm --cached -r .
+	@git add . && git rm -fr .
 	@git clean -df
 	@cp -a $(TMP_DOCS)/. ./
-	@git add -A && git commit . -m "update docs"
+	@git add . && git commit . -m "automatic documentation updates"
 	@git push -u origin gh-pages
 	@rm -rf $(TMP_DOCS)
 	@echo
-	@echo "Docs built and published."
+	@echo "Documentation built and published."
 
 .PHONY: test docs format docs docs_deps docs_api docs_deploy
