@@ -15,6 +15,9 @@ format:
 docs:
 	mkdocs serve -e docs -a 0.0.0.0:8000
 
+docs_deps:
+	@pip3 install mkdocs pymdown-extensions mkdocs-material markdown
+
 docs_build:
 	mkdocs build -e docs -d $(TMP_DOCS)
 
@@ -37,4 +40,4 @@ docs_deploy:
 	@echo
 	@echo "Docs built and published."
 
-.PHONY: test docs format docs docs_api docs_deploy
+.PHONY: test docs format docs docs_deps docs_api docs_deploy
