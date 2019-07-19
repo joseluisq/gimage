@@ -24,7 +24,7 @@ docs_build:
 docs_api:
 	@mkdir -p site/api/v3.0
 	@mkdir -p $(TMP_DOCS)/api/v3.0
-	@apigen generate -s src -d $(TMP_DOCS)/api/v3.0
+	@vendor/bin/apigen generate -s src -d $(TMP_DOCS)/api/v3.0
 
 docs_deploy:
 	@rm -rf $(TMP_DOCS)
