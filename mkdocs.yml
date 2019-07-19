@@ -26,10 +26,11 @@ markdown_extensions:
     - codehilite
     - admonition
     - meta
-    - toc(permalink=true)
+    - toc:
+        permalink: true
     - markdown.extensions.tables
     - pymdownx.arithmatex
-    - pymdownx.betterem(smart_enable=all)
+    - pymdownx.betterem
     - pymdownx.caret
     - pymdownx.critic
     - pymdownx.details
@@ -47,7 +48,7 @@ markdown_extensions:
     - pymdownx.inlinehilite
     - pymdownx.mark
     - pymdownx.smartsymbols
-    - pymdownx.tasklist(custom_checkbox=true)
+    - pymdownx.tasklist
 
 nav:
     - 'Introduction': 'index.md'
