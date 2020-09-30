@@ -2,7 +2,7 @@
 /*
  * This file is part of GImage.
  *
- * (c) José Luis Quintana <https://git.io/joseluisq>
+ * (c) Jose Quintana <https://git.io/joseluisq>
  *
  * This source file is subject to the MIT license that is bundled
  * with this source code in the file LICENSE.
@@ -11,7 +11,7 @@
 /**
  * Render an image from resource.
  *
- * @author José Luis Quintana <https://git.io/joseluisq>
+ * @author Jose Quintana <https://git.io/joseluisq>
  */
 
 namespace GImage\Examples;
@@ -31,8 +31,8 @@ imagefilledrectangle($rectangle, 0, 0, $width, $height, $green);
 // Load and process the rectangle image resource
 $img = new Image();
 $img
-  ->load($rectangle)
-  // scale to 50%
-  ->scale(0.50)
-  ->toPNG()
-  ->save(__DIR__ . '/rectangle.png');
+    ->load($rectangle)
+    // scale to 50%
+    ->scale(0.50)
+    ->toPNG()
+    ->save(__DIR__ . '/rectangle.png');

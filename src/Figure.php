@@ -2,7 +2,7 @@
 /*
  * This file is part of GImage.
  *
- * (c) José Luis Quintana <https://git.io/joseluisq>
+ * (c) Jose Quintana <https://git.io/joseluisq>
  *
  * This source file is subject to the MIT license that is bundled
  * with this source code in the file LICENSE.
@@ -14,7 +14,7 @@ namespace GImage;
  * Class to embed simple graphic into the Canvas.
  *
  * @package GImage
- * @author  José Luis Quintana <http://git.io/joseluisq>
+ * @author  Jose Quintana <http://git.io/joseluisq>
  *
  * @property int $red Red color
  * @property int $green Green color

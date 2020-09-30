@@ -1,12 +1,12 @@
 <?php
 /*
- * This file is part of GImage.
- *
- * (c) José Luis Quintana <https://git.io/joseluisq>
- *
- * This source file is subject to the MIT license that is bundled
- * with this source code in the file LICENSE.
- */
+* This file is part of GImage.
+*
+* (c) Jose Quintana <https://git.io/joseluisq>
+*
+* This source file is subject to the MIT license that is bundled
+* with this source code in the file LICENSE.
+*/
 
 namespace GImage\Test;
 
@@ -43,8 +43,8 @@ class GImageTest extends TestCase
     }
 
     /**
-    * @depends testLoad
-    */
+     * @depends testLoad
+     */
     public function testGetResource(Image $img)
     {
         $this->assertNotEmpty($img->getResource());
@@ -54,56 +54,56 @@ class GImageTest extends TestCase
     }
 
     /**
-    * @depends testGetResource
-    */
+     * @depends testGetResource
+     */
     public function testIsJPG(Image $img)
     {
         $this->assertFalse($img->isJPG());
     }
 
     /**
-    * @depends testGetResource
-    */
+     * @depends testGetResource
+     */
     public function testIsNotPNG(Image $img)
     {
         $this->assertTrue($img->isPNG());
     }
 
     /**
-    * @depends testGetResource
-    */
+     * @depends testGetResource
+     */
     public function testIsNotGif(Image $img)
     {
         $this->assertFalse($img->isGIF());
     }
 
     /**
-    * @depends testGetResource
-    */
+     * @depends testGetResource
+     */
     public function testIsLocal(Image $img)
     {
         $this->assertFalse($img->isLocal());
     }
 
     /**
-    * @depends testGetResource
-    */
+     * @depends testGetResource
+     */
     public function testIsExternal(Image $img)
     {
         $this->assertTrue($img->isExternal());
     }
 
     /**
-    * @depends testGetResource
-    */
+     * @depends testGetResource
+     */
     public function testIsImageString(Image $img)
     {
         $this->assertFalse($img->isImageString());
     }
 
     /**
-    * @depends testLoad
-    */
+     * @depends testLoad
+     */
     public function testScale(Image $img)
     {
         // Scaling to 50% (300x99)
@@ -116,8 +116,8 @@ class GImageTest extends TestCase
     }
 
     /**
-    * @depends testLoad
-    */
+     * @depends testLoad
+     */
     public function testCenterCrop(Image $img)
     {
         // Center and croping to 100px
@@ -130,8 +130,8 @@ class GImageTest extends TestCase
     }
 
     /**
-    * @depends testLoad
-    */
+     * @depends testLoad
+     */
     public function testRotate(Image $img)
     {
         // Rotating to 180º
@@ -156,8 +156,8 @@ class GImageTest extends TestCase
     }
 
     /**
-    * @depends testCreateFigure
-    */
+     * @depends testCreateFigure
+     */
     public function testCreateCanvas(Figure $figure)
     {
         $canvas = new Canvas();
@@ -187,9 +187,9 @@ class GImageTest extends TestCase
     }
 
     /**
-    * @depends testCreateCanvas
-    * @depends testCreateText
-    */
+     * @depends testCreateCanvas
+     * @depends testCreateText
+     */
     public function testCanvasAppendText(Canvas $canvas, Text $text)
     {
         $canvas
@@ -203,8 +203,8 @@ class GImageTest extends TestCase
     }
 
     /**
-    * @depends testScale
-    */
+     * @depends testScale
+     */
     public function testPreserveResource(Image $img)
     {
         $img->preserve();
@@ -214,8 +214,8 @@ class GImageTest extends TestCase
     }
 
     /**
-    * @depends testPreserveResource
-    */
+     * @depends testPreserveResource
+     */
     public function testSavePreserved(Image $img)
     {
         $this->assertNotNull($img->save(GIMAGE_PATH_TMP . DS . 'test1.jpg'));
@@ -225,8 +225,8 @@ class GImageTest extends TestCase
     }
 
     /**
-    * @depends testScale
-    */
+     * @depends testScale
+     */
     public function testNotPreserveResource(Image $img)
     {
         $img->preserve(false);
@@ -237,8 +237,8 @@ class GImageTest extends TestCase
     }
 
     /**
-    * @depends testNotPreserveResource
-    */
+     * @depends testNotPreserveResource
+     */
     public function testSaveNotPreserved(Image $img)
     {
         $this->assertNotNull($img->save(GIMAGE_PATH_TMP . DS . 'test2.jpg'));
@@ -248,8 +248,8 @@ class GImageTest extends TestCase
     }
 
     /**
-    * @depends testLoad
-    */
+     * @depends testLoad
+     */
     public function testDestroyResource(Image $img)
     {
         $img->destroy();
@@ -258,8 +258,8 @@ class GImageTest extends TestCase
     }
 
     /**
-    * @depends testCanvasAppendText
-    */
+     * @depends testCanvasAppendText
+     */
     public function testCanvasSave(Canvas $canvas)
     {
         $this->assertNotNull($canvas->save(GIMAGE_PATH_TMP . DS . 'test3.jpg'));
@@ -268,8 +268,8 @@ class GImageTest extends TestCase
     }
 
     /**
-    * @depends testCanvasSave
-    */
+     * @depends testCanvasSave
+     */
     public function testLoadImageString(Canvas $canvas)
     {
         $imagestring = file_get_contents(GIMAGE_PATH_TMP . DS . 'test3.jpg');

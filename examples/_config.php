@@ -2,7 +2,7 @@
 /*
  * This file is part of GImage.
  *
- * (c) José Luis Quintana <https://git.io/joseluisq>
+ * (c) Jose Quintana <https://git.io/joseluisq>
  *
  * This source file is subject to the MIT license that is bundled
  * with this source code in the file LICENSE.

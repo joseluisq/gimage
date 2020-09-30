@@ -17,11 +17,13 @@
         "save",
         "handler"
     ],
-    "authors": [{
-        "name": "José Luis Quintana",
-        "homepage": "https://git.io/joseluisq",
-        "role": "Owner"
-    }],
+    "authors": [
+        {
+            "name": "Jose Quintana",
+            "homepage": "https://git.io/joseluisq",
+            "role": "Owner"
+        }
+    ],
     "support": {
         "issues": "https://github.com/joseluisq/gimage/issues"
     },

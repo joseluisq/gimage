@@ -2,7 +2,7 @@
 /*
  * This file is part of GImage.
  *
- * (c) José Luis Quintana <https://git.io/joseluisq>
+ * (c) Jose Quintana <https://git.io/joseluisq>
  *
  * This source file is subject to the MIT license that is bundled
  * with this source code in the file LICENSE.
@@ -14,7 +14,7 @@ namespace GImage;
  * Image utility functions.
  *
  * @package GImage
- * @author José Luis Quintana <https://git.io/joseluisq>
+ * @author Jose Quintana <https://git.io/joseluisq>
  *
  * @property array $mimeTypes Mime types for images.
  * @property array $imageTypes Types: IMAGETYPE_GIF, IMAGETYPE_PNG and IMAGETYPE_JPEG.
@@ -137,7 +137,7 @@ class Utils
     public static function isJPGResource($resource)
     {
         return $resource && (bin2hex($resource[0]) == 'ff'
-                && bin2hex($resource[1]) == 'd8');
+            && bin2hex($resource[1]) == 'd8');
     }
 
     /**
@@ -150,7 +150,7 @@ class Utils
     public static function isPNGResource($resource)
     {
         return $resource && (bin2hex($resource[0]) == '89' && $resource[1] == 'P'
-                && $resource[2] == 'N' && $resource[3] == 'G');
+            && $resource[2] == 'N' && $resource[3] == 'G');
     }
 
     /**

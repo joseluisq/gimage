@@ -17,9 +17,6 @@
         "npm": true
     },
     "php.validate.enable": true,
-    "phpcs.enable": true,
-    "phpcs.standard": "PSR2",
-    "phpcbf.enable": true,
-    "phpcbf.standard": "PSR2",
-    "phpcbf.onsave": true
+    "intelephense.format.enable": true,
+    "intelephense.environment.phpVersion": "7.4.0"
 }

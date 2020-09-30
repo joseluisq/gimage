@@ -2,7 +2,7 @@
 /*
  * This file is part of GImage.
  *
- * (c) José Luis Quintana <https://git.io/joseluisq>
+ * (c) Jose Quintana <https://git.io/joseluisq>
  *
  * This source file is subject to the MIT license that is bundled
  * with this source code in the file LICENSE.
@@ -15,7 +15,7 @@ namespace GImage;
  * This is the parent class for Figure and Canvas.
  *
  * @package GImage
- * @author José Luis Quintana <http://git.io/joseluisq>
+ * @author Jose Quintana <http://git.io/joseluisq>
  *
  * @property string $name
  * @property string $filename
@@ -331,11 +331,11 @@ class Image
     }
 
     /**
-    * Gets height.
-    *
-    * @access public
-    * @return int
-    */
+     * Gets height.
+     *
+     * @access public
+     * @return int
+     */
     public function getHeight()
     {
         return $this->height;
