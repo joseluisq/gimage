@@ -43,7 +43,7 @@ class Canvas extends Image
      *
      * @param mixed $elements Single or array of Image, Figure, Text classes.
      * @access public
-     * @return \GImage\Canvas
+     * @return \GImage\Canvas|static
      */
     public function append($elements)
     {
@@ -64,7 +64,7 @@ class Canvas extends Image
      * Draws the canvas.
      *
      * @access public
-     * @return \GImage\Canvas
+     * @return \GImage\Canvas|static
      * @throws \Exception
      */
     public function draw()

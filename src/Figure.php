@@ -50,7 +50,7 @@ class Figure extends Image
      * @access public
      * @param  int $width  Width.
      * @param  int $height Height.
-     * @return \GImage\Figure
+     * @return \GImage\Figure|static
      */
     public function setSize($width = 0, $height = 0)
     {
@@ -66,7 +66,7 @@ class Figure extends Image
      * Sets the figure type as 'rectangle'.
      *
      * @access public
-     * @return \GImage\Figure
+     * @return \GImage\Figure|static
      */
     public function isRectangle()
     {
@@ -78,7 +78,7 @@ class Figure extends Image
      * Sets the figure type as 'ellipse'.
      *
      * @access public
-     * @return \GImage\Figure
+     * @return \GImage\Figure|static
      */
     public function isEllipse()
     {
@@ -93,7 +93,7 @@ class Figure extends Image
      * @param  int $red   Red.
      * @param  int $green Green.
      * @param  int $blue  Blue.
-     * @return \GImage\Figure
+     * @return \GImage\Figure|static
      */
     public function setBackgroundColor($red, $green, $blue)
     {
@@ -119,7 +119,7 @@ class Figure extends Image
      * Creates the figure with alpha channel.
      *
      * @access public
-     * @return \GImage\Figure
+     * @return \GImage\Figure|static
      */
     public function create()
     {

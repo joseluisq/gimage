@@ -74,7 +74,7 @@ class Image
      *
      * @access public
      * @param Image $element Image or Figure class.
-     * @return \GImage\Image
+     * @return \GImage\Image|static
      */
     public function from($element = null)
     {
@@ -93,7 +93,7 @@ class Image
      * @package GImage
      * @access public
      * @param string $src Local path, external url or image string.
-     * @return \GImage\Image
+     * @return \GImage\Image|static
      */
     public function load($src)
     {
@@ -423,7 +423,7 @@ class Image
      *
      * @param int $quality Quality value from 0 to 100
      * @access public
-     * @return \GImage\Image
+     * @return \GImage\Image|static
      */
     public function setQuality($quality)
     {
@@ -436,7 +436,7 @@ class Image
      *
      * @param int $opacity Opacity value from 0 to 127
      * @access public
-     * @return \GImage\Image
+     * @return \GImage\Image|static
      */
     public function setOpacity($opacity)
     {
@@ -449,7 +449,7 @@ class Image
      *
      * @param resource $resource resource.
      * @access public
-     * @return \GImage\Image
+     * @return \GImage\Image|static
      */
     public function setResource($resource)
     {
@@ -462,7 +462,7 @@ class Image
      *
      * @param int $x left.
      * @access public
-     * @return \GImage\Image
+     * @return \GImage\Image|static
      */
     public function setLeft($x)
     {
@@ -475,7 +475,7 @@ class Image
      *
      * @param int $y top.
      * @access public
-     * @return \GImage\Image
+     * @return \GImage\Image|static
      */
     public function setTop($y)
     {
@@ -488,7 +488,7 @@ class Image
      *
      * @param int $width width.
      * @access public
-     * @return \GImage\Image
+     * @return \GImage\Image|static
      */
     public function setBoxWidth($width)
     {
@@ -501,7 +501,7 @@ class Image
      *
      * @param int $height height.
      * @access public
-     * @return \GImage\Image
+     * @return \GImage\Image|static
      */
     public function setBoxHeight($height)
     {
@@ -514,7 +514,7 @@ class Image
      *
      * @param int $x Left position.
      * @access public
-     * @return \GImage\Image
+     * @return \GImage\Image|static
      */
     public function setBoxLeft($x)
     {
@@ -527,7 +527,7 @@ class Image
      *
      * @param int $y Top position.
      * @access public
-     * @return \GImage\Image
+     * @return \GImage\Image|static
      */
     public function setBoxTop($y)
     {
@@ -605,7 +605,7 @@ class Image
      * Changes output format to JPG.
      *
      * @access public
-     * @return \GImage\Image
+     * @return \GImage\Image|static
      */
     public function toJPG()
     {
@@ -619,7 +619,7 @@ class Image
      * Changes output format to PNG.
      *
      * @access public
-     * @return \GImage\Image
+     * @return \GImage\Image|static
      */
     public function toPNG()
     {
@@ -633,7 +633,7 @@ class Image
      * Changes output format to GIF.
      *
      * @access public
-     * @return \GImage\Image
+     * @return \GImage\Image|static
      */
     public function toGIF()
     {
@@ -648,7 +648,7 @@ class Image
      *
      * @access public
      * @param bool $preserve If it's true will preserve the resource image.
-     * @return \GImage\Image
+     * @return \GImage\Image|static
      */
     public function preserve($preserve = true)
     {
@@ -661,7 +661,7 @@ class Image
      *
      * @access public
      * @param int $height
-     * @return \GImage\Image
+     * @return \GImage\Image|static
      */
     public function resizeToHeight($height)
     {
@@ -676,7 +676,7 @@ class Image
      *
      * @access public
      * @param int $width
-     * @return \GImage\Image
+     * @return \GImage\Image|static
      */
     public function resizeToWidth($width)
     {
@@ -718,7 +718,7 @@ class Image
      *
      * @access public
      * @param int|double $scale
-     * @return \GImage\Image
+     * @return \GImage\Image|static
      */
     public function scale($scale = 1)
     {
@@ -739,7 +739,7 @@ class Image
      *
      * @access public
      * @param int $angle
-     * @return \GImage\Image
+     * @return \GImage\Image|static
      */
     public function rotate($angle = 0)
     {
@@ -756,7 +756,7 @@ class Image
      * @access public
      * @param int $width Width crop.
      * @param int $height Height crop.
-     * @return \GImage\Image
+     * @return \GImage\Image|static
      */
     public function centerCrop($width, $height)
     {
@@ -791,7 +791,7 @@ class Image
      * @param int $y1 [Optional] y-coordinate of source point.
      * @param int $dstX [Optional] x-coordinate of destination point.
      * @param int $dstY [Optional] y-coordinate of destination point.
-     * @return \GImage\Image
+     * @return \GImage\Image|static
      */
     public function crop($width, $height, $x1 = 0, $y1 = 0, $dstX = 0, $dstY = 0)
     {
@@ -811,7 +811,7 @@ class Image
      * @param int $dstX [Optional] x-coordinate of destination point.
      * @param int $dstY [Optional] y-coordinate of destination point.
      * @param bool $isCrop [Optional] if it's true resize function will crop the image.
-     * @return \GImage\Image
+     * @return \GImage\Image|static
      */
     private function resize($width, $height, $x1 = 0, $y1 = 0, $dstX = 0, $dstY = 0, $isCrop = false)
     {
@@ -850,7 +850,7 @@ class Image
      * @access public
      * @param string $filename If it's null save function will save the image
      * in load path for default.
-     * @return \GImage\Image
+     * @return \GImage\Image|static
      */
     public function save($filename = null)
     {
@@ -861,7 +861,7 @@ class Image
      * Outputs the image on browser.
      *
      * @access public
-     * @return \GImage\Image
+     * @return \GImage\Image|static
      */
     public function output()
     {
@@ -898,7 +898,7 @@ class Image
      * @access private
      * @param string $filename [Optional] Path to save image
      * @param bool $output [Optional] true to output the image.
-     * @return \GImage\Image | resource
+     * @return \GImage\Image|static | resource
      */
     private function outputBuffer($filename = null, $output = false)
     {
@@ -961,7 +961,7 @@ class Image
      * Destroys the current resource.
      *
      * @access public
-     * @return \GImage\Image
+     * @return \GImage\Image|static
      */
     public function destroy()
     {
