@@ -24,7 +24,7 @@ require __DIR__ . '/../tests/bootstrap.php';
 // Rotate an image to 90º
 $image = new Image();
 $image
-    ->load('http://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50?s=200.jpg')
+    ->load('https://i.imgur.com/G5MR088.png')
     ->scale(0.5)
     ->rotate(90)
     // Change to PNG

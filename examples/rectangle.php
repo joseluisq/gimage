@@ -18,6 +18,9 @@ namespace GImage\Examples;
 
 use GImage\Figure;
 
+require __DIR__ . '/_config.php';
+require __DIR__ . '/../tests/bootstrap.php';
+
 $figure = new Figure(400, 250);
 $figure
     ->isRectangle()

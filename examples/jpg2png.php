@@ -23,8 +23,8 @@ require __DIR__ . '/../tests/bootstrap.php';
 
 $image = new Image();
 $image
-    // Load a JPEG image
-    ->load('http://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50?s=300.jpg')
+    // Load a JPEG image (500x500)
+    ->load('https://i.imgur.com/vLXIIoY.jpg')
     // Resize and crop in the middle (100px x 80px)
     ->centerCrop(100, 80)
     // Change the format

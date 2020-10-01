@@ -23,9 +23,9 @@ require __DIR__ . '/../tests/bootstrap.php';
 
 $image = new Image();
 $resource = $image
-    ->load('http://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50?s=200.jpg')
-    // Scale 120%
-    ->scale(1.2)
+    ->load('https://i.imgur.com/vLXIIoY.jpg')
+    // Scale down to 20%
+    ->scale(0.2)
     // Rotate an image to -90º
     ->rotate(-90)
     // Change to PNG
@@ -35,7 +35,7 @@ $resource = $image
     // Render the image in-memory
     ->render();
 
-// Output the buffer (example only)
+// Output the buffer on web browser (example only)
 header('Content-Type: image/png');
 // Necessary for opacity to work
 imagesavealpha($resource, true);

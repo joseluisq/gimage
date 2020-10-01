@@ -27,7 +27,8 @@ require __DIR__ . '/../tests/bootstrap.php';
 // Creating an avatar image
 $avatar_image = new Image();
 $avatar_image
-    ->load('https://assets-cdn.github.com/images/modules/logos_page/Octocat.png')
+    // Image size (500x500)
+    ->load('https://i.imgur.com/vLXIIoY.jpg')
     ->centerCrop(100, 100)
     ->setTop(60)
     ->setLeft(70);
@@ -98,6 +99,7 @@ $canvas
         $twitter_text,
         $line_vertical
     ])
+    ->setQuality(100)
     ->toPNG()
     ->draw()
     ->save(__DIR__ . '/card.png');
