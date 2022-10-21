@@ -6,7 +6,7 @@ examples/*.gif
 tmp/
 .tmp/
 composer.phar
-composer-test.lock
+*.lock
 build/artifacts/
 artifacts/
 *.log

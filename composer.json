@@ -28,17 +28,17 @@
         "issues": "https://github.com/joseluisq/gimage/issues"
     },
     "require": {
-        "php": ">=7.0",
+        "php": ">=7.4",
         "ext-gd": "*"
     },
     "config": {
         "platform": {
-            "php": "7.0.0"
+            "php": "7.4"
         }
     },
     "require-dev": {
         "apigen/apigen": "4.1.2",
-        "phpunit/phpunit": "6"
+        "phpunit/phpunit": "9"
     },
     "autoload": {
         "psr-4": {

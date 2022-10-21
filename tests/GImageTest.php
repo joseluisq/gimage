@@ -138,7 +138,7 @@ class GImageTest extends TestCase
         $resource = $img->getResource();
         $img->rotate(180);
 
-        $this->assertNotEquals($resource, $img->getResource());
+        $this->assertNotSame($resource, $img->getResource());
 
         return $img;
     }
