@@ -9,9 +9,11 @@ composer.phar
 *.lock
 build/artifacts/
 artifacts/
+vscode/
 *.log
 .idea
 .DS_STORE
 .DS_Store
-Gemfile.lock
+/*.bin
+*.cache
 site

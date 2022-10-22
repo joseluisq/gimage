@@ -8,6 +8,16 @@ help:
 test:
 	@vendor/bin/phpunit
 
+docker-tests:
+	@echo "Testing Gimage with PHP 7.4"
+	@docker run --rm -it -v $(PWD):/var/www/html joseluisq/php-fpm:7.4 \
+		sh -c 'php -v && rm -rf vendor && composer install && composer run-script test'
+	@echo
+	@echo "Testing Gimage with PHP 8.0"
+	@docker run --rm -it -v $(PWD):/var/www/html joseluisq/php-fpm:8.0 \
+		sh -c 'php -v && rm -rf vendor && composer install && composer run-script test'
+.PHONY: docker-tests
+
 format:
 	@phpcbf -w ./src ./tests --standard=PSR2
 	@phpcs ./src ./tests --standard=PSR2
