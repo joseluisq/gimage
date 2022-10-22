@@ -10,10 +10,10 @@
 
 namespace GImage\Test;
 
+use GImage\Canvas;
+use GImage\Figure;
 use GImage\Image;
 use GImage\Text;
-use GImage\Figure;
-use GImage\Canvas;
 use PHPUnit\Framework\TestCase;
 
 if (!defined('DS')) {
@@ -26,7 +26,6 @@ define('GIMAGE_PATH_TMP', sys_get_temp_dir());
 /**
  * GImage Test suite.
  *
- * @package GImage
  * @author Jose Luis Quintana <https://git.io/joseluisq>
  */
 class GImageTest extends TestCase
@@ -34,7 +33,7 @@ class GImageTest extends TestCase
     public function testLoad()
     {
         // Loading an image (600x199) from Imgur
-        $img = new Image();
+        $img      = new Image();
         $resource = $img->load('https://i.imgur.com/G5MR088.png');
 
         $this->assertNotNull($resource);

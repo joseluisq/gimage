@@ -13,28 +13,26 @@ namespace GImage;
 /**
  * Class to embed simple graphic into the Canvas.
  *
- * @package GImage
  * @author  Jose Quintana <http://git.io/joseluisq>
  *
- * @property int $red Red color
+ * @property int $red   Red color
  * @property int $green Green color
- * @property int $blue Blue color
+ * @property int $blue  Blue color
  */
 class Figure extends Image
 {
-    protected $height = 0;
-    protected $width = 0;
-    protected $red = 0;
-    protected $green = 0;
-    protected $blue = 0;
+    protected $height     = 0;
+    protected $width      = 0;
+    protected $red        = 0;
+    protected $green      = 0;
+    protected $blue       = 0;
     protected $figureType = 'rectangle';
 
     /**
      * Sets size for figure.
      *
-     * @access public
-     * @param  int $width  Width.
-     * @param  int $height Height.
+     * @param int $width  width
+     * @param int $height height
      */
     public function __construct($width = 0, $height = 0)
     {
@@ -47,15 +45,15 @@ class Figure extends Image
     /**
      * Sets size to figure.
      *
-     * @access public
-     * @param  int $width  Width.
-     * @param  int $height Height.
+     * @param int $width  width
+     * @param int $height height
+     *
      * @return \GImage\Figure|static
      */
     public function setSize($width = 0, $height = 0)
     {
         if (!empty($width) && !empty($height)) {
-            $this->width = $this->boxWidth = $width;
+            $this->width  = $this->boxWidth  = $width;
             $this->height = $this->boxHeight = $height;
         }
 
@@ -65,41 +63,41 @@ class Figure extends Image
     /**
      * Sets the figure type as 'rectangle'.
      *
-     * @access public
      * @return \GImage\Figure|static
      */
     public function isRectangle()
     {
         $this->figureType = 'rectangle';
+
         return $this;
     }
 
     /**
      * Sets the figure type as 'ellipse'.
      *
-     * @access public
      * @return \GImage\Figure|static
      */
     public function isEllipse()
     {
         $this->figureType = 'ellipse';
+
         return $this;
     }
 
     /**
      * Sets background color in RGB format.
      *
-     * @access public
-     * @param  int $red   Red.
-     * @param  int $green Green.
-     * @param  int $blue  Blue.
+     * @param int $red   red
+     * @param int $green green
+     * @param int $blue  blue
+     *
      * @return \GImage\Figure|static
      */
     public function setBackgroundColor($red, $green, $blue)
     {
-        $this->red = $red;
+        $this->red   = $red;
         $this->green = $green;
-        $this->blue = $blue;
+        $this->blue  = $blue;
 
         return $this;
     }
@@ -107,8 +105,7 @@ class Figure extends Image
     /**
      * Gets an array with the RGB background colors.
      *
-     * @access public
-     * @return array An array with RGB colors.
+     * @return array an array with RGB colors
      */
     public function getBackgroundColor()
     {
@@ -118,7 +115,6 @@ class Figure extends Image
     /**
      * Creates the figure with alpha channel.
      *
-     * @access public
      * @return \GImage\Figure|static
      */
     public function create()
@@ -150,7 +146,6 @@ class Figure extends Image
     /**
      * Creates a filled rectangle.
      *
-     * @access private
      * @return void
      */
     private function createRectangle($color)
@@ -168,7 +163,6 @@ class Figure extends Image
     /**
      * Creates a filled ellipse.
      *
-     * @access private
      * @return void
      */
     private function createEllipse($color)

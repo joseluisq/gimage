@@ -1,0 +1,39 @@
+name: devel
+on:
+  pull_request:
+  push:
+    branches:
+    - master
+
+jobs:
+  test:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os:
+          - ubuntu-20.04
+        php:
+          - 7.4
+          - 8.0
+        dependency-version:
+          - prefer-lowest
+          - prefer-stable
+
+    name: PHP ${{ matrix.php }} - ${{ matrix.os }} - ${{ matrix.dependency-version }}
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+
+    - name: Setup PHP
+      uses: shivammathur/setup-php@v2
+      with:
+        php-version: ${{ matrix.php }}
+        tools: composer:v2
+        coverage: none
+
+    - name: Install dependencies
+      run: composer update --${{ matrix.dependency-version }} --no-interaction --no-progress
+
+    - name: Unit tests
+      run: ./vendor/bin/phpunit

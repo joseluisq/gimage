@@ -20,7 +20,7 @@
     "authors": [
         {
             "name": "Jose Quintana",
-            "homepage": "https://git.io/joseluisq",
+            "homepage": "https://github.com/joseluisq",
             "role": "Owner"
         }
     ],
@@ -33,12 +33,12 @@
     },
     "config": {
         "platform": {
-            "php": "7.4"
+            "php": "7.4.0"
         }
     },
     "require-dev": {
-        "apigen/apigen": "4.1.2",
-        "phpunit/phpunit": "9"
+        "phpunit/phpunit": "9",
+        "friendsofphp/php-cs-fixer": "3"
     },
     "autoload": {
         "psr-4": {
@@ -49,5 +49,14 @@
         "psr-4": {
             "GImage\\Tests\\": "tests/"
         }
+    },
+    "scripts": {
+        "lint": "PHP_CS_FIXER_IGNORE_ENV=true vendor/bin/php-cs-fixer fix -v --allow-risky=yes --dry-run",
+        "test:lint": "PHP_CS_FIXER_IGNORE_ENV=true vendor/bin/php-cs-fixer fix -v --allow-risky=yes",
+        "test:unit": "./vendor/bin/phpunit",
+        "test": [
+            "@test:lint",
+            "@test:unit"
+        ]
     }
 }

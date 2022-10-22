@@ -9,12 +9,13 @@
  */
 
 /**
- * PHPUnit Autoloader for GImage Library
+ * PHPUnit Autoloader for GImage Library.
+ *
  * @author Jose Quintana <https://git.io/joseluisq>
  */
 
-namespace GImage\Test {
+namespace GImage\Test;
+
     date_default_timezone_set('America/Lima');
 
     require __DIR__ . '/../vendor/autoload.php';
-}
