@@ -127,7 +127,7 @@ class Figure extends Image
             $this->red,
             $this->green,
             $this->blue,
-            null
+            0
         );
 
         if ($this->figureType == 'rectangle') {

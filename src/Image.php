@@ -684,9 +684,9 @@ class Image
      */
     public function getPropWidth($height)
     {
-        $ratio = (int) $height / $this->height;
+        $ratio = $height / $this->height;
 
-        return $this->width * $ratio;
+        return (int) floor($this->width * $ratio);
     }
 
     /**
@@ -698,9 +698,9 @@ class Image
      */
     public function getPropHeight($width)
     {
-        $ratio = (int) $width / $this->width;
+        $ratio = $width / $this->width;
 
-        return $this->height * $ratio;
+        return (int) floor($this->height * $ratio);
     }
 
     /**
@@ -712,12 +712,11 @@ class Image
      */
     public function scale($scale = 1)
     {
-        if ($scale > 1) {
-            $scale = 1;
-        }
+        $scale = $scale > 1 ? 1 : $scale;
+        $scale = $scale < 0 ? 0 : $scale;
 
-        $width  = (int) $this->width * $scale;
-        $height = (int) $this->height * $scale;
+        $width  = (int) floor($this->width * $scale);
+        $height = (int) floor($this->height * $scale);
 
         $this->resize($width, $height);
 
@@ -763,8 +762,8 @@ class Image
                 $this->resizeToHeight($pheight);
             }
 
-            $x = ($this->width - $width) / 2;
-            $y = ($this->height - $height) / 2;
+            $x = (int) floor(($this->width - $width) / 2);
+            $y = (int) floor(($this->height - $height) / 2);
             $this->crop($width, $height, $x, $y);
         }
 

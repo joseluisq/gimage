@@ -52,10 +52,10 @@
     },
     "scripts": {
         "lint": "PHP_CS_FIXER_IGNORE_ENV=true vendor/bin/php-cs-fixer fix -v --allow-risky=yes --dry-run",
-        "test:lint": "PHP_CS_FIXER_IGNORE_ENV=true vendor/bin/php-cs-fixer fix -v --allow-risky=yes",
+        "format": "PHP_CS_FIXER_IGNORE_ENV=true vendor/bin/php-cs-fixer fix -v --allow-risky=yes",
         "test:unit": "./vendor/bin/phpunit",
         "test": [
-            "@test:lint",
+            "@lint",
             "@test:unit"
         ]
     }

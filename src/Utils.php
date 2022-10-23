@@ -156,7 +156,7 @@ class Utils
      *
      * @param int|float $opacity
      *
-     * @return int|float
+     * @return int
      */
     public static function fixPNGOpacity($opacity = 1)
     {
