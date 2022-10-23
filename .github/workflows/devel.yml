@@ -15,6 +15,7 @@ jobs:
         php:
           - 7.4
           - 8.0
+          - 8.1
         dependency-version:
           - prefer-lowest
           - prefer-stable
@@ -36,4 +37,4 @@ jobs:
       run: composer update --${{ matrix.dependency-version }} --no-interaction --no-progress
 
     - name: Unit tests
-      run: ./vendor/bin/phpunit
+      run: composer run-script test

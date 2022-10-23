@@ -10,21 +10,22 @@ _Presentation card built with GImage - [View code example](https://joseluisq.git
 
 ## Features
 
-__GImage__ is a simple and small library based on [PHP Image Processing and GD](http://php.net/manual/en/book.image.php) for processing images without stress.
+__GImage__ is a simple and small library based on [PHP Image Processing and GD](http://php.net/manual/en/book.image.php) for processing images easily.
 
-- Load an image from local path, URL or image resource.
+- Load an image from a local path, URL or image resource.
 - Create shapes such as rectangles or ellipses with opacity.
 - Resize, scale or crop images proportionally.
 - Rotate images, shapes or texts.
 - Embed text with custom TTF fonts.
 - Compose a pool of images with `Canvas`.
 - Swap image formats such as JPEG, PNG or GIF.
-- Save images in local or output on the browser.
+- Save images locally or output them on the browser.
 - Save several copies of the same image.
-- Render an image in-memory and return the resource.
+- Render an image in memory and return its resource.
 
 ## Requirements
-GImage requires **[PHP 7.x](http://php.net/manual/en/migration70.new-features.php)** and latest [GD Extension](http://php.net/manual/en/book.image.php).
+
+GImage requires PHP [`7.4`](https://www.php.net/releases/7_4_0.php) or the most recent PHP version and the latest [GD Extension](http://php.net/manual/en/book.image.php)](http://php.net/manual/en/book.image.php).
 
 ## Install
 
@@ -56,15 +57,18 @@ $arch
     ->save('arch.jpg');
 ```
 
-See [GImage Website](https://bit.ly/gimage-php) for detailed usage instructions and code examples.
+See [GImage Website](https://bit.ly/gimage-php) for detailed usage instructions and more advanced examples.
 
 ## Changelog
+
 Check out the [CHANGELOG.md](./CHANGELOG.md) file.
 
 ## Contribution
-If you would like to contribute [pull requests](https://github.com/joseluisq/gimage/pulls) and [issues](https://github.com/joseluisq/gimage/issues) will be welcome! Feature requests are welcome. Please before sending some feature requests make sure provide as much detail and context as possible.
+
+Feel free to send some [Pull request](https://github.com/joseluisq/gimage/pulls) or file an [issue](https://github.com/joseluisq/gimage/issues).
 
 ## License
-MIT license
 
-©2015-present [José Quintana](https://git.io/joseluisq)
+This work is primarily distributed under the terms of the [MIT license](LICENSE-MIT).
+
+©2015-present [Jose Quintana](https://joseluisq.net)

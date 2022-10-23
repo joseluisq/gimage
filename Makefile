@@ -1,26 +1,23 @@
 TMP_DOCS=/tmp/_gimage_docs
 
-help:
-	@echo "Please use \`make <target>' where <target> is one of:"
-	@echo "  test           to perform unit tests."
-	@echo "  format         to format the codebase."
-
-test:
-	@vendor/bin/phpunit
-
 docker-tests:
 	@echo "Testing Gimage with PHP 7.4"
 	@docker run --rm -it -v $(PWD):/var/www/html joseluisq/php-fpm:7.4 \
-		sh -c 'php -v && rm -rf vendor && composer install && composer run-script test'
+		sh -c 'php -v && composer install && composer run-script test'
 	@echo
 	@echo "Testing Gimage with PHP 8.0"
 	@docker run --rm -it -v $(PWD):/var/www/html joseluisq/php-fpm:8.0 \
-		sh -c 'php -v && rm -rf vendor && composer install && composer run-script test'
+		sh -c 'php -v && composer install && composer run-script test'
+	@echo
+	@echo "Testing Gimage with PHP 8.1"
+	@docker run --rm -it -v $(PWD):/var/www/html joseluisq/php-fpm:8.1 \
+		sh -c 'php -v && composer install && composer run-script test'
 .PHONY: docker-tests
 
-format:
-	@phpcbf -w ./src ./tests --standard=PSR2
-	@phpcs ./src ./tests --standard=PSR2
+docker-format:
+	@echo "Formatting Gimage with PHP 8.0"
+	@docker run --rm -it -v $(PWD):/var/www/html joseluisq/php-fpm:8.0 \
+		sh -c 'php -v && composer run-script format'
 
 docs:
 	@mkdocs serve -e docs -a 0.0.0.0:8000
@@ -51,4 +48,4 @@ docs_deploy:
 	@echo
 	@echo "Documentation built and published."
 
-.PHONY: test docs format docs docs_deps docs_api docs_deploy
+.PHONY: docs format docs docs_deps docs_api docs_deploy
