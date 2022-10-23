@@ -26,14 +26,14 @@ namespace GImage;
  * @property int      $boxHeight
  * @property int      $boxX
  * @property int      $boxY
- * @property int      $type      IMAGETYPE_JPEG
- * @property string   $extension Default 'jpg'
- * @property resource $resource
+ * @property int      $type              IMAGETYPE_JPEG
+ * @property string   $extension         Default 'jpg'
+ * @property resource $resource|\GdImage
  * @property int      $quality
- * @property int      $opacity   From 0 to 1
- * @property string   $from      Default 'local'
- * @property bool     $preserve  Default FALSE
- * @property string   $mimetype  Default 'image/jpeg'
+ * @property int      $opacity           From 0 to 1
+ * @property string   $from              Default 'local'
+ * @property bool     $preserve          Default FALSE
+ * @property string   $mimetype          Default 'image/jpeg'
  */
 class Image
 {
@@ -97,10 +97,16 @@ class Image
             return $this;
         }
 
-        if ($this->isImageStringByString($src)) {
+        // 1. resource or \GdImage
+        if (is_resource($src) || $src instanceof \GdImage) {
+            $this->loadImageFromResource($src);
+        // 2. string image
+        } elseif (is_string($src) && $this->isImageStringByString($src)) {
             $this->loadImageFromString($src);
+        // 3. string url image path
         } elseif (filter_var($src, FILTER_VALIDATE_URL)) {
             $this->loadImageFromURL($src);
+        // 4. string file path
         } elseif (is_file($src)) {
             $this->loadImageFromFile($src);
         }
@@ -158,6 +164,23 @@ class Image
         }
 
         return $data;
+    }
+
+    /**
+     * Load an image from a resource or `\GdImage`.
+     *
+     * @param string $resource image resource or `\GdImage`
+     *
+     * @return void
+     */
+    private function loadImageFromResource($resource)
+    {
+        $this->extension = 'png';
+        $this->type      = IMAGETYPE_PNG;
+        $this->from      = is_resource($resource) ? 'resource' : 'gdimage';
+        $this->resource  = $resource;
+        $this->width     = $this->boxWidth     = imagesx($this->resource);
+        $this->height    = $this->boxHeight    = imagesy($this->resource);
     }
 
     /**
@@ -244,9 +267,9 @@ class Image
     }
 
     /**
-     * Gets resource of the image.
+     * Gets the resource or `\GdImage` object (PHP 8.0+) of the image.
      *
-     * @return resource
+     * @return resource|\GdImage
      */
     public function getResource()
     {
@@ -557,6 +580,26 @@ class Image
     public function isImageString()
     {
         return $this->from == 'imagestring';
+    }
+
+    /**
+     * Checks if image was loaded from an image resource (PHP 7.4).
+     *
+     * @return bool
+     */
+    public function isImageResource()
+    {
+        return $this->from == 'resource';
+    }
+
+    /**
+     * Checks if image was loaded from a `\GdImage` object (PHP 8.0+).
+     *
+     * @return bool
+     */
+    public function isImageGdImage()
+    {
+        return $this->from == 'gdimage';
     }
 
     /**

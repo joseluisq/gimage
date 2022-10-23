@@ -27,4 +27,4 @@ $figure
     ->setBackgroundColor(0, 0, 255)
     ->setOpacity(0.5)
     ->create()
-    ->save(__DIR__ . '/reactangle.png');
+    ->save(__DIR__ . '/rectangle.png');
