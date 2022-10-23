@@ -18,6 +18,7 @@ docker-format:
 	@echo "Formatting Gimage with PHP 8.0"
 	@docker run --rm -it -v $(PWD):/var/www/html joseluisq/php-fpm:8.0 \
 		sh -c 'php -v && composer run-script format'
+.PHONY: docker-format
 
 docs:
 	@mkdocs serve -e docs -a 0.0.0.0:8000

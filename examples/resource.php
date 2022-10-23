@@ -32,7 +32,8 @@ imagefilledrectangle($rectangle, 0, 0, $width, $height, $green);
 $img = new Image();
 $img
     ->load($rectangle)
+    // we need to tell GImage about the image type
+    ->toPNG()
     // scale to 50%
     ->scale(0.50)
-    ->toPNG()
     ->save(__DIR__ . '/rectangle.png');
