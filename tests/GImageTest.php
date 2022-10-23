@@ -2,7 +2,7 @@
 /*
 * This file is part of GImage.
 *
-* (c) Jose Quintana <https://git.io/joseluisq>
+* (c) Jose Quintana <https://joseluisq.net>
 *
 * This source file is subject to the MIT license that is bundled
 * with this source code in the file LICENSE.
@@ -26,7 +26,7 @@ define('GIMAGE_PATH_TMP', sys_get_temp_dir());
 /**
  * GImage Test suite.
  *
- * @author Jose Luis Quintana <https://git.io/joseluisq>
+ * @author Jose Luis Quintana <https://joseluisq.net>
  */
 class GImageTest extends TestCase
 {

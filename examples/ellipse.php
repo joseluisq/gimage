@@ -2,7 +2,7 @@
 /*
  * This file is part of GImage.
  *
- * (c) Jose Quintana <https://git.io/joseluisq>
+ * (c) Jose Quintana <https://joseluisq.net>
  *
  * This source file is subject to the MIT license that is bundled
  * with this source code in the file LICENSE.
@@ -11,7 +11,7 @@
 /**
  * Creating an Elipse.
  *
- * @author Jose Quintana <https://git.io/joseluisq>
+ * @author Jose Quintana <https://joseluisq.net>
  */
 
 namespace GImage\Examples;

@@ -30,9 +30,10 @@ docs_build:
 	mkdocs build -e docs -d $(TMP_DOCS)
 
 docs_api:
-	@mkdir -p site/api/v3.0
-	@mkdir -p $(TMP_DOCS)/api/v3.0
-	@vendor/bin/apigen generate -s src -d $(TMP_DOCS)/api/v3.0
+	@mkdir -p site/api/v4.0
+	@mkdir -p $(TMP_DOCS)/api/v4.0
+	@docker run --rm -v $(PWD)/src:/data phpdoc/phpdoc
+	@cp -r src/.phpdoc/build/. $(TMP_DOCS)/api/v4.0/
 
 docs_deploy:
 	@composer install

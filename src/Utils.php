@@ -2,7 +2,7 @@
 /*
  * This file is part of GImage.
  *
- * (c) Jose Quintana <https://git.io/joseluisq>
+ * (c) Jose Quintana <https://joseluisq.net>
  *
  * This source file is subject to the MIT license that is bundled
  * with this source code in the file LICENSE.
@@ -13,7 +13,7 @@ namespace GImage;
 /**
  * Image utility functions.
  *
- * @author Jose Quintana <https://git.io/joseluisq>
+ * @author Jose Quintana <https://joseluisq.net>
  *
  * @property array $mimeTypes  Mime types for images.
  * @property array $imageTypes Types: IMAGETYPE_GIF, IMAGETYPE_PNG and IMAGETYPE_JPEG.
