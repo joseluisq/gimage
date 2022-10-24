@@ -7,6 +7,28 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [Unreleased]
 
 
+## [4.0.0] - 2022-10-24
+
+This major release is fundamentally an upgrade of the minimum PHP version required (`7.4.x` or newer), API remains basically the same, new posibility to load an image from a `resource` or `GdImage` input, two new small getter methods for GImage along with other notable project improvements.
+And as noted, the project resumes its maintenance after a long period. 
+
+### Added
+- Annotate methods that return same class via return [`static`](https://wiki.php.net/rfc/static_return_type).
+- PHP `8.0` support. PR [#35](https://github.com/joseluisq/gimage/issues/35)
+- PHP `8.1` support. PR [#37](https://github.com/joseluisq/gimage/issues/37)
+  - Improve PHP `8.1` tests and CI
+  - Fixes missing types casting for PHP `8.1`
+- Load an image from a `resource` (PHP 7.4) or [`\GdImage`](https://php.watch/versions/8.0/gdimage) (PHP `8.x`) via `GImage->load($src)` method. PR [#38](https://github.com/joseluisq/gimage/issues/38)
+- New `GImage->isImageResource()` (PHP 7.4) and `GImage->isImageGdImage()` (PHP `8.x`) methods.
+
+### Deprecated
+- PHP `7.3` or lower is deprecated. Now GImage requires PHP `7.4.x` or `8.x` along with a latest GD extension.
+
+### Changed
+- Improve example files.
+- GitHub Actions as a new CI for testing the library against PHP `7.4.x`, `8.0.x` and `8.1.x`.
+- Several documentation improvements.
+
 ## [3.0.6] - 2018-04-26
 
 ### Added
@@ -158,7 +180,8 @@ $text->setLineHeight(1.2);
 - Initial commit.
 - PHP `5.3` support.
 
-[Unreleased]: https://github.com/joseluisq/gimage/compare/3.0.6...HEAD
+[Unreleased]: https://github.com/joseluisq/gimage/compare/4.0.0...HEAD
+[4.0.0]: https://github.com/joseluisq/gimage/compare/3.0.6...4.0.0
 [3.0.6]: https://github.com/joseluisq/gimage/compare/3.0.5...3.0.6
 [3.0.5]: https://github.com/joseluisq/gimage/compare/3.0.4...3.0.5
 [3.0.4]: https://github.com/joseluisq/gimage/compare/3.0.3...3.0.4
