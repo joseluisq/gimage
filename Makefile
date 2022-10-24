@@ -25,25 +25,23 @@ docs-dev:
 .PHONY: docs-dev
 
 docs-build:
+	@docker run -it --rm -v $(TMP_DOCS):$(TMP_DOCS) -w $(TMP_DOCS) alpine sh -c 'rm -rf $(TMP_DOCS)/*'
 	@docker run -it --rm -v $(PWD)/docs:/docs -v $(TMP_DOCS):$(TMP_DOCS) squidfunk/mkdocs-material build
+	@echo "Docs generated on $(TMP_DOCS)"
 .PHONY: docs-build
 
 docs-api:
-	@mkdir -p site/api/v4.0
-	@mkdir -p $(TMP_DOCS)/api/v4.0
-	@docker run --rm -v $(PWD)/src:/data phpdoc/phpdoc
-	@cp -r src/.phpdoc/build/. $(TMP_DOCS)/api/v4.0/
+	@docker run -it --rm -v $(TMP_DOCS):$(TMP_DOCS) -w $(TMP_DOCS) alpine sh -c 'mkdir -p api/v4.0'
+	@docker run -it --rm -v $(TMP_DOCS):$(TMP_DOCS) -v $(PWD)/src:/data phpdoc/phpdoc \
+		--target $(TMP_DOCS)/api/v4.0/ --cache-folder /tmp/.phpdoc
+	@echo "API docs generated on $(TMP_DOCS)/api/v4.0"
 .PHONY: docs-api
 
 docs-deploy:
-	@git stash
-	@rm -rf $(TMP_DOCS)
-	@mkdir -p $(TMP_DOCS)
 	@make docs-build
 	@make docs-api
 	@git checkout gh-pages
-	@git clean -fdx
-	@rm -rf docs/
+	@docker run -it --rm -v $(PWD):/data -u $$(id -u):$$(id -g) -w /data alpine/git clean -fdx
 	@mkdir -p docs/
 	@cp -rf $(TMP_DOCS)/. docs/
 	@git add docs/
