@@ -14,16 +14,16 @@
 
 ## Features
 
-- Load an image from local path, URL or image resource.
+- Load an image from a local path, URL or image resource.
 - Create shapes such as rectangles or ellipses with opacity.
 - Resize, scale or crop images proportionally.
 - Rotate images, shapes or texts.
 - Embed text with custom TTF fonts.
-- Compose a pool of images with Canvas.
-- Swap image formats such as JPEG, PNG and GIF.
-- Save images in local or output on the browser.
+- Compose a pool of images with `Canvas`.
+- Swap image formats such as JPEG, PNG or GIF.
+- Save images locally or output them on the browser.
 - Save several copies of the same image.
-- Render an image in-memory and return the resource.
+- Render an image in memory and return its resource.
 
 For detailed instructions see the [getting started guide][2].
 

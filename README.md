@@ -25,7 +25,7 @@ __GImage__ is a simple and small library based on [PHP Image Processing and GD](
 
 ## Requirements
 
-GImage requires PHP [`7.4`](https://www.php.net/releases/7_4_0.php) or the most recent PHP version and the latest [GD Extension](http://php.net/manual/en/book.image.php)](http://php.net/manual/en/book.image.php).
+GImage requires PHP [`7.4`](https://www.php.net/releases/7_4_0.php) or a recent PHP version with the latest [GD Extension](http://php.net/manual/en/book.image.php)](http://php.net/manual/en/book.image.php).
 
 ## Install
 

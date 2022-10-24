@@ -3,9 +3,9 @@
 ## Installation
 
 !!! tip "Requirements"
-    GImage requires [PHP 7.0+][1] and latest [GD Extension][2].
+   GImage requires PHP [`7.4`][1] or a recent PHP version with the latest [GD Extension][2].
 
-Make sure if [GD extension][2] is loaded. You can verify it using the following command:
+Make sure that [GD extension][2] is loaded on your system. You can verify it using the following command:
 
 ```sh
 php -r "var_dump(extension_loaded('gd'));"
@@ -18,7 +18,7 @@ Then install GImage via [Composer][3]:
 composer require joseluisq/gimage
 ```
 
-[1]: http://php.net/manual/en/migration70.new-features.php
+[1]: https://www.php.net/releases/7_4_0.php
 [2]: http://php.net/manual/en/book.image.php
 [3]: https://getcomposer.org/
 
