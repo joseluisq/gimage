@@ -1,4 +1,4 @@
-TMP_DOCS=/tmp/_gimage_docs
+TMP_DOCS=/tmp/docs
 
 docker-tests:
 	@echo "Testing Gimage with PHP 7.4"
@@ -20,34 +20,37 @@ docker-format:
 		sh -c 'php -v && composer run-script format'
 .PHONY: docker-format
 
-docs:
-	@mkdocs serve -e docs -a 0.0.0.0:8000
+docs-dev:
+	@docker-compose -f docs/docker-compose.yml up --build
+.PHONY: docs-dev
 
-docs_deps:
-	@pip3 install mkdocs pymdown-extensions mkdocs-material markdown
+docs-build:
+	@docker run -it --rm -v $(PWD)/docs:/docs -v $(TMP_DOCS):$(TMP_DOCS) squidfunk/mkdocs-material build
+.PHONY: docs-build
 
-docs_build:
-	mkdocs build -e docs -d $(TMP_DOCS)
-
-docs_api:
+docs-api:
 	@mkdir -p site/api/v4.0
 	@mkdir -p $(TMP_DOCS)/api/v4.0
 	@docker run --rm -v $(PWD)/src:/data phpdoc/phpdoc
 	@cp -r src/.phpdoc/build/. $(TMP_DOCS)/api/v4.0/
+.PHONY: docs-api
 
-docs_deploy:
-	@composer install
+docs-deploy:
+	@git stash
 	@rm -rf $(TMP_DOCS)
-	@make docs_build
-	@make docs_api
+	@mkdir -p $(TMP_DOCS)
+	@make docs-build
+	@make docs-api
 	@git checkout gh-pages
-	@git add . && git rm -fr .
-	@git clean -df
-	@cp -a $(TMP_DOCS)/. ./
-	@git add . && git commit . -m "automatic documentation updates"
-	@git push -u origin gh-pages
-	@rm -rf $(TMP_DOCS)
+	@git clean -fdx
+	@rm -rf docs/
+	@mkdir -p docs/
+	@cp -rf $(TMP_DOCS)/. docs/
+	@git add docs/
+	@git commit docs/ -m "docs: automatic documentation updates [skip ci]"
+	@git push origin gh-pages
+	@git push github gh-pages
 	@echo
-	@echo "Documentation built and published."
-
-.PHONY: docs format docs docs_deps docs_api docs_deploy
+	@echo "Documentation built and published"
+	@git checkout master
+.PHONY: docs-deploy

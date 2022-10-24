@@ -16,5 +16,9 @@ vscode/
 .DS_Store
 /*.bin
 *.cache
-site
+docs/site
+docs/*/**.html
 src/.phpdoc
+/*.html
+
+!/docs
