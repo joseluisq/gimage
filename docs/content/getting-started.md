@@ -3,7 +3,7 @@
 ## Installation
 
 !!! tip "Requirements"
-   GImage requires PHP [`7.4`][1] or a recent PHP version with the latest [GD Extension][2].
+	GImage requires PHP [`7.4`][1] or a recent PHP version with the latest [GD Extension][2].
 
 Make sure that [GD extension][2] is loaded on your system. You can verify it using the following command:
 
