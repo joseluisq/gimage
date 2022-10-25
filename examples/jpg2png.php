@@ -9,7 +9,7 @@
  */
 
 /**
- * Convert JPEG image to PNG with opacity.
+ * Converting a JPEG image to PNG with opacity.
  *
  * @author Jose Quintana <https://joseluisq.net>
  */

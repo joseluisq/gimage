@@ -9,7 +9,7 @@
  */
 
 /**
- * Creating an Elipse.
+ * Creating an Ellipse.
  *
  * @author Jose Quintana <https://joseluisq.net>
  */

@@ -9,7 +9,7 @@
  */
 
 /**
- * Creating Canvas with Text.
+ * Creating a Canvas with Text.
  *
  * @author Jose Quintana <https://joseluisq.net>
  */

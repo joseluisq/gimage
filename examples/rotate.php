@@ -9,7 +9,7 @@
  */
 
 /**
- * Rotate an JPG image.
+ * Rotating a JPG image.
  *
  * @author Jose Quintana <https://joseluisq.net>
  */

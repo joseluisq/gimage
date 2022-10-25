@@ -9,7 +9,7 @@
  */
 
 /**
- * Crop an image.
+ * Cropping an image.
  *
  * @author Jose Quintana <https://joseluisq.net>
  */

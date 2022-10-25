@@ -1,6 +1,6 @@
 # Composing with canvas
 
-Canvas class is useful to composing several elements like images, text and figures.
+Canvas class is useful for composing several elements like images, text and figures.
 
 !!! tip "Tip"
     Canvas `append(arr)` function also supports an array of elements.

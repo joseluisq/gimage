@@ -9,7 +9,7 @@
  */
 
 /**
- * Render an image in-memory and return the resource.
+ * Rendering an image in memory and return the resource.
  *
  * @author Jose Quintana <https://joseluisq.net>
  */

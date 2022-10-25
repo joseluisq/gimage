@@ -29,6 +29,7 @@ theme:
     - header.autohide
     - navigation.expand
     - navigation.indexes
+    - navigation.prune
     # - navigation.instant
     # - navigation.sections
     # - navigation.tabs
@@ -120,6 +121,7 @@ nav:
     - 'Text': 'classes/text.md'
     - 'Canvas': 'classes/canvas.md'
   - 'Examples':
+    - 'examples/index.md'
     - 'Cropping': 'examples/cropping.md'
     - 'Swapping formats': 'examples/swapping-formats.md'
     - 'Resizing': 'examples/resizing.md'

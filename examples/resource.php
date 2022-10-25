@@ -9,7 +9,7 @@
  */
 
 /**
- * Render an image from resource.
+ * Rendering an image from a `resource` or `GdImage`.
  *
  * @author Jose Quintana <https://joseluisq.net>
  */
@@ -32,8 +32,10 @@ imagefilledrectangle($rectangle, 0, 0, $width, $height, $green);
 $img = new Image();
 $img
     ->load($rectangle)
-    // we need to tell GImage about the image type
+    // we need to indicate GImage about the image type in this case
     ->toPNG()
     // scale to 50%
-    ->scale(0.50)
-    ->save(__DIR__ . '/rectangle.png');
+    ->scale(0.5)
+    // let's change again the image type just for fun
+    ->toJPG()
+    ->save('rectangle.jpg');
