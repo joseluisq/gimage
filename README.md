@@ -4,13 +4,13 @@
 
 > A PHP library for easy image handling. 🖼
 
+__GImage__ is a simple and small library based on [PHP Image Processing and GD](http://php.net/manual/en/book.image.php) for processing images easily.
+
 ![A simple presentation card with GImage](https://cloud.githubusercontent.com/assets/1700322/18941713/eed7fa34-85d8-11e6-8033-bf787e4aa236.png)
 
 _Presentation card built with GImage - [View code example](https://joseluisq.github.io/gimage/examples/creating-a-presentation-card/)_
 
 ## Features
-
-__GImage__ is a simple and small library based on [PHP Image Processing and GD](http://php.net/manual/en/book.image.php) for processing images easily.
 
 - Load an image from a local path, URL or image resource.
 - Create shapes such as rectangles or ellipses with opacity.

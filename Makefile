@@ -21,7 +21,7 @@ docker-format:
 .PHONY: docker-format
 
 docs-dev:
-	@docker-compose -f docs/docker-compose.yml up --build
+	@docker run -it --rm -p 8000:8000 -v $(PWD)/docs:/docs squidfunk/mkdocs-material
 .PHONY: docs-dev
 
 docs-build:

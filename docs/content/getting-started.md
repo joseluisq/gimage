@@ -29,14 +29,12 @@ Loading an external PNG image and saving it as JPG:
 ```php
 <?php
 
-use GImage\Image;
-
 // PNG image (600x199)
 $url = 'https://i.imgur.com/G5MR088.png';
 
 $arch = new Image();
 $arch
-    // Load from URL
+	// Load from URL
 	->load($url)
 	// Scale to 50% (300x99)
 	->scale(0.5)
