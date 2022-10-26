@@ -7,3 +7,23 @@
 .featured-downloads {
     text-align: center;
 }
+
+[data-md-color-primary=indigo] .md-typeset .highlight :is(.c,.cm,.c1,.ch,.cs,.sd) {
+    color: rgba(0, 0, 0, 0.4);
+}
+[data-md-color-primary=indigo] .md-typeset .highlight :is(.nv,.vc,.vg,.vi) {
+    color: #a45353;
+}
+[data-md-color-primary=indigo] .md-typeset .highlight :is(.na) {
+    color: var(--md-code-hl-constant-color);
+}
+
+[data-md-color-scheme=slate] .highlight :is(.nv,.vc,.vg,.vi) {
+    color: #d18b8b;
+}
+[data-md-color-scheme=slate] .highlight :is(.na) {
+    color: var(--md-code-hl-constant-color);
+}
+[data-md-color-scheme=slate] .highlight :is(.c,.cm,.c1,.ch,.cs,.sd) {
+    color: rgba(210, 215, 249, .4);
+}

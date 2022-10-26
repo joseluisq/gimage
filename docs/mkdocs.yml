@@ -69,7 +69,6 @@ markdown_extensions:
   - abbr
   - def_list
   - md_in_html
-  - codehilite
   - admonition
   - meta
   - attr_list
